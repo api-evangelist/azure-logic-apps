@@ -1,0 +1,43 @@
+aid: azure-logic-apps
+name: Azure Logic Apps
+description: >-
+  Azure Logic Apps is a cloud-based integration platform that enables you to
+  create and run automated workflows integrating apps, data, services, and
+  systems across cloud and on-premises environments.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - iPaaS
+  - Integration
+  - Azure
+  - Workflows
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/apis.yml
+created: '2026-03-27'
+modified: '2026-03-27'
+specificationVersion: '0.19'
+apis:
+  - aid: azure-logic-apps:azure-logic-apps
+    name: Azure Logic Apps
+    description: >-
+      Azure Logic Apps is a cloud-based integration platform that enables you to
+      create and run automated workflows integrating apps, data, services, and
+      systems across cloud and on-premises environments.
+    humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+    tags:
+      - iPaaS
+      - Integration
+      - Workflows
+    properties:
+      - type: Documentation
+        url: https://learn.microsoft.com/en-us/azure/logic-apps/
+      - type: Getting Started
+        url: https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+common:
+  - type: Website
+    url: https://azure.microsoft.com/en-us/products/logic-apps
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
