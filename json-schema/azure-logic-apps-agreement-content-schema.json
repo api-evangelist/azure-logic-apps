@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-agreement-content-schema.json",
+  "title": "AgreementContent",
+  "description": "The integration account agreement content.",
+  "type": "object",
+  "properties": {
+    "aS2": {
+      "$ref": "#/definitions/AS2AgreementContent",
+      "description": "The AS2 agreement content."
+    },
+    "edifact": {
+      "$ref": "#/definitions/EdifactAgreementContent",
+      "description": "The EDIFACT agreement content."
+    },
+    "x12": {
+      "$ref": "#/definitions/X12AgreementContent",
+      "description": "The X12 agreement content."
+    }
+  }
+}

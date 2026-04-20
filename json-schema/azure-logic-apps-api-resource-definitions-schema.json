@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-api-resource-definitions-schema.json",
+  "title": "ApiResourceDefinitions",
+  "description": "The Api resource definition.",
+  "type": "object",
+  "properties": {
+    "modifiedSwaggerUrl": {
+      "description": "The modified swagger url.",
+      "type": "string"
+    },
+    "originalSwaggerUrl": {
+      "description": "The original swagger url.",
+      "type": "string"
+    }
+  }
+}

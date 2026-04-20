@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-structure/azure-logic-apps-api-operation-list-result-structure.json",
+  "description": "The list of managed API operations.",
+  "type": "object",
+  "properties": {
+    "nextLink": {
+      "description": "The URL to get the next set of results.",
+      "type": "string"
+    },
+    "value": {
+      "description": "The api operation definitions for an API.",
+      "items": {
+        "$ref": "#/definitions/ApiOperation"
+      },
+      "type": "array"
+    }
+  },
+  "name": "ApiOperationListResult"
+}

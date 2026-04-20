@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-artifact-content-properties-definition-schema.json",
+  "title": "ArtifactContentPropertiesDefinition",
+  "description": "The artifact content properties definition.",
+  "type": "object",
+  "properties": {
+    "content": {},
+    "contentLink": {
+      "$ref": "#/definitions/ContentLink",
+      "description": "The content link."
+    },
+    "contentType": {
+      "description": "The content type.",
+      "type": "string"
+    }
+  }
+}

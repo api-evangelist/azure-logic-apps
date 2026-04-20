@@ -1,0 +1,6 @@
+{
+  "ignoreCertificateNameMismatch": true,
+  "keepHttpConnectionAlive": true,
+  "supportHttpStatusCodeContinue": true,
+  "unfoldHttpHeaders": true
+}

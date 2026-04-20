@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-api-operation-properties-definition-schema.json",
+  "title": "ApiOperationPropertiesDefinition",
+  "description": "The api operations properties",
+  "type": "object",
+  "properties": {
+    "annotation": {
+      "$ref": "#/definitions/ApiOperationAnnotation",
+      "description": "The annotation of api operation."
+    },
+    "api": {
+      "$ref": "#/definitions/ApiReference",
+      "description": "The api reference."
+    },
+    "description": {
+      "description": "The description of the api operation.",
+      "type": "string"
+    },
+    "inputsDefinition": {
+      "$ref": "#/definitions/SwaggerSchema",
+      "description": "The operation inputs definition schema."
+    },
+    "isNotification": {
+      "description": "Indicates whether the API operation is notification or not.",
+      "type": "boolean"
+    },
+    "isWebhook": {
+      "description": "Indicates whether the API operation is webhook or not.",
+      "type": "boolean"
+    },
+    "pageable": {
+      "description": "Indicates whether the api operation is pageable.",
+      "type": "boolean"
+    },
+    "responsesDefinition": {
+      "additionalProperties": {
+        "$ref": "#/definitions/SwaggerSchema"
+      },
+      "description": "The operation responses definition schemas.",
+      "type": "object"
+    },
+    "summary": {
+      "description": "The summary of the api operation.",
+      "type": "string"
+    },
+    "trigger": {
+      "description": "The trigger type of api operation.",
+      "type": "string"
+    },
+    "triggerHint": {
+      "description": "The trigger hint for the api operation.",
+      "type": "string"
+    },
+    "visibility": {
+      "description": "The visibility of the api operation.",
+      "type": "string"
+    }
+  }
+}

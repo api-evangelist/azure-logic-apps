@@ -1,0 +1,12 @@
+{
+  "enableNRRForInboundDecodedMessages": true,
+  "enableNRRForInboundEncodedMessages": true,
+  "enableNRRForInboundMDN": true,
+  "enableNRRForOutboundDecodedMessages": true,
+  "enableNRRForOutboundEncodedMessages": true,
+  "enableNRRForOutboundMDN": true,
+  "encryptionCertificateName": "example-string",
+  "overrideGroupSigningCertificate": true,
+  "sha2AlgorithmFormat": "example-string",
+  "signingCertificateName": "example-string"
+}

@@ -1,0 +1,6 @@
+{
+  "description": "example-string",
+  "displayName": "example-string",
+  "isRequired": true,
+  "type": "example-string"
+}

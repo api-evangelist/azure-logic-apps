@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-structure/azure-logic-apps-artifact-content-properties-definition-structure.json",
+  "description": "The artifact content properties definition.",
+  "type": "object",
+  "properties": {
+    "content": {},
+    "contentLink": {
+      "$ref": "#/definitions/ContentLink",
+      "description": "The content link."
+    },
+    "contentType": {
+      "description": "The content type.",
+      "type": "string"
+    }
+  },
+  "name": "ArtifactContentPropertiesDefinition"
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-api-type-schema.json",
+  "title": "ApiType",
+  "description": "ApiType schema from Azure Logic Apps API",
+  "type": "string"
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-structure/azure-logic-apps-as2-envelope-settings-structure.json",
+  "description": "The AS2 agreement envelope settings.",
+  "type": "object",
+  "properties": {
+    "autogenerateFileName": {
+      "description": "The value indicating whether to auto generate file name.",
+      "type": "boolean"
+    },
+    "fileNameTemplate": {
+      "description": "The template for file name.",
+      "type": "string"
+    },
+    "messageContentType": {
+      "description": "The message content type.",
+      "type": "string"
+    },
+    "suspendMessageOnFileNameGenerationError": {
+      "description": "The value indicating whether to suspend message on file name generation error.",
+      "type": "boolean"
+    },
+    "transmitFileNameInMimeHeader": {
+      "description": "The value indicating whether to transmit file name in mime header.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "messageContentType",
+    "transmitFileNameInMimeHeader",
+    "fileNameTemplate",
+    "suspendMessageOnFileNameGenerationError",
+    "autogenerateFileName"
+  ],
+  "name": "AS2EnvelopeSettings"
+}

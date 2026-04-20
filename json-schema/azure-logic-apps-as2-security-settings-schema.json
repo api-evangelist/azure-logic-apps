@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-as2-security-settings-schema.json",
+  "title": "AS2SecuritySettings",
+  "description": "The AS2 agreement security settings.",
+  "type": "object",
+  "properties": {
+    "enableNRRForInboundDecodedMessages": {
+      "description": "The value indicating whether to enable NRR for inbound decoded messages.",
+      "type": "boolean"
+    },
+    "enableNRRForInboundEncodedMessages": {
+      "description": "The value indicating whether to enable NRR for inbound encoded messages.",
+      "type": "boolean"
+    },
+    "enableNRRForInboundMDN": {
+      "description": "The value indicating whether to enable NRR for inbound MDN.",
+      "type": "boolean"
+    },
+    "enableNRRForOutboundDecodedMessages": {
+      "description": "The value indicating whether to enable NRR for outbound decoded messages.",
+      "type": "boolean"
+    },
+    "enableNRRForOutboundEncodedMessages": {
+      "description": "The value indicating whether to enable NRR for outbound encoded messages.",
+      "type": "boolean"
+    },
+    "enableNRRForOutboundMDN": {
+      "description": "The value indicating whether to enable NRR for outbound MDN.",
+      "type": "boolean"
+    },
+    "encryptionCertificateName": {
+      "description": "The name of the encryption certificate.",
+      "type": "string"
+    },
+    "overrideGroupSigningCertificate": {
+      "description": "The value indicating whether to send or request a MDN.",
+      "type": "boolean"
+    },
+    "sha2AlgorithmFormat": {
+      "description": "The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.",
+      "type": "string"
+    },
+    "signingCertificateName": {
+      "description": "The name of the signing certificate.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "overrideGroupSigningCertificate",
+    "enableNRRForInboundEncodedMessages",
+    "enableNRRForInboundDecodedMessages",
+    "enableNRRForOutboundMDN",
+    "enableNRRForOutboundEncodedMessages",
+    "enableNRRForOutboundDecodedMessages",
+    "enableNRRForInboundMDN"
+  ]
+}

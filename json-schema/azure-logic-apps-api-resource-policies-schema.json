@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-api-resource-policies-schema.json",
+  "title": "ApiResourcePolicies",
+  "description": "The API resource policies.",
+  "type": "object",
+  "properties": {
+    "content": {
+      "description": "The API level only policies XML as embedded content.",
+      "type": "string"
+    },
+    "contentLink": {
+      "description": "The content link to the policies.",
+      "type": "string"
+    }
+  }
+}

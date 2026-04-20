@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-api-operation-list-result-schema.json",
+  "title": "ApiOperationListResult",
+  "description": "The list of managed API operations.",
+  "type": "object",
+  "properties": {
+    "nextLink": {
+      "description": "The URL to get the next set of results.",
+      "type": "string"
+    },
+    "value": {
+      "description": "The api operation definitions for an API.",
+      "items": {
+        "$ref": "#/definitions/ApiOperation"
+      },
+      "type": "array"
+    }
+  }
+}

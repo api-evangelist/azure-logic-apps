@@ -1,0 +1,11 @@
+{
+  "description": "example-string",
+  "isNotification": true,
+  "isWebhook": true,
+  "pageable": true,
+  "responsesDefinition": {},
+  "summary": "example-string",
+  "trigger": "example-string",
+  "triggerHint": "example-string",
+  "visibility": "example-string"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-artifact-properties-schema.json",
+  "title": "ArtifactProperties",
+  "description": "The artifact properties definition.",
+  "type": "object",
+  "properties": {
+    "changedTime": {
+      "description": "The artifact changed time.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "createdTime": {
+      "description": "The artifact creation time.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "metadata": {}
+  }
+}

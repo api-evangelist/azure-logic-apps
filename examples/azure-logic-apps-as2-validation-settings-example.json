@@ -1,0 +1,10 @@
+{
+  "checkCertificateRevocationListOnReceive": true,
+  "checkCertificateRevocationListOnSend": true,
+  "checkDuplicateMessage": true,
+  "compressMessage": true,
+  "encryptMessage": true,
+  "interchangeDuplicatesValidityDays": 1,
+  "overrideMessageProperties": true,
+  "signMessage": true
+}

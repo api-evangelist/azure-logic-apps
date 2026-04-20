@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-as2-error-settings-schema.json",
+  "title": "AS2ErrorSettings",
+  "description": "The AS2 agreement error settings.",
+  "type": "object",
+  "properties": {
+    "resendIfMDNNotReceived": {
+      "description": "The value indicating whether to resend message If MDN is not received.",
+      "type": "boolean"
+    },
+    "suspendDuplicateMessage": {
+      "description": "The value indicating whether to suspend duplicate message.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "suspendDuplicateMessage",
+    "resendIfMDNNotReceived"
+  ]
+}

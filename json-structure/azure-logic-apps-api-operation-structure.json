@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-structure/azure-logic-apps-api-operation-structure.json",
+  "description": "The api operation.",
+  "type": "object",
+  "properties": {
+    "properties": {
+      "$ref": "#/definitions/ApiOperationPropertiesDefinition"
+    }
+  },
+  "name": "ApiOperation"
+}

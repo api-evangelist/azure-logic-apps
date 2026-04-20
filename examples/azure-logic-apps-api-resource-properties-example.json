@@ -1,0 +1,11 @@
+{
+  "apiDefinitionUrl": "example-string",
+  "capabilities": [
+    "example-string"
+  ],
+  "connectionParameters": {},
+  "name": "example-string",
+  "runtimeUrls": [
+    "example-string"
+  ]
+}

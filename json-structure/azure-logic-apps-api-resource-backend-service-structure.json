@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-structure/azure-logic-apps-api-resource-backend-service-structure.json",
+  "description": "The API backend service.",
+  "type": "object",
+  "properties": {
+    "serviceUrl": {
+      "description": "The service URL.",
+      "type": "string"
+    }
+  },
+  "name": "ApiResourceBackendService"
+}

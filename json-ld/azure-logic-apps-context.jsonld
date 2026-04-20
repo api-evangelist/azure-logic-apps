@@ -1,0 +1,357 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "azurelogicapps": "https://azure.microsoft.com/azure-logic-apps/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AS2AcknowledgementConnectionSettings": "azurelogicapps:AS2AcknowledgementConnectionSettings",
+    "AS2AgreementContent": "azurelogicapps:AS2AgreementContent",
+    "AS2EnvelopeSettings": "azurelogicapps:AS2EnvelopeSettings",
+    "AS2ErrorSettings": "azurelogicapps:AS2ErrorSettings",
+    "AS2MdnSettings": "azurelogicapps:AS2MdnSettings",
+    "AS2MessageConnectionSettings": "azurelogicapps:AS2MessageConnectionSettings",
+    "AS2OneWayAgreement": "azurelogicapps:AS2OneWayAgreement",
+    "AS2ProtocolSettings": "azurelogicapps:AS2ProtocolSettings",
+    "AS2SecuritySettings": "azurelogicapps:AS2SecuritySettings",
+    "AS2ValidationSettings": "azurelogicapps:AS2ValidationSettings",
+    "AgreementContent": "azurelogicapps:AgreementContent",
+    "ApiDeploymentParameterMetadata": "azurelogicapps:ApiDeploymentParameterMetadata",
+    "ApiDeploymentParameterMetadataSet": "azurelogicapps:ApiDeploymentParameterMetadataSet",
+    "ApiOperation": "azurelogicapps:ApiOperation",
+    "ApiOperationAnnotation": "azurelogicapps:ApiOperationAnnotation",
+    "ApiOperationListResult": "azurelogicapps:ApiOperationListResult",
+    "ApiOperationPropertiesDefinition": "azurelogicapps:ApiOperationPropertiesDefinition",
+    "ApiReference": "azurelogicapps:ApiReference",
+    "ignoreCertificateNameMismatch": {
+      "@id": "azurelogicapps:ignoreCertificateNameMismatch",
+      "@type": "xsd:boolean"
+    },
+    "keepHttpConnectionAlive": {
+      "@id": "azurelogicapps:keepHttpConnectionAlive",
+      "@type": "xsd:boolean"
+    },
+    "supportHttpStatusCodeContinue": {
+      "@id": "azurelogicapps:supportHttpStatusCodeContinue",
+      "@type": "xsd:boolean"
+    },
+    "unfoldHttpHeaders": {
+      "@id": "azurelogicapps:unfoldHttpHeaders",
+      "@type": "xsd:boolean"
+    },
+    "receiveAgreement": {
+      "@id": "azurelogicapps:receiveAgreement",
+      "@type": "xsd:string"
+    },
+    "sendAgreement": {
+      "@id": "azurelogicapps:sendAgreement",
+      "@type": "xsd:string"
+    },
+    "autogenerateFileName": {
+      "@id": "azurelogicapps:autogenerateFileName",
+      "@type": "xsd:boolean"
+    },
+    "fileNameTemplate": {
+      "@id": "azurelogicapps:fileNameTemplate",
+      "@type": "xsd:string"
+    },
+    "messageContentType": {
+      "@id": "azurelogicapps:messageContentType",
+      "@type": "xsd:string"
+    },
+    "suspendMessageOnFileNameGenerationError": {
+      "@id": "azurelogicapps:suspendMessageOnFileNameGenerationError",
+      "@type": "xsd:boolean"
+    },
+    "transmitFileNameInMimeHeader": {
+      "@id": "azurelogicapps:transmitFileNameInMimeHeader",
+      "@type": "xsd:boolean"
+    },
+    "resendIfMDNNotReceived": {
+      "@id": "azurelogicapps:resendIfMDNNotReceived",
+      "@type": "xsd:boolean"
+    },
+    "suspendDuplicateMessage": {
+      "@id": "azurelogicapps:suspendDuplicateMessage",
+      "@type": "xsd:boolean"
+    },
+    "dispositionNotificationTo": {
+      "@id": "azurelogicapps:dispositionNotificationTo",
+      "@type": "xsd:string"
+    },
+    "mdnText": {
+      "@id": "azurelogicapps:mdnText",
+      "@type": "xsd:string"
+    },
+    "micHashingAlgorithm": {
+      "@id": "azurelogicapps:micHashingAlgorithm",
+      "@type": "xsd:string"
+    },
+    "needMDN": {
+      "@id": "azurelogicapps:needMDN",
+      "@type": "xsd:boolean"
+    },
+    "receiptDeliveryUrl": {
+      "@id": "azurelogicapps:receiptDeliveryUrl",
+      "@type": "xsd:string"
+    },
+    "sendInboundMDNToMessageBox": {
+      "@id": "azurelogicapps:sendInboundMDNToMessageBox",
+      "@type": "xsd:boolean"
+    },
+    "sendMDNAsynchronously": {
+      "@id": "azurelogicapps:sendMDNAsynchronously",
+      "@type": "xsd:boolean"
+    },
+    "signMDN": {
+      "@id": "azurelogicapps:signMDN",
+      "@type": "xsd:boolean"
+    },
+    "signOutboundMDNIfOptional": {
+      "@id": "azurelogicapps:signOutboundMDNIfOptional",
+      "@type": "xsd:boolean"
+    },
+    "protocolSettings": {
+      "@id": "azurelogicapps:protocolSettings",
+      "@type": "xsd:string"
+    },
+    "receiverBusinessIdentity": {
+      "@id": "azurelogicapps:receiverBusinessIdentity",
+      "@type": "xsd:string"
+    },
+    "senderBusinessIdentity": {
+      "@id": "azurelogicapps:senderBusinessIdentity",
+      "@type": "xsd:string"
+    },
+    "acknowledgementConnectionSettings": {
+      "@id": "azurelogicapps:acknowledgementConnectionSettings",
+      "@type": "xsd:string"
+    },
+    "envelopeSettings": {
+      "@id": "azurelogicapps:envelopeSettings",
+      "@type": "xsd:string"
+    },
+    "errorSettings": {
+      "@id": "azurelogicapps:errorSettings",
+      "@type": "xsd:string"
+    },
+    "mdnSettings": {
+      "@id": "azurelogicapps:mdnSettings",
+      "@type": "xsd:string"
+    },
+    "messageConnectionSettings": {
+      "@id": "azurelogicapps:messageConnectionSettings",
+      "@type": "xsd:string"
+    },
+    "securitySettings": {
+      "@id": "azurelogicapps:securitySettings",
+      "@type": "xsd:string"
+    },
+    "validationSettings": {
+      "@id": "azurelogicapps:validationSettings",
+      "@type": "xsd:string"
+    },
+    "enableNRRForInboundDecodedMessages": {
+      "@id": "azurelogicapps:enableNRRForInboundDecodedMessages",
+      "@type": "xsd:boolean"
+    },
+    "enableNRRForInboundEncodedMessages": {
+      "@id": "azurelogicapps:enableNRRForInboundEncodedMessages",
+      "@type": "xsd:boolean"
+    },
+    "enableNRRForInboundMDN": {
+      "@id": "azurelogicapps:enableNRRForInboundMDN",
+      "@type": "xsd:boolean"
+    },
+    "enableNRRForOutboundDecodedMessages": {
+      "@id": "azurelogicapps:enableNRRForOutboundDecodedMessages",
+      "@type": "xsd:boolean"
+    },
+    "enableNRRForOutboundEncodedMessages": {
+      "@id": "azurelogicapps:enableNRRForOutboundEncodedMessages",
+      "@type": "xsd:boolean"
+    },
+    "enableNRRForOutboundMDN": {
+      "@id": "azurelogicapps:enableNRRForOutboundMDN",
+      "@type": "xsd:boolean"
+    },
+    "encryptionCertificateName": {
+      "@id": "azurelogicapps:encryptionCertificateName",
+      "@type": "xsd:string"
+    },
+    "overrideGroupSigningCertificate": {
+      "@id": "azurelogicapps:overrideGroupSigningCertificate",
+      "@type": "xsd:boolean"
+    },
+    "sha2AlgorithmFormat": {
+      "@id": "azurelogicapps:sha2AlgorithmFormat",
+      "@type": "xsd:string"
+    },
+    "signingCertificateName": {
+      "@id": "azurelogicapps:signingCertificateName",
+      "@type": "xsd:string"
+    },
+    "checkCertificateRevocationListOnReceive": {
+      "@id": "azurelogicapps:checkCertificateRevocationListOnReceive",
+      "@type": "xsd:boolean"
+    },
+    "checkCertificateRevocationListOnSend": {
+      "@id": "azurelogicapps:checkCertificateRevocationListOnSend",
+      "@type": "xsd:boolean"
+    },
+    "checkDuplicateMessage": {
+      "@id": "azurelogicapps:checkDuplicateMessage",
+      "@type": "xsd:boolean"
+    },
+    "compressMessage": {
+      "@id": "azurelogicapps:compressMessage",
+      "@type": "xsd:boolean"
+    },
+    "encryptMessage": {
+      "@id": "azurelogicapps:encryptMessage",
+      "@type": "xsd:boolean"
+    },
+    "encryptionAlgorithm": {
+      "@id": "azurelogicapps:encryptionAlgorithm",
+      "@type": "xsd:string"
+    },
+    "interchangeDuplicatesValidityDays": {
+      "@id": "azurelogicapps:interchangeDuplicatesValidityDays",
+      "@type": "xsd:integer"
+    },
+    "overrideMessageProperties": {
+      "@id": "azurelogicapps:overrideMessageProperties",
+      "@type": "xsd:boolean"
+    },
+    "signMessage": {
+      "@id": "azurelogicapps:signMessage",
+      "@type": "xsd:boolean"
+    },
+    "signingAlgorithm": {
+      "@id": "azurelogicapps:signingAlgorithm",
+      "@type": "xsd:string"
+    },
+    "aS2": {
+      "@id": "azurelogicapps:aS2",
+      "@type": "xsd:string"
+    },
+    "edifact": {
+      "@id": "azurelogicapps:edifact",
+      "@type": "xsd:string"
+    },
+    "x12": {
+      "@id": "azurelogicapps:x12",
+      "@type": "xsd:string"
+    },
+    "description": "schema:description",
+    "displayName": {
+      "@id": "azurelogicapps:displayName",
+      "@type": "xsd:string"
+    },
+    "isRequired": {
+      "@id": "azurelogicapps:isRequired",
+      "@type": "xsd:boolean"
+    },
+    "type": {
+      "@id": "azurelogicapps:type",
+      "@type": "xsd:string"
+    },
+    "visibility": {
+      "@id": "azurelogicapps:visibility",
+      "@type": "xsd:string"
+    },
+    "packageContentLink": {
+      "@id": "azurelogicapps:packageContentLink",
+      "@type": "xsd:string"
+    },
+    "redisCacheConnectionString": {
+      "@id": "azurelogicapps:redisCacheConnectionString",
+      "@type": "xsd:string"
+    },
+    "properties": {
+      "@id": "azurelogicapps:properties",
+      "@type": "xsd:string"
+    },
+    "family": {
+      "@id": "azurelogicapps:family",
+      "@type": "xsd:string"
+    },
+    "revision": {
+      "@id": "azurelogicapps:revision",
+      "@type": "xsd:integer"
+    },
+    "status": {
+      "@id": "azurelogicapps:status",
+      "@type": "xsd:string"
+    },
+    "nextLink": {
+      "@id": "azurelogicapps:nextLink",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "azurelogicapps:value",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "annotation": {
+      "@id": "azurelogicapps:annotation",
+      "@type": "xsd:string"
+    },
+    "api": {
+      "@id": "azurelogicapps:api",
+      "@type": "xsd:string"
+    },
+    "inputsDefinition": {
+      "@id": "azurelogicapps:inputsDefinition",
+      "@type": "xsd:string"
+    },
+    "isNotification": {
+      "@id": "azurelogicapps:isNotification",
+      "@type": "xsd:boolean"
+    },
+    "isWebhook": {
+      "@id": "azurelogicapps:isWebhook",
+      "@type": "xsd:boolean"
+    },
+    "pageable": {
+      "@id": "azurelogicapps:pageable",
+      "@type": "xsd:boolean"
+    },
+    "responsesDefinition": {
+      "@id": "azurelogicapps:responsesDefinition",
+      "@type": "@id"
+    },
+    "summary": {
+      "@id": "azurelogicapps:summary",
+      "@type": "xsd:string"
+    },
+    "trigger": {
+      "@id": "azurelogicapps:trigger",
+      "@type": "xsd:string"
+    },
+    "triggerHint": {
+      "@id": "azurelogicapps:triggerHint",
+      "@type": "xsd:string"
+    },
+    "brandColor": {
+      "@id": "azurelogicapps:brandColor",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "azurelogicapps:category",
+      "@type": "xsd:string"
+    },
+    "iconUri": {
+      "@id": "azurelogicapps:iconUri",
+      "@type": "xsd:string"
+    },
+    "integrationServiceEnvironment": {
+      "@id": "azurelogicapps:integrationServiceEnvironment",
+      "@type": "xsd:string"
+    },
+    "swagger": {
+      "@id": "azurelogicapps:swagger",
+      "@type": "xsd:string"
+    }
+  }
+}

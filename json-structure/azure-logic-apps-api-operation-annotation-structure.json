@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-structure/azure-logic-apps-api-operation-annotation-structure.json",
+  "description": "The Api Operation Annotation.",
+  "type": "object",
+  "properties": {
+    "family": {
+      "description": "The family.",
+      "type": "string"
+    },
+    "revision": {
+      "description": "The revision.",
+      "type": "integer"
+    },
+    "status": {
+      "$ref": "#/definitions/StatusAnnotation"
+    }
+  },
+  "name": "ApiOperationAnnotation"
+}

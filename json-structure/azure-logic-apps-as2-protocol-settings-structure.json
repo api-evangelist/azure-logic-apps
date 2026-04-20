@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-structure/azure-logic-apps-as2-protocol-settings-structure.json",
+  "description": "The AS2 agreement protocol settings.",
+  "type": "object",
+  "properties": {
+    "acknowledgementConnectionSettings": {
+      "$ref": "#/definitions/AS2AcknowledgementConnectionSettings",
+      "description": "The acknowledgement connection settings."
+    },
+    "envelopeSettings": {
+      "$ref": "#/definitions/AS2EnvelopeSettings",
+      "description": "The envelope settings."
+    },
+    "errorSettings": {
+      "$ref": "#/definitions/AS2ErrorSettings",
+      "description": "The error settings."
+    },
+    "mdnSettings": {
+      "$ref": "#/definitions/AS2MdnSettings",
+      "description": "The MDN settings."
+    },
+    "messageConnectionSettings": {
+      "$ref": "#/definitions/AS2MessageConnectionSettings",
+      "description": "The message connection settings."
+    },
+    "securitySettings": {
+      "$ref": "#/definitions/AS2SecuritySettings",
+      "description": "The security settings."
+    },
+    "validationSettings": {
+      "$ref": "#/definitions/AS2ValidationSettings",
+      "description": "The validation settings."
+    }
+  },
+  "required": [
+    "messageConnectionSettings",
+    "acknowledgementConnectionSettings",
+    "mdnSettings",
+    "securitySettings",
+    "validationSettings",
+    "envelopeSettings",
+    "errorSettings"
+  ],
+  "name": "AS2ProtocolSettings"
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-api-resource-properties-schema.json",
+  "title": "ApiResourceProperties",
+  "description": "The API resource properties.",
+  "type": "object",
+  "properties": {
+    "apiDefinitionUrl": {
+      "description": "The API definition.",
+      "type": "string"
+    },
+    "apiDefinitions": {
+      "$ref": "#/definitions/ApiResourceDefinitions",
+      "description": "The api definitions."
+    },
+    "backendService": {
+      "$ref": "#/definitions/ApiResourceBackendService",
+      "description": "The backend service."
+    },
+    "capabilities": {
+      "description": "The capabilities.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "category": {
+      "$ref": "#/definitions/ApiTier",
+      "description": "The category."
+    },
+    "connectionParameters": {
+      "additionalProperties": {
+        "$ref": "#/definitions/Object"
+      },
+      "description": "The connection parameters.",
+      "type": "object"
+    },
+    "generalInformation": {
+      "$ref": "#/definitions/ApiResourceGeneralInformation",
+      "description": "The api general information."
+    },
+    "integrationServiceEnvironment": {
+      "$ref": "#/definitions/ResourceReference",
+      "description": "The integration service environment reference."
+    },
+    "metadata": {
+      "$ref": "#/definitions/ApiResourceMetadata",
+      "description": "The metadata."
+    },
+    "name": {
+      "description": "The name",
+      "type": "string"
+    },
+    "policies": {
+      "$ref": "#/definitions/ApiResourcePolicies",
+      "description": "The policies for the API."
+    },
+    "provisioningState": {
+      "$ref": "#/definitions/WorkflowProvisioningState",
+      "description": "The provisioning state."
+    },
+    "runtimeUrls": {
+      "description": "The runtime urls.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  }
+}

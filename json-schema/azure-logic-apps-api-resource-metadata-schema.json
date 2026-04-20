@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-api-resource-metadata-schema.json",
+  "title": "ApiResourceMetadata",
+  "description": "The api resource metadata.",
+  "type": "object",
+  "properties": {
+    "ApiType": {
+      "$ref": "#/definitions/ApiType",
+      "description": "The api type."
+    },
+    "brandColor": {
+      "description": "The brand color.",
+      "type": "string"
+    },
+    "connectionType": {
+      "description": "The connection type.",
+      "type": "string"
+    },
+    "deploymentParameters": {
+      "$ref": "#/definitions/ApiDeploymentParameterMetadataSet",
+      "description": "The connector deployment parameters metadata."
+    },
+    "hideKey": {
+      "description": "The hide key.",
+      "type": "string"
+    },
+    "provisioningState": {
+      "$ref": "#/definitions/WorkflowProvisioningState",
+      "description": "The provisioning state."
+    },
+    "source": {
+      "description": "The source.",
+      "type": "string"
+    },
+    "tags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "The tags.",
+      "type": "object"
+    },
+    "wsdlImportMethod": {
+      "$ref": "#/definitions/WsdlImportMethod",
+      "description": "The WSDL import method."
+    },
+    "wsdlService": {
+      "$ref": "#/definitions/WsdlService",
+      "description": "The WSDL service."
+    }
+  }
+}

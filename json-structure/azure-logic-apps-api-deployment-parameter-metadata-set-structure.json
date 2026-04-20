@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-structure/azure-logic-apps-api-deployment-parameter-metadata-set-structure.json",
+  "description": "The API deployment parameters metadata.",
+  "type": "object",
+  "properties": {
+    "packageContentLink": {
+      "$ref": "#/definitions/ApiDeploymentParameterMetadata",
+      "description": "The package content link parameter."
+    },
+    "redisCacheConnectionString": {
+      "$ref": "#/definitions/ApiDeploymentParameterMetadata",
+      "description": "The package content link parameter."
+    }
+  },
+  "name": "ApiDeploymentParameterMetadataSet"
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-as2-agreement-content-schema.json",
+  "title": "AS2AgreementContent",
+  "description": "The integration account AS2 agreement content.",
+  "type": "object",
+  "properties": {
+    "receiveAgreement": {
+      "$ref": "#/definitions/AS2OneWayAgreement",
+      "description": "The AS2 one-way receive agreement."
+    },
+    "sendAgreement": {
+      "$ref": "#/definitions/AS2OneWayAgreement",
+      "description": "The AS2 one-way send agreement."
+    }
+  },
+  "required": [
+    "receiveAgreement",
+    "sendAgreement"
+  ]
+}

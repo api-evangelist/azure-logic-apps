@@ -1,0 +1,4 @@
+{
+  "resendIfMDNNotReceived": true,
+  "suspendDuplicateMessage": true
+}

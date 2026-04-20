@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-structure/azure-logic-apps-api-reference-structure.json",
+  "description": "The Api reference.",
+  "type": "object",
+  "properties": {
+    "brandColor": {
+      "description": "The brand color of the api.",
+      "type": "string"
+    },
+    "category": {
+      "$ref": "#/definitions/ApiTier",
+      "description": "The tier."
+    },
+    "description": {
+      "description": "The description of the api.",
+      "type": "string"
+    },
+    "displayName": {
+      "description": "The display name of the api.",
+      "type": "string"
+    },
+    "iconUri": {
+      "description": "The icon uri of the api.",
+      "type": "string"
+    },
+    "integrationServiceEnvironment": {
+      "$ref": "#/definitions/ResourceReference",
+      "description": "The integration service environment reference."
+    },
+    "swagger": {
+      "$ref": "#/definitions/Object",
+      "description": "The swagger of the api."
+    }
+  },
+  "name": "ApiReference"
+}

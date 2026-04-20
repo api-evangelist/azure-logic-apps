@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-structure/azure-logic-apps-agreement-type-structure.json",
+  "description": "The agreement type.",
+  "type": "string",
+  "name": "AgreementType"
+}

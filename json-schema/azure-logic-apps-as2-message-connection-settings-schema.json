@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-as2-message-connection-settings-schema.json",
+  "title": "AS2MessageConnectionSettings",
+  "description": "The AS2 agreement message connection settings.",
+  "type": "object",
+  "properties": {
+    "ignoreCertificateNameMismatch": {
+      "description": "The value indicating whether to ignore mismatch in certificate name.",
+      "type": "boolean"
+    },
+    "keepHttpConnectionAlive": {
+      "description": "The value indicating whether to keep the connection alive.",
+      "type": "boolean"
+    },
+    "supportHttpStatusCodeContinue": {
+      "description": "The value indicating whether to support HTTP status code 'CONTINUE'.",
+      "type": "boolean"
+    },
+    "unfoldHttpHeaders": {
+      "description": "The value indicating whether to unfold the HTTP headers.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "ignoreCertificateNameMismatch",
+    "supportHttpStatusCodeContinue",
+    "keepHttpConnectionAlive",
+    "unfoldHttpHeaders"
+  ]
+}

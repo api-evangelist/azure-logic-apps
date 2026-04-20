@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-as2-mdn-settings-schema.json",
+  "title": "AS2MdnSettings",
+  "description": "The AS2 agreement mdn settings.",
+  "type": "object",
+  "properties": {
+    "dispositionNotificationTo": {
+      "description": "The disposition notification to header value.",
+      "type": "string"
+    },
+    "mdnText": {
+      "description": "The MDN text.",
+      "type": "string"
+    },
+    "micHashingAlgorithm": {
+      "$ref": "#/definitions/HashingAlgorithm",
+      "description": "The signing or hashing algorithm."
+    },
+    "needMDN": {
+      "description": "The value indicating whether to send or request a MDN.",
+      "type": "boolean"
+    },
+    "receiptDeliveryUrl": {
+      "description": "The receipt delivery URL.",
+      "type": "string"
+    },
+    "sendInboundMDNToMessageBox": {
+      "description": "The value indicating whether to send inbound MDN to message box.",
+      "type": "boolean"
+    },
+    "sendMDNAsynchronously": {
+      "description": "The value indicating whether to send the asynchronous MDN.",
+      "type": "boolean"
+    },
+    "signMDN": {
+      "description": "The value indicating whether the MDN needs to be signed or not.",
+      "type": "boolean"
+    },
+    "signOutboundMDNIfOptional": {
+      "description": "The value indicating whether to sign the outbound MDN if optional.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "needMDN",
+    "signMDN",
+    "sendMDNAsynchronously",
+    "signOutboundMDNIfOptional",
+    "sendInboundMDNToMessageBox",
+    "micHashingAlgorithm"
+  ]
+}

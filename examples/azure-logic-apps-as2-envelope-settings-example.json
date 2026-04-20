@@ -1,0 +1,7 @@
+{
+  "autogenerateFileName": true,
+  "fileNameTemplate": "example-string",
+  "messageContentType": "example-string",
+  "suspendMessageOnFileNameGenerationError": true,
+  "transmitFileNameInMimeHeader": true
+}

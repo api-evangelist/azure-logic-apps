@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-as2-validation-settings-schema.json",
+  "title": "AS2ValidationSettings",
+  "description": "The AS2 agreement validation settings.",
+  "type": "object",
+  "properties": {
+    "checkCertificateRevocationListOnReceive": {
+      "description": "The value indicating whether to check for certificate revocation list on receive.",
+      "type": "boolean"
+    },
+    "checkCertificateRevocationListOnSend": {
+      "description": "The value indicating whether to check for certificate revocation list on send.",
+      "type": "boolean"
+    },
+    "checkDuplicateMessage": {
+      "description": "The value indicating whether to check for duplicate message.",
+      "type": "boolean"
+    },
+    "compressMessage": {
+      "description": "The value indicating whether the message has to be compressed.",
+      "type": "boolean"
+    },
+    "encryptMessage": {
+      "description": "The value indicating whether the message has to be encrypted.",
+      "type": "boolean"
+    },
+    "encryptionAlgorithm": {
+      "$ref": "#/definitions/EncryptionAlgorithm",
+      "description": "The encryption algorithm."
+    },
+    "interchangeDuplicatesValidityDays": {
+      "description": "The number of days to look back for duplicate interchange.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "overrideMessageProperties": {
+      "description": "The value indicating whether to override incoming message properties with those in agreement.",
+      "type": "boolean"
+    },
+    "signMessage": {
+      "description": "The value indicating whether the message has to be signed.",
+      "type": "boolean"
+    },
+    "signingAlgorithm": {
+      "$ref": "#/definitions/SigningAlgorithm",
+      "description": "The signing algorithm."
+    }
+  },
+  "required": [
+    "overrideMessageProperties",
+    "encryptMessage",
+    "signMessage",
+    "compressMessage",
+    "checkDuplicateMessage",
+    "interchangeDuplicatesValidityDays",
+    "checkCertificateRevocationListOnSend",
+    "checkCertificateRevocationListOnReceive",
+    "encryptionAlgorithm"
+  ]
+}

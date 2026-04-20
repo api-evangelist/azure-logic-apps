@@ -1,0 +1,10 @@
+{
+  "dispositionNotificationTo": "example-string",
+  "mdnText": "example-string",
+  "needMDN": true,
+  "receiptDeliveryUrl": "example-string",
+  "sendInboundMDNToMessageBox": true,
+  "sendMDNAsynchronously": true,
+  "signMDN": true,
+  "signOutboundMDNIfOptional": true
+}

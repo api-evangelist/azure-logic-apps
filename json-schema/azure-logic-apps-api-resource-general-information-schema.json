@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-schema/azure-logic-apps-api-resource-general-information-schema.json",
+  "title": "ApiResourceGeneralInformation",
+  "description": "The API general information.",
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "The description.",
+      "type": "string"
+    },
+    "displayName": {
+      "description": "The display name.",
+      "type": "string"
+    },
+    "iconUrl": {
+      "description": "The icon url.",
+      "type": "string"
+    },
+    "releaseTag": {
+      "description": "The release tag.",
+      "type": "string"
+    },
+    "termsOfUseUrl": {
+      "description": "The terms of use url.",
+      "type": "string"
+    },
+    "tier": {
+      "$ref": "#/definitions/ApiTier",
+      "description": "The tier."
+    }
+  }
+}

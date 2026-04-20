@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-structure/azure-logic-apps-api-deployment-parameter-metadata-structure.json",
+  "description": "The API deployment parameter metadata.",
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "The description.",
+      "type": "string"
+    },
+    "displayName": {
+      "description": "The display name.",
+      "type": "string"
+    },
+    "isRequired": {
+      "description": "Indicates whether its required.",
+      "type": "boolean"
+    },
+    "type": {
+      "description": "The type.",
+      "type": "string"
+    },
+    "visibility": {
+      "$ref": "#/definitions/ApiDeploymentParameterVisibility",
+      "description": "The visibility."
+    }
+  },
+  "name": "ApiDeploymentParameterMetadata"
+}

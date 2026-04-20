@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-structure/azure-logic-apps-as2-acknowledgement-connection-settings-structure.json",
+  "description": "The AS2 agreement acknowledgement connection settings.",
+  "type": "object",
+  "properties": {
+    "ignoreCertificateNameMismatch": {
+      "description": "Indicates whether to ignore mismatch in certificate name.",
+      "type": "boolean"
+    },
+    "keepHttpConnectionAlive": {
+      "description": "Indicates whether to keep the connection alive.",
+      "type": "boolean"
+    },
+    "supportHttpStatusCodeContinue": {
+      "description": "Indicates whether to support HTTP status code 'CONTINUE'.",
+      "type": "boolean"
+    },
+    "unfoldHttpHeaders": {
+      "description": "Indicates whether to unfold the HTTP headers.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "ignoreCertificateNameMismatch",
+    "supportHttpStatusCodeContinue",
+    "keepHttpConnectionAlive",
+    "unfoldHttpHeaders"
+  ],
+  "name": "AS2AcknowledgementConnectionSettings"
+}
