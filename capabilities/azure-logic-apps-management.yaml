@@ -1,93 +1,166 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "Azure Logic Apps Management"
-  description: "Workflow capability for managing Azure Logic Apps resources. Used by cloud engineers and DevOps teams."
+  label: Azure Logic Apps Management
+  description: Workflow capability for managing Azure Logic Apps resources. Used by cloud engineers and DevOps teams.
   tags:
-    - Azure
-    - Cloud
-    - Management
-  created: "2026-04-19"
-  modified: "2026-04-19"
-
+  - Azure
+  - Cloud
+  - Management
+  created: '2026-04-19'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      AZURE_SUBSCRIPTION_ID: AZURE_SUBSCRIPTION_ID
-      AZURE_ACCESS_TOKEN: AZURE_ACCESS_TOKEN
-
+- namespace: env
+  keys:
+    AZURE_SUBSCRIPTION_ID: AZURE_SUBSCRIPTION_ID
+    AZURE_ACCESS_TOKEN: AZURE_ACCESS_TOKEN
 capability:
   consumes:
-    - import: azure-logic-apps
-      location: ./shared/azure-logic-apps.yaml
-
+  - type: http
+    namespace: azure-logic-apps
+    baseUri: https://management.azure.com
+    description: Azure Logic Apps REST API
+    authentication:
+      type: bearer
+      token: '{{AZURE_ACCESS_TOKEN}}'
+    resources:
+    - name: workflow
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.Workflow/Workflows
+      description: Manage Workflow resources
+      operations:
+      - name: list-workflows
+        method: GET
+        description: List all Workflow resources
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workflow-run
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.WorkflowRun/WorkflowRuns
+      description: Manage WorkflowRun resources
+      operations:
+      - name: list-workflow-runs
+        method: GET
+        description: List all WorkflowRun resources
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workflow-trigger
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.WorkflowTrigger/WorkflowTriggers
+      description: Manage WorkflowTrigger resources
+      operations:
+      - name: list-workflow-triggers
+        method: GET
+        description: List all WorkflowTrigger resources
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: integration-account
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.IntegrationAccount/IntegrationAccounts
+      description: Manage IntegrationAccount resources
+      operations:
+      - name: list-integration-accounts
+        method: GET
+        description: List all IntegrationAccount resources
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8081
-      namespace: azure-logic-apps-management-api
-      description: "Unified REST API for Azure Logic Apps management."
-      resources:
-        - path: /v1/resources
-          name: resources
-          description: "Resource management"
-          operations:
-            - method: GET
-              name: list
-              description: "List all resources"
-              call: "azure-logic-apps.list-workflows"
-              with:
-                subscriptionId: "rest.subscriptionId"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9091
-      namespace: azure-logic-apps-management-mcp
-      transport: http
-      description: "MCP server for AI-assisted Azure Logic Apps management."
-      tools:
-        - name: list-workflows
-          description: "List Workflow resources"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "azure-logic-apps.list-workflows"
-          with:
-            subscriptionId: "tools.subscriptionId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-workflow-runs
-          description: "List WorkflowRun resources"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "azure-logic-apps.list-workflow-runs"
-          with:
-            subscriptionId: "tools.subscriptionId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-workflow-triggers
-          description: "List WorkflowTrigger resources"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "azure-logic-apps.list-workflow-triggers"
-          with:
-            subscriptionId: "tools.subscriptionId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-integration-accounts
-          description: "List IntegrationAccount resources"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "azure-logic-apps.list-integration-accounts"
-          with:
-            subscriptionId: "tools.subscriptionId"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8081
+    namespace: azure-logic-apps-management-api
+    description: Unified REST API for Azure Logic Apps management.
+    resources:
+    - path: /v1/resources
+      name: resources
+      description: Resource management
+      operations:
+      - method: GET
+        name: list
+        description: List all resources
+        call: azure-logic-apps.list-workflows
+        with:
+          subscriptionId: rest.subscriptionId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9091
+    namespace: azure-logic-apps-management-mcp
+    transport: http
+    description: MCP server for AI-assisted Azure Logic Apps management.
+    tools:
+    - name: list-workflows
+      description: List Workflow resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: azure-logic-apps.list-workflows
+      with:
+        subscriptionId: tools.subscriptionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-workflow-runs
+      description: List WorkflowRun resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: azure-logic-apps.list-workflow-runs
+      with:
+        subscriptionId: tools.subscriptionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-workflow-triggers
+      description: List WorkflowTrigger resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: azure-logic-apps.list-workflow-triggers
+      with:
+        subscriptionId: tools.subscriptionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-integration-accounts
+      description: List IntegrationAccount resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: azure-logic-apps.list-integration-accounts
+      with:
+        subscriptionId: tools.subscriptionId
+      outputParameters:
+      - type: object
+        mapping: $.
