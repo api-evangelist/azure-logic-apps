@@ -1,0 +1,845 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: LogicManagementClient — WorkflowRunActions
+  description: 'LogicManagementClient — WorkflowRunActions. 12 operations. Lead operation: Azure Logic Apps Workflow Run Actions_
+    List. Self-contained Naftiko capability covering one Azure Logic Apps business surface.'
+  tags:
+  - Azure Logic Apps
+  - WorkflowRunActions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_LOGIC_APPS_API_KEY: AZURE_LOGIC_APPS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-logic-apps-workflowrunactions
+    baseUri: https://management.azure.com
+    description: LogicManagementClient — WorkflowRunActions business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions
+      operations:
+      - name: workflowrunactionslist
+        method: GET
+        description: Azure Logic Apps Workflow Run Actions_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: $top
+          in: query
+          type: integer
+          description: The number of items to be included in the result.
+        - name: $filter
+          in: query
+          type: string
+          description: 'The filter to apply on the operation. Options for filters include: Status.'
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}
+      operations:
+      - name: workflowrunactionsget
+        method: GET
+        description: Azure Logic Apps Workflow Run Actions_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: actionName
+          in: path
+          type: string
+          description: The workflow action name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/listExpressionTraces
+      operations:
+      - name: workflowrunactionslistexpressiontraces
+        method: POST
+        description: Azure Logic Apps Workflow Run Actions_ List Expression Traces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: actionName
+          in: path
+          type: string
+          description: The workflow action name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/repetitions
+      operations:
+      - name: workflowrunactionrepetitionslist
+        method: GET
+        description: Azure Logic Apps Workflow Run Action Repetitions_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: actionName
+          in: path
+          type: string
+          description: The workflow action name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/repetitions/{repetitionName}
+      operations:
+      - name: workflowrunactionrepetitionsget
+        method: GET
+        description: Azure Logic Apps Workflow Run Action Repetitions_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: actionName
+          in: path
+          type: string
+          description: The workflow action name.
+          required: true
+        - name: repetitionName
+          in: path
+          type: string
+          description: The workflow repetition.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/repetitions/{repetitionName}/listExpressionTraces
+      operations:
+      - name: workflowrunactionrepetitionslistexpressiontraces
+        method: POST
+        description: Azure Logic Apps Workflow Run Action Repetitions_ List Expression Traces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: actionName
+          in: path
+          type: string
+          description: The workflow action name.
+          required: true
+        - name: repetitionName
+          in: path
+          type: string
+          description: The workflow repetition.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/repetitions/{repetitionName}/requestHistories
+      operations:
+      - name: workflowrunactionrepetitionsrequesthistorieslist
+        method: GET
+        description: Azure Logic Apps Workflow Run Action Repetitions Request Histories_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: actionName
+          in: path
+          type: string
+          description: The workflow action name.
+          required: true
+        - name: repetitionName
+          in: path
+          type: string
+          description: The workflow repetition.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/repetitions/{repetitionName}/requestHistories/{requestHistoryName}
+      operations:
+      - name: workflowrunactionrepetitionsrequesthistoriesget
+        method: GET
+        description: Azure Logic Apps Workflow Run Action Repetitions Request Histories_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: actionName
+          in: path
+          type: string
+          description: The workflow action name.
+          required: true
+        - name: repetitionName
+          in: path
+          type: string
+          description: The workflow repetition.
+          required: true
+        - name: requestHistoryName
+          in: path
+          type: string
+          description: The request history name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/requestHistories
+      operations:
+      - name: workflowrunactionrequesthistorieslist
+        method: GET
+        description: Azure Logic Apps Workflow Run Action Request Histories_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: actionName
+          in: path
+          type: string
+          description: The workflow action name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/requestHistories/{requestHistoryName}
+      operations:
+      - name: workflowrunactionrequesthistoriesget
+        method: GET
+        description: Azure Logic Apps Workflow Run Action Request Histories_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: actionName
+          in: path
+          type: string
+          description: The workflow action name.
+          required: true
+        - name: requestHistoryName
+          in: path
+          type: string
+          description: The request history name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/scopeRepetitions
+      operations:
+      - name: workflowrunactionscoperepetitionslist
+        method: GET
+        description: Azure Logic Apps Workflow Run Action Scope Repetitions_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: actionName
+          in: path
+          type: string
+          description: The workflow action name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/scopeRepetitions/{repetitionName}
+      operations:
+      - name: workflowrunactionscoperepetitionsget
+        method: GET
+        description: Azure Logic Apps Workflow Run Action Scope Repetitions_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: actionName
+          in: path
+          type: string
+          description: The workflow action name.
+          required: true
+        - name: repetitionName
+          in: path
+          type: string
+          description: The workflow repetition.
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-logic-apps-workflowrunactions-rest
+    port: 8080
+    description: REST adapter for LogicManagementClient — WorkflowRunActions. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/actions
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowrunactionslist
+        description: Azure Logic Apps Workflow Run Actions_ List
+        call: azure-logic-apps-workflowrunactions.workflowrunactionslist
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          $top: rest.$top
+          $filter: rest.$filter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/actions/{actionname}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowrunactionsget
+        description: Azure Logic Apps Workflow Run Actions_ Get
+        call: azure-logic-apps-workflowrunactions.workflowrunactionsget
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          actionName: rest.actionName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/actions/{actionname}/listexpressiontraces
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: workflowrunactionslistexpressiontraces
+        description: Azure Logic Apps Workflow Run Actions_ List Expression Traces
+        call: azure-logic-apps-workflowrunactions.workflowrunactionslistexpressiontraces
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          actionName: rest.actionName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/actions/{actionname}/repetitions
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowrunactionrepetitionslist
+        description: Azure Logic Apps Workflow Run Action Repetitions_ List
+        call: azure-logic-apps-workflowrunactions.workflowrunactionrepetitionslist
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          actionName: rest.actionName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/actions/{actionname}/repetitions/{repetitionname}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowrunactionrepetitionsget
+        description: Azure Logic Apps Workflow Run Action Repetitions_ Get
+        call: azure-logic-apps-workflowrunactions.workflowrunactionrepetitionsget
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          actionName: rest.actionName
+          repetitionName: rest.repetitionName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/actions/{actionname}/repetitions/{repetitionname}/listexpressiontraces
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: workflowrunactionrepetitionslistexpressiontraces
+        description: Azure Logic Apps Workflow Run Action Repetitions_ List Expression Traces
+        call: azure-logic-apps-workflowrunactions.workflowrunactionrepetitionslistexpressiontraces
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          actionName: rest.actionName
+          repetitionName: rest.repetitionName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/actions/{actionname}/repetitions/{repetitionname}/requesthistories
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowrunactionrepetitionsrequesthistorieslist
+        description: Azure Logic Apps Workflow Run Action Repetitions Request Histories_ List
+        call: azure-logic-apps-workflowrunactions.workflowrunactionrepetitionsrequesthistorieslist
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          actionName: rest.actionName
+          repetitionName: rest.repetitionName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/actions/{actionname}/repetitions/{repetitionname}/requesthistories/{requesthistoryname}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowrunactionrepetitionsrequesthistoriesget
+        description: Azure Logic Apps Workflow Run Action Repetitions Request Histories_ Get
+        call: azure-logic-apps-workflowrunactions.workflowrunactionrepetitionsrequesthistoriesget
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          actionName: rest.actionName
+          repetitionName: rest.repetitionName
+          requestHistoryName: rest.requestHistoryName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/actions/{actionname}/requesthistories
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowrunactionrequesthistorieslist
+        description: Azure Logic Apps Workflow Run Action Request Histories_ List
+        call: azure-logic-apps-workflowrunactions.workflowrunactionrequesthistorieslist
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          actionName: rest.actionName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/actions/{actionname}/requesthistories/{requesthistoryname}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowrunactionrequesthistoriesget
+        description: Azure Logic Apps Workflow Run Action Request Histories_ Get
+        call: azure-logic-apps-workflowrunactions.workflowrunactionrequesthistoriesget
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          actionName: rest.actionName
+          requestHistoryName: rest.requestHistoryName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/actions/{actionname}/scoperepetitions
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowrunactionscoperepetitionslist
+        description: Azure Logic Apps Workflow Run Action Scope Repetitions_ List
+        call: azure-logic-apps-workflowrunactions.workflowrunactionscoperepetitionslist
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          actionName: rest.actionName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/actions/{actionname}/scoperepetitions/{repetitionname}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowrunactionscoperepetitionsget
+        description: Azure Logic Apps Workflow Run Action Scope Repetitions_ Get
+        call: azure-logic-apps-workflowrunactions.workflowrunactionscoperepetitionsget
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          actionName: rest.actionName
+          repetitionName: rest.repetitionName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-logic-apps-workflowrunactions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for LogicManagementClient — WorkflowRunActions. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: azure-logic-apps-workflow-run
+      description: Azure Logic Apps Workflow Run Actions_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowrunactions.workflowrunactionslist
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        $top: tools.$top
+        $filter: tools.$filter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-run-2
+      description: Azure Logic Apps Workflow Run Actions_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowrunactions.workflowrunactionsget
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        actionName: tools.actionName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-run-3
+      description: Azure Logic Apps Workflow Run Actions_ List Expression Traces
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: azure-logic-apps-workflowrunactions.workflowrunactionslistexpressiontraces
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        actionName: tools.actionName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-run-4
+      description: Azure Logic Apps Workflow Run Action Repetitions_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowrunactions.workflowrunactionrepetitionslist
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        actionName: tools.actionName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-run-5
+      description: Azure Logic Apps Workflow Run Action Repetitions_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowrunactions.workflowrunactionrepetitionsget
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        actionName: tools.actionName
+        repetitionName: tools.repetitionName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-run-6
+      description: Azure Logic Apps Workflow Run Action Repetitions_ List Expression Traces
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: azure-logic-apps-workflowrunactions.workflowrunactionrepetitionslistexpressiontraces
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        actionName: tools.actionName
+        repetitionName: tools.repetitionName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-run-7
+      description: Azure Logic Apps Workflow Run Action Repetitions Request Histories_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowrunactions.workflowrunactionrepetitionsrequesthistorieslist
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        actionName: tools.actionName
+        repetitionName: tools.repetitionName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-run-8
+      description: Azure Logic Apps Workflow Run Action Repetitions Request Histories_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowrunactions.workflowrunactionrepetitionsrequesthistoriesget
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        actionName: tools.actionName
+        repetitionName: tools.repetitionName
+        requestHistoryName: tools.requestHistoryName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-run-9
+      description: Azure Logic Apps Workflow Run Action Request Histories_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowrunactions.workflowrunactionrequesthistorieslist
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        actionName: tools.actionName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-run-10
+      description: Azure Logic Apps Workflow Run Action Request Histories_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowrunactions.workflowrunactionrequesthistoriesget
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        actionName: tools.actionName
+        requestHistoryName: tools.requestHistoryName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-run-11
+      description: Azure Logic Apps Workflow Run Action Scope Repetitions_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowrunactions.workflowrunactionscoperepetitionslist
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        actionName: tools.actionName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-run-12
+      description: Azure Logic Apps Workflow Run Action Scope Repetitions_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowrunactions.workflowrunactionscoperepetitionsget
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        actionName: tools.actionName
+        repetitionName: tools.repetitionName
+      outputParameters:
+      - type: object
+        mapping: $.

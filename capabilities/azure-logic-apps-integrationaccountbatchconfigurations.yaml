@@ -1,0 +1,247 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: LogicManagementClient — IntegrationAccountBatchConfigurations
+  description: 'LogicManagementClient — IntegrationAccountBatchConfigurations. 4 operations. Lead operation: Azure Logic Apps
+    Integration Account Batch Configurations_ List. Self-contained Naftiko capability covering one Azure Logic Apps business
+    surface.'
+  tags:
+  - Azure Logic Apps
+  - IntegrationAccountBatchConfigurations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_LOGIC_APPS_API_KEY: AZURE_LOGIC_APPS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-logic-apps-integrationaccountbatchconfigurations
+    baseUri: https://management.azure.com
+    description: LogicManagementClient — IntegrationAccountBatchConfigurations business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/batchConfigurations
+      operations:
+      - name: integrationaccountbatchconfigurationslist
+        method: GET
+        description: Azure Logic Apps Integration Account Batch Configurations_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/batchConfigurations/{batchConfigurationName}
+      operations:
+      - name: integrationaccountbatchconfigurationsdelete
+        method: DELETE
+        description: Azure Logic Apps Integration Account Batch Configurations_ Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+        - name: batchConfigurationName
+          in: path
+          type: string
+          description: The batch configuration name.
+          required: true
+      - name: integrationaccountbatchconfigurationsget
+        method: GET
+        description: Azure Logic Apps Integration Account Batch Configurations_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+        - name: batchConfigurationName
+          in: path
+          type: string
+          description: The batch configuration name.
+          required: true
+      - name: integrationaccountbatchconfigurationscreateorupdate
+        method: PUT
+        description: Azure Logic Apps Integration Account Batch Configurations_ Create or Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+        - name: batchConfigurationName
+          in: path
+          type: string
+          description: The batch configuration name.
+          required: true
+        - name: batchConfiguration
+          in: body
+          type: string
+          description: The batch configuration.
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-logic-apps-integrationaccountbatchconfigurations-rest
+    port: 8080
+    description: REST adapter for LogicManagementClient — IntegrationAccountBatchConfigurations. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/integrationaccounts/{integrationaccountname}/batchconfigurations
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: integrationaccountbatchconfigurationslist
+        description: Azure Logic Apps Integration Account Batch Configurations_ List
+        call: azure-logic-apps-integrationaccountbatchconfigurations.integrationaccountbatchconfigurationslist
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/integrationaccounts/{integrationaccountname}/batchconfigurations/{batchconfigurationname}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: DELETE
+        name: integrationaccountbatchconfigurationsdelete
+        description: Azure Logic Apps Integration Account Batch Configurations_ Delete
+        call: azure-logic-apps-integrationaccountbatchconfigurations.integrationaccountbatchconfigurationsdelete
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+          batchConfigurationName: rest.batchConfigurationName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: integrationaccountbatchconfigurationsget
+        description: Azure Logic Apps Integration Account Batch Configurations_ Get
+        call: azure-logic-apps-integrationaccountbatchconfigurations.integrationaccountbatchconfigurationsget
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+          batchConfigurationName: rest.batchConfigurationName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: integrationaccountbatchconfigurationscreateorupdate
+        description: Azure Logic Apps Integration Account Batch Configurations_ Create or Update
+        call: azure-logic-apps-integrationaccountbatchconfigurations.integrationaccountbatchconfigurationscreateorupdate
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+          batchConfigurationName: rest.batchConfigurationName
+          batchConfiguration: rest.batchConfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-logic-apps-integrationaccountbatchconfigurations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for LogicManagementClient — IntegrationAccountBatchConfigurations. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: azure-logic-apps-integration-account
+      description: Azure Logic Apps Integration Account Batch Configurations_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-integrationaccountbatchconfigurations.integrationaccountbatchconfigurationslist
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-integration-account-2
+      description: Azure Logic Apps Integration Account Batch Configurations_ Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-logic-apps-integrationaccountbatchconfigurations.integrationaccountbatchconfigurationsdelete
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+        batchConfigurationName: tools.batchConfigurationName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-integration-account-3
+      description: Azure Logic Apps Integration Account Batch Configurations_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-integrationaccountbatchconfigurations.integrationaccountbatchconfigurationsget
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+        batchConfigurationName: tools.batchConfigurationName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-integration-account-4
+      description: Azure Logic Apps Integration Account Batch Configurations_ Create or Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-integrationaccountbatchconfigurations.integrationaccountbatchconfigurationscreateorupdate
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+        batchConfigurationName: tools.batchConfigurationName
+        batchConfiguration: tools.batchConfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

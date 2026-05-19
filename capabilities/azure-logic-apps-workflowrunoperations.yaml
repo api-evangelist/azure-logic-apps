@@ -1,0 +1,98 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: LogicManagementClient — WorkflowRunOperations
+  description: 'LogicManagementClient — WorkflowRunOperations. 1 operations. Lead operation: Azure Logic Apps Workflow Run
+    Operations_ Get. Self-contained Naftiko capability covering one Azure Logic Apps business surface.'
+  tags:
+  - Azure Logic Apps
+  - WorkflowRunOperations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_LOGIC_APPS_API_KEY: AZURE_LOGIC_APPS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-logic-apps-workflowrunoperations
+    baseUri: https://management.azure.com
+    description: LogicManagementClient — WorkflowRunOperations business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/operations/{operationId}
+      operations:
+      - name: workflowrunoperationsget
+        method: GET
+        description: Azure Logic Apps Workflow Run Operations_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: runName
+          in: path
+          type: string
+          description: The workflow run name.
+          required: true
+        - name: operationId
+          in: path
+          type: string
+          description: The workflow operation id.
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-logic-apps-workflowrunoperations-rest
+    port: 8080
+    description: REST adapter for LogicManagementClient — WorkflowRunOperations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/runs/{runname}/operations/{operationid}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowrunoperationsget
+        description: Azure Logic Apps Workflow Run Operations_ Get
+        call: azure-logic-apps-workflowrunoperations.workflowrunoperationsget
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          runName: rest.runName
+          operationId: rest.operationId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-logic-apps-workflowrunoperations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for LogicManagementClient — WorkflowRunOperations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: azure-logic-apps-workflow-run
+      description: Azure Logic Apps Workflow Run Operations_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowrunoperations.workflowrunoperationsget
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        runName: tools.runName
+        operationId: tools.operationId
+      outputParameters:
+      - type: object
+        mapping: $.

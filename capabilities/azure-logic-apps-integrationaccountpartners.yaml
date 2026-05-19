@@ -1,0 +1,319 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: LogicManagementClient — IntegrationAccountPartners
+  description: 'LogicManagementClient — IntegrationAccountPartners. 5 operations. Lead operation: Azure Logic Apps Integration
+    Account Partners_ List. Self-contained Naftiko capability covering one Azure Logic Apps business surface.'
+  tags:
+  - Azure Logic Apps
+  - IntegrationAccountPartners
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_LOGIC_APPS_API_KEY: AZURE_LOGIC_APPS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-logic-apps-integrationaccountpartners
+    baseUri: https://management.azure.com
+    description: LogicManagementClient — IntegrationAccountPartners business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/partners
+      operations:
+      - name: integrationaccountpartnerslist
+        method: GET
+        description: Azure Logic Apps Integration Account Partners_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+        - name: $top
+          in: query
+          type: integer
+          description: The number of items to be included in the result.
+        - name: $filter
+          in: query
+          type: string
+          description: 'The filter to apply on the operation. Options for filters include: PartnerType.'
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/partners/{partnerName}
+      operations:
+      - name: integrationaccountpartnersdelete
+        method: DELETE
+        description: Azure Logic Apps Integration Account Partners_ Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+        - name: partnerName
+          in: path
+          type: string
+          description: The integration account partner name.
+          required: true
+      - name: integrationaccountpartnersget
+        method: GET
+        description: Azure Logic Apps Integration Account Partners_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+        - name: partnerName
+          in: path
+          type: string
+          description: The integration account partner name.
+          required: true
+      - name: integrationaccountpartnerscreateorupdate
+        method: PUT
+        description: Azure Logic Apps Integration Account Partners_ Create or Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+        - name: partnerName
+          in: path
+          type: string
+          description: The integration account partner name.
+          required: true
+        - name: partner
+          in: body
+          type: string
+          description: The integration account partner.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/partners/{partnerName}/listContentCallbackUrl
+      operations:
+      - name: integrationaccountpartnerslistcontentcallbackurl
+        method: POST
+        description: Azure Logic Apps Integration Account Partners_ List Content Callback Url
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+        - name: partnerName
+          in: path
+          type: string
+          description: The integration account partner name.
+          required: true
+        - name: listContentCallbackUrl
+          in: body
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-logic-apps-integrationaccountpartners-rest
+    port: 8080
+    description: REST adapter for LogicManagementClient — IntegrationAccountPartners. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/integrationaccounts/{integrationaccountname}/partners
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: integrationaccountpartnerslist
+        description: Azure Logic Apps Integration Account Partners_ List
+        call: azure-logic-apps-integrationaccountpartners.integrationaccountpartnerslist
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+          $top: rest.$top
+          $filter: rest.$filter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/integrationaccounts/{integrationaccountname}/partners/{partnername}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: DELETE
+        name: integrationaccountpartnersdelete
+        description: Azure Logic Apps Integration Account Partners_ Delete
+        call: azure-logic-apps-integrationaccountpartners.integrationaccountpartnersdelete
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+          partnerName: rest.partnerName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: integrationaccountpartnersget
+        description: Azure Logic Apps Integration Account Partners_ Get
+        call: azure-logic-apps-integrationaccountpartners.integrationaccountpartnersget
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+          partnerName: rest.partnerName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: integrationaccountpartnerscreateorupdate
+        description: Azure Logic Apps Integration Account Partners_ Create or Update
+        call: azure-logic-apps-integrationaccountpartners.integrationaccountpartnerscreateorupdate
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+          partnerName: rest.partnerName
+          partner: rest.partner
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/integrationaccounts/{integrationaccountname}/partners/{partnername}/listcontentcallbackurl
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: integrationaccountpartnerslistcontentcallbackurl
+        description: Azure Logic Apps Integration Account Partners_ List Content Callback Url
+        call: azure-logic-apps-integrationaccountpartners.integrationaccountpartnerslistcontentcallbackurl
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+          partnerName: rest.partnerName
+          listContentCallbackUrl: rest.listContentCallbackUrl
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-logic-apps-integrationaccountpartners-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for LogicManagementClient — IntegrationAccountPartners. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: azure-logic-apps-integration-account
+      description: Azure Logic Apps Integration Account Partners_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-integrationaccountpartners.integrationaccountpartnerslist
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+        $top: tools.$top
+        $filter: tools.$filter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-integration-account-2
+      description: Azure Logic Apps Integration Account Partners_ Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-logic-apps-integrationaccountpartners.integrationaccountpartnersdelete
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+        partnerName: tools.partnerName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-integration-account-3
+      description: Azure Logic Apps Integration Account Partners_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-integrationaccountpartners.integrationaccountpartnersget
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+        partnerName: tools.partnerName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-integration-account-4
+      description: Azure Logic Apps Integration Account Partners_ Create or Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-integrationaccountpartners.integrationaccountpartnerscreateorupdate
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+        partnerName: tools.partnerName
+        partner: tools.partner
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-integration-account-5
+      description: Azure Logic Apps Integration Account Partners_ List Content Callback Url
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: azure-logic-apps-integrationaccountpartners.integrationaccountpartnerslistcontentcallbackurl
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+        partnerName: tools.partnerName
+        listContentCallbackUrl: tools.listContentCallbackUrl
+      outputParameters:
+      - type: object
+        mapping: $.

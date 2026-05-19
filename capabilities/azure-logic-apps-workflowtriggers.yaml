@@ -1,0 +1,508 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: LogicManagementClient — WorkflowTriggers
+  description: 'LogicManagementClient — WorkflowTriggers. 8 operations. Lead operation: Azure Logic Apps Workflow Triggers_
+    List. Self-contained Naftiko capability covering one Azure Logic Apps business surface.'
+  tags:
+  - Azure Logic Apps
+  - WorkflowTriggers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_LOGIC_APPS_API_KEY: AZURE_LOGIC_APPS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-logic-apps-workflowtriggers
+    baseUri: https://management.azure.com
+    description: LogicManagementClient — WorkflowTriggers business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers
+      operations:
+      - name: workflowtriggerslist
+        method: GET
+        description: Azure Logic Apps Workflow Triggers_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: $top
+          in: query
+          type: integer
+          description: The number of items to be included in the result.
+        - name: $filter
+          in: query
+          type: string
+          description: The filter to apply on the operation.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}
+      operations:
+      - name: workflowtriggersget
+        method: GET
+        description: Azure Logic Apps Workflow Triggers_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: triggerName
+          in: path
+          type: string
+          description: The workflow trigger name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl
+      operations:
+      - name: workflowtriggerslistcallbackurl
+        method: POST
+        description: Azure Logic Apps Workflow Triggers_ List Callback Url
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: triggerName
+          in: path
+          type: string
+          description: The workflow trigger name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/reset
+      operations:
+      - name: workflowtriggersreset
+        method: POST
+        description: Azure Logic Apps Workflow Triggers_ Reset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: triggerName
+          in: path
+          type: string
+          description: The workflow trigger name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/run
+      operations:
+      - name: workflowtriggersrun
+        method: POST
+        description: Azure Logic Apps Workflow Triggers_ Run
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: triggerName
+          in: path
+          type: string
+          description: The workflow trigger name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/schemas/json
+      operations:
+      - name: workflowtriggersgetschemajson
+        method: GET
+        description: Azure Logic Apps Workflow Triggers_ Get Schema Json
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: triggerName
+          in: path
+          type: string
+          description: The workflow trigger name.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/setState
+      operations:
+      - name: workflowtriggerssetstate
+        method: POST
+        description: Azure Logic Apps Workflow Triggers_ Set State
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: triggerName
+          in: path
+          type: string
+          description: The workflow trigger name.
+          required: true
+        - name: setState
+          in: body
+          type: string
+          description: The workflow trigger state.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/versions/{versionId}/triggers/{triggerName}/listCallbackUrl
+      operations:
+      - name: workflowversiontriggerslistcallbackurl
+        method: POST
+        description: Azure Logic Apps Workflow Version Triggers_ List Callback Url
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: workflowName
+          in: path
+          type: string
+          description: The workflow name.
+          required: true
+        - name: versionId
+          in: path
+          type: string
+          description: The workflow versionId.
+          required: true
+        - name: triggerName
+          in: path
+          type: string
+          description: The workflow trigger name.
+          required: true
+        - name: parameters
+          in: body
+          type: string
+          description: The callback URL parameters.
+  exposes:
+  - type: rest
+    namespace: azure-logic-apps-workflowtriggers-rest
+    port: 8080
+    description: REST adapter for LogicManagementClient — WorkflowTriggers. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/triggers
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowtriggerslist
+        description: Azure Logic Apps Workflow Triggers_ List
+        call: azure-logic-apps-workflowtriggers.workflowtriggerslist
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          $top: rest.$top
+          $filter: rest.$filter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/triggers/{triggername}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowtriggersget
+        description: Azure Logic Apps Workflow Triggers_ Get
+        call: azure-logic-apps-workflowtriggers.workflowtriggersget
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          triggerName: rest.triggerName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/triggers/{triggername}/listcallbackurl
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: workflowtriggerslistcallbackurl
+        description: Azure Logic Apps Workflow Triggers_ List Callback Url
+        call: azure-logic-apps-workflowtriggers.workflowtriggerslistcallbackurl
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          triggerName: rest.triggerName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/triggers/{triggername}/reset
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: workflowtriggersreset
+        description: Azure Logic Apps Workflow Triggers_ Reset
+        call: azure-logic-apps-workflowtriggers.workflowtriggersreset
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          triggerName: rest.triggerName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/triggers/{triggername}/run
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: workflowtriggersrun
+        description: Azure Logic Apps Workflow Triggers_ Run
+        call: azure-logic-apps-workflowtriggers.workflowtriggersrun
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          triggerName: rest.triggerName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/triggers/{triggername}/schemas/json
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workflowtriggersgetschemajson
+        description: Azure Logic Apps Workflow Triggers_ Get Schema Json
+        call: azure-logic-apps-workflowtriggers.workflowtriggersgetschemajson
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          triggerName: rest.triggerName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/triggers/{triggername}/setstate
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: workflowtriggerssetstate
+        description: Azure Logic Apps Workflow Triggers_ Set State
+        call: azure-logic-apps-workflowtriggers.workflowtriggerssetstate
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          triggerName: rest.triggerName
+          setState: rest.setState
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/workflows/{workflowname}/versions/{versionid}/triggers/{triggername}/listcallbackurl
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: workflowversiontriggerslistcallbackurl
+        description: Azure Logic Apps Workflow Version Triggers_ List Callback Url
+        call: azure-logic-apps-workflowtriggers.workflowversiontriggerslistcallbackurl
+        with:
+          resourceGroupName: rest.resourceGroupName
+          workflowName: rest.workflowName
+          versionId: rest.versionId
+          triggerName: rest.triggerName
+          parameters: rest.parameters
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-logic-apps-workflowtriggers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for LogicManagementClient — WorkflowTriggers. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: azure-logic-apps-workflow-triggers
+      description: Azure Logic Apps Workflow Triggers_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowtriggers.workflowtriggerslist
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        $top: tools.$top
+        $filter: tools.$filter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-triggers-2
+      description: Azure Logic Apps Workflow Triggers_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowtriggers.workflowtriggersget
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        triggerName: tools.triggerName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-triggers-3
+      description: Azure Logic Apps Workflow Triggers_ List Callback Url
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: azure-logic-apps-workflowtriggers.workflowtriggerslistcallbackurl
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        triggerName: tools.triggerName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-triggers-4
+      description: Azure Logic Apps Workflow Triggers_ Reset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: azure-logic-apps-workflowtriggers.workflowtriggersreset
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        triggerName: tools.triggerName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-triggers-5
+      description: Azure Logic Apps Workflow Triggers_ Run
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: azure-logic-apps-workflowtriggers.workflowtriggersrun
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        triggerName: tools.triggerName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-triggers-6
+      description: Azure Logic Apps Workflow Triggers_ Get Schema Json
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-workflowtriggers.workflowtriggersgetschemajson
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        triggerName: tools.triggerName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-triggers-7
+      description: Azure Logic Apps Workflow Triggers_ Set State
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: azure-logic-apps-workflowtriggers.workflowtriggerssetstate
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        triggerName: tools.triggerName
+        setState: tools.setState
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-workflow-version
+      description: Azure Logic Apps Workflow Version Triggers_ List Callback Url
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: azure-logic-apps-workflowtriggers.workflowversiontriggerslistcallbackurl
+      with:
+        resourceGroupName: tools.resourceGroupName
+        workflowName: tools.workflowName
+        versionId: tools.versionId
+        triggerName: tools.triggerName
+        parameters: tools.parameters
+      outputParameters:
+      - type: object
+        mapping: $.

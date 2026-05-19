@@ -1,0 +1,251 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: LogicManagementClient — IntegrationAccountCertificates
+  description: 'LogicManagementClient — IntegrationAccountCertificates. 4 operations. Lead operation: Azure Logic Apps Integration
+    Account Certificates_ List. Self-contained Naftiko capability covering one Azure Logic Apps business surface.'
+  tags:
+  - Azure Logic Apps
+  - IntegrationAccountCertificates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_LOGIC_APPS_API_KEY: AZURE_LOGIC_APPS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-logic-apps-integrationaccountcertificates
+    baseUri: https://management.azure.com
+    description: LogicManagementClient — IntegrationAccountCertificates business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/certificates
+      operations:
+      - name: integrationaccountcertificateslist
+        method: GET
+        description: Azure Logic Apps Integration Account Certificates_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+        - name: $top
+          in: query
+          type: integer
+          description: The number of items to be included in the result.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/certificates/{certificateName}
+      operations:
+      - name: integrationaccountcertificatesdelete
+        method: DELETE
+        description: Azure Logic Apps Integration Account Certificates_ Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+        - name: certificateName
+          in: path
+          type: string
+          description: The integration account certificate name.
+          required: true
+      - name: integrationaccountcertificatesget
+        method: GET
+        description: Azure Logic Apps Integration Account Certificates_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+        - name: certificateName
+          in: path
+          type: string
+          description: The integration account certificate name.
+          required: true
+      - name: integrationaccountcertificatescreateorupdate
+        method: PUT
+        description: Azure Logic Apps Integration Account Certificates_ Create or Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroupName
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationAccountName
+          in: path
+          type: string
+          description: The integration account name.
+          required: true
+        - name: certificateName
+          in: path
+          type: string
+          description: The integration account certificate name.
+          required: true
+        - name: certificate
+          in: body
+          type: string
+          description: The integration account certificate.
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-logic-apps-integrationaccountcertificates-rest
+    port: 8080
+    description: REST adapter for LogicManagementClient — IntegrationAccountCertificates. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/integrationaccounts/{integrationaccountname}/certificates
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: integrationaccountcertificateslist
+        description: Azure Logic Apps Integration Account Certificates_ List
+        call: azure-logic-apps-integrationaccountcertificates.integrationaccountcertificateslist
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+          $top: rest.$top
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-logic/integrationaccounts/{integrationaccountname}/certificates/{certificatename}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: DELETE
+        name: integrationaccountcertificatesdelete
+        description: Azure Logic Apps Integration Account Certificates_ Delete
+        call: azure-logic-apps-integrationaccountcertificates.integrationaccountcertificatesdelete
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+          certificateName: rest.certificateName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: integrationaccountcertificatesget
+        description: Azure Logic Apps Integration Account Certificates_ Get
+        call: azure-logic-apps-integrationaccountcertificates.integrationaccountcertificatesget
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+          certificateName: rest.certificateName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: integrationaccountcertificatescreateorupdate
+        description: Azure Logic Apps Integration Account Certificates_ Create or Update
+        call: azure-logic-apps-integrationaccountcertificates.integrationaccountcertificatescreateorupdate
+        with:
+          resourceGroupName: rest.resourceGroupName
+          integrationAccountName: rest.integrationAccountName
+          certificateName: rest.certificateName
+          certificate: rest.certificate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-logic-apps-integrationaccountcertificates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for LogicManagementClient — IntegrationAccountCertificates. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: azure-logic-apps-integration-account
+      description: Azure Logic Apps Integration Account Certificates_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-integrationaccountcertificates.integrationaccountcertificateslist
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+        $top: tools.$top
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-integration-account-2
+      description: Azure Logic Apps Integration Account Certificates_ Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-logic-apps-integrationaccountcertificates.integrationaccountcertificatesdelete
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+        certificateName: tools.certificateName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-integration-account-3
+      description: Azure Logic Apps Integration Account Certificates_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-integrationaccountcertificates.integrationaccountcertificatesget
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+        certificateName: tools.certificateName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-integration-account-4
+      description: Azure Logic Apps Integration Account Certificates_ Create or Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-integrationaccountcertificates.integrationaccountcertificatescreateorupdate
+      with:
+        resourceGroupName: tools.resourceGroupName
+        integrationAccountName: tools.integrationAccountName
+        certificateName: tools.certificateName
+        certificate: tools.certificate
+      outputParameters:
+      - type: object
+        mapping: $.

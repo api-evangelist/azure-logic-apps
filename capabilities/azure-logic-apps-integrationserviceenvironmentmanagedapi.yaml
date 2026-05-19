@@ -1,0 +1,191 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: LogicManagementClient — integrationServiceEnvironmentManagedApi
+  description: 'LogicManagementClient — integrationServiceEnvironmentManagedApi. 3 operations. Lead operation: Azure Logic
+    Apps Integration Service Environment Managed Apis_ Delete. Self-contained Naftiko capability covering one Azure Logic
+    Apps business surface.'
+  tags:
+  - Azure Logic Apps
+  - integrationServiceEnvironmentManagedApi
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_LOGIC_APPS_API_KEY: AZURE_LOGIC_APPS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-logic-apps-integrationserviceenvironmentmanagedapi
+    baseUri: https://management.azure.com
+    description: LogicManagementClient — integrationServiceEnvironmentManagedApi business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroup-providers-Microsoft.Lo
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}/managedApis/{apiName}
+      operations:
+      - name: integrationserviceenvironmentmanagedapisdelete
+        method: DELETE
+        description: Azure Logic Apps Integration Service Environment Managed Apis_ Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroup
+          in: path
+          type: string
+          description: The resource group.
+          required: true
+        - name: integrationServiceEnvironmentName
+          in: path
+          type: string
+          description: The integration service environment name.
+          required: true
+        - name: apiName
+          in: path
+          type: string
+          description: The api name.
+          required: true
+      - name: integrationserviceenvironmentmanagedapisget
+        method: GET
+        description: Azure Logic Apps Integration Service Environment Managed Apis_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroup
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationServiceEnvironmentName
+          in: path
+          type: string
+          description: The integration service environment name.
+          required: true
+        - name: apiName
+          in: path
+          type: string
+          description: The api name.
+          required: true
+      - name: integrationserviceenvironmentmanagedapisput
+        method: PUT
+        description: Azure Logic Apps Integration Service Environment Managed Apis_ Put
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceGroup
+          in: path
+          type: string
+          description: The resource group name.
+          required: true
+        - name: integrationServiceEnvironmentName
+          in: path
+          type: string
+          description: The integration service environment name.
+          required: true
+        - name: apiName
+          in: path
+          type: string
+          description: The api name.
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-logic-apps-integrationserviceenvironmentmanagedapi-rest
+    port: 8080
+    description: REST adapter for LogicManagementClient — integrationServiceEnvironmentManagedApi. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroup}/providers/microsoft-logic/integrationserviceenvironments/{integrationserviceenvironmentname}/managedapis/{apiname}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroup-providers-microsoft-lo
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroup-providers-Microsoft.Lo.
+      operations:
+      - method: DELETE
+        name: integrationserviceenvironmentmanagedapisdelete
+        description: Azure Logic Apps Integration Service Environment Managed Apis_ Delete
+        call: azure-logic-apps-integrationserviceenvironmentmanagedapi.integrationserviceenvironmentmanagedapisdelete
+        with:
+          resourceGroup: rest.resourceGroup
+          integrationServiceEnvironmentName: rest.integrationServiceEnvironmentName
+          apiName: rest.apiName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: integrationserviceenvironmentmanagedapisget
+        description: Azure Logic Apps Integration Service Environment Managed Apis_ Get
+        call: azure-logic-apps-integrationserviceenvironmentmanagedapi.integrationserviceenvironmentmanagedapisget
+        with:
+          resourceGroup: rest.resourceGroup
+          integrationServiceEnvironmentName: rest.integrationServiceEnvironmentName
+          apiName: rest.apiName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: integrationserviceenvironmentmanagedapisput
+        description: Azure Logic Apps Integration Service Environment Managed Apis_ Put
+        call: azure-logic-apps-integrationserviceenvironmentmanagedapi.integrationserviceenvironmentmanagedapisput
+        with:
+          resourceGroup: rest.resourceGroup
+          integrationServiceEnvironmentName: rest.integrationServiceEnvironmentName
+          apiName: rest.apiName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-logic-apps-integrationserviceenvironmentmanagedapi-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for LogicManagementClient — integrationServiceEnvironmentManagedApi. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: azure-logic-apps-integration-service
+      description: Azure Logic Apps Integration Service Environment Managed Apis_ Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-logic-apps-integrationserviceenvironmentmanagedapi.integrationserviceenvironmentmanagedapisdelete
+      with:
+        resourceGroup: tools.resourceGroup
+        integrationServiceEnvironmentName: tools.integrationServiceEnvironmentName
+        apiName: tools.apiName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-integration-service-2
+      description: Azure Logic Apps Integration Service Environment Managed Apis_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-integrationserviceenvironmentmanagedapi.integrationserviceenvironmentmanagedapisget
+      with:
+        resourceGroup: tools.resourceGroup
+        integrationServiceEnvironmentName: tools.integrationServiceEnvironmentName
+        apiName: tools.apiName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-logic-apps-integration-service-3
+      description: Azure Logic Apps Integration Service Environment Managed Apis_ Put
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-logic-apps-integrationserviceenvironmentmanagedapi.integrationserviceenvironmentmanagedapisput
+      with:
+        resourceGroup: tools.resourceGroup
+        integrationServiceEnvironmentName: tools.integrationServiceEnvironmentName
+        apiName: tools.apiName
+      outputParameters:
+      - type: object
+        mapping: $.
