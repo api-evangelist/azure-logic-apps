@@ -89,6 +89,8 @@ common:
   url: https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/vocabulary/azure-logic-apps-vocabulary.yaml
 - type: JSONLD
   url: https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/json-ld/azure-logic-apps-context.jsonld
+- type: LLMsTxt
+  url: https://azure.microsoft.com/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
