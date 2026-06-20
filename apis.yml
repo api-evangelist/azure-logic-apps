@@ -3,7 +3,7 @@ name: Azure Logic Apps
 description: Azure Logic Apps is a cloud-based integration platform that enables you to create and run automated workflows
   integrating apps, data, services, and systems across cloud and on-premises environments.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Azure
 - Integration
