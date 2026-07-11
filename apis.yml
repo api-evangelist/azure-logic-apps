@@ -79,6 +79,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
 common:
+- type: OAuthScopes
+  url: scopes/azure-logic-apps-scopes.yml
 - type: Website
   url: https://azure.microsoft.com/en-us/products/logic-apps
 - type: Documentation
