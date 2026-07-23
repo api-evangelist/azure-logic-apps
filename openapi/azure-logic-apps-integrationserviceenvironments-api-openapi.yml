@@ -1,0 +1,906 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements IntegrationServiceEnvironments API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: IntegrationServiceEnvironments
+paths:
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments:
+    get:
+      description: Gets a list of integration service environments by resource group.
+      operationId: IntegrationServiceEnvironments_ListByResourceGroup
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - $ref: '#/parameters/api-version'
+      - description: The number of items to be included in the result.
+        format: int32
+        in: query
+        name: $top
+        required: false
+        type: integer
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationServiceEnvironmentListResult'
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationServiceEnvironments
+      x-ms-examples:
+        List integration service environments by resource group name:
+          parameters:
+            api-version: '2019-05-01'
+            resourceGroup: testResourceGroup
+            subscriptionId: f34b22a3-2202-4fb1-b040-1332bd928c84
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/ISE-ILB-NU
+                  location: northeurope
+                  name: ISE-ILB-NU
+                  properties:
+                    endpointsConfiguration:
+                      connector:
+                        outgoingIpAddresses:
+                        - address: 40.127.188.117
+                        - address: 40.85.114.29
+                        - address: 10.43.2.0/24
+                        - address: 10.43.3.0/24
+                      workflow:
+                        accessEndpointIpAddresses:
+                        - address: 10.43.1.6
+                        outgoingIpAddresses:
+                        - address: 40.69.195.162
+                        - address: 10.43.1.0/24
+                    integrationServiceEnvironmentId: 13b261d30b984753869902d7f47f4d55
+                    networkConfiguration:
+                      accessEndpoint:
+                        type: Internal
+                      subnets:
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s1
+                        name: VNET-ILB-NorthEurope/s1
+                        type: Microsoft.Network/virtualNetworks/subnets
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s2
+                        name: VNET-ILB-NorthEurope/s2
+                        type: Microsoft.Network/virtualNetworks/subnets
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s3
+                        name: VNET-ILB-NorthEurope/s3
+                        type: Microsoft.Network/virtualNetworks/subnets
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s4
+                        name: VNET-ILB-NorthEurope/s4
+                        type: Microsoft.Network/virtualNetworks/subnets
+                    provisioningState: Succeeded
+                    state: Enabled
+                  sku:
+                    capacity: 0
+                    name: Developer
+                  type: Microsoft.Logic/integrationServiceEnvironments
+                - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/ISE-ILB-WCentralUS
+                  location: westcentralus
+                  name: ISE-ILB-WCentralUS
+                  properties:
+                    endpointsConfiguration:
+                      connector:
+                        outgoingIpAddresses:
+                        - address: 13.78.134.201
+                        - address: 13.77.206.166
+                        - address: 10.42.2.0/24
+                        - address: 10.42.3.0/24
+                      workflow:
+                        accessEndpointIpAddresses:
+                        - address: 10.42.1.5
+                        outgoingIpAddresses:
+                        - address: 13.78.237.166
+                        - address: 10.42.1.0/24
+                    integrationServiceEnvironmentId: 08bdba07c6b34ad6a263fc0152ff1735
+                    networkConfiguration:
+                      accessEndpoint:
+                        type: Internal
+                      subnets:
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-WCentralUS/subnets/s1
+                        name: VNET-ILB-WCentralUS/s1
+                        type: Microsoft.Network/virtualNetworks/subnets
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-WCentralUS/subnets/s2
+                        name: VNET-ILB-WCentralUS/s2
+                        type: Microsoft.Network/virtualNetworks/subnets
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-WCentralUS/subnets/s3
+                        name: VNET-ILB-WCentralUS/s3
+                        type: Microsoft.Network/virtualNetworks/subnets
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-WCentralUS/subnets/s4
+                        name: VNET-ILB-WCentralUS/s4
+                        type: Microsoft.Network/virtualNetworks/subnets
+                    provisioningState: Succeeded
+                    state: Enabled
+                  sku:
+                    capacity: 0
+                    name: Developer
+                  type: Microsoft.Logic/integrationServiceEnvironments
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Integration Service Environments_ List by Resource Group
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}
+  : delete:
+      description: Deletes an integration service environment.
+      operationId: IntegrationServiceEnvironments_Delete
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration service environment name.
+        in: path
+        name: integrationServiceEnvironmentName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationServiceEnvironments
+      x-ms-examples:
+        Delete an integration account:
+          parameters:
+            api-version: '2019-05-01'
+            integrationServiceEnvironmentName: testIntegrationServiceEnvironment
+            resourceGroup: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200': {}
+            '204': {}
+      summary: Azure Logic Apps Integration Service Environments_ Delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      description: Gets an integration service environment.
+      operationId: IntegrationServiceEnvironments_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration service environment name.
+        in: path
+        name: integrationServiceEnvironmentName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationServiceEnvironment'
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationServiceEnvironments
+      x-ms-examples:
+        Get integration service environment by name:
+          parameters:
+            api-version: '2019-05-01'
+            integrationServiceEnvironmentName: testIntegrationServiceEnvironment
+            resourceGroup: testResourceGroup
+            subscriptionId: f34b22a3-2202-4fb1-b040-1332bd928c84
+          responses:
+            '200':
+              body:
+                id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                location: northeurope
+                name: testIntegrationServiceEnvironment
+                properties:
+                  endpointsConfiguration:
+                    connector:
+                      outgoingIpAddresses:
+                      - address: 40.127.188.117
+                      - address: 40.85.114.29
+                      - address: 10.43.2.0/24
+                      - address: 10.43.3.0/24
+                    workflow:
+                      accessEndpointIpAddresses:
+                      - address: 10.43.1.6
+                      outgoingIpAddresses:
+                      - address: 40.69.195.162
+                      - address: 10.43.1.0/24
+                  integrationServiceEnvironmentId: 13b261d30b984753869902d7f47f4d55
+                  networkConfiguration:
+                    accessEndpoint:
+                      type: Internal
+                    subnets:
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s1
+                      name: VNET-ILB-NorthEurope/s1
+                      type: Microsoft.Network/virtualNetworks/subnets
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s2
+                      name: VNET-ILB-NorthEurope/s2
+                      type: Microsoft.Network/virtualNetworks/subnets
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s3
+                      name: VNET-ILB-NorthEurope/s3
+                      type: Microsoft.Network/virtualNetworks/subnets
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s4
+                      name: VNET-ILB-NorthEurope/s4
+                      type: Microsoft.Network/virtualNetworks/subnets
+                  provisioningState: Succeeded
+                  state: Enabled
+                sku:
+                  capacity: 0
+                  name: Developer
+                type: Microsoft.Logic/integrationServiceEnvironments
+      summary: Azure Logic Apps Integration Service Environments_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      description: Updates an integration service environment.
+      operationId: IntegrationServiceEnvironments_Update
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration service environment name.
+        in: path
+        name: integrationServiceEnvironmentName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - description: The integration service environment.
+        in: body
+        name: integrationServiceEnvironment
+        required: true
+        schema:
+          $ref: '#/definitions/IntegrationServiceEnvironment'
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationServiceEnvironment'
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationServiceEnvironments
+      x-ms-examples:
+        Patch an integration service environment:
+          parameters:
+            api-version: '2019-05-01'
+            integrationServiceEnvironment:
+              sku:
+                capacity: 0
+                name: Developer
+              tags:
+                tag1: value1
+            integrationServiceEnvironmentName: testIntegrationServiceEnvironment
+            resourceGroup: testResourceGroup
+            subscriptionId: f34b22a3-2202-4fb1-b040-1332bd928c84
+          responses:
+            '200':
+              body:
+                id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                location: northeurope
+                name: testIntegrationServiceEnvironment
+                properties:
+                  endpointsConfiguration:
+                    connector:
+                      outgoingIpAddresses:
+                      - address: 40.127.188.117
+                      - address: 40.85.114.29
+                      - address: 10.43.2.0/24
+                      - address: 10.43.3.0/24
+                    workflow:
+                      accessEndpointIpAddresses:
+                      - address: 10.43.1.6
+                      outgoingIpAddresses:
+                      - address: 40.69.195.162
+                      - address: 10.43.1.0/24
+                  integrationServiceEnvironmentId: 13b261d30b984753869902d7f47f4d55
+                  networkConfiguration:
+                    accessEndpoint:
+                      type: Internal
+                    subnets:
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s1
+                      name: VNET-ILB-NorthEurope/s1
+                      type: Microsoft.Network/virtualNetworks/subnets
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s2
+                      name: VNET-ILB-NorthEurope/s2
+                      type: Microsoft.Network/virtualNetworks/subnets
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s3
+                      name: VNET-ILB-NorthEurope/s3
+                      type: Microsoft.Network/virtualNetworks/subnets
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s4
+                      name: VNET-ILB-NorthEurope/s4
+                      type: Microsoft.Network/virtualNetworks/subnets
+                  provisioningState: InProgress
+                  state: Enabled
+                sku:
+                  capacity: 0
+                  name: Developer
+                type: Microsoft.Logic/integrationServiceEnvironments
+              headers:
+                azure-AsyncOperation: https://management.azure.com/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/operationStatuses/eyJmbG93T3BlcmF0aW9uIjoiUHV0SW50ZWdyYXRpb25TZXJ2aWNlRW52aXJvbm1lbnQiLCJvcGVyYXRpb25TZXF1ZW5jZUlkIjoiMDg1ODYzNjkwMzg1NzEwMTExNzUifQ==?api-version=2019-05-01
+      x-ms-long-running-operation: true
+      summary: Azure Logic Apps Integration Service Environments_ Update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      description: Creates or updates an integration service environment.
+      operationId: IntegrationServiceEnvironments_CreateOrUpdate
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration service environment name.
+        in: path
+        name: integrationServiceEnvironmentName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - description: The integration service environment.
+        in: body
+        name: integrationServiceEnvironment
+        required: true
+        schema:
+          $ref: '#/definitions/IntegrationServiceEnvironment'
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationServiceEnvironment'
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/IntegrationServiceEnvironment'
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationServiceEnvironments
+      x-ms-examples:
+        Create or update an integration service environment:
+          parameters:
+            api-version: '2019-05-01'
+            integrationServiceEnvironment:
+              location: brazilsouth
+              properties:
+                networkConfiguration:
+                  accessEndpoint:
+                    type: Internal
+                  subnets:
+                  - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s1
+                  - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s2
+                  - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s3
+                  - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s4
+              sku:
+                capacity: 2
+                name: Premium
+            integrationServiceEnvironmentName: testIntegrationServiceEnvironment
+            resourceGroup: testResourceGroup
+            subscriptionId: f34b22a3-2202-4fb1-b040-1332bd928c84
+          responses:
+            '200':
+              body:
+                id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                location: northeurope
+                name: testIntegrationServiceEnvironment
+                properties:
+                  endpointsConfiguration:
+                    connector:
+                      outgoingIpAddresses:
+                      - address: 40.127.188.117
+                      - address: 40.85.114.29
+                      - address: 10.43.2.0/24
+                      - address: 10.43.3.0/24
+                    workflow:
+                      accessEndpointIpAddresses:
+                      - address: 10.43.1.6
+                      outgoingIpAddresses:
+                      - address: 40.69.195.162
+                      - address: 10.43.1.0/24
+                  integrationServiceEnvironmentId: 13b261d30b984753869902d7f47f4d55
+                  networkConfiguration:
+                    accessEndpoint:
+                      type: Internal
+                    subnets:
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s1
+                      name: testVNET/s1
+                      type: Microsoft.Network/virtualNetworks/subnets
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s2
+                      name: testVNET/s2
+                      type: Microsoft.Network/virtualNetworks/subnets
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s3
+                      name: testVNET/s3
+                      type: Microsoft.Network/virtualNetworks/subnets
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s4
+                      name: testVNET/s4
+                      type: Microsoft.Network/virtualNetworks/subnets
+                  provisioningState: InProgress
+                  state: Enabled
+                sku:
+                  capacity: 0
+                  name: Developer
+                type: Microsoft.Logic/integrationServiceEnvironments
+              headers:
+                azure-AsyncOperation: https://management.azure.com/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/operationStatuses/eyJmbG93T3BlcmF0aW9uIjoiUHV0SW50ZWdyYXRpb25TZXJ2aWNlRW52aXJvbm1lbnQiLCJvcGVyYXRpb25TZXF1ZW5jZUlkIjoiMDg1ODYzNjkwMzg1NzEwMTExNzUifQ==?api-version=2019-05-01
+            '201':
+              body:
+                id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                location: northeurope
+                name: testIntegrationServiceEnvironment
+                properties:
+                  endpointsConfiguration:
+                    connector:
+                      outgoingIpAddresses:
+                      - address: 40.127.188.117
+                      - address: 40.85.114.29
+                      - address: 10.43.2.0/24
+                      - address: 10.43.3.0/24
+                    workflow:
+                      accessEndpointIpAddresses:
+                      - address: 10.43.1.6
+                      outgoingIpAddresses:
+                      - address: 40.69.195.162
+                      - address: 10.43.1.0/24
+                  integrationServiceEnvironmentId: 13b261d30b984753869902d7f47f4d55
+                  networkConfiguration:
+                    accessEndpoint:
+                      type: Internal
+                    subnets:
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s1
+                      name: testVNET/s1
+                      type: Microsoft.Network/virtualNetworks/subnets
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s2
+                      name: testVNET/s2
+                      type: Microsoft.Network/virtualNetworks/subnets
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s3
+                      name: testVNET/s3
+                      type: Microsoft.Network/virtualNetworks/subnets
+                    - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s4
+                      name: testVNET/s4
+                      type: Microsoft.Network/virtualNetworks/subnets
+                  provisioningState: InProgress
+                  state: Enabled
+                sku:
+                  capacity: 0
+                  name: Developer
+                type: Microsoft.Logic/integrationServiceEnvironments
+              headers:
+                azure-AsyncOperation: https://management.azure.com/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/operationStatuses/eyJmbG93T3BlcmF0aW9uIjoiUHV0SW50ZWdyYXRpb25TZXJ2aWNlRW52aXJvbm1lbnQiLCJvcGVyYXRpb25TZXF1ZW5jZUlkIjoiMDg1ODYzNjkwMzg1NzEwMTExNzUifQ==?api-version=2019-05-01
+      x-ms-long-running-operation: true
+      summary: Azure Logic Apps Integration Service Environments_ Create or Update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /subscriptions/{subscriptionId}/providers/Microsoft.Logic/integrationServiceEnvironments:
+    get:
+      description: Gets a list of integration service environments by subscription.
+      operationId: IntegrationServiceEnvironments_ListBySubscription
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/api-version'
+      - description: The number of items to be included in the result.
+        format: int32
+        in: query
+        name: $top
+        required: false
+        type: integer
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationServiceEnvironmentListResult'
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationServiceEnvironments
+      x-ms-examples:
+        List integration service environments by subscription:
+          parameters:
+            api-version: '2019-05-01'
+            subscriptionId: f34b22a3-2202-4fb1-b040-1332bd928c84
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/ISE-ILB-NU
+                  location: northeurope
+                  name: ISE-ILB-NU
+                  properties:
+                    endpointsConfiguration:
+                      connector:
+                        outgoingIpAddresses:
+                        - address: 40.127.188.117
+                        - address: 40.85.114.29
+                        - address: 10.43.2.0/24
+                        - address: 10.43.3.0/24
+                      workflow:
+                        accessEndpointIpAddresses:
+                        - address: 10.43.1.6
+                        outgoingIpAddresses:
+                        - address: 40.69.195.162
+                        - address: 10.43.1.0/24
+                    integrationServiceEnvironmentId: 13b261d30b984753869902d7f47f4d55
+                    networkConfiguration:
+                      accessEndpoint:
+                        type: Internal
+                      subnets:
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s1
+                        name: VNET-ILB-NorthEurope/s1
+                        type: Microsoft.Network/virtualNetworks/subnets
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s2
+                        name: VNET-ILB-NorthEurope/s2
+                        type: Microsoft.Network/virtualNetworks/subnets
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s3
+                        name: VNET-ILB-NorthEurope/s3
+                        type: Microsoft.Network/virtualNetworks/subnets
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s4
+                        name: VNET-ILB-NorthEurope/s4
+                        type: Microsoft.Network/virtualNetworks/subnets
+                    provisioningState: Succeeded
+                    state: Enabled
+                  sku:
+                    capacity: 0
+                    name: Developer
+                  type: Microsoft.Logic/integrationServiceEnvironments
+                - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/TestISE-WCentralUS
+                  location: westcentralus
+                  name: TestISE-WCentralUS
+                  properties:
+                    endpointsConfiguration:
+                      connector:
+                        outgoingIpAddresses:
+                        - address: 13.77.201.181
+                        - address: 13.77.203.57
+                        - address: 10.37.4.0/24
+                        - address: 10.37.3.0/24
+                      workflow:
+                        accessEndpointIpAddresses:
+                        - address: 13.77.204.22
+                        outgoingIpAddresses:
+                        - address: 52.161.103.0
+                        - address: 10.37.1.0/24
+                    integrationServiceEnvironmentId: dd470721b5b14148b9bf5b4d1ff27407
+                    networkConfiguration:
+                      accessEndpoint:
+                        type: External
+                      subnets:
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-wCUS/subnets/s4
+                        name: VNET-wCUS/s4
+                        type: Microsoft.Network/virtualNetworks/subnets
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-wCUS/subnets/s3
+                        name: VNET-wCUS/s3
+                        type: Microsoft.Network/virtualNetworks/subnets
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-wCUS/subnets/s2
+                        name: VNET-wCUS/s2
+                        type: Microsoft.Network/virtualNetworks/subnets
+                      - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-wCUS/subnets/s1
+                        name: VNET-wCUS/s1
+                        type: Microsoft.Network/virtualNetworks/subnets
+                    provisioningState: Succeeded
+                    state: Enabled
+                  sku:
+                    capacity: 1
+                    name: Premium
+                  type: Microsoft.Logic/integrationServiceEnvironments
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Integration Service Environments_ List by Subscription
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  NetworkConfiguration:
+    description: The network configuration.
+    properties:
+      accessEndpoint:
+        $ref: '#/definitions/IntegrationServiceEnvironmentAccessEndpoint'
+        description: The access endpoint.
+      subnets:
+        description: The subnets.
+        items:
+          $ref: '#/definitions/ResourceReference'
+          description: The subnet.
+        type: array
+      virtualNetworkAddressSpace:
+        description: Gets the virtual network address space.
+        type: string
+    type: object
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  IntegrationServiceEnvironmentProperties:
+    description: The integration service environment properties.
+    properties:
+      endpointsConfiguration:
+        $ref: '#/definitions/FlowEndpointsConfiguration'
+        description: The endpoints configuration.
+      integrationServiceEnvironmentId:
+        description: Gets the tracking id.
+        type: string
+      networkConfiguration:
+        $ref: '#/definitions/NetworkConfiguration'
+        description: The network configuration.
+      provisioningState:
+        $ref: '#/definitions/WorkflowProvisioningState'
+        description: The provisioning state.
+      state:
+        $ref: '#/definitions/WorkflowState'
+        description: The integration service environment state.
+    type: object
+  FlowEndpointsConfiguration:
+    description: The endpoints configuration.
+    properties:
+      connector:
+        $ref: '#/definitions/FlowEndpoints'
+        description: The connector endpoints.
+      workflow:
+        $ref: '#/definitions/FlowEndpoints'
+        description: The workflow endpoints.
+    type: object
+  Resource:
+    description: The base resource type.
+    properties:
+      id:
+        description: The resource id.
+        readOnly: true
+        type: string
+      location:
+        description: The resource location.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The resource tags.
+        type: object
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    x-ms-azure-resource: true
+  IntegrationServiceEnvironmentSkuName:
+    description: The integration service environment sku name.
+    enum:
+    - NotSpecified
+    - Premium
+    - Developer
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: IntegrationServiceEnvironmentSkuName
+  IntegrationServiceEnvironmentSku:
+    description: The integration service environment sku.
+    properties:
+      capacity:
+        description: The sku capacity.
+        format: int32
+        type: integer
+      name:
+        $ref: '#/definitions/IntegrationServiceEnvironmentSkuName'
+        description: The sku name.
+    type: object
+  IntegrationServiceEnvironmentListResult:
+    description: The list of integration service environments.
+    properties:
+      nextLink:
+        description: The URL to get the next set of results.
+        type: string
+      value:
+        items:
+          $ref: '#/definitions/IntegrationServiceEnvironment'
+          description: The integration service environment.
+        type: array
+    type: object
+  ResourceReference:
+    description: The resource reference.
+    properties:
+      id:
+        description: The resource id.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    type: object
+  WorkflowState:
+    description: The workflow state.
+    enum:
+    - NotSpecified
+    - Completed
+    - Enabled
+    - Disabled
+    - Deleted
+    - Suspended
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: WorkflowState
+  IntegrationServiceEnvironmentAccessEndpoint:
+    description: The integration service environment access endpoint.
+    properties:
+      type:
+        $ref: '#/definitions/IntegrationServiceEnvironmentAccessEndpointType'
+        description: The access endpoint type.
+    type: object
+  IntegrationServiceEnvironment:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: The integration service environment.
+    properties:
+      properties:
+        $ref: '#/definitions/IntegrationServiceEnvironmentProperties'
+        description: The integration service environment properties.
+      sku:
+        $ref: '#/definitions/IntegrationServiceEnvironmentSku'
+        description: The sku.
+    type: object
+  IntegrationServiceEnvironmentAccessEndpointType:
+    description: The integration service environment access endpoint type.
+    enum:
+    - NotSpecified
+    - External
+    - Internal
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: IntegrationServiceEnvironmentAccessEndpointType
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+  IpAddress:
+    description: The ip address.
+    properties:
+      address:
+        description: The address.
+        type: string
+    type: object
+  FlowEndpoints:
+    description: The flow endpoints configuration.
+    properties:
+      accessEndpointIpAddresses:
+        description: The access endpoint ip address.
+        items:
+          $ref: '#/definitions/IpAddress'
+          description: The ip address.
+        type: array
+      outgoingIpAddresses:
+        description: The outgoing ip address.
+        items:
+          $ref: '#/definitions/IpAddress'
+          description: The ip address.
+        type: array
+    type: object
+  WorkflowProvisioningState:
+    description: The workflow provisioning state.
+    enum:
+    - NotSpecified
+    - Accepted
+    - Running
+    - Ready
+    - Creating
+    - Created
+    - Deleting
+    - Deleted
+    - Canceled
+    - Failed
+    - Succeeded
+    - Moving
+    - Updating
+    - Registering
+    - Registered
+    - Unregistering
+    - Unregistered
+    - Completed
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: WorkflowProvisioningState
+parameters:
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2

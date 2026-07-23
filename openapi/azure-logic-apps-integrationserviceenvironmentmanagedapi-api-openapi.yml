@@ -1,0 +1,594 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements integrationServiceEnvironmentManagedApi API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: integrationServiceEnvironmentManagedApi
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}/managedApis/{apiName}
+  : delete:
+      description: Deletes the integration service environment managed Api.
+      operationId: IntegrationServiceEnvironmentManagedApis_Delete
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration service environment name.
+        in: path
+        name: integrationServiceEnvironmentName
+        required: true
+        type: string
+        example: example-value
+      - description: The api name.
+        in: path
+        name: apiName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '202':
+          description: Accepted
+        '204':
+          description: No Content
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - integrationServiceEnvironmentManagedApi
+      x-ms-examples:
+        Deletes the integration service environment managed Apis:
+          parameters:
+            api-version: '2019-05-01'
+            apiName: servicebus
+            integrationServiceEnvironmentName: testIntegrationServiceEnvironment
+            resourceGroup: testResourceGroup
+            subscriptionId: f34b22a3-2202-4fb1-b040-1332bd928c84
+          responses:
+            '202':
+              headers:
+                azure-AsyncOperation: https://management.azure.com/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/operationStatuses/eyJmbG93T3BlcmF0aW9uIjoiRGVsZXRlSW50ZWdyYXRpb25TZXJ2aWNlRW52aXJvbm1lbnRNYW5hZ2VkQXBpIiwib3BlcmF0aW9uU2VxdWVuY2VJZCI6IjA4NTg2MzY1NzE2MzI5MzE0OTU3In0=?api-version=2019-05-01
+            '204': {}
+      x-ms-long-running-operation: true
+      summary: Azure Logic Apps Integration Service Environment Managed Apis_ Delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      description: Gets the integration service environment managed Api.
+      operationId: IntegrationServiceEnvironmentManagedApis_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration service environment name.
+        in: path
+        name: integrationServiceEnvironmentName
+        required: true
+        type: string
+        example: example-value
+      - description: The api name.
+        in: path
+        name: apiName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ManagedApi'
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - integrationServiceEnvironmentManagedApi
+      x-ms-examples:
+        Gets the integration service environment managed Apis:
+          parameters:
+            api-version: '2019-05-01'
+            apiName: servicebus
+            integrationServiceEnvironmentName: testIntegrationServiceEnvironment
+            resourceGroup: testResourceGroup
+            subscriptionId: f34b22a3-2202-4fb1-b040-1332bd928c84
+          responses:
+            '200':
+              body:
+                id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus
+                location: northeurope
+                name: servicebus
+                properties:
+                  capabilities:
+                  - actions
+                  connectionParameters:
+                    connectionString:
+                      type: securestring
+                      uiDefinition:
+                        constraints:
+                          required: 'true'
+                        description: Azure Service Bus Connection String
+                        displayName: Connection String
+                        tooltip: Provide Azure Service Bus Connection String
+                  generalInformation:
+                    description: Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
+                    displayName: Service Bus
+                    iconUrl: https://cpgeneralstore.blob.core.windows.net/officialicons/servicebus/icon_1.0.1206.1574.png
+                    releaseTag: Production
+                    tier: Standard
+                  integrationServiceEnvironment:
+                    id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                    name: testIntegrationServiceEnvironment
+                    type: Microsoft.Logic/integrationServiceEnvironments
+                  metadata:
+                    brandColor: '#c4d5ff'
+                    source: marketplace
+                  name: servicebus
+                  provisioningState: Succeeded
+                  runtimeUrls:
+                  - https://flow-weiroa6odksti-db-apim-runtime.northeurope.environments.microsoftazurelogicapps.net/apim/servicebus
+                type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+      summary: Azure Logic Apps Integration Service Environment Managed Apis_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      description: Puts the integration service environment managed Api.
+      operationId: IntegrationServiceEnvironmentManagedApis_Put
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration service environment name.
+        in: path
+        name: integrationServiceEnvironmentName
+        required: true
+        type: string
+        example: example-value
+      - description: The api name.
+        in: path
+        name: apiName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ManagedApi'
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/ManagedApi'
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - integrationServiceEnvironmentManagedApi
+      x-ms-examples:
+        Gets the integration service environment managed Apis:
+          parameters:
+            api-version: '2019-05-01'
+            apiName: servicebus
+            integrationServiceEnvironmentName: testIntegrationServiceEnvironment
+            resourceGroup: testResourceGroup
+            subscriptionId: f34b22a3-2202-4fb1-b040-1332bd928c84
+          responses:
+            '200':
+              body:
+                id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/rohithah-ise/providers/Microsoft.Logic/integrationServiceEnvironments/tes-ise-ga/managedApis/servicebus
+                location: brazilsouth
+                name: servicebus
+                properties:
+                  category: Standard
+                  generalInformation:
+                    description: Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
+                    displayName: Service Bus
+                    iconUrl: https://connectoricons-df.azureedge.net/servicebus/icon_1.0.1223.1623.png
+                    releaseTag: Production
+                    tier: Standard
+                  integrationServiceEnvironment:
+                    id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/rohithah-ise/providers/Microsoft.Logic/integrationServiceEnvironments/tes-ise-ga
+                    name: tes-ise-ga
+                    type: Microsoft.Logic/integrationServiceEnvironments
+                  provisioningState: InProgress
+                type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+              headers:
+                azure-AsyncOperation: https://management.azure.com/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/rohithah-ise/providers/Microsoft.Logic/integrationServiceEnvironments/tes-ise-ga/managedApis/servicebus/operationStatuses/eyJmbG93T3BlcmF0aW9uIjoiUHV0SW50ZWdyYXRpb25TZXJ2aWNlRW52aXJvbm1lbnRNYW5hZ2VkQXBpIiwib3BlcmF0aW9uU2VxdWVuY2VJZCI6IjA4NTg2MzY1Njk4NjQ3MjkwMTEwIn0=?api-version=2019-05-01
+            '201':
+              body:
+                id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/rohithah-ise/providers/Microsoft.Logic/integrationServiceEnvironments/tes-ise-ga/managedApis/servicebus
+                location: brazilsouth
+                name: servicebus
+                properties:
+                  category: Standard
+                  generalInformation:
+                    description: Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
+                    displayName: Service Bus
+                    iconUrl: https://connectoricons-df.azureedge.net/servicebus/icon_1.0.1223.1623.png
+                    releaseTag: Production
+                    tier: Standard
+                  integrationServiceEnvironment:
+                    id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/rohithah-ise/providers/Microsoft.Logic/integrationServiceEnvironments/tes-ise-ga
+                    name: tes-ise-ga
+                    type: Microsoft.Logic/integrationServiceEnvironments
+                  provisioningState: InProgress
+                type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+              headers:
+                azure-AsyncOperation: https://management.azure.com/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/rohithah-ise/providers/Microsoft.Logic/integrationServiceEnvironments/tes-ise-ga/managedApis/servicebus/operationStatuses/eyJmbG93T3BlcmF0aW9uIjoiUHV0SW50ZWdyYXRpb25TZXJ2aWNlRW52aXJvbm1lbnRNYW5hZ2VkQXBpIiwib3BlcmF0aW9uU2VxdWVuY2VJZCI6IjA4NTg2MzY1Njk4NjQ3MjkwMTEwIn0=?api-version=2019-05-01
+      x-ms-long-running-operation: true
+      summary: Azure Logic Apps Integration Service Environment Managed Apis_ Put
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  Resource:
+    description: The base resource type.
+    properties:
+      id:
+        description: The resource id.
+        readOnly: true
+        type: string
+      location:
+        description: The resource location.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The resource tags.
+        type: object
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    x-ms-azure-resource: true
+  ResourceReference:
+    description: The resource reference.
+    properties:
+      id:
+        description: The resource id.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    type: object
+  ApiResourceMetadata:
+    description: The api resource metadata.
+    properties:
+      ApiType:
+        $ref: '#/definitions/ApiType'
+        description: The api type.
+      brandColor:
+        description: The brand color.
+        type: string
+      connectionType:
+        description: The connection type.
+        type: string
+      deploymentParameters:
+        $ref: '#/definitions/ApiDeploymentParameterMetadataSet'
+        description: The connector deployment parameters metadata.
+      hideKey:
+        description: The hide key.
+        type: string
+      provisioningState:
+        $ref: '#/definitions/WorkflowProvisioningState'
+        description: The provisioning state.
+      source:
+        description: The source.
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The tags.
+        type: object
+      wsdlImportMethod:
+        $ref: '#/definitions/WsdlImportMethod'
+        description: The WSDL import method.
+      wsdlService:
+        $ref: '#/definitions/WsdlService'
+        description: The WSDL service.
+    type: object
+  WsdlService:
+    description: The WSDL service.
+    properties:
+      EndpointQualifiedNames:
+        description: The list of endpoints' qualified names.
+        items:
+          type: string
+        type: array
+      qualifiedName:
+        description: The qualified name.
+        type: string
+    type: object
+  ApiDeploymentParameterVisibility:
+    description: The Api deployment parameter visibility.
+    enum:
+    - NotSpecified
+    - Default
+    - Internal
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: ApiDeploymentParameterVisibility
+  ApiDeploymentParameterMetadataSet:
+    description: The API deployment parameters metadata.
+    properties:
+      packageContentLink:
+        $ref: '#/definitions/ApiDeploymentParameterMetadata'
+        description: The package content link parameter.
+      redisCacheConnectionString:
+        $ref: '#/definitions/ApiDeploymentParameterMetadata'
+        description: The package content link parameter.
+    type: object
+  ApiResourceDefinitions:
+    description: The Api resource definition.
+    properties:
+      modifiedSwaggerUrl:
+        description: The modified swagger url.
+        type: string
+      originalSwaggerUrl:
+        description: The original swagger url.
+        type: string
+    type: object
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+  WsdlImportMethod:
+    description: The WSDL import method.
+    enum:
+    - NotSpecified
+    - SoapToRest
+    - SoapPassThrough
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: WsdlImportMethod
+  ApiDeploymentParameterMetadata:
+    description: The API deployment parameter metadata.
+    properties:
+      description:
+        description: The description.
+        type: string
+      displayName:
+        description: The display name.
+        type: string
+      isRequired:
+        description: Indicates whether its required.
+        type: boolean
+      type:
+        description: The type.
+        type: string
+      visibility:
+        $ref: '#/definitions/ApiDeploymentParameterVisibility'
+        description: The visibility.
+    type: object
+  ApiResourcePolicies:
+    description: The API resource policies.
+    properties:
+      content:
+        description: The API level only policies XML as embedded content.
+        type: string
+      contentLink:
+        description: The content link to the policies.
+        type: string
+    type: object
+  ApiResourceProperties:
+    description: The API resource properties.
+    properties:
+      apiDefinitionUrl:
+        description: The API definition.
+        type: string
+      apiDefinitions:
+        $ref: '#/definitions/ApiResourceDefinitions'
+        description: The api definitions.
+      backendService:
+        $ref: '#/definitions/ApiResourceBackendService'
+        description: The backend service.
+      capabilities:
+        description: The capabilities.
+        items:
+          type: string
+        type: array
+      category:
+        $ref: '#/definitions/ApiTier'
+        description: The category.
+      connectionParameters:
+        additionalProperties:
+          $ref: '#/definitions/Object'
+        description: The connection parameters.
+        type: object
+      generalInformation:
+        $ref: '#/definitions/ApiResourceGeneralInformation'
+        description: The api general information.
+      integrationServiceEnvironment:
+        $ref: '#/definitions/ResourceReference'
+        description: The integration service environment reference.
+      metadata:
+        $ref: '#/definitions/ApiResourceMetadata'
+        description: The metadata.
+      name:
+        description: The name
+        type: string
+      policies:
+        $ref: '#/definitions/ApiResourcePolicies'
+        description: The policies for the API.
+      provisioningState:
+        $ref: '#/definitions/WorkflowProvisioningState'
+        description: The provisioning state.
+      runtimeUrls:
+        description: The runtime urls.
+        items:
+          type: string
+        type: array
+    type: object
+  ManagedApi:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: The managed api definition.
+    properties:
+      properties:
+        $ref: '#/definitions/ApiResourceProperties'
+        description: The api resource properties.
+    type: object
+  Object:
+    properties: {}
+    type: object
+  ApiTier:
+    description: The Api tier.
+    enum:
+    - NotSpecified
+    - Enterprise
+    - Standard
+    - Premium
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: ApiTier
+  ApiResourceBackendService:
+    description: The API backend service.
+    properties:
+      serviceUrl:
+        description: The service URL.
+        type: string
+    type: object
+  ApiType:
+    enum:
+    - NotSpecified
+    - Rest
+    - Soap
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: ApiType
+  ApiResourceGeneralInformation:
+    description: The API general information.
+    properties:
+      description:
+        description: The description.
+        type: string
+      displayName:
+        description: The display name.
+        type: string
+      iconUrl:
+        description: The icon url.
+        type: string
+      releaseTag:
+        description: The release tag.
+        type: string
+      termsOfUseUrl:
+        description: The terms of use url.
+        type: string
+      tier:
+        $ref: '#/definitions/ApiTier'
+        description: The tier.
+    type: object
+  WorkflowProvisioningState:
+    description: The workflow provisioning state.
+    enum:
+    - NotSpecified
+    - Accepted
+    - Running
+    - Ready
+    - Creating
+    - Created
+    - Deleting
+    - Deleted
+    - Canceled
+    - Failed
+    - Succeeded
+    - Moving
+    - Updating
+    - Registering
+    - Registered
+    - Unregistering
+    - Unregistered
+    - Completed
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: WorkflowProvisioningState
+parameters:
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2

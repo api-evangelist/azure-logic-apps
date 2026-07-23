@@ -1,0 +1,558 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements IntegrationAccountBatchConfigurations API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: IntegrationAccountBatchConfigurations
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/batchConfigurations
+  : get:
+      description: List the batch configurations for an integration account.
+      operationId: IntegrationAccountBatchConfigurations_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/BatchConfigurationCollection'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountBatchConfigurations
+      x-ms-examples:
+        List batch configurations:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testIntegrationAccount
+            resourceGroupName: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/batchConfigurations/testBatchConfiguration
+                  name: testBatchConfiguration
+                  properties:
+                    batchGroupName: DEFAULT
+                    changedTime: '2018-03-26T06:14:16.7042301Z'
+                    createdTime: '2018-03-26T06:14:16.6518552Z'
+                    releaseCriteria:
+                      batchSize: 234567
+                      messageCount: 10
+                      recurrence:
+                        frequency: Minute
+                        interval: 1
+                        startTime: '2017-03-24T11:43:00'
+                        timeZone: India Standard Time
+                  type: Microsoft.Logic/integrationAccounts/batchConfigurations
+      x-ms-pageable:
+        nextLinkName: null
+      summary: Azure Logic Apps Integration Account Batch Configurations_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/batchConfigurations/{batchConfigurationName}
+  : delete:
+      description: Delete a batch configuration for an integration account.
+      operationId: IntegrationAccountBatchConfigurations_Delete
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The batch configuration name.
+        in: path
+        name: batchConfigurationName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountBatchConfigurations
+      x-ms-examples:
+        Delete a batch configuration:
+          parameters:
+            api-version: '2019-05-01'
+            batchConfigurationName: testBatchConfiguration
+            integrationAccountName: testIntegrationAccount
+            resourceGroupName: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200': {}
+            '204': {}
+      summary: Azure Logic Apps Integration Account Batch Configurations_ Delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      description: Get a batch configuration for an integration account.
+      operationId: IntegrationAccountBatchConfigurations_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The batch configuration name.
+        in: path
+        name: batchConfigurationName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/BatchConfiguration'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountBatchConfigurations
+      x-ms-examples:
+        Get a batch configuration:
+          parameters:
+            api-version: '2019-05-01'
+            batchConfigurationName: testBatchConfiguration
+            integrationAccountName: testIntegrationAccount
+            resourceGroupName: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/batchConfigurations/testBatchConfiguration
+                name: testBatchConfiguration
+                properties:
+                  batchGroupName: DEFAULT
+                  changedTime: '2018-03-26T06:14:16.7042301Z'
+                  createdTime: '2018-03-26T06:14:16.6518552Z'
+                  releaseCriteria:
+                    batchSize: 234567
+                    messageCount: 10
+                    recurrence:
+                      frequency: Minute
+                      interval: 1
+                      startTime: '2017-03-24T11:43:00'
+                      timeZone: India Standard Time
+                type: Microsoft.Logic/integrationAccounts/batchConfigurations
+      summary: Azure Logic Apps Integration Account Batch Configurations_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      description: Create or update a batch configuration for an integration account.
+      operationId: IntegrationAccountBatchConfigurations_CreateOrUpdate
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The batch configuration name.
+        in: path
+        name: batchConfigurationName
+        required: true
+        type: string
+        example: example-value
+      - description: The batch configuration.
+        in: body
+        name: batchConfiguration
+        required: true
+        schema:
+          $ref: '#/definitions/BatchConfiguration'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/BatchConfiguration'
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/BatchConfiguration'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountBatchConfigurations
+      x-ms-examples:
+        Create or update a batch configuration:
+          parameters:
+            api-version: '2019-05-01'
+            batchConfiguration:
+              location: westus
+              properties:
+                batchGroupName: DEFAULT
+                releaseCriteria:
+                  batchSize: 234567
+                  messageCount: 10
+                  recurrence:
+                    frequency: Minute
+                    interval: 1
+                    startTime: '2017-03-24T11:43:00'
+                    timeZone: India Standard Time
+            batchConfigurationName: testBatchConfiguration
+            integrationAccountName: testIntegrationAccount
+            resourceGroupName: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/batchConfigurations/testBatchConfiguration
+                name: testBatchConfiguration
+                properties:
+                  batchGroupName: DEFAULT
+                  changedTime: '2018-03-26T06:14:16.7042301Z'
+                  createdTime: '2018-03-26T06:14:16.6518552Z'
+                  releaseCriteria:
+                    batchSize: 234567
+                    messageCount: 10
+                    recurrence:
+                      frequency: Minute
+                      interval: 1
+                      startTime: '2017-03-24T11:43:00'
+                      timeZone: India Standard Time
+                type: Microsoft.Logic/integrationAccounts/batchConfigurations
+            '201':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/batchConfigurations/testBatchConfiguration
+                name: testBatchConfiguration
+                properties:
+                  batchGroupName: DEFAULT
+                  changedTime: '2018-03-26T06:14:16.7042301Z'
+                  createdTime: '2018-03-26T06:14:16.6518552Z'
+                  releaseCriteria:
+                    batchSize: 234567
+                    messageCount: 10
+                    recurrence:
+                      frequency: Minute
+                      interval: 1
+                      startTime: '2017-03-24T11:43:00'
+                      timeZone: India Standard Time
+                type: Microsoft.Logic/integrationAccounts/batchConfigurations
+      summary: Azure Logic Apps Integration Account Batch Configurations_ Create or Update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  BatchConfigurationCollection:
+    description: A collection of batch configurations.
+    properties:
+      value:
+        items:
+          $ref: '#/definitions/BatchConfiguration'
+        type: array
+    type: object
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  BatchReleaseCriteria:
+    additionalProperties: false
+    description: The batch release criteria.
+    properties:
+      batchSize:
+        description: The batch size in bytes.
+        format: int32
+        type: integer
+      messageCount:
+        description: The message count.
+        format: int32
+        type: integer
+      recurrence:
+        $ref: '#/definitions/WorkflowTriggerRecurrence'
+        description: The recurrence.
+    type: object
+  BatchConfiguration:
+    additionalProperties: false
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: The batch configuration resource definition.
+    properties:
+      properties:
+        $ref: '#/definitions/BatchConfigurationProperties'
+        description: The batch configuration properties.
+    required:
+    - properties
+    type: object
+  ArtifactProperties:
+    additionalProperties: false
+    description: The artifact properties definition.
+    properties:
+      changedTime:
+        description: The artifact changed time.
+        format: date-time
+        type: string
+      createdTime:
+        description: The artifact creation time.
+        format: date-time
+        type: string
+      metadata: {}
+    type: object
+  RecurrenceFrequency:
+    description: The recurrence frequency.
+    enum:
+    - NotSpecified
+    - Second
+    - Minute
+    - Hour
+    - Day
+    - Week
+    - Month
+    - Year
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: RecurrenceFrequency
+  WorkflowTriggerRecurrence:
+    description: The workflow trigger recurrence.
+    properties:
+      endTime:
+        description: The end time.
+        type: string
+      frequency:
+        $ref: '#/definitions/RecurrenceFrequency'
+        description: The frequency.
+      interval:
+        description: The interval.
+        format: int32
+        type: integer
+      schedule:
+        $ref: '#/definitions/RecurrenceSchedule'
+        description: The recurrence schedule.
+      startTime:
+        description: The start time.
+        type: string
+      timeZone:
+        description: The time zone.
+        type: string
+    type: object
+  BatchConfigurationProperties:
+    additionalProperties: false
+    allOf:
+    - $ref: '#/definitions/ArtifactProperties'
+    description: The batch configuration properties definition.
+    properties:
+      batchGroupName:
+        description: The name of the batch group.
+        type: string
+      changedTime:
+        description: The changed time.
+        format: date-time
+        type: string
+      createdTime:
+        description: The created time.
+        format: date-time
+        type: string
+      releaseCriteria:
+        $ref: '#/definitions/BatchReleaseCriteria'
+        description: The batch release criteria.
+    required:
+    - batchGroupName
+    - releaseCriteria
+    type: object
+  RecurrenceScheduleOccurrence:
+    description: The recurrence schedule occurrence.
+    properties:
+      day:
+        $ref: '#/definitions/DayOfWeek'
+        description: The day of the week.
+      occurrence:
+        description: The occurrence.
+        format: int32
+        type: integer
+    type: object
+  Resource:
+    description: The base resource type.
+    properties:
+      id:
+        description: The resource id.
+        readOnly: true
+        type: string
+      location:
+        description: The resource location.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The resource tags.
+        type: object
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    x-ms-azure-resource: true
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+  DayOfWeek:
+    description: The day of the week.
+    enum:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    type: string
+    x-ms-enum:
+      modelAsString: false
+      name: DayOfWeek
+  RecurrenceSchedule:
+    description: The recurrence schedule.
+    properties:
+      hours:
+        description: The hours.
+        items:
+          format: int32
+          type: integer
+        type: array
+      minutes:
+        description: The minutes.
+        items:
+          format: int32
+          type: integer
+        type: array
+      monthDays:
+        description: The month days.
+        items:
+          format: int32
+          type: integer
+        type: array
+      monthlyOccurrences:
+        description: The monthly occurrences.
+        items:
+          $ref: '#/definitions/RecurrenceScheduleOccurrence'
+        type: array
+      weekDays:
+        description: The days of the week.
+        items:
+          enum:
+          - Sunday
+          - Monday
+          - Tuesday
+          - Wednesday
+          - Thursday
+          - Friday
+          - Saturday
+          type: string
+          x-ms-enum:
+            modelAsString: false
+            name: DaysOfWeek
+        type: array
+    type: object
+parameters:
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2

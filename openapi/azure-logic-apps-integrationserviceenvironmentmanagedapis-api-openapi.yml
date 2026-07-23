@@ -1,0 +1,1775 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements integrationServiceEnvironmentManagedApis API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: integrationServiceEnvironmentManagedApis
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}/managedApis
+  : get:
+      description: Gets the integration service environment managed Apis.
+      operationId: IntegrationServiceEnvironmentManagedApis_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration service environment name.
+        in: path
+        name: integrationServiceEnvironmentName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ManagedApiListResult'
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - integrationServiceEnvironmentManagedApis
+      x-ms-examples:
+        Gets the integration service environment managed Apis:
+          parameters:
+            api-version: '2019-05-01'
+            integrationServiceEnvironmentName: testIntegrationServiceEnvironment
+            resourceGroup: testResourceGroup
+            subscriptionId: f34b22a3-2202-4fb1-b040-1332bd928c84
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/azurefile
+                  location: brazilsouth
+                  name: azurefile
+                  properties:
+                    capabilities:
+                    - blob
+                    connectionParameters:
+                      accessKey:
+                        type: securestring
+                        uiDefinition:
+                          constraints:
+                            required: 'true'
+                          description: Specify a valid primary/secondary storage account access key.
+                          displayName: Azure Storage Account Access Key
+                          tooltip: Specify a valid primary/secondary storage account access key.
+                      accountName:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            required: 'true'
+                          description: Name of the storage account the connector should use.
+                          displayName: Azure Storage Account name
+                          tooltip: Provide the storage account name
+                    generalInformation:
+                      description: Microsoft Azure Storage provides a massively scalable, durable, and highly available storage for data on the cloud, and serves as the data storage solution for modern applications. Connect to File Storage to perform various operations such as create, update, get and delete on files in your Azure Storage account.
+                      displayName: Azure File Storage
+                      iconUrl: https://powerappsconnectorsdf.blob.core.windows.net/officialicons/azurefile/icon_1.0.1216.1605.png
+                      releaseTag: Preview
+                      tier: Standard
+                    integrationServiceEnvironment:
+                      id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                      name: tes-ise-ga
+                      type: Microsoft.Logic/integrationServiceEnvironments
+                    metadata:
+                      brandColor: '#804998'
+                      source: marketplace
+                    name: azurefile
+                    provisioningState: Succeeded
+                    runtimeUrls:
+                    - https://flow-yticlpbiumhig-cqsn-apim-runtime.brazilus.environments.microsoftazurelogicapps.net/apim/azurefile
+                  type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+                - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/azuretables
+                  location: brazilsouth
+                  name: azuretables
+                  properties:
+                    capabilities:
+                    - actions
+                    connectionParameters:
+                      sharedkey:
+                        type: securestring
+                        uiDefinition:
+                          constraints:
+                            required: 'true'
+                          description: The shared storage key of your storage account
+                          displayName: Shared Storage Key
+                          tooltip: Provide a shared storage key for the storage account used for tables as it appears in the Azure portal
+                      storageaccount:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            required: 'true'
+                          description: The name of your storage account
+                          displayName: Storage Account Name
+                          tooltip: Provide the name of the storage account used for tables as it appears in the Azure portal
+                    generalInformation:
+                      description: Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Sign into your Storage account to create, update, and query tables and more.
+                      displayName: Azure Table Storage
+                      iconUrl: https://powerappsconnectorsdf.blob.core.windows.net/officialicons/azuretables/icon_1.0.1216.1605.png
+                      releaseTag: Production
+                      tier: Standard
+                    integrationServiceEnvironment:
+                      id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                      name: testIntegrationServiceEnvironment
+                      type: Microsoft.Logic/integrationServiceEnvironments
+                    metadata:
+                      brandColor: '#804998'
+                      source: marketplace
+                    name: azuretables
+                    provisioningState: Succeeded
+                    runtimeUrls:
+                    - https://flow-yticlpbiumhig-cqsn-apim-runtime.brazilus.environments.microsoftazurelogicapps.net/apim/azuretables
+                  type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+                - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/eventhubs
+                  location: brazilsouth
+                  name: eventhubs
+                  properties:
+                    capabilities:
+                    - actions
+                    connectionParameters:
+                      connectionString:
+                        type: securestring
+                        uiDefinition:
+                          constraints:
+                            required: 'true'
+                          description: Azure Event Hubs Connection String
+                          displayName: Connection String
+                          tooltip: Provide Azure Event Hubs Connection String
+                    generalInformation:
+                      description: Connect to Azure Event Hubs to send and receive events.
+                      displayName: Event Hubs
+                      iconUrl: https://connectoricons-df.azureedge.net/eventhubs/icon_1.0.1228.1637.png
+                      releaseTag: Production
+                      tier: Standard
+                    integrationServiceEnvironment:
+                      id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                      name: testIntegrationServiceEnvironment
+                      type: Microsoft.Logic/integrationServiceEnvironments
+                    metadata:
+                      brandColor: '#c4d5ff'
+                      source: marketplace
+                    name: eventhubs
+                    provisioningState: Succeeded
+                    runtimeUrls:
+                    - https://flow-yticlpbiumhig-cqsn-apim-runtime.brazilus.environments.microsoftazurelogicapps.net/apim/eventhubs
+                  type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+                - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/mq
+                  location: brazilsouth
+                  name: mq
+                  properties:
+                    capabilities:
+                    - actions
+                    - cloud
+                    connectionParameters:
+                      authType:
+                        allowedValues:
+                        - value: basic
+                        - value: anonymous
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            allowedValues:
+                            - text: Basic
+                              value: basic
+                            - text: Anonymous
+                              value: anonymous
+                            capability: []
+                            required: 'true'
+                            tabIndex: 6
+                          description: Authentication type to connect to your Queue Manager
+                          displayName: Authentication
+                          tooltip: Authentication type to connect to your Queue Manager
+                      channel:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - cloud
+                            required: 'true'
+                            tabIndex: 3
+                          description: The channel to connect to the Queue Manager on.
+                          displayName: Channel name
+                          tooltip: Channel name
+                      effectiveUserName:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - cloud
+                            clearText: true
+                            required: 'true'
+                            tabIndex: 5
+                          description: The user name to use when connecting to MQ.
+                          displayName: Connect As
+                          tooltip: Connect As
+                      enableSSL:
+                        type: bool
+                        uiDefinition:
+                          constraints:
+                            capability: []
+                            required: 'false'
+                            tabIndex: 9
+                          description: Enable SSL? (True/False)
+                          displayName: Enable SSL?
+                          tooltip: Specify if SSL needs to be enabled
+                      password:
+                        type: securestring
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - cloud
+                            required: 'false'
+                            tabIndex: 8
+                          description: Password credential
+                          displayName: Password
+                          tooltip: Password credential
+                      queue:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - cloud
+                            required: 'true'
+                            tabIndex: 4
+                          description: The name of the default queue, may be overriden.
+                          displayName: Default queue name
+                          tooltip: Default queue name
+                      queueManager:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - cloud
+                            required: 'true'
+                            tabIndex: 2
+                          description: The name of the Queue Manager to connect to.
+                          displayName: Queue Manager name
+                          tooltip: Queue Manager name
+                      server:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - cloud
+                            required: 'true'
+                            tabIndex: 1
+                          description: The host name and port the MQ server is running on (host:port).
+                          displayName: Server
+                          tooltip: Server:Port
+                      username:
+                        type: securestring
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - cloud
+                            clearText: true
+                            required: 'false'
+                            tabIndex: 7
+                          description: Username credential
+                          displayName: Username
+                          tooltip: Username credential
+                    generalInformation:
+                      description: Microsoft Connector for MQ integrates Azure applications with resources stored in an IBM WebSphere MQ server. Supports message send and receive operations.
+                      displayName: MQ
+                      iconUrl: https://powerappsconnectorsdf.blob.core.windows.net/officialicons/mq/icon_1.0.1216.1605.png
+                      releaseTag: Production
+                      tier: Enterprise
+                    integrationServiceEnvironment:
+                      id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                      name: testIntegrationServiceEnvironment
+                      type: Microsoft.Logic/integrationServiceEnvironments
+                    metadata:
+                      brandColor: '#466BB0'
+                      source: marketplace
+                    name: mq
+                    provisioningState: Succeeded
+                    runtimeUrls:
+                    - https://flow-yticlpbiumhig-cqsn-apim-runtime.brazilus.environments.microsoftazurelogicapps.net/apim/mq
+                  type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+                - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/sap
+                  location: brazilsouth
+                  name: sap
+                  properties:
+                    capabilities:
+                    - actions
+                    - triggers
+                    - integrationServiceEnvironment
+                    connectionParameters:
+                      appServerHost:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - integrationServiceEnvironment
+                            dependencies:
+                              LogonType:
+                                values:
+                                - ApplicationServer
+                            required: 'false'
+                            tabIndex: 7
+                          description: 'The hostname of the SAP Application Server. '
+                          displayName: AS Host
+                          tooltip: The hostname of the specific SAP Application Server to connect to.
+                      appServerService:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - integrationServiceEnvironment
+                            dependencies:
+                              LogonType:
+                                values:
+                                - ApplicationServer
+                            required: 'false'
+                            tabIndex: 8
+                          description: The service name or port number of the SAP Application Server.
+                          displayName: AS Service
+                          tooltip: The service name or port numbe of the specific SAP Application Server to connect to (Optional for connection type (Logon) A - Application Server).
+                      authType:
+                        allowedValues:
+                        - value: basic
+                        defaultValue: basic
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            allowedValues:
+                            - text: Basic
+                              value: basic
+                            capability:
+                            - integrationServiceEnvironment
+                            required: 'true'
+                            tabIndex: 3
+                          description: Authentication type to connect to the SAP System. Must be basic (username and password).
+                          displayName: Authentication Type
+                          tooltip: Authentication type to connect to the SAP System.
+                      client:
+                        type: int
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - integrationServiceEnvironment
+                            required: 'true'
+                            tabIndex: 2
+                          description: The SAP client ID to connect to the SAP system.
+                          displayName: Client
+                          tooltip: The SAP backend's client (or 'Mandant') into which to log in. It is a number ranging from 000 to 999.
+                      logonGroup:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - integrationServiceEnvironment
+                            dependencies:
+                              LogonType:
+                                values:
+                                - Group
+                            required: 'false'
+                            tabIndex: 13
+                          description: The Logon Group for the SAP System.
+                          displayName: MS Logon Group
+                          tooltip: The Logon Group for the SAP System, from which the Message Server shall select an Application Server (Only available if connection type (Logon) is B - Message Server (Group))
+                      logonType:
+                        allowedValues:
+                        - uiDefinition:
+                            description: Application Server Logon (Type A)
+                            displayName: Application Server (Type A)
+                          value: ApplicationServer
+                        - uiDefinition:
+                            description: Group Logon (Type B aka Message Server)
+                            displayName: Group (Type B aka Message Server)
+                          value: Group
+                        defaultValue: Group
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            allowedValues:
+                            - text: Application Server
+                              value: ApplicationServer
+                            - text: Group
+                              value: Group
+                            capability:
+                            - integrationServiceEnvironment
+                            required: 'true'
+                            tabIndex: 6
+                          description: The type of logon to the SAP System, either Application Server Logon (Type A) or Group Logon (Type B aka Message Server).
+                          displayName: Logon Type
+                          tooltip: The type of logon to the SAP System.
+                      messageServerHost:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - integrationServiceEnvironment
+                            dependencies:
+                              LogonType:
+                                values:
+                                - Group
+                            required: 'false'
+                            tabIndex: 10
+                          description: The hostname of the SAP Message Server aka R3 System Name.
+                          displayName: MS Server Host
+                          tooltip: The hostname of the SAP System’s Message Server (central instance) aka R3 System Name (Mandatory if connection type (Logon) is B - Message Server (Group)).
+                      messageServerService:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - integrationServiceEnvironment
+                            dependencies:
+                              LogonType:
+                                values:
+                                - Group
+                            required: 'false'
+                            tabIndex: 11
+                          description: The service name or port number of the Message Server.
+                          displayName: MS Service Name or Port Number
+                          tooltip: The Service Name (as defined in etc/services) or the Port Number under which the Message Server is listening for load-balancing requests (Mandatory if connection type (Logon) is B - Message Server (Group) and System ID is not present)
+                      password:
+                        type: securestring
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - integrationServiceEnvironment
+                            clearText: false
+                            required: 'false'
+                            tabIndex: 5
+                          description: The password to be used for log in to the SAP System.
+                          displayName: SAP Password
+                          tooltip: The password to be used for log in to the SAP System.
+                      safeTyping:
+                        type: bool
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - integrationServiceEnvironment
+                            required: 'false'
+                            tabIndex: 14
+                          description: Use strong types if false, otherwise use string as safe type.
+                          displayName: Safe Typing
+                          tooltip: Enables safe typing, which treats types as string instead of strong types (e.g. Date, Time, Datetime), relaxing type and value validations.
+                      sncLibraryPath:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability: []
+                            dependencies:
+                              UseSnc:
+                                values:
+                                - 'true'
+                            required: 'false'
+                            tabIndex: 16
+                          description: Name or path of the SNC library to be used.
+                          displayName: SNC Library
+                          tooltip: Name or path of the SNC library to be used. Path can be absolute path or relative to the NCo library
+                      sncMyName:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability: []
+                            dependencies:
+                              UseSnc:
+                                values:
+                                - 'true'
+                            required: 'false'
+                            tabIndex: 18
+                          description: Identity to be used for this particular destination/server (optional).
+                          displayName: SNC My Name
+                          tooltip: The installed SNC solution usually knows its own SNC name. Only for solutions supporting 'multiple identities', you may need to specify the identity to be used for this particular destination/server (optional)
+                      sncPartnerName:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability: []
+                            dependencies:
+                              UseSnc:
+                                values:
+                                - 'true'
+                            required: 'false'
+                            tabIndex: 19
+                          description: The backend's SNC name (Required when Logon Type is Application Server).
+                          displayName: SNC Partner Name
+                          tooltip: The backend's SNC name (Required when Logon Type is Application Server)
+                      sncQop:
+                        allowedValues:
+                        - value: Authentication
+                        - value: Integrity
+                        - value: Privacy
+                        - value: Default
+                        - value: Maximum
+                        defaultValue: Default
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            allowedValues:
+                            - text: Authentication only
+                              value: Authentication
+                            - text: Authentication and integrity protection
+                              value: Integrity
+                            - text: Authentication, integrity and privacy protection (encryption)
+                              value: Privacy
+                            - text: Default protection
+                              value: Default
+                            - text: Maximum protection
+                              value: Maximum
+                            capability: []
+                            dependencies:
+                              UseSnc:
+                                values:
+                                - 'true'
+                            required: 'false'
+                            tabIndex: 20
+                          description: Quality of Service to be used for SNC communication of this particular destination/server.
+                          displayName: SNC Quality of Protection
+                          tooltip: Quality of Service to be used for SNC communication of this particular destination/server
+                      sncSso:
+                        allowedValues:
+                        - value: true
+                        - value: false
+                        defaultValue: true
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            allowedValues:
+                            - text: Logon using the SNC identity
+                              value: true
+                            - text: Logon with the username/password information provided on RFC level
+                              value: false
+                            capability: []
+                            dependencies:
+                              UseSnc:
+                                values:
+                                - 'true'
+                            required: 'false'
+                            tabIndex: 17
+                          description: The SNC SSO specifies whether to use SNC identity or credentials provided on RFC level.
+                          displayName: SNC SSO
+                          tooltip: The SNC SSO specifies whether to use SNC identity or credentials provided on RFC level.
+                      systemID:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - integrationServiceEnvironment
+                            dependencies:
+                              LogonType:
+                                values:
+                                - Group
+                            required: 'false'
+                            tabIndex: 12
+                          description: The System ID of the SAP system.
+                          displayName: MS System ID
+                          tooltip: The SAP system’s three-letter system ID (Mandatory if connection type (Logon) is B - Message Server (Group) and Message Server Service is not present)
+                      systemNumber:
+                        type: int
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - integrationServiceEnvironment
+                            dependencies:
+                              LogonType:
+                                values:
+                                - ApplicationServer
+                            required: 'false'
+                            tabIndex: 9
+                          description: The SAP System’s System Number. It is a number ranging from 00 to 99.
+                          displayName: AS System Number
+                          tooltip: The SAP System’s System Number. It is a number ranging from 00 to 99 (Mandatory if connection type (Logon) is A - Application Server).
+                      useSnc:
+                        defaultValue: 'false'
+                        type: bool
+                        uiDefinition:
+                          constraints:
+                            capability: []
+                            tabIndex: 15
+                          description: When selected, the connections will be secured with SNC.
+                          displayName: Use SNC
+                          tooltip: When selected, the connections will be secured with SNC
+                      username:
+                        type: securestring
+                        uiDefinition:
+                          constraints:
+                            capability:
+                            - integrationServiceEnvironment
+                            clearText: true
+                            required: 'false'
+                            tabIndex: 4
+                          description: The username to be used for log in to the SAP System.
+                          displayName: SAP Username
+                          tooltip: The username to be used for log in to the SAP System.
+                    generalInformation:
+                      description: SAP connector is part of Microsoft’s hybrid integration platform. Use this connector to run SAP based applications side by side with Logic Apps to connect with On-Premise Line of Business systems.
+                      displayName: SAP
+                      iconUrl: https://connectoricons-df.azureedge.net/sap/icon_1.0.1224.1629.png
+                      releaseTag: Production
+                      tier: Enterprise
+                    integrationServiceEnvironment:
+                      id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                      name: testIntegrationServiceEnvironment
+                      type: Microsoft.Logic/integrationServiceEnvironments
+                    metadata:
+                      brandColor: '#99e7ff'
+                      deploymentParameters:
+                        packageContentLink:
+                          description: Upload package containing SAP NCo components and optionally SNC components.
+                          displayName: SAP package
+                          isRequired: true
+                          type: blob
+                          visibility: Default
+                        redisCacheConnectionString:
+                          description: Redis connection string
+                          displayName: Redis connection string
+                          isRequired: true
+                          type: string
+                          visibility: Internal
+                      source: marketplace
+                    name: sap
+                    provisioningState: Succeeded
+                    runtimeUrls:
+                    - https://flow-yticlpbiumhig-cqsn-apim-runtime.brazilus.environments.microsoftazurelogicapps.net/apim/sap
+                  type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+                - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus
+                  location: brazilsouth
+                  name: servicebus
+                  properties:
+                    capabilities:
+                    - actions
+                    connectionParameters:
+                      connectionString:
+                        type: securestring
+                        uiDefinition:
+                          constraints:
+                            required: 'true'
+                          description: Azure Service Bus Connection String
+                          displayName: Connection String
+                          tooltip: Provide Azure Service Bus Connection String
+                    generalInformation:
+                      description: Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
+                      displayName: Service Bus
+                      iconUrl: https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png
+                      releaseTag: Production
+                      tier: Standard
+                    integrationServiceEnvironment:
+                      id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                      name: testIntegrationServiceEnvironment
+                      type: Microsoft.Logic/integrationServiceEnvironments
+                    metadata:
+                      brandColor: '#c4d5ff'
+                      source: marketplace
+                    name: servicebus
+                    provisioningState: Succeeded
+                    runtimeUrls:
+                    - https://flow-yticlpbiumhig-cqsn-apim-runtime.brazilus.environments.microsoftazurelogicapps.net/apim/servicebus
+                  type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+                - id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/si3270
+                  location: brazilsouth
+                  name: si3270
+                  properties:
+                    capabilities:
+                    - actions
+                    connectionParameters:
+                      codePage:
+                        defaultValue: 37
+                        type: int
+                        uiDefinition:
+                          constraints:
+                            required: 'false'
+                            tabIndex: 4
+                          description: Specifies the code page of the host.
+                          displayName: Code Page
+                          tooltip: Code Page
+                      deviceType:
+                        allowedValues:
+                        - value: IBM-3278-2
+                        - value: IBM-3278-2-E
+                        - value: IBM-3279-2
+                        - value: IBM-3279-2-E
+                        - value: IBM-3278-3
+                        - value: IBM-3278-3-E
+                        - value: IBM-3279-3
+                        - value: IBM-3279-3-E
+                        - value: IBM-3278-4
+                        - value: IBM-3278-4-E
+                        - value: IBM-3279-4
+                        - value: IBM-3279-4-E
+                        - value: IBM-3278-5
+                        - value: IBM-3278-5-E
+                        - value: IBM-3279-5
+                        - value: IBM-3279-5-E
+                        defaultValue: IBM-3278-2
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            allowedValues:
+                            - text: IBM-3278-2
+                              value: IBM-3278-2
+                            - text: IBM-3278-2-E
+                              value: IBM-3278-2-E
+                            - text: IBM-3279-2
+                              value: IBM-3279-2
+                            - text: IBM-3279-2-E
+                              value: IBM-3279-2-E
+                            - text: IBM-3278-3
+                              value: IBM-3278-3
+                            - text: IBM-3278-3-E
+                              value: IBM-3278-3-E
+                            - text: IBM-3279-3
+                              value: IBM-3279-3
+                            - text: IBM-3279-3-E
+                              value: IBM-3279-3-E
+                            - text: IBM-3278-4
+                              value: IBM-3278-4
+                            - text: IBM-3278-4-E
+                              value: IBM-3278-4-E
+                            - text: IBM-3279-4
+                              value: IBM-3279-4
+                            - text: IBM-3279-4-E
+                              value: IBM-3279-4-E
+                            - text: IBM-3278-5
+                              value: IBM-3278-5
+                            - text: IBM-3278-5-E
+                              value: IBM-3278-5-E
+                            - text: IBM-3279-5
+                              value: IBM-3279-5
+                            - text: IBM-3279-5-E
+                              value: IBM-3279-5-E
+                            required: 'false'
+                            tabIndex: 3
+                          description: The 3270 model to use.
+                          displayName: Device Type
+                          tooltip: Device Type
+                      integrationAccountId:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            required: 'true'
+                          description: Integration Account ID
+                          displayName: Integration Account ID
+                          tooltip: Provide Resource ID for the integration account
+                      integrationAccountUrl:
+                        type: securestring
+                        uiDefinition:
+                          constraints:
+                            required: 'true'
+                          description: Integration Account SAS URL
+                          displayName: Integration Account SAS URL
+                          tooltip: Provide SAS URL for the integration account
+                      logicalUnitName:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            required: 'false'
+                            tabIndex: 5
+                          description: The name of specific logical unit to request from the TN 3270 server.
+                          displayName: Logical Unit Name
+                          tooltip: Logical Unit Name
+                      port:
+                        defaultValue: 23
+                        type: int
+                        uiDefinition:
+                          constraints:
+                            required: 'false'
+                            tabIndex: 2
+                          description: Specifies the port for the TN 3270 server.
+                          displayName: Port
+                          tooltip: Specifies the port for the TN 3270 server
+                      server:
+                        type: string
+                        uiDefinition:
+                          constraints:
+                            required: 'true'
+                            tabIndex: 1
+                          description: The name of the host running a TN 3270 server.
+                          displayName: Server
+                          tooltip: Server
+                      useSsl:
+                        defaultValue: 'false'
+                        type: bool
+                        uiDefinition:
+                          constraints:
+                            required: 'false'
+                            tabIndex: 6
+                          description: Enable SSL? (True/False)
+                          displayName: Enable SSL?
+                          tooltip: Specify if SSL needs to be enabled
+                      validateCertificate:
+                        defaultValue: 'false'
+                        type: bool
+                        uiDefinition:
+                          constraints:
+                            required: 'false'
+                            tabIndex: 7
+                          description: Validate host ssl certificate? (True/False)
+                          displayName: Validate host ssl certificate?
+                          tooltip: Specify if host ssl certificate should be validated
+                    generalInformation:
+                      description: Microsoft Connector for 3270 integrates Azure applications with resources available via TN 3270 Screen Scraping.
+                      displayName: IBM 3270
+                      iconUrl: https://connectoricons-df.azureedge.net/si3270/icon_1.0.1228.1636.png
+                      releaseTag: Preview
+                      tier: Enterprise
+                    integrationServiceEnvironment:
+                      id: /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                      name: testIntegrationServiceEnvironment
+                      type: Microsoft.Logic/integrationServiceEnvironments
+                    metadata:
+                      brandColor: '#59b4d9'
+                      connectionType: integrationAccount
+                      source: marketplace
+                    name: si3270
+                    provisioningState: Succeeded
+                    runtimeUrls:
+                    - https://flow-yticlpbiumhig-cqsn-apim-runtime.brazilus.environments.microsoftazurelogicapps.net/apim/si3270
+                  type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Integration Service Environment Managed Apis_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}/managedApis/{apiName}/apiOperations
+  : get:
+      description: Gets the managed Api operations.
+      operationId: IntegrationServiceEnvironmentManagedApiOperations_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration service environment name.
+        in: path
+        name: integrationServiceEnvironmentName
+        required: true
+        type: string
+        example: example-value
+      - description: The api name.
+        in: path
+        name: apiName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ApiOperationListResult'
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - integrationServiceEnvironmentManagedApis
+      x-ms-examples:
+        Gets the integration service environment managed Apis:
+          parameters:
+            api-version: '2019-05-01'
+            apiName: servicebus
+            integrationServiceEnvironmentName: testIntegrationServiceEnvironment
+            resourceGroup: testResourceGroup
+            subscriptionId: 80d4fe69-c95b-4dd2-a938-9250f1c8ab03
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/SendMessage
+                  location: brazilsouth
+                  name: SendMessage
+                  properties:
+                    annotation:
+                      family: SendMessage
+                      revision: 1
+                      status: Production
+                    api:
+                      brandColor: '#c4d5ff'
+                      category: Standard
+                      description: Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
+                      displayName: Service Bus
+                      iconUri: https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png
+                      id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus
+                      integrationServiceEnvironment:
+                        id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                        name: testIntegrationServiceEnvironment
+                        type: Microsoft.Logic/integrationServiceEnvironments
+                      type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+                    description: This operation sends a message to a queue or topic.
+                    isNotification: false
+                    isWebhook: false
+                    pageable: false
+                    summary: Send message
+                    visibility: important
+                - id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/SendMessages
+                  location: brazilsouth
+                  name: SendMessages
+                  properties:
+                    annotation:
+                      family: SendMessages
+                      revision: 1
+                      status: Production
+                    api:
+                      brandColor: '#c4d5ff'
+                      category: Standard
+                      description: Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
+                      displayName: Service Bus
+                      iconUri: https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png
+                      id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus
+                      integrationServiceEnvironment:
+                        id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                        name: testIntegrationServiceEnvironment
+                        type: Microsoft.Logic/integrationServiceEnvironments
+                      type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+                    description: This operation sends one or more messages to a queue or topic.
+                    isNotification: false
+                    isWebhook: false
+                    pageable: false
+                    summary: Send one or more messages
+                    visibility: important
+                - id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/GetMessageFromQueue
+                  location: brazilsouth
+                  name: GetMessageFromQueue
+                  properties:
+                    annotation:
+                      family: GetMessageFromQueue
+                      revision: 1
+                      status: Production
+                    api:
+                      brandColor: '#c4d5ff'
+                      category: Standard
+                      description: Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
+                      displayName: Service Bus
+                      iconUri: https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png
+                      id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus
+                      integrationServiceEnvironment:
+                        id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                        name: testIntegrationServiceEnvironment
+                        type: Microsoft.Logic/integrationServiceEnvironments
+                      type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+                    description: This operation triggers a flow when a message is received in a queue and auto completes the message.
+                    isNotification: false
+                    isWebhook: false
+                    pageable: false
+                    summary: When a message is received in a queue (auto-complete)
+                    trigger: single
+                    visibility: important
+                - id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/GetNewMessageFromQueueWithPeekLock
+                  location: brazilsouth
+                  name: GetNewMessageFromQueueWithPeekLock
+                  properties:
+                    annotation:
+                      family: GetNewMessageFromQueueWithPeekLock
+                      revision: 1
+                      status: Production
+                    api:
+                      brandColor: '#c4d5ff'
+                      category: Standard
+                      description: Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
+                      displayName: Service Bus
+                      iconUri: https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png
+                      id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus
+                      integrationServiceEnvironment:
+                        id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                        name: testIntegrationServiceEnvironment
+                        type: Microsoft.Logic/integrationServiceEnvironments
+                      type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+                    description: The operation triggers a flow when a message received in a queue with peek-lock mode.
+                    isNotification: false
+                    isWebhook: false
+                    pageable: false
+                    summary: When a message is received in a queue (peek-lock)
+                    trigger: single
+                    visibility: important
+                - id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/GetMessageFromTopic
+                  location: brazilsouth
+                  name: GetMessageFromTopic
+                  properties:
+                    annotation:
+                      family: GetMessageFromTopic
+                      revision: 1
+                      status: Production
+                    api:
+                      brandColor: '#c4d5ff'
+                      category: Standard
+                      description: Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
+                      displayName: Service Bus
+                      iconUri: https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png
+                      id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus
+                      integrationServiceEnvironment:
+                        id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                        name: testIntegrationServiceEnvironment
+                        type: Microsoft.Logic/integrationServiceEnvironments
+                      type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+                    description: This operation triggers a flow when a message is received in a topic subscription and auto completes the message.
+                    isNotification: false
+                    isWebhook: false
+                    pageable: false
+                    summary: When a message is received in a topic subscription (auto-complete)
+                    trigger: single
+                    visibility: important
+                - id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/GetNewMessageFromTopicWithPeekLock
+                  location: brazilsouth
+                  name: GetNewMessageFromTopicWithPeekLock
+                  properties:
+                    annotation:
+                      family: GetNewMessageFromTopicWithPeekLock
+                      revision: 1
+                      status: Production
+                    api:
+                      brandColor: '#c4d5ff'
+                      category: Standard
+                      description: Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
+                      displayName: Service Bus
+                      iconUri: https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png
+                      id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus
+                      integrationServiceEnvironment:
+                        id: /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment
+                        name: testIntegrationServiceEnvironment
+                        type: Microsoft.Logic/integrationServiceEnvironments
+                      type: Microsoft.Logic/integrationServiceEnvironments/managedApis
+                    description: The operation triggers a flow when a message received in a topic subscription with peek-lock mode.
+                    isNotification: false
+                    isWebhook: false
+                    pageable: false
+                    summary: When a message is received in a topic subscription (peek-lock)
+                    trigger: single
+                    visibility: important
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Integration Service Environment Managed Api Operations_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  SwaggerXml:
+    description: The Swagger XML.
+    properties:
+      attribute:
+        description: Indicates whether the property should be an attribute instead of an element.
+        type: boolean
+      extensions:
+        additionalProperties:
+          $ref: '#/definitions/Object'
+        description: The vendor extensions.
+        type: object
+      name:
+        description: The xml element or attribute name.
+        type: string
+      namespace:
+        description: The xml namespace.
+        type: string
+      prefix:
+        description: The name prefix.
+        type: string
+      wrapped:
+        description: Indicates whether the array elements are wrapped in a container element.
+        type: boolean
+    type: object
+  ApiOperation:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: The api operation.
+    properties:
+      properties:
+        $ref: '#/definitions/ApiOperationPropertiesDefinition'
+    type: object
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  SwaggerSchemaType:
+    description: The swagger schema type.
+    enum:
+    - String
+    - Number
+    - Integer
+    - Boolean
+    - Array
+    - File
+    - Object
+    - 'Null'
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: SwaggerSchemaType
+  ApiReference:
+    allOf:
+    - $ref: '#/definitions/ResourceReference'
+    description: The Api reference.
+    properties:
+      brandColor:
+        description: The brand color of the api.
+        type: string
+      category:
+        $ref: '#/definitions/ApiTier'
+        description: The tier.
+      description:
+        description: The description of the api.
+        type: string
+      displayName:
+        description: The display name of the api.
+        type: string
+      iconUri:
+        description: The icon uri of the api.
+        type: string
+      integrationServiceEnvironment:
+        $ref: '#/definitions/ResourceReference'
+        description: The integration service environment reference.
+      swagger:
+        $ref: '#/definitions/Object'
+        description: The swagger of the api.
+    type: object
+  Resource:
+    description: The base resource type.
+    properties:
+      id:
+        description: The resource id.
+        readOnly: true
+        type: string
+      location:
+        description: The resource location.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The resource tags.
+        type: object
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    x-ms-azure-resource: true
+  ApiOperationListResult:
+    description: The list of managed API operations.
+    properties:
+      nextLink:
+        description: The URL to get the next set of results.
+        type: string
+      value:
+        description: The api operation definitions for an API.
+        items:
+          $ref: '#/definitions/ApiOperation'
+        type: array
+    type: object
+  ResourceReference:
+    description: The resource reference.
+    properties:
+      id:
+        description: The resource id.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    type: object
+  ApiResourceMetadata:
+    description: The api resource metadata.
+    properties:
+      ApiType:
+        $ref: '#/definitions/ApiType'
+        description: The api type.
+      brandColor:
+        description: The brand color.
+        type: string
+      connectionType:
+        description: The connection type.
+        type: string
+      deploymentParameters:
+        $ref: '#/definitions/ApiDeploymentParameterMetadataSet'
+        description: The connector deployment parameters metadata.
+      hideKey:
+        description: The hide key.
+        type: string
+      provisioningState:
+        $ref: '#/definitions/WorkflowProvisioningState'
+        description: The provisioning state.
+      source:
+        description: The source.
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The tags.
+        type: object
+      wsdlImportMethod:
+        $ref: '#/definitions/WsdlImportMethod'
+        description: The WSDL import method.
+      wsdlService:
+        $ref: '#/definitions/WsdlService'
+        description: The WSDL service.
+    type: object
+  WsdlService:
+    description: The WSDL service.
+    properties:
+      EndpointQualifiedNames:
+        description: The list of endpoints' qualified names.
+        items:
+          type: string
+        type: array
+      qualifiedName:
+        description: The qualified name.
+        type: string
+    type: object
+  ApiDeploymentParameterVisibility:
+    description: The Api deployment parameter visibility.
+    enum:
+    - NotSpecified
+    - Default
+    - Internal
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: ApiDeploymentParameterVisibility
+  SwaggerCustomDynamicProperties:
+    description: The swagger custom dynamic properties.
+    properties:
+      operationId:
+        description: The operation id to fetch dynamic schema.
+        type: string
+      parameters:
+        additionalProperties:
+          $ref: '#/definitions/SwaggerCustomDynamicProperties'
+        description: The operation parameters.
+        type: object
+      valuePath:
+        description: Json pointer to the dynamic schema on the response body.
+        type: string
+    type: object
+  ApiDeploymentParameterMetadataSet:
+    description: The API deployment parameters metadata.
+    properties:
+      packageContentLink:
+        $ref: '#/definitions/ApiDeploymentParameterMetadata'
+        description: The package content link parameter.
+      redisCacheConnectionString:
+        $ref: '#/definitions/ApiDeploymentParameterMetadata'
+        description: The package content link parameter.
+    type: object
+  SwaggerCustomDynamicList:
+    description: The swagger custom dynamic list.
+    properties:
+      builtInOperation:
+        description: The built in operation.
+        type: string
+      itemTitlePath:
+        description: The path to an item property which defines the display name of the item.
+        type: string
+      itemValuePath:
+        description: The path to a property which defines the value which should be used.
+        type: string
+      itemsPath:
+        description: The path to a response property (relative to the response object, not the response body) which contains an array of dynamic value items.
+        type: string
+      operationId:
+        description: The operation id to fetch dynamic schema.
+        type: string
+      parameters:
+        additionalProperties:
+          $ref: '#/definitions/SwaggerCustomDynamicProperties'
+        description: The parameters.
+        type: object
+    type: object
+  SwaggerCustomDynamicTree:
+    description: The swagger custom dynamic tree.
+    properties:
+      browse:
+        $ref: '#/definitions/SwaggerCustomDynamicTreeCommand'
+        description: The tree on-browse configuration
+      open:
+        $ref: '#/definitions/SwaggerCustomDynamicTreeCommand'
+        description: The tree on-open configuration
+      settings:
+        $ref: '#/definitions/SwaggerCustomDynamicTreeSettings'
+        description: The tree settings
+    type: object
+  ApiResourceDefinitions:
+    description: The Api resource definition.
+    properties:
+      modifiedSwaggerUrl:
+        description: The modified swagger url.
+        type: string
+      originalSwaggerUrl:
+        description: The original swagger url.
+        type: string
+    type: object
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+  SwaggerCustomDynamicTreeParameter:
+    description: The swagger custom dynamic tree parameter.
+    properties:
+      parameterReference:
+        description: The parameter reference.
+        type: string
+      required:
+        description: Indicates whether the parameter is required.
+        type: boolean
+      selectedItemValuePath:
+        description: Gets or sets a path to a property in the currently selected item to pass as a value to a parameter for the given operation.
+        type: string
+      value:
+        $ref: '#/definitions/Object'
+        description: The parameter value.
+    type: object
+  SwaggerCustomDynamicTreeCommand:
+    description: The swagger tree command.
+    properties:
+      itemFullTitlePath:
+        description: The path to an item property which defines the display name of the item.
+        type: string
+      itemIsParent:
+        description: The path to an item property which defines the display name of the item.
+        type: string
+      itemTitlePath:
+        description: The path to an item property which defines the display name of the item.
+        type: string
+      itemValuePath:
+        description: The path to an item property which defines the display name of the item.
+        type: string
+      itemsPath:
+        description: The path to an item property which defines the display name of the item.
+        type: string
+      operationId:
+        description: The path to an item property which defines the display name of the item.
+        type: string
+      parameters:
+        additionalProperties:
+          $ref: '#/definitions/SwaggerCustomDynamicTreeParameter'
+        type: object
+      selectableFilter:
+        description: The path to an item property which defines the display name of the item.
+        type: string
+    type: object
+  WsdlImportMethod:
+    description: The WSDL import method.
+    enum:
+    - NotSpecified
+    - SoapToRest
+    - SoapPassThrough
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: WsdlImportMethod
+  SwaggerCustomDynamicSchema:
+    description: The swagger custom dynamic schema.
+    properties:
+      operationId:
+        description: The operation id to fetch dynamic schema.
+        type: string
+      parameters:
+        additionalProperties:
+          $ref: '#/definitions/Object'
+        description: The operation parameters.
+        type: object
+      valuePath:
+        description: Json pointer to the dynamic schema on the response body.
+        type: string
+    type: object
+  ApiDeploymentParameterMetadata:
+    description: The API deployment parameter metadata.
+    properties:
+      description:
+        description: The description.
+        type: string
+      displayName:
+        description: The display name.
+        type: string
+      isRequired:
+        description: Indicates whether its required.
+        type: boolean
+      type:
+        description: The type.
+        type: string
+      visibility:
+        $ref: '#/definitions/ApiDeploymentParameterVisibility'
+        description: The visibility.
+    type: object
+  ApiOperationAnnotation:
+    description: The Api Operation Annotation.
+    properties:
+      family:
+        description: The family.
+        type: string
+      revision:
+        description: The revision.
+        type: integer
+      status:
+        $ref: '#/definitions/StatusAnnotation'
+    type: object
+  ApiResourcePolicies:
+    description: The API resource policies.
+    properties:
+      content:
+        description: The API level only policies XML as embedded content.
+        type: string
+      contentLink:
+        description: The content link to the policies.
+        type: string
+    type: object
+  ApiResourceProperties:
+    description: The API resource properties.
+    properties:
+      apiDefinitionUrl:
+        description: The API definition.
+        type: string
+      apiDefinitions:
+        $ref: '#/definitions/ApiResourceDefinitions'
+        description: The api definitions.
+      backendService:
+        $ref: '#/definitions/ApiResourceBackendService'
+        description: The backend service.
+      capabilities:
+        description: The capabilities.
+        items:
+          type: string
+        type: array
+      category:
+        $ref: '#/definitions/ApiTier'
+        description: The category.
+      connectionParameters:
+        additionalProperties:
+          $ref: '#/definitions/Object'
+        description: The connection parameters.
+        type: object
+      generalInformation:
+        $ref: '#/definitions/ApiResourceGeneralInformation'
+        description: The api general information.
+      integrationServiceEnvironment:
+        $ref: '#/definitions/ResourceReference'
+        description: The integration service environment reference.
+      metadata:
+        $ref: '#/definitions/ApiResourceMetadata'
+        description: The metadata.
+      name:
+        description: The name
+        type: string
+      policies:
+        $ref: '#/definitions/ApiResourcePolicies'
+        description: The policies for the API.
+      provisioningState:
+        $ref: '#/definitions/WorkflowProvisioningState'
+        description: The provisioning state.
+      runtimeUrls:
+        description: The runtime urls.
+        items:
+          type: string
+        type: array
+    type: object
+  ManagedApi:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: The managed api definition.
+    properties:
+      properties:
+        $ref: '#/definitions/ApiResourceProperties'
+        description: The api resource properties.
+    type: object
+  SwaggerCustomDynamicTreeSettings:
+    description: The swagger custom dynamic tree settings.
+    properties:
+      CanSelectLeafNodes:
+        description: Indicates whether leaf nodes can be selected.
+        type: boolean
+      CanSelectParentNodes:
+        description: Indicates whether parent nodes can be selected.
+        type: boolean
+    type: object
+  ApiOperationPropertiesDefinition:
+    description: The api operations properties
+    properties:
+      annotation:
+        $ref: '#/definitions/ApiOperationAnnotation'
+        description: The annotation of api operation.
+      api:
+        $ref: '#/definitions/ApiReference'
+        description: The api reference.
+      description:
+        description: The description of the api operation.
+        type: string
+      inputsDefinition:
+        $ref: '#/definitions/SwaggerSchema'
+        description: The operation inputs definition schema.
+      isNotification:
+        description: Indicates whether the API operation is notification or not.
+        type: boolean
+      isWebhook:
+        description: Indicates whether the API operation is webhook or not.
+        type: boolean
+      pageable:
+        description: Indicates whether the api operation is pageable.
+        type: boolean
+      responsesDefinition:
+        additionalProperties:
+          $ref: '#/definitions/SwaggerSchema'
+        description: The operation responses definition schemas.
+        type: object
+      summary:
+        description: The summary of the api operation.
+        type: string
+      trigger:
+        description: The trigger type of api operation.
+        type: string
+      triggerHint:
+        description: The trigger hint for the api operation.
+        type: string
+      visibility:
+        description: The visibility of the api operation.
+        type: string
+    type: object
+  Object:
+    properties: {}
+    type: object
+  SwaggerSchema:
+    description: The swagger schema.
+    properties:
+      additionalProperties:
+        $ref: '#/definitions/Object'
+        description: The additional properties.
+      allOf:
+        description: The schemas which must pass validation when this schema is used.
+        items:
+          $ref: '#/definitions/SwaggerSchema'
+        type: array
+      discriminator:
+        description: The discriminator.
+        type: string
+      dynamicListNew:
+        $ref: '#/definitions/SwaggerCustomDynamicList'
+        description: The dynamic list.
+      dynamicSchemaNew:
+        $ref: '#/definitions/SwaggerCustomDynamicProperties'
+        description: The dynamic schema configuration.
+      dynamicSchemaOld:
+        $ref: '#/definitions/SwaggerCustomDynamicSchema'
+        description: The dynamic schema configuration.
+      dynamicTree:
+        $ref: '#/definitions/SwaggerCustomDynamicTree'
+        description: The dynamic values tree configuration.
+      example:
+        $ref: '#/definitions/Object'
+        description: The example value.
+      externalDocs:
+        $ref: '#/definitions/SwaggerExternalDocumentation'
+        description: The external documentation.
+      items:
+        $ref: '#/definitions/SwaggerSchema'
+        description: The items schema.
+      maxProperties:
+        description: The maximum number of allowed properties.
+        type: integer
+      minProperties:
+        description: The minimum number of allowed properties.
+        type: integer
+      notificationUrlExtension:
+        description: Indicates the notification url extension. If this is set, the property's value should be a callback url for a webhook.
+        type: boolean
+      properties:
+        additionalProperties:
+          $ref: '#/definitions/SwaggerSchema'
+        description: The object properties
+        type: object
+        x-ms-client-flatten: true
+      readOnly:
+        description: Indicates whether this property must be present in the a request.
+        type: boolean
+      ref:
+        description: The reference.
+        type: string
+      required:
+        description: The object required properties.
+        items:
+          type: string
+        type: array
+      title:
+        description: The title.
+        type: string
+      type:
+        $ref: '#/definitions/SwaggerSchemaType'
+        description: The type
+      xml:
+        $ref: '#/definitions/SwaggerXml'
+        description: The xml representation format for a property.
+    type: object
+  ApiTier:
+    description: The Api tier.
+    enum:
+    - NotSpecified
+    - Enterprise
+    - Standard
+    - Premium
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: ApiTier
+  SwaggerExternalDocumentation:
+    description: The swagger external documentation
+    properties:
+      description:
+        description: The document description.
+        type: string
+      extensions:
+        additionalProperties:
+          $ref: '#/definitions/Object'
+        description: The vendor extensions.
+        type: object
+      uri:
+        description: The documentation Uri.
+        type: string
+    type: object
+  ManagedApiListResult:
+    description: The list of managed APIs.
+    properties:
+      nextLink:
+        description: The URL to get the next set of results.
+        type: string
+      value:
+        description: The managed APIs.
+        items:
+          $ref: '#/definitions/ManagedApi'
+        type: array
+    type: object
+  StatusAnnotation:
+    description: The status annotation.
+    enum:
+    - NotSpecified
+    - Preview
+    - Production
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: StatusAnnotation
+  ApiResourceBackendService:
+    description: The API backend service.
+    properties:
+      serviceUrl:
+        description: The service URL.
+        type: string
+    type: object
+  ApiType:
+    enum:
+    - NotSpecified
+    - Rest
+    - Soap
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: ApiType
+  ApiResourceGeneralInformation:
+    description: The API general information.
+    properties:
+      description:
+        description: The description.
+        type: string
+      displayName:
+        description: The display name.
+        type: string
+      iconUrl:
+        description: The icon url.
+        type: string
+      releaseTag:
+        description: The release tag.
+        type: string
+      termsOfUseUrl:
+        description: The terms of use url.
+        type: string
+      tier:
+        $ref: '#/definitions/ApiTier'
+        description: The tier.
+    type: object
+  WorkflowProvisioningState:
+    description: The workflow provisioning state.
+    enum:
+    - NotSpecified
+    - Accepted
+    - Running
+    - Ready
+    - Creating
+    - Created
+    - Deleting
+    - Deleted
+    - Canceled
+    - Failed
+    - Succeeded
+    - Moving
+    - Updating
+    - Registering
+    - Registered
+    - Unregistering
+    - Unregistered
+    - Completed
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: WorkflowProvisioningState
+parameters:
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2

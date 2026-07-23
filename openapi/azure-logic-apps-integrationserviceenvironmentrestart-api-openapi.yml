@@ -1,0 +1,114 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements integrationServiceEnvironmentRestart API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: integrationServiceEnvironmentRestart
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}/restart
+  : post:
+      description: Restarts an integration service environment.
+      operationId: IntegrationServiceEnvironments_Restart
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration service environment name.
+        in: path
+        name: integrationServiceEnvironmentName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - integrationServiceEnvironmentRestart
+      x-ms-examples:
+        Restarts an integration service environment:
+          parameters:
+            api-version: '2019-05-01'
+            integrationServiceEnvironmentName: testIntegrationServiceEnvironment
+            resourceGroup: testResourceGroup
+            subscriptionId: f34b22a3-2202-4fb1-b040-1332bd928c84
+          responses:
+            '200':
+              headers:
+                azure-AsyncOperation: https://management.azure.com/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/operationStatuses/eyJmbG93T3BlcmF0aW9uIjoiUHV0SW50ZWdyYXRpb25TZXJ2aWNlRW52aXJvbm1lbnQiLCJvcGVyYXRpb25TZXF1ZW5jZUlkIjoiMDg1ODYzNjkwMzg1NzEwMTExNzUifQ==?api-version=2019-05-01
+      summary: Azure Logic Apps Integration Service Environments_ Restart
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+parameters:
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2

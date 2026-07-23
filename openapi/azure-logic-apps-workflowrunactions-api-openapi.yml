@@ -1,0 +1,1670 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements WorkflowRunActions API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: WorkflowRunActions
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions
+  : get:
+      description: Gets a list of workflow run actions.
+      operationId: WorkflowRunActions_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow run name.
+        in: path
+        name: runName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - description: The number of items to be included in the result.
+        format: int32
+        in: query
+        name: $top
+        required: false
+        type: integer
+        example: example-value
+      - description: 'The filter to apply on the operation. Options for filters include: Status.'
+        in: query
+        name: $filter
+        required: false
+        type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowRunActionListResult'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowRunActions
+      x-ms-examples:
+        List a workflow run actions:
+          parameters:
+            api-version: '2019-05-01'
+            resourceGroupName: test-resource-group
+            runName: 08586676746934337772206998657CU22
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: test-workflow
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/workflows/test-workflow/runs/08586676746934337772206998657CU22/actions/HTTP
+                  name: HTTP
+                  properties:
+                    code: OK
+                    correlation:
+                      actionTrackingId: 56063357-45dd-4278-9be5-8220ce0cc9ca
+                      clientTrackingId: 08586676746934337772206998657CU22
+                    endTime: '2018-08-10T20:16:32.5450625Z'
+                    inputsLink:
+                      contentHash:
+                        algorithm: md5
+                        value: XXUACojv0aBfuP56os3CWw==
+                      contentSize: 46
+                      contentVersion: 5XUACojv0aBfuP56os3CWw==
+                      uri: https://tempuri.org
+                    outputsLink:
+                      contentHash:
+                        algorithm: md5
+                        value: XX6KRrevI6AAxEvo9FeBYQ==
+                      contentSize: 11873
+                      contentVersion: 6X6KRrevI6AAxEvo9FeBYQ==
+                      uri: https://tempuri.org
+                    startTime: '2018-08-10T20:16:32.305236Z'
+                    status: Succeeded
+                  type: Microsoft.Logic/workflows/runs/actions
+      x-ms-odata: '#/definitions/WorkflowRunActionFilter'
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Workflow Run Actions_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}
+  : get:
+      description: Gets a workflow run action.
+      operationId: WorkflowRunActions_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow run name.
+        in: path
+        name: runName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow action name.
+        in: path
+        name: actionName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowRunAction'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowRunActions
+      x-ms-examples:
+        Get a workflow run action:
+          parameters:
+            actionName: HTTP
+            api-version: '2019-05-01'
+            resourceGroupName: test-resource-group
+            runName: 08586676746934337772206998657CU22
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: test-workflow
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/workflows/test-workflow/runs/08586676746934337772206998657CU22/actions/HTTP
+                name: HTTP
+                properties:
+                  code: OK
+                  correlation:
+                    actionTrackingId: 56063357-45dd-4278-9be5-8220ce0cc9ca
+                    clientTrackingId: 08586676746934337772206998657CU22
+                  endTime: '2018-08-10T20:16:32.5450625Z'
+                  inputsLink:
+                    contentHash:
+                      algorithm: md5
+                      value: XXUACojv0aBfuP56os3CWw==
+                    contentSize: 46
+                    contentVersion: 5XUACojv0aBfuP56os3CWw==
+                    uri: https://tempuri.org
+                  outputsLink:
+                    contentHash:
+                      algorithm: md5
+                      value: XX6KRrevI6AAxEvo9FeBYQ==
+                    contentSize: 11873
+                    contentVersion: 6X6KRrevI6AAxEvo9FeBYQ==
+                    uri: https://tempuri.org
+                  startTime: '2018-08-10T20:16:32.305236Z'
+                  status: Succeeded
+                type: Microsoft.Logic/workflows/runs/actions
+      summary: Azure Logic Apps Workflow Run Actions_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/listExpressionTraces
+  : post:
+      description: Lists a workflow run expression trace.
+      operationId: WorkflowRunActions_ListExpressionTraces
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow run name.
+        in: path
+        name: runName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow action name.
+        in: path
+        name: actionName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ExpressionTraces'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowRunActions
+      x-ms-examples:
+        List expression traces:
+          parameters:
+            actionName: testAction
+            api-version: '2019-05-01'
+            repetitionName: '000001'
+            resourceGroupName: testResourceGroup
+            runName: 8.586776228332052e+27
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: testFlow
+          responses:
+            '200':
+              body:
+                inputs:
+                - path: ''
+                  text: add(4, 4)
+                  value: 8
+      x-ms-pageable:
+        itemName: inputs
+        nextLinkName: null
+      summary: Azure Logic Apps Workflow Run Actions_ List Expression Traces
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/repetitions
+  : get:
+      description: Get all of a workflow run action repetitions.
+      operationId: WorkflowRunActionRepetitions_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow run name.
+        in: path
+        name: runName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow action name.
+        in: path
+        name: actionName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowRunActionRepetitionDefinitionCollection'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowRunActions
+      x-ms-examples:
+        List repetitions:
+          parameters:
+            actionName: testAction
+            api-version: '2019-05-01'
+            resourceGroupName: testResourceGroup
+            runName: 8.586776228332052e+27
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: testFlow
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/workflows/testFlow/runs/08586776228332053161046300351/actions/testAction/repetitions/000000
+                  name: '000000'
+                  properties:
+                    code: OK
+                    correlation:
+                      actionTrackingId: 0d8152bb-e198-44a9-bde8-5138eea16dd4
+                      clientTrackingId: 8.58677535742761e+27
+                    endTime: '2018-04-18T17:05:57.2264835Z'
+                    inputsLink:
+                      contentHash:
+                        algorithm: md5
+                        value: 8q1zMKS5ZyHBrPF+qF1xXw==
+                      contentSize: 8
+                      contentVersion: 8q1zMKS5ZyHBrPF+qF1xXw==
+                      uri: https://prod-08.northcentralus.logic.azure.com:443/workflows/2dfde2fce2584c49bea17ef0b04c95f4/runs/08586776228332053161046300351/actions/testAction/repetitions/000000/contents/ActionInputs?api-version=2016-10-01&se=2018-04-18T21%3A00%3A00.0000000Z&sp=%2Fruns%2F08586776228332053161046300351%2Factions%2FtestAction%2Frepetitions%2F000000%2Fcontents%2FActionInputs%2Fread&sv=1.0&sig=vw4BDdYp4Ap5RXdM7tY_wl9C38DeAHfnixLBEOpideA
+                    outputsLink:
+                      contentHash:
+                        algorithm: md5
+                        value: 8q1zMKS5ZyHBrPF+qF1xXw==
+                      contentSize: 8
+                      contentVersion: 8q1zMKS5ZyHBrPF+qF1xXw==
+                      uri: https://prod-08.northcentralus.logic.azure.com:443/workflows/2dfde2fce2584c49bea17ef0b04c95f4/runs/08586776228332053161046300351/actions/testAction/repetitions/000000/contents/ActionOutputs?api-version=2016-10-01&se=2018-04-18T21%3A00%3A00.0000000Z&sp=%2Fruns%2F08586776228332053161046300351%2Factions%2FtestAction%2Frepetitions%2F000000%2Fcontents%2FActionOutputs%2Fread&sv=1.0&sig=y8Wq7jbu85tmlMo_1zpRyqNJuoCaQCFQtZ3bgSovLY0
+                    repetitionIndexes:
+                    - itemIndex: 0
+                      scopeName: For_each
+                    startTime: '2018-04-18T17:05:57.217991Z'
+                    status: Succeeded
+                    trackingId: 0d8152bb-e198-44a9-bde8-5138eea16dd4
+                  type: Microsoft.Logic/workflows/runs/actions/repetitions
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/workflows/testFlow/runs/08586776228332053161046300351/actions/testAction/repetitions/000001
+                  name: '000001'
+                  properties:
+                    code: OK
+                    correlation:
+                      actionTrackingId: f84f23eb-b331-4772-9f39-cc307fa83bc3
+                      clientTrackingId: 8.58677535742761e+27
+                    endTime: '2018-04-18T17:05:57.1015421Z'
+                    inputsLink:
+                      contentHash:
+                        algorithm: md5
+                        value: OA3i83YHGYVch+N8BQJIRQ==
+                      contentSize: 6
+                      contentVersion: OA3i83YHGYVch+N8BQJIRQ==
+                      uri: https://prod-08.northcentralus.logic.azure.com:443/workflows/2dfde2fce2584c49bea17ef0b04c95f4/runs/08586776228332053161046300351/actions/testAction/repetitions/000001/contents/ActionInputs?api-version=2016-10-01&se=2018-04-18T21%3A00%3A00.0000000Z&sp=%2Fruns%2F08586776228332053161046300351%2Factions%2FtestAction%2Frepetitions%2F000001%2Fcontents%2FActionInputs%2Fread&sv=1.0&sig=dLmnt50joimEMK4k9rR6njHQh94iSFJ9rrDxFbkEg5M
+                    outputsLink:
+                      contentHash:
+                        algorithm: md5
+                        value: OA3i83YHGYVch+N8BQJIRQ==
+                      contentSize: 6
+                      contentVersion: OA3i83YHGYVch+N8BQJIRQ==
+                      uri: https://prod-08.northcentralus.logic.azure.com:443/workflows/2dfde2fce2584c49bea17ef0b04c95f4/runs/08586776228332053161046300351/actions/testAction/repetitions/000001/contents/ActionOutputs?api-version=2016-10-01&se=2018-04-18T21%3A00%3A00.0000000Z&sp=%2Fruns%2F08586776228332053161046300351%2Factions%2FtestAction%2Frepetitions%2F000001%2Fcontents%2FActionOutputs%2Fread&sv=1.0&sig=B3-X5sqIAv1Lb31GOD34ZgIRUXGuiM2QllWiNwXFYAw
+                    repetitionIndexes:
+                    - itemIndex: 1
+                      scopeName: For_each
+                    startTime: '2018-04-18T17:05:57.0929911Z'
+                    status: Succeeded
+                    trackingId: f84f23eb-b331-4772-9f39-cc307fa83bc3
+                  type: Microsoft.Logic/workflows/runs/actions/repetitions
+      x-ms-pageable:
+        nextLinkName: null
+      summary: Azure Logic Apps Workflow Run Action Repetitions_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/repetitions/{repetitionName}
+  : get:
+      description: Get a workflow run action repetition.
+      operationId: WorkflowRunActionRepetitions_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow run name.
+        in: path
+        name: runName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow action name.
+        in: path
+        name: actionName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow repetition.
+        in: path
+        name: repetitionName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowRunActionRepetitionDefinition'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowRunActions
+      x-ms-examples:
+        Get a repetition:
+          parameters:
+            actionName: testAction
+            api-version: '2019-05-01'
+            repetitionName: '000001'
+            resourceGroupName: testResourceGroup
+            runName: 8.586776228332052e+27
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: testFlow
+          responses:
+            '200':
+              body:
+                id: api/management/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/workflows/testFlow/runs/08586776228332053161046300351/actions/testAction/repetitions/000001
+                name: '000001'
+                properties:
+                  code: OK
+                  correlation:
+                    actionTrackingId: f84f23eb-b331-4772-9f39-cc307fa83bc3
+                    clientTrackingId: 8.58677535742761e+27
+                  endTime: '2018-04-18T17:05:57.1015421Z'
+                  inputsLink:
+                    contentHash:
+                      algorithm: md5
+                      value: OA3i83YHGYVch+N8BQJIRQ==
+                    contentSize: 6
+                    contentVersion: OA3i83YHGYVch+N8BQJIRQ==
+                    uri: https://prod-08.northcentralus.logic.azure.com:443/workflows/2dfde2fce2584c49bea17ef0b04c95f4/runs/08586776228332053161046300351/actions/testAction/repetitions/000001/contents/ActionInputs?api-version=2016-10-01&se=2018-04-18T21%3A00%3A00.0000000Z&sp=%2Fruns%2F08586776228332053161046300351%2Factions%2FtestAction%2Frepetitions%2F000001%2Fcontents%2FActionInputs%2Fread&sv=1.0&sig=dLmnt50joimEMK4k9rR6njHQh94iSFJ9rrDxFbkEg5M
+                  outputsLink:
+                    contentHash:
+                      algorithm: md5
+                      value: OA3i83YHGYVch+N8BQJIRQ==
+                    contentSize: 6
+                    contentVersion: OA3i83YHGYVch+N8BQJIRQ==
+                    uri: https://prod-08.northcentralus.logic.azure.com:443/workflows/2dfde2fce2584c49bea17ef0b04c95f4/runs/08586776228332053161046300351/actions/testAction/repetitions/000001/contents/ActionOutputs?api-version=2016-10-01&se=2018-04-18T21%3A00%3A00.0000000Z&sp=%2Fruns%2F08586776228332053161046300351%2Factions%2FtestAction%2Frepetitions%2F000001%2Fcontents%2FActionOutputs%2Fread&sv=1.0&sig=B3-X5sqIAv1Lb31GOD34ZgIRUXGuiM2QllWiNwXFYAw
+                  repetitionIndexes:
+                  - itemIndex: 1
+                    scopeName: For_each
+                  startTime: '2018-04-18T17:05:57.0929911Z'
+                  status: Succeeded
+                  trackingId: f84f23eb-b331-4772-9f39-cc307fa83bc3
+                type: Microsoft.Logic/workflows/runs/actions/repetitions
+      summary: Azure Logic Apps Workflow Run Action Repetitions_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/repetitions/{repetitionName}/listExpressionTraces
+  : post:
+      description: Lists a workflow run expression trace.
+      operationId: WorkflowRunActionRepetitions_ListExpressionTraces
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow run name.
+        in: path
+        name: runName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow action name.
+        in: path
+        name: actionName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow repetition.
+        in: path
+        name: repetitionName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ExpressionTraces'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowRunActions
+      x-ms-examples:
+        List expression traces for a repetition:
+          parameters:
+            actionName: testAction
+            api-version: '2019-05-01'
+            repetitionName: '000001'
+            resourceGroupName: testResourceGroup
+            runName: 8.586776228332052e+27
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: testFlow
+          responses:
+            '200':
+              body:
+                inputs:
+                - path: ''
+                  text: items('For_each')?['OccuringLocation']?['Environment']
+                  value: PROD
+      x-ms-pageable:
+        itemName: inputs
+        nextLinkName: null
+      summary: Azure Logic Apps Workflow Run Action Repetitions_ List Expression Traces
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/repetitions/{repetitionName}/requestHistories
+  : get:
+      description: List a workflow run repetition request history.
+      operationId: WorkflowRunActionRepetitionsRequestHistories_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow run name.
+        in: path
+        name: runName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow action name.
+        in: path
+        name: actionName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow repetition.
+        in: path
+        name: repetitionName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/RequestHistoryListResult'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowRunActions
+      x-ms-examples:
+        List repetition request history:
+          parameters:
+            actionName: HTTP_Webhook
+            api-version: '2019-05-01'
+            repetitionName: '000001'
+            resourceGroupName: test-resource-group
+            runName: 8.586776228332052e+27
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: test-workflow
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/workflows/test-workflow/runs/08586611142736787787412824395CU21/actions/HTTP_Webhook/requestHistories/08586611142732800686
+                  name: 8586611142732801000
+                  properties:
+                    endTime: '2018-10-25T18:36:52.1863033Z'
+                    request:
+                      headers:
+                        Accept-Language: en-US
+                        User-Agent: azure-logic-apps/1.0,(workflow 80244732be3648f59d2084fd979cdd56; version 08586611142904036539)
+                        x-ms-action-tracking-id: ad27f634-6523-492f-924e-9a75e28619c8
+                        x-ms-client-request-id: ad484925-4148-4dd0-9488-07aed418b256
+                        x-ms-client-tracking-id: 08586611142736787787412824395CU21
+                        x-ms-correlation-id: ad484925-4148-4dd0-9488-07aed418b256
+                        x-ms-execution-location: brazilsouth
+                        x-ms-tracking-id: ad484925-4148-4dd0-9488-07aed418b256
+                        x-ms-workflow-id: 80244732be3648f59d2084fd979cdd56
+                        x-ms-workflow-name: test-workflow
+                        x-ms-workflow-operation-name: HTTP_Webhook
+                        x-ms-workflow-resourcegroup-name: test-resource-group
+                        x-ms-workflow-run-id: 08586611142736787787412824395CU21
+                        x-ms-workflow-run-tracking-id: b4cd2e77-f949-4d8c-8753-791407aebde8
+                        x-ms-workflow-subscription-capacity: Large
+                        x-ms-workflow-subscription-id: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+                        x-ms-workflow-system-id: /locations/brazilsouth/scaleunits/prod-17/workflows/80244732be3648f59d2084fd979cdd56
+                        x-ms-workflow-version: 8586611142904036000
+                      method: GET
+                      uri: http://tempuri.org
+                    response:
+                      bodyLink:
+                        contentHash:
+                          algorithm: md5
+                          value: 2LOOAR8Eh2pd7AvRHXUhRg==
+                        contentSize: 137
+                        contentVersion: 2LOOAR8Eh2pd7AvRHXUhRg==
+                        uri: https://tempuri.org
+                      headers:
+                        Cache-Control: private
+                        Date: Thu, 25 Oct 2018 18:36:51 GMT
+                        Location: http://www.bing.com/
+                        Server: Microsoft-IIS/10.0
+                        X-AspNet-Version: 4.0.30319
+                        X-Powered-By: ASP.NET
+                      statusCode: 302
+                    startTime: '2018-10-25T18:36:51.9206732Z'
+                  type: Microsoft.Logic/workflows/runs/actions/requestHistories
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Workflow Run Action Repetitions Request Histories_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/repetitions/{repetitionName}/requestHistories/{requestHistoryName}
+  : get:
+      description: Gets a workflow run repetition request history.
+      operationId: WorkflowRunActionRepetitionsRequestHistories_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow run name.
+        in: path
+        name: runName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow action name.
+        in: path
+        name: actionName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow repetition.
+        in: path
+        name: repetitionName
+        required: true
+        type: string
+        example: example-value
+      - description: The request history name.
+        in: path
+        name: requestHistoryName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/RequestHistory'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowRunActions
+      x-ms-examples:
+        Get a repetition request history:
+          parameters:
+            actionName: HTTP_Webhook
+            api-version: '2019-05-01'
+            repetitionName: '000001'
+            requestHistoryName: 8586611142732801000
+            resourceGroupName: test-resource-group
+            runName: 8.586776228332052e+27
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: test-workflow
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/workflows/test-workflow/runs/08586611142736787787412824395CU21/actions/HTTP_Webhook/requestHistories/08586611142732800686
+                name: 8586611142732801000
+                properties:
+                  endTime: '2018-10-25T18:36:52.1863033Z'
+                  request:
+                    headers:
+                      Accept-Language: en-US
+                      User-Agent: azure-logic-apps/1.0,(workflow 80244732be3648f59d2084fd979cdd56; version 08586611142904036539)
+                      x-ms-action-tracking-id: ad27f634-6523-492f-924e-9a75e28619c8
+                      x-ms-client-request-id: ad484925-4148-4dd0-9488-07aed418b256
+                      x-ms-client-tracking-id: 08586611142736787787412824395CU21
+                      x-ms-correlation-id: ad484925-4148-4dd0-9488-07aed418b256
+                      x-ms-execution-location: brazilsouth
+                      x-ms-tracking-id: ad484925-4148-4dd0-9488-07aed418b256
+                      x-ms-workflow-id: 80244732be3648f59d2084fd979cdd56
+                      x-ms-workflow-name: test-workflow
+                      x-ms-workflow-operation-name: HTTP_Webhook
+                      x-ms-workflow-resourcegroup-name: test-resource-group
+                      x-ms-workflow-run-id: 08586611142736787787412824395CU21
+                      x-ms-workflow-run-tracking-id: b4cd2e77-f949-4d8c-8753-791407aebde8
+                      x-ms-workflow-subscription-capacity: Large
+                      x-ms-workflow-subscription-id: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+                      x-ms-workflow-system-id: /locations/brazilsouth/scaleunits/prod-17/workflows/80244732be3648f59d2084fd979cdd56
+                      x-ms-workflow-version: 8586611142904036000
+                    method: GET
+                    uri: http://tempuri.org
+                  response:
+                    bodyLink:
+                      contentHash:
+                        algorithm: md5
+                        value: 2LOOAR8Eh2pd7AvRHXUhRg==
+                      contentSize: 137
+                      contentVersion: 2LOOAR8Eh2pd7AvRHXUhRg==
+                      uri: https://tempuri.org
+                    headers:
+                      Cache-Control: private
+                      Date: Thu, 25 Oct 2018 18:36:51 GMT
+                      Location: http://www.bing.com/
+                      Server: Microsoft-IIS/10.0
+                      X-AspNet-Version: 4.0.30319
+                      X-Powered-By: ASP.NET
+                    statusCode: 302
+                  startTime: '2018-10-25T18:36:51.9206732Z'
+                type: Microsoft.Logic/workflows/runs/actions/requestHistories
+      summary: Azure Logic Apps Workflow Run Action Repetitions Request Histories_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/requestHistories
+  : get:
+      description: List a workflow run request history.
+      operationId: WorkflowRunActionRequestHistories_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow run name.
+        in: path
+        name: runName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow action name.
+        in: path
+        name: actionName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/RequestHistoryListResult'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowRunActions
+      x-ms-examples:
+        List a request history:
+          parameters:
+            actionName: HTTP_Webhook
+            api-version: '2019-05-01'
+            resourceGroupName: test-resource-group
+            runName: 8.586776228332052e+27
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: test-workflow
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/workflows/test-workflow/runs/08586611142736787787412824395CU21/actions/HTTP_Webhook/requestHistories/08586611142732800686
+                  name: 8586611142732801000
+                  properties:
+                    endTime: '2018-10-25T18:36:52.1863033Z'
+                    request:
+                      headers:
+                        Accept-Language: en-US
+                        User-Agent: azure-logic-apps/1.0,(workflow 80244732be3648f59d2084fd979cdd56; version 08586611142904036539)
+                        x-ms-action-tracking-id: ad27f634-6523-492f-924e-9a75e28619c8
+                        x-ms-client-request-id: ad484925-4148-4dd0-9488-07aed418b256
+                        x-ms-client-tracking-id: 08586611142736787787412824395CU21
+                        x-ms-correlation-id: ad484925-4148-4dd0-9488-07aed418b256
+                        x-ms-execution-location: brazilsouth
+                        x-ms-tracking-id: ad484925-4148-4dd0-9488-07aed418b256
+                        x-ms-workflow-id: 80244732be3648f59d2084fd979cdd56
+                        x-ms-workflow-name: test-workflow
+                        x-ms-workflow-operation-name: HTTP_Webhook
+                        x-ms-workflow-resourcegroup-name: test-resource-group
+                        x-ms-workflow-run-id: 08586611142736787787412824395CU21
+                        x-ms-workflow-run-tracking-id: b4cd2e77-f949-4d8c-8753-791407aebde8
+                        x-ms-workflow-subscription-capacity: Large
+                        x-ms-workflow-subscription-id: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+                        x-ms-workflow-system-id: /locations/brazilsouth/scaleunits/prod-17/workflows/80244732be3648f59d2084fd979cdd56
+                        x-ms-workflow-version: 8586611142904036000
+                      method: GET
+                      uri: http://tempuri.org
+                    response:
+                      bodyLink:
+                        contentHash:
+                          algorithm: md5
+                          value: 2LOOAR8Eh2pd7AvRHXUhRg==
+                        contentSize: 137
+                        contentVersion: 2LOOAR8Eh2pd7AvRHXUhRg==
+                        uri: https://tempuri.org
+                      headers:
+                        Cache-Control: private
+                        Date: Thu, 25 Oct 2018 18:36:51 GMT
+                        Location: http://www.bing.com/
+                        Server: Microsoft-IIS/10.0
+                        X-AspNet-Version: 4.0.30319
+                        X-Powered-By: ASP.NET
+                      statusCode: 302
+                    startTime: '2018-10-25T18:36:51.9206732Z'
+                  type: Microsoft.Logic/workflows/runs/actions/requestHistories
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Workflow Run Action Request Histories_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/requestHistories/{requestHistoryName}
+  : get:
+      description: Gets a workflow run request history.
+      operationId: WorkflowRunActionRequestHistories_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow run name.
+        in: path
+        name: runName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow action name.
+        in: path
+        name: actionName
+        required: true
+        type: string
+        example: example-value
+      - description: The request history name.
+        in: path
+        name: requestHistoryName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/RequestHistory'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowRunActions
+      x-ms-examples:
+        Get a request history:
+          parameters:
+            actionName: HTTP_Webhook
+            api-version: '2019-05-01'
+            requestHistoryName: 8586611142732801000
+            resourceGroupName: test-resource-group
+            runName: 8.586776228332052e+27
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: test-workflow
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/workflows/test-workflow/runs/08586611142736787787412824395CU21/actions/HTTP_Webhook/requestHistories/08586611142732800686
+                name: 8586611142732801000
+                properties:
+                  endTime: '2018-10-25T18:36:52.1863033Z'
+                  request:
+                    headers:
+                      Accept-Language: en-US
+                      User-Agent: azure-logic-apps/1.0,(workflow 80244732be3648f59d2084fd979cdd56; version 08586611142904036539)
+                      x-ms-action-tracking-id: ad27f634-6523-492f-924e-9a75e28619c8
+                      x-ms-client-request-id: ad484925-4148-4dd0-9488-07aed418b256
+                      x-ms-client-tracking-id: 08586611142736787787412824395CU21
+                      x-ms-correlation-id: ad484925-4148-4dd0-9488-07aed418b256
+                      x-ms-execution-location: brazilsouth
+                      x-ms-tracking-id: ad484925-4148-4dd0-9488-07aed418b256
+                      x-ms-workflow-id: 80244732be3648f59d2084fd979cdd56
+                      x-ms-workflow-name: test-workflow
+                      x-ms-workflow-operation-name: HTTP_Webhook
+                      x-ms-workflow-resourcegroup-name: test-resource-group
+                      x-ms-workflow-run-id: 08586611142736787787412824395CU21
+                      x-ms-workflow-run-tracking-id: b4cd2e77-f949-4d8c-8753-791407aebde8
+                      x-ms-workflow-subscription-capacity: Large
+                      x-ms-workflow-subscription-id: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+                      x-ms-workflow-system-id: /locations/brazilsouth/scaleunits/prod-17/workflows/80244732be3648f59d2084fd979cdd56
+                      x-ms-workflow-version: 8586611142904036000
+                    method: GET
+                    uri: http://tempuri.org
+                  response:
+                    bodyLink:
+                      contentHash:
+                        algorithm: md5
+                        value: 2LOOAR8Eh2pd7AvRHXUhRg==
+                      contentSize: 137
+                      contentVersion: 2LOOAR8Eh2pd7AvRHXUhRg==
+                      uri: https://tempuri.org
+                    headers:
+                      Cache-Control: private
+                      Date: Thu, 25 Oct 2018 18:36:51 GMT
+                      Location: http://www.bing.com/
+                      Server: Microsoft-IIS/10.0
+                      X-AspNet-Version: 4.0.30319
+                      X-Powered-By: ASP.NET
+                    statusCode: 302
+                  startTime: '2018-10-25T18:36:51.9206732Z'
+                type: Microsoft.Logic/workflows/runs/actions/requestHistories
+      summary: Azure Logic Apps Workflow Run Action Request Histories_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/scopeRepetitions
+  : get:
+      description: List the workflow run action scoped repetitions.
+      operationId: WorkflowRunActionScopeRepetitions_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow run name.
+        in: path
+        name: runName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow action name.
+        in: path
+        name: actionName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowRunActionRepetitionDefinitionCollection'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowRunActions
+      x-ms-examples:
+        List the scoped repetitions:
+          parameters:
+            actionName: for_each
+            api-version: '2019-05-01'
+            resourceGroupName: testResourceGroup
+            runName: 8.586776228332052e+27
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: testFlow
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/workflows/testFlow/runs/08586776228332053161046300351/actions/for_each/scopeRepetitions/000000
+                  name: '000000'
+                  properties:
+                    code: NotSpecified
+                    correlation:
+                      actionTrackingId: 5c0e7c24-4891-44e8-b631-8084c5531dd5
+                      clientTrackingId: 8.58677535742761e+27
+                    endTime: '2018-04-18T17:05:57.6240967Z'
+                    repetitionIndexes:
+                    - itemIndex: 0
+                      scopeName: For_each
+                    startTime: '2018-04-18T17:05:57.209588Z'
+                    status: Succeeded
+                  type: Microsoft.Logic/workflows/runs/actions/scopeRepetitions
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/workflows/testFlow/runs/08586776228332053161046300351/actions/for_each/scopeRepetitions/000001
+                  name: '000001'
+                  properties:
+                    code: NotSpecified
+                    correlation:
+                      actionTrackingId: 1682d0bd-7189-4478-b333-fe364a80bd69
+                      clientTrackingId: 8.58677535742761e+27
+                    endTime: '2018-04-18T17:05:57.2272796Z'
+                    repetitionIndexes:
+                    - itemIndex: 1
+                      scopeName: For_each
+                    startTime: '2018-04-18T17:05:57.0686808Z'
+                    status: Succeeded
+                  type: Microsoft.Logic/workflows/runs/actions/scopeRepetitions
+      x-ms-pageable:
+        nextLinkName: null
+      summary: Azure Logic Apps Workflow Run Action Scope Repetitions_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/scopeRepetitions/{repetitionName}
+  : get:
+      description: Get a workflow run action scoped repetition.
+      operationId: WorkflowRunActionScopeRepetitions_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow run name.
+        in: path
+        name: runName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow action name.
+        in: path
+        name: actionName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow repetition.
+        in: path
+        name: repetitionName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowRunActionRepetitionDefinition'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowRunActions
+      x-ms-examples:
+        Get a scoped repetition:
+          parameters:
+            actionName: for_each
+            api-version: '2019-05-01'
+            repetitionName: '000000'
+            resourceGroupName: testResourceGroup
+            runName: 8.586776228332052e+27
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: testFlow
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/workflows/testFlow/runs/08586776228332053161046300351/actions/for_each/scopeRepetitions/000000
+                name: '000000'
+                properties:
+                  code: NotSpecified
+                  correlation:
+                    actionTrackingId: 5c0e7c24-4891-44e8-b631-8084c5531dd5
+                    clientTrackingId: 8.58677535742761e+27
+                  endTime: '2018-04-18T17:05:57.6240967Z'
+                  repetitionIndexes:
+                  - itemIndex: 0
+                    scopeName: For_each
+                  startTime: '2018-04-18T17:05:57.209588Z'
+                  status: Succeeded
+                type: Microsoft.Logic/workflows/runs/actions/scopeRepetitions
+      summary: Azure Logic Apps Workflow Run Action Scope Repetitions_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  ExpressionTraces:
+    description: The expression traces.
+    properties:
+      inputs:
+        items:
+          $ref: '#/definitions/ExpressionRoot'
+        type: array
+    type: object
+  WorkflowRunAction:
+    allOf:
+    - $ref: '#/definitions/SubResource'
+    description: The workflow run action.
+    properties:
+      name:
+        description: Gets the workflow run action name.
+        readOnly: true
+        type: string
+      properties:
+        $ref: '#/definitions/WorkflowRunActionProperties'
+        description: The workflow run action properties.
+        x-ms-client-flatten: true
+      type:
+        description: Gets the workflow run action type.
+        readOnly: true
+        type: string
+    type: object
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  WorkflowRunActionRepetitionProperties:
+    additionalProperties: false
+    allOf:
+    - $ref: '#/definitions/OperationResult'
+    description: The workflow run action repetition properties definition.
+    properties:
+      repetitionIndexes:
+        description: The repetition indexes.
+        items:
+          $ref: '#/definitions/RepetitionIndex'
+        type: array
+    type: object
+  OperationResult:
+    additionalProperties: false
+    allOf:
+    - $ref: '#/definitions/OperationResultProperties'
+    description: The operation result definition.
+    properties:
+      inputs:
+        $ref: '#/definitions/Object'
+        description: Gets the inputs.
+        readOnly: true
+      inputsLink:
+        $ref: '#/definitions/ContentLink'
+        description: Gets the link to inputs.
+        readOnly: true
+      iterationCount:
+        format: int32
+        type: integer
+      outputs:
+        $ref: '#/definitions/Object'
+        description: Gets the outputs.
+        readOnly: true
+      outputsLink:
+        $ref: '#/definitions/ContentLink'
+        description: Gets the link to outputs.
+        readOnly: true
+      retryHistory:
+        description: Gets the retry histories.
+        items:
+          $ref: '#/definitions/RetryHistory'
+        type: array
+      trackedProperties:
+        $ref: '#/definitions/Object'
+        description: Gets the tracked properties.
+        readOnly: true
+      trackingId:
+        description: Gets the tracking id.
+        readOnly: true
+        type: string
+    type: object
+  Expression:
+    additionalProperties: false
+    description: The expression.
+    properties:
+      error:
+        $ref: '#/definitions/AzureResourceErrorInfo'
+      subexpressions:
+        description: The sub expressions.
+        items:
+          $ref: '#/definitions/Expression'
+        type: array
+      text:
+        description: The text.
+        type: string
+      value: {}
+    type: object
+  SubResource:
+    description: The sub resource type.
+    properties:
+      id:
+        description: The resource id.
+        readOnly: true
+        type: string
+    x-ms-azure-resource: true
+  OperationResultProperties:
+    additionalProperties: false
+    description: The run operation result properties.
+    properties:
+      code:
+        description: The workflow scope repetition code.
+        type: string
+      correlation:
+        $ref: '#/definitions/RunActionCorrelation'
+        description: The correlation properties.
+      endTime:
+        description: The end time of the workflow scope repetition.
+        format: date-time
+        type: string
+      error: {}
+      startTime:
+        description: The start time of the workflow scope repetition.
+        format: date-time
+        type: string
+      status:
+        $ref: '#/definitions/WorkflowStatus'
+        description: The status of the workflow scope repetition.
+    type: object
+    x-abstract: true
+  Resource:
+    description: The base resource type.
+    properties:
+      id:
+        description: The resource id.
+        readOnly: true
+        type: string
+      location:
+        description: The resource location.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The resource tags.
+        type: object
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    x-ms-azure-resource: true
+  WorkflowRunActionRepetitionDefinitionCollection:
+    description: A collection of workflow run action repetitions.
+    properties:
+      nextLink:
+        description: The link used to get the next page of recommendations.
+        type: string
+      value:
+        items:
+          $ref: '#/definitions/WorkflowRunActionRepetitionDefinition'
+        type: array
+    type: object
+  WorkflowRunActionListResult:
+    description: The list of workflow run actions.
+    properties:
+      nextLink:
+        description: The URL to get the next set of results.
+        type: string
+      value:
+        description: A list of workflow run actions.
+        items:
+          $ref: '#/definitions/WorkflowRunAction'
+        type: array
+    type: object
+  ErrorInfo:
+    additionalProperties: false
+    description: The error info.
+    properties:
+      code:
+        description: The error code.
+        type: string
+    required:
+    - code
+    type: object
+  RequestHistoryProperties:
+    additionalProperties: false
+    description: The request history.
+    properties:
+      endTime:
+        description: The time the request ended.
+        format: date-time
+        type: string
+      request:
+        $ref: '#/definitions/Request'
+        description: The request.
+      response:
+        $ref: '#/definitions/Response'
+        description: The response.
+      startTime:
+        description: The time the request started.
+        format: date-time
+        type: string
+    type: object
+  ExpressionRoot:
+    allOf:
+    - $ref: '#/definitions/Expression'
+    description: The expression root.
+    properties:
+      path:
+        description: The path.
+        type: string
+    type: object
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+  Correlation:
+    description: The correlation property.
+    properties:
+      clientTrackingId:
+        description: The client tracking id.
+        type: string
+    type: object
+  WorkflowRunActionRepetitionDefinition:
+    additionalProperties: false
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: The workflow run action repetition definition.
+    properties:
+      properties:
+        $ref: '#/definitions/WorkflowRunActionRepetitionProperties'
+        description: The workflow run action repetition properties definition.
+        x-ms-client-flatten: true
+    required:
+    - properties
+    type: object
+  RetryHistory:
+    description: The retry history.
+    properties:
+      clientRequestId:
+        description: Gets the client request Id.
+        type: string
+      code:
+        description: Gets the status code.
+        type: string
+      endTime:
+        description: Gets the end time.
+        format: date-time
+        type: string
+      error:
+        $ref: '#/definitions/ErrorResponse'
+        description: Gets the error response.
+      serviceRequestId:
+        description: Gets the service request Id.
+        type: string
+      startTime:
+        description: Gets the start time.
+        format: date-time
+        type: string
+    type: object
+  WorkflowRunActionProperties:
+    description: The workflow run action properties.
+    properties:
+      code:
+        description: Gets the code.
+        readOnly: true
+        type: string
+      correlation:
+        $ref: '#/definitions/Correlation'
+        description: The correlation properties.
+      endTime:
+        description: Gets the end time.
+        format: date-time
+        readOnly: true
+        type: string
+      error:
+        $ref: '#/definitions/Object'
+        description: Gets the error.
+        readOnly: true
+      inputsLink:
+        $ref: '#/definitions/ContentLink'
+        description: Gets the link to inputs.
+        readOnly: true
+      outputsLink:
+        $ref: '#/definitions/ContentLink'
+        description: Gets the link to outputs.
+        readOnly: true
+      retryHistory:
+        description: Gets the retry histories.
+        items:
+          $ref: '#/definitions/RetryHistory'
+        type: array
+      startTime:
+        description: Gets the start time.
+        format: date-time
+        readOnly: true
+        type: string
+      status:
+        $ref: '#/definitions/WorkflowStatus'
+        description: Gets the status.
+        readOnly: true
+      trackedProperties:
+        $ref: '#/definitions/Object'
+        description: Gets the tracked properties.
+        readOnly: true
+      trackingId:
+        description: Gets the tracking id.
+        readOnly: true
+        type: string
+    type: object
+  Response:
+    additionalProperties: false
+    description: A response.
+    properties:
+      bodyLink:
+        $ref: '#/definitions/ContentLink'
+        description: Details on the location of the body content.
+      headers:
+        $ref: '#/definitions/Object'
+        description: A list of all the headers attached to the response.
+      statusCode:
+        description: The status code of the response.
+        format: int32
+        type: integer
+    type: object
+  Object:
+    properties: {}
+    type: object
+  RequestHistory:
+    additionalProperties: false
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: The request history.
+    properties:
+      properties:
+        $ref: '#/definitions/RequestHistoryProperties'
+        description: The request history properties.
+    type: object
+  RepetitionIndex:
+    additionalProperties: false
+    description: The workflow run action repetition index.
+    properties:
+      itemIndex:
+        description: The index.
+        format: int32
+        type: integer
+      scopeName:
+        description: The scope.
+        type: string
+    required:
+    - itemIndex
+    type: object
+  Request:
+    additionalProperties: false
+    description: A request.
+    properties:
+      headers:
+        $ref: '#/definitions/Object'
+        description: A list of all the headers attached to the request.
+      method:
+        description: The HTTP method used for the request.
+        type: string
+      uri:
+        description: The destination for the request.
+        type: string
+    type: object
+  RequestHistoryListResult:
+    description: The list of workflow request histories.
+    properties:
+      nextLink:
+        description: The URL to get the next set of results.
+        type: string
+      value:
+        description: A list of workflow request histories.
+        items:
+          $ref: '#/definitions/RequestHistory'
+        type: array
+    type: object
+  AzureResourceErrorInfo:
+    additionalProperties: false
+    allOf:
+    - $ref: '#/definitions/ErrorInfo'
+    description: The azure resource error info.
+    properties:
+      details:
+        description: The error details.
+        items:
+          $ref: '#/definitions/AzureResourceErrorInfo'
+        type: array
+      message:
+        description: The error message.
+        type: string
+    required:
+    - message
+    type: object
+  WorkflowStatus:
+    description: The workflow status.
+    enum:
+    - NotSpecified
+    - Paused
+    - Running
+    - Waiting
+    - Succeeded
+    - Skipped
+    - Suspended
+    - Cancelled
+    - Failed
+    - Faulted
+    - TimedOut
+    - Aborted
+    - Ignored
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: WorkflowStatus
+  RunActionCorrelation:
+    additionalProperties: false
+    allOf:
+    - $ref: '#/definitions/RunCorrelation'
+    description: The workflow run action correlation properties.
+    properties:
+      actionTrackingId:
+        description: The action tracking identifier.
+        type: string
+    type: object
+  RunCorrelation:
+    additionalProperties: false
+    description: The correlation properties.
+    properties:
+      clientKeywords:
+        description: The client keywords.
+        items:
+          type: string
+        type: array
+      clientTrackingId:
+        description: The client tracking identifier.
+        type: string
+    type: object
+  ContentHash:
+    description: The content hash.
+    properties:
+      algorithm:
+        description: The algorithm of the content hash.
+        type: string
+      value:
+        description: The value of the content hash.
+        type: string
+    type: object
+  ContentLink:
+    description: The content link.
+    properties:
+      contentHash:
+        $ref: '#/definitions/ContentHash'
+        description: The content hash.
+      contentSize:
+        description: The content size.
+        format: int64
+        type: integer
+      contentVersion:
+        description: The content version.
+        type: string
+      metadata:
+        $ref: '#/definitions/Object'
+        description: The metadata.
+      uri:
+        description: The content link URI.
+        type: string
+    type: object
+parameters:
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2

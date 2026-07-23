@@ -1,0 +1,447 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements WorkflowTriggerHistories API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: WorkflowTriggerHistories
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/histories
+  : get:
+      description: Gets a list of workflow trigger histories.
+      operationId: WorkflowTriggerHistories_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow trigger name.
+        in: path
+        name: triggerName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - description: The number of items to be included in the result.
+        format: int32
+        in: query
+        name: $top
+        required: false
+        type: integer
+        example: example-value
+      - description: 'The filter to apply on the operation. Options for filters include: Status, StartTime, and ClientTrackingId.'
+        in: query
+        name: $filter
+        required: false
+        type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowTriggerHistoryListResult'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowTriggerHistories
+      x-ms-examples:
+        List a workflow trigger history:
+          parameters:
+            api-version: '2019-05-01'
+            resourceGroupName: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            triggerName: testTriggerName
+            workflowName: testWorkflowName
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/workflows/testWorkflowName/triggers/testTriggerName/histories/08586676746934337772206998657CU22
+                  name: 08586676746934337772206998657CU22
+                  properties:
+                    code: OK
+                    correlation:
+                      clientTrackingId: 08586676746934337772206998657CU22
+                    endTime: '2018-08-10T20:16:32.2987996Z'
+                    fired: true
+                    run:
+                      id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/workflows/testWorkflowName/runs/08586676746934337772206998657CU22
+                      name: 08586676746934337772206998657CU22
+                      type: Microsoft.Logic/workflows/runs
+                    scheduledTime: '2018-08-10T20:16:31.6344174Z'
+                    startTime: '2018-08-10T20:16:32.0387927Z'
+                    status: Succeeded
+                  type: Microsoft.Logic/workflows/triggers/histories
+      x-ms-odata: '#/definitions/WorkflowTriggerHistoryFilter'
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Workflow Trigger Histories_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/histories/{historyName}
+  : get:
+      description: Gets a workflow trigger history.
+      operationId: WorkflowTriggerHistories_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow trigger name.
+        in: path
+        name: triggerName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow trigger history name. Corresponds to the run name for triggers that resulted in a run.
+        in: path
+        name: historyName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowTriggerHistory'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowTriggerHistories
+      x-ms-examples:
+        Get a workflow trigger history:
+          parameters:
+            api-version: '2019-05-01'
+            historyName: 08586676746934337772206998657CU22
+            resourceGroupName: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            triggerName: testTriggerName
+            workflowName: testWorkflowName
+          responses:
+            '200':
+              body:
+                value:
+                  id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/workflows/testWorkflowName/triggers/testTriggerName/histories/08586676746934337772206998657CU22
+                  name: 08586676746934337772206998657CU22
+                  properties:
+                    code: OK
+                    correlation:
+                      clientTrackingId: 08586676746934337772206998657CU22
+                    endTime: '2018-08-10T20:16:32.2987996Z'
+                    fired: true
+                    run:
+                      id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/workflows/testWorkflowName/runs/08586676746934337772206998657CU22
+                      name: 08586676746934337772206998657CU22
+                      type: Microsoft.Logic/workflows/runs
+                    scheduledTime: '2018-08-10T20:16:31.6344174Z'
+                    startTime: '2018-08-10T20:16:32.0387927Z'
+                    status: Succeeded
+                  type: Microsoft.Logic/workflows/triggers/histories
+      summary: Azure Logic Apps Workflow Trigger Histories_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/histories/{historyName}/resubmit
+  : post:
+      description: Resubmits a workflow run based on the trigger history.
+      operationId: WorkflowTriggerHistories_Resubmit
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow trigger name.
+        in: path
+        name: triggerName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow trigger history name. Corresponds to the run name for triggers that resulted in a run.
+        in: path
+        name: historyName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '202':
+          description: OK
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowTriggerHistories
+      x-ms-examples:
+        Resubmit a workflow run based on the trigger history:
+          parameters:
+            api-version: '2019-05-01'
+            historyName: testHistoryName
+            resourceGroupName: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            triggerName: testTriggerName
+            workflowName: testWorkflowName
+          responses:
+            '202': {}
+      summary: Azure Logic Apps Workflow Trigger Histories_ Resubmit
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  WorkflowStatus:
+    description: The workflow status.
+    enum:
+    - NotSpecified
+    - Paused
+    - Running
+    - Waiting
+    - Succeeded
+    - Skipped
+    - Suspended
+    - Cancelled
+    - Failed
+    - Faulted
+    - TimedOut
+    - Aborted
+    - Ignored
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: WorkflowStatus
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  WorkflowTriggerHistoryListResult:
+    description: The list of workflow trigger histories.
+    properties:
+      nextLink:
+        description: The URL to get the next set of results.
+        type: string
+      value:
+        description: A list of workflow trigger histories.
+        items:
+          $ref: '#/definitions/WorkflowTriggerHistory'
+        type: array
+    type: object
+  SubResource:
+    description: The sub resource type.
+    properties:
+      id:
+        description: The resource id.
+        readOnly: true
+        type: string
+    x-ms-azure-resource: true
+  ContentHash:
+    description: The content hash.
+    properties:
+      algorithm:
+        description: The algorithm of the content hash.
+        type: string
+      value:
+        description: The value of the content hash.
+        type: string
+    type: object
+  Correlation:
+    description: The correlation property.
+    properties:
+      clientTrackingId:
+        description: The client tracking id.
+        type: string
+    type: object
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+  Object:
+    properties: {}
+    type: object
+  WorkflowTriggerHistory:
+    allOf:
+    - $ref: '#/definitions/SubResource'
+    description: The workflow trigger history.
+    properties:
+      name:
+        description: Gets the workflow trigger history name.
+        readOnly: true
+        type: string
+      properties:
+        $ref: '#/definitions/WorkflowTriggerHistoryProperties'
+        description: Gets the workflow trigger history properties.
+        x-ms-client-flatten: true
+      type:
+        description: Gets the workflow trigger history type.
+        readOnly: true
+        type: string
+    type: object
+  WorkflowTriggerHistoryProperties:
+    description: The workflow trigger history properties.
+    properties:
+      code:
+        description: Gets the code.
+        readOnly: true
+        type: string
+      correlation:
+        $ref: '#/definitions/Correlation'
+        description: The run correlation.
+      endTime:
+        description: Gets the end time.
+        format: date-time
+        readOnly: true
+        type: string
+      error:
+        $ref: '#/definitions/Object'
+        description: Gets the error.
+        readOnly: true
+      fired:
+        description: The value indicating whether trigger was fired.
+        readOnly: true
+        type: boolean
+      inputsLink:
+        $ref: '#/definitions/ContentLink'
+        description: Gets the link to input parameters.
+        readOnly: true
+      outputsLink:
+        $ref: '#/definitions/ContentLink'
+        description: Gets the link to output parameters.
+        readOnly: true
+      run:
+        $ref: '#/definitions/ResourceReference'
+        description: Gets the reference to workflow run.
+        readOnly: true
+      startTime:
+        description: Gets the start time.
+        format: date-time
+        readOnly: true
+        type: string
+      status:
+        $ref: '#/definitions/WorkflowStatus'
+        description: Gets the status.
+        readOnly: true
+      trackingId:
+        description: Gets the tracking id.
+        readOnly: true
+        type: string
+    type: object
+  ResourceReference:
+    description: The resource reference.
+    properties:
+      id:
+        description: The resource id.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    type: object
+  ContentLink:
+    description: The content link.
+    properties:
+      contentHash:
+        $ref: '#/definitions/ContentHash'
+        description: The content hash.
+      contentSize:
+        description: The content size.
+        format: int64
+        type: integer
+      contentVersion:
+        description: The content version.
+        type: string
+      metadata:
+        $ref: '#/definitions/Object'
+        description: The metadata.
+      uri:
+        description: The content link URI.
+        type: string
+    type: object
+parameters:
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2

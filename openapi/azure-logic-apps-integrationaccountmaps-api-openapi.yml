@@ -1,0 +1,630 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements IntegrationAccountMaps API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: IntegrationAccountMaps
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/maps
+  : get:
+      description: Gets a list of integration account maps.
+      operationId: IntegrationAccountMaps_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - description: The number of items to be included in the result.
+        format: int32
+        in: query
+        name: $top
+        required: false
+        type: integer
+        example: example-value
+      - description: 'The filter to apply on the operation. Options for filters include: MapType.'
+        in: query
+        name: $filter
+        required: false
+        type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationAccountMapListResult'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountMaps
+      x-ms-examples:
+        Get maps by integration account name:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testIntegrationAccount
+            resourceGroupName: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/maps/IntegrationAccountMap9943
+                  name: IntegrationAccountMap9943
+                  properties:
+                    changedTime: '2017-02-24T18:34:32.390576Z'
+                    contentLink:
+                      contentHash:
+                        algorithm: md5
+                        value: A2avz/M0ov2FPI3+Je8vDw==
+                      contentSize: 3056
+                      contentVersion: '"0x8D45CE3C6D23B4B"'
+                      uri: <Uri>
+                    createdTime: '2017-02-24T18:34:32.3902373Z'
+                    mapType: Xslt
+                    metadata: {}
+                  type: Microsoft.Logic/integrationAccounts/maps
+      x-ms-odata: '#/definitions/IntegrationAccountMapFilter'
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Integration Account Maps_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/maps/{mapName}
+  : delete:
+      description: Deletes an integration account map.
+      operationId: IntegrationAccountMaps_Delete
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The integration account map name.
+        in: path
+        name: mapName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountMaps
+      x-ms-examples:
+        Delete a map:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testIntegrationAccount
+            mapName: testMap
+            resourceGroupName: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200': {}
+            '204': {}
+      summary: Azure Logic Apps Integration Account Maps_ Delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      description: Gets an integration account map.
+      operationId: IntegrationAccountMaps_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The integration account map name.
+        in: path
+        name: mapName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationAccountMap'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountMaps
+      x-ms-examples:
+        Get map by name:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testIntegrationAccount
+            mapName: testMap
+            resourceGroupName: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/maps/testMap
+                name: testMap
+                properties:
+                  changedTime: '2017-02-24T18:45:23.4137139Z'
+                  contentLink:
+                    contentHash:
+                      algorithm: md5
+                      value: A2avz/M0ov2FPI3+Je8vDw==
+                    contentSize: 3056
+                    contentVersion: '"0x8D45CE54B058881"'
+                    uri: <Uri>
+                  createdTime: '2017-02-24T18:45:23.4129778Z'
+                  mapType: Xslt
+                  metadata: {}
+                type: Microsoft.Logic/integrationAccounts/maps
+      summary: Azure Logic Apps Integration Account Maps_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      description: Creates or updates an integration account map.
+      operationId: IntegrationAccountMaps_CreateOrUpdate
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The integration account map name.
+        in: path
+        name: mapName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - description: The integration account map.
+        in: body
+        name: map
+        required: true
+        schema:
+          $ref: '#/definitions/IntegrationAccountMap'
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationAccountMap'
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/IntegrationAccountMap'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountMaps
+      x-ms-examples:
+        Create or update a map:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testIntegrationAccount
+            map:
+              location: westus
+              properties:
+                content: "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\r\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" xmlns:msxsl=\"urn:schemas-microsoft-com:xslt\" xmlns:var=\"http://schemas.microsoft.com/BizTalk/2003/var\" exclude-result-prefixes=\"msxsl var s0 userCSharp\" version=\"1.0\" xmlns:ns0=\"http://BizTalk_Server_Project4.StringFunctoidsDestinationSchema\" xmlns:s0=\"http://BizTalk_Server_Project4.StringFunctoidsSourceSchema\" xmlns:userCSharp=\"http://schemas.microsoft.com/BizTalk/2003/userCSharp\">\r\n  <xsl:import href=\"http://btsfunctoids.blob.core.windows.net/functoids/functoids.xslt\" />\r\n  <xsl:output omit-xml-declaration=\"yes\" method=\"xml\" version=\"1.0\" />\r\n  <xsl:template match=\"/\">\r\n    <xsl:apply-templates select=\"/s0:Root\" />\r\n  </xsl:template>\r\n  <xsl:template match=\"/s0:Root\">\r\n    <xsl:variable name=\"var:v1\" select=\"userCSharp:StringFind(string(StringFindSource/text()) , &quot;SearchString&quot;)\" />\r\n    <xsl:variable name=\"var:v2\" select=\"userCSharp:StringLeft(string(StringLeftSource/text()) , &quot;2&quot;)\" />\r\n    <xsl:variable name=\"var:v3\" select=\"userCSharp:StringRight(string(StringRightSource/text()) , &quot;2&quot;)\" />\r\n    <xsl:variable name=\"var:v4\" select=\"userCSharp:StringUpperCase(string(UppercaseSource/text()))\" />\r\n    <xsl:variable name=\"var:v5\" select=\"userCSharp:StringLowerCase(string(LowercaseSource/text()))\" />\r\n    <xsl:variable name=\"var:v6\" select=\"userCSharp:StringSize(string(SizeSource/text()))\" />\r\n    <xsl:variable name=\"var:v7\" select=\"userCSharp:StringSubstring(string(StringExtractSource/text()) , &quot;0&quot; , &quot;2&quot;)\" />\r\n    <xsl:variable name=\"var:v8\" select=\"userCSharp:StringConcat(string(StringConcatSource/text()))\" />\r\n    <xsl:variable name=\"var:v9\" select=\"userCSharp:StringTrimLeft(string(StringLeftTrimSource/text()))\" />\r\n    <xsl:variable name=\"var:v10\" select=\"userCSharp:StringTrimRight(string(StringRightTrimSource/text()))\" />\r\n    <ns0:Root>\r\n      <StringFindDestination>\r\n        <xsl:value-of select=\"$var:v1\" />\r\n      </StringFindDestination>\r\n      <StringLeftDestination>\r\n        <xsl:value-of select=\"$var:v2\" />\r\n      </StringLeftDestination>\r\n      <StringRightDestination>\r\n        <xsl:value-of select=\"$var:v3\" />\r\n      </StringRightDestination>\r\n      <UppercaseDestination>\r\n        <xsl:value-of select=\"$var:v4\" />\r\n      </UppercaseDestination>\r\n      <LowercaseDestination>\r\n        <xsl:value-of select=\"$var:v5\" />\r\n      </LowercaseDestination>\r\n      <SizeDestination>\r\n        <xsl:value-of select=\"$var:v6\" />\r\n      </SizeDestination>\r\n      <StringExtractDestination>\r\n        <xsl:value-of select=\"$var:v7\" />\r\n      </StringExtractDestination>\r\n      <StringConcatDestination>\r\n        <xsl:value-of select=\"$var:v8\" />\r\n      </StringConcatDestination>\r\n      <StringLeftTrimDestination>\r\n        <xsl:value-of select=\"$var:v9\" />\r\n      </StringLeftTrimDestination>\r\n      <StringRightTrimDestination>\r\n        <xsl:value-of select=\"$var:v10\" />\r\n      </StringRightTrimDestination>\r\n    </ns0:Root>\r\n  </xsl:template>\r\n</xsl:stylesheet>"
+                contentType: application/xml
+                mapType: Xslt
+                metadata: {}
+            mapName: testMap
+            resourceGroupName: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/<resourceGroup>/providers/Microsoft.Logic/integrationAccounts/<IntegrationAccount>/maps/testMap
+                name: IntegrationAccountMap291
+                properties:
+                  changedTime: '2017-03-06T18:41:04.4088605Z'
+                  contentLink:
+                    contentHash:
+                      algorithm: md5
+                      value: A2avz/M0ov2FPI3+Je8vDw==
+                    contentSize: 3056
+                    contentVersion: '"0x8D464C057F22E5F"'
+                    uri: <Uri>
+                  createdTime: '2017-03-06T18:41:03.7366103Z'
+                  mapType: Xslt
+                  metadata: {}
+                type: Microsoft.Logic/integrationAccounts/maps
+            '201':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/<resourceGroup>/providers/Microsoft.Logic/integrationAccounts/<IntegrationAccount>/maps/testMap
+                name: IntegrationAccountMap291
+                properties:
+                  changedTime: '2017-03-06T18:41:04.4088605Z'
+                  contentLink:
+                    contentHash:
+                      algorithm: md5
+                      value: A2avz/M0ov2FPI3+Je8vDw==
+                    contentSize: 3056
+                    contentVersion: '"0x8D464C057F22E5F"'
+                    uri: <Uri>
+                  createdTime: '2017-03-06T18:41:03.7366103Z'
+                  mapType: Xslt
+                  metadata: {}
+                type: Microsoft.Logic/integrationAccounts/maps
+      summary: Azure Logic Apps Integration Account Maps_ Create or Update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/maps/{mapName}/listContentCallbackUrl
+  : post:
+      description: Get the content callback url.
+      operationId: IntegrationAccountMaps_ListContentCallbackUrl
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The integration account map name.
+        in: path
+        name: mapName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - in: body
+        name: listContentCallbackUrl
+        required: true
+        schema:
+          $ref: '#/definitions/GetCallbackUrlParameters'
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowTriggerCallbackUrl'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountMaps
+      x-ms-examples:
+        Get the content callback url:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testIntegrationAccount
+            listContentCallbackUrl:
+              keyType: Primary
+              notAfter: '2018-04-19T16:00:00Z'
+            mapName: testMap
+            resourceGroupName: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                basePath: https://prod-00.brazilus.logic.azure.com/integrationAccounts/0fdabc3a76514ca48dede71c73d9fe97/maps/testmap/contents/Value
+                method: GET
+                queries:
+                  api-version: 2015-08-01-preview
+                value: https://prod-00.westus.logic.azure.com:443/integrationAccounts/0fdabc3a76514ca48dede71c73d9fe97/maps/testMap/contents/Value?api-version=2015-08-01-preview&sp=%2Fmaps%2Ftestmap%2Fread&sv=1.0&sig=VK_mbQPTHTa3ezhsrI8IctckwjlL3GdJmroQH_baYj4
+      summary: Azure Logic Apps Integration Account Maps_ List Content Callback Url
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  KeyType:
+    description: The key type.
+    enum:
+    - NotSpecified
+    - Primary
+    - Secondary
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: KeyType
+  IntegrationAccountMapProperties:
+    description: The integration account map.
+    properties:
+      changedTime:
+        description: The changed time.
+        format: date-time
+        readOnly: true
+        type: string
+      content:
+        description: The content.
+        properties: {}
+        type: string
+      contentLink:
+        $ref: '#/definitions/ContentLink'
+        description: The content link.
+        readOnly: true
+      contentType:
+        description: The content type.
+        type: string
+      createdTime:
+        description: The created time.
+        format: date-time
+        readOnly: true
+        type: string
+      mapType:
+        $ref: '#/definitions/MapType'
+        description: The map type.
+      metadata:
+        description: The metadata.
+        properties: {}
+        type: object
+      parametersSchema:
+        description: The parameters schema of integration account map.
+        properties:
+          ref:
+            description: The reference name.
+            type: string
+        type: object
+    required:
+    - mapType
+    type: object
+  IntegrationAccountMapListResult:
+    description: The list of integration account maps.
+    properties:
+      nextLink:
+        description: The URL to get the next set of results.
+        type: string
+      value:
+        description: The list of integration account maps.
+        items:
+          $ref: '#/definitions/IntegrationAccountMap'
+        type: array
+    type: object
+  WorkflowTriggerCallbackUrl:
+    description: The workflow trigger callback URL.
+    properties:
+      basePath:
+        description: Gets the workflow trigger callback URL base path.
+        readOnly: true
+        type: string
+      method:
+        description: Gets the workflow trigger callback URL HTTP method.
+        readOnly: true
+        type: string
+      queries:
+        $ref: '#/definitions/WorkflowTriggerListCallbackUrlQueries'
+        description: Gets the workflow trigger callback URL query parameters.
+      relativePath:
+        description: Gets the workflow trigger callback URL relative path.
+        readOnly: true
+        type: string
+      relativePathParameters:
+        description: Gets the workflow trigger callback URL relative path parameters.
+        items:
+          type: string
+        type: array
+      value:
+        description: Gets the workflow trigger callback URL.
+        readOnly: true
+        type: string
+    type: object
+  GetCallbackUrlParameters:
+    description: The callback url parameters.
+    properties:
+      keyType:
+        $ref: '#/definitions/KeyType'
+        description: The key type.
+      notAfter:
+        description: The expiry time.
+        format: date-time
+        type: string
+    type: object
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  MapType:
+    description: The map type.
+    enum:
+    - NotSpecified
+    - Xslt
+    - Xslt20
+    - Xslt30
+    - Liquid
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: MapType
+  Resource:
+    description: The base resource type.
+    properties:
+      id:
+        description: The resource id.
+        readOnly: true
+        type: string
+      location:
+        description: The resource location.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The resource tags.
+        type: object
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    x-ms-azure-resource: true
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+  Object:
+    properties: {}
+    type: object
+  WorkflowTriggerListCallbackUrlQueries:
+    description: Gets the workflow trigger callback URL query parameters.
+    properties:
+      api-version:
+        description: The api version.
+        type: string
+      se:
+        description: The SAS timestamp.
+        type: string
+      sig:
+        description: The SAS signature.
+        type: string
+      sp:
+        description: The SAS permissions.
+        type: string
+      sv:
+        description: The SAS version.
+        type: string
+    type: object
+  IntegrationAccountMap:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: The integration account map.
+    properties:
+      properties:
+        $ref: '#/definitions/IntegrationAccountMapProperties'
+        description: The integration account map properties.
+        x-ms-client-flatten: true
+    required:
+    - properties
+    type: object
+  ContentHash:
+    description: The content hash.
+    properties:
+      algorithm:
+        description: The algorithm of the content hash.
+        type: string
+      value:
+        description: The value of the content hash.
+        type: string
+    type: object
+  ContentLink:
+    description: The content link.
+    properties:
+      contentHash:
+        $ref: '#/definitions/ContentHash'
+        description: The content hash.
+      contentSize:
+        description: The content size.
+        format: int64
+        type: integer
+      contentVersion:
+        description: The content version.
+        type: string
+      metadata:
+        $ref: '#/definitions/Object'
+        description: The metadata.
+      uri:
+        description: The content link URI.
+        type: string
+    type: object
+parameters:
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2

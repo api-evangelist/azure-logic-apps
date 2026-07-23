@@ -1,0 +1,509 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements integrationServiceEnvironmentNetworkHealth API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: integrationServiceEnvironmentNetworkHealth
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}/health/network
+  : get:
+      description: Gets the integration service environment network health.
+      operationId: IntegrationServiceEnvironmentNetworkHealth_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration service environment name.
+        in: path
+        name: integrationServiceEnvironmentName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationServiceEnvironmentNetworkHealth'
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - integrationServiceEnvironmentNetworkHealth
+      x-ms-examples:
+        Gets the integration service environment network health:
+          parameters:
+            api-version: '2019-05-01'
+            integrationServiceEnvironmentName: testIntegrationServiceEnvironment
+            resourceGroup: testResourceGroup
+            subscriptionId: f34b22a3-2202-4fb1-b040-1332bd928c84
+          responses:
+            '200':
+              body:
+                LA1:
+                  networkDependencyHealthState: Healthy
+                  outboundNetworkDependencies:
+                  - category: AzureStorage
+                    displayName: Azure Storage
+                    endpoints:
+                    - accessibility: Available
+                      domainName: www.table.core.windows.net
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: www.blob.core.windows.net
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: www.queue.core.windows.net
+                      ports:
+                      - '80'
+                      - '443'
+                  - category: AzureActiveDirectory
+                    displayName: Azure Active Directory
+                    endpoints:
+                    - accessibility: Available
+                      domainName: graph.windows.net
+                      ports:
+                      - '80'
+                      - '443'
+                  - category: SSLCertificateVerification
+                    displayName: SSL Certificate Verification
+                    endpoints:
+                    - accessibility: Available
+                      domainName: ocsp.msocsp.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: mscrl.microsoft.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: crl.microsoft.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: www.microsoft.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: crl3.digicert.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: ocsp.digicert.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: cacerts.digicert.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: www.thawte.com
+                      ports:
+                      - '80'
+                      - '443'
+                  - category: DiagnosticLogsAndMetrics
+                    displayName: Diagnostic Logs And Metrics
+                    endpoints:
+                    - accessibility: Available
+                      domainName: az-prod.metrics.nsatc.net
+                      ports:
+                      - '443'
+                  - category: IntegrationServiceEnvironmentConnectors
+                    displayName: Integration Service Environment Connectors
+                    endpoints:
+                    - accessibility: Available
+                      domainName: flow-yticlpbiumhig-cqsn-apim-runtime.brazilus.environments.microsoftazurelogicapps.net
+                      ports:
+                      - '443'
+                  - category: RedisCache
+                    displayName: Redis Cache
+                    endpoints:
+                    - accessibility: Available
+                      domainName: flowyticlpbiumhigcqsn.redis.cache.windows.net
+                      ports:
+                      - '6380'
+                  outboundNetworkHealth:
+                    state: Healthy
+                LA2:
+                  networkDependencyHealthState: Healthy
+                  outboundNetworkDependencies:
+                  - category: AzureStorage
+                    displayName: Azure Storage
+                    endpoints:
+                    - accessibility: Available
+                      domainName: blob.core.windows.net
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: queue.core.windows.net
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: table.core.windows.net
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: file.core.windows.net
+                      ports:
+                      - '80'
+                      - '443'
+                  - category: SQL
+                    displayName: Azure SQL Database
+                    endpoints:
+                    - accessibility: Available
+                      domainName: database.windows.net
+                      ports:
+                      - '1433'
+                  - category: AzureManagement
+                    displayName: Azure Management
+                    endpoints:
+                    - accessibility: Available
+                      domainName: management.core.windows.net
+                      ports:
+                      - '443'
+                    - accessibility: Available
+                      domainName: admin.core.windows.net
+                      ports:
+                      - '443'
+                    - accessibility: Available
+                      domainName: management.azure.com
+                      ports:
+                      - '443'
+                  - category: AzureActiveDirectory
+                    displayName: Azure Active Directory
+                    endpoints:
+                    - accessibility: Available
+                      domainName: graph.windows.net
+                      ports:
+                      - '443'
+                  - category: RegionalService
+                    displayName: Regional Service
+                    endpoints:
+                    - accessibility: Available
+                      domainName: gr-prod-sn1.cloudapp.net
+                      ports:
+                      - '443'
+                    - accessibility: Available
+                      domainName: az-prod.metrics.nsatc.net
+                      ports:
+                      - '443'
+                  - category: SSLCertificateVerification
+                    displayName: SSL Certificate Verification
+                    endpoints:
+                    - accessibility: Available
+                      domainName: ocsp.msocsp.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: mscrl.microsoft.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: crl.microsoft.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: www.microsoft.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: crl3.digicert.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: ocsp.digicert.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: cacerts.digicert.com
+                      ports:
+                      - '80'
+                      - '443'
+                    - accessibility: Available
+                      domainName: www.thawte.com
+                      ports:
+                      - '80'
+                      - '443'
+                  outboundNetworkHealth:
+                    state: Healthy
+                LA3:
+                  networkDependencyHealthState: Healthy
+                  outboundNetworkDependencies:
+                  - category: RecoveryService
+                    displayName: Recovery Service
+                    endpoints:
+                    - accessibility: Available
+                      domainName: https://prod3.metrics.nsatc.net:1886/RecoveryService
+                      ports:
+                      - '1886'
+                  - category: SQL
+                    displayName: SQL
+                    endpoints:
+                    - accessibility: Available
+                      domainName: jnb6zdnqth.database.windows.net
+                      ports:
+                      - '1443'
+                  - category: DiagnosticLogsAndMetrics
+                    displayName: Diagnostic Logs And Metrics
+                    endpoints:
+                    - accessibility: Available
+                      domainName: prod.warmpath.msftcloudes.com
+                      ports:
+                      - '443'
+                  - category: AzureStorage
+                    displayName: Azure Storage
+                    endpoints:
+                    - accessibility: Available
+                      domainName: apimgmtstcfpq5vx3sh9wdme.blob.core.windows.net
+                      ports:
+                      - '443'
+                    - accessibility: Available
+                      domainName: apimgmtstcfpq5vx3sh9wdme.file.core.windows.net
+                      ports:
+                      - '445'
+                    - accessibility: Available
+                      domainName: apimgmtstcfpq5vx3sh9wdme.queue.core.windows.net
+                      ports:
+                      - '443'
+                    - accessibility: Available
+                      domainName: apimgmtstcfpq5vx3sh9wdme.table.core.windows.net
+                      ports:
+                      - '443'
+                  outboundNetworkHealth:
+                    state: Healthy
+                LA4:
+                  networkDependencyHealthState: Healthy
+      summary: Azure Logic Apps Integration Service Environment Network Health_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  IntegrationServiceEnvironmentNetworkDependencyCategoryType:
+    description: The integration service environment network dependency category type.
+    enum:
+    - NotSpecified
+    - AzureStorage
+    - AzureManagement
+    - AzureActiveDirectory
+    - SSLCertificateVerification
+    - DiagnosticLogsAndMetrics
+    - IntegrationServiceEnvironmentConnectors
+    - RedisCache
+    - AccessEndpoints
+    - RecoveryService
+    - SQL
+    - RegionalService
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: IntegrationServiceEnvironmentNetworkDependencyCategoryType
+  IntegrationServiceEnvironmentNetworkDependencyHealthState:
+    description: The integration service environment network dependency health state.
+    enum:
+    - NotSpecified
+    - Healthy
+    - Unhealthy
+    - Unknown
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: IntegrationServiceEnvironmentNetworkDependencyHealthState
+  IntegrationServiceEnvironmentNetworkEndPointAccessibilityState:
+    description: The integration service environment network endpoint accessibility state.
+    enum:
+    - NotSpecified
+    - Unknown
+    - Available
+    - NotAvailable
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: IntegrationServiceEnvironmentNetworkEndPointAccessibilityState
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  IntegrationServiceEnvironmentNetworkDependency:
+    description: The azure async operation resource.
+    properties:
+      category:
+        $ref: '#/definitions/IntegrationServiceEnvironmentNetworkDependencyCategoryType'
+        description: The network dependency category type.
+      displayName:
+        description: The display name.
+        type: string
+      endpoints:
+        description: The endpoints.
+        items:
+          $ref: '#/definitions/IntegrationServiceEnvironmentNetworkEndpoint'
+          description: The endpoint.
+        type: array
+    type: object
+  IntegrationServiceEnvironmentNetworkEndpoint:
+    description: The network endpoint.
+    properties:
+      accessibility:
+        $ref: '#/definitions/IntegrationServiceEnvironmentNetworkEndPointAccessibilityState'
+        description: The accessibility state.
+      domainName:
+        description: The domain name.
+        type: string
+      ports:
+        description: The ports.
+        items:
+          type: string
+        type: array
+    type: object
+  IntegrationServiceEnvironmentNetworkDependencyHealth:
+    description: The integration service environment subnet network health.
+    properties:
+      error:
+        $ref: '#/definitions/ExtendedErrorInfo'
+        description: The error if any occurred during the operation.
+      state:
+        $ref: '#/definitions/IntegrationServiceEnvironmentNetworkDependencyHealthState'
+        description: The network dependency health state.
+    type: object
+  IntegrationServiceEnvironmentNetworkHealth:
+    additionalProperties:
+      $ref: '#/definitions/IntegrationServiceEnvironmentSubnetNetworkHealth'
+      description: The integration service environment subnet network health.
+    description: The integration service environment network health of all the subnets.
+    type: object
+  ExtendedErrorInfo:
+    description: The extended error info.
+    properties:
+      code:
+        $ref: '#/definitions/ErrorResponseCode'
+        description: The error code.
+      details:
+        description: The error message details.
+        items:
+          $ref: '#/definitions/ExtendedErrorInfo'
+        type: array
+      innerError:
+        $ref: '#/definitions/Object'
+        description: The inner error.
+      message:
+        description: The error message.
+        type: string
+    required:
+    - code
+    - message
+    type: object
+  IntegrationServiceEnvironmentSubnetNetworkHealth:
+    description: The integration service environment subnet network health.
+    properties:
+      networkDependencyHealthState:
+        $ref: '#/definitions/IntegrationServiceEnvironmentNetworkEndPointAccessibilityState'
+        description: The integration service environment network health state.
+      outboundNetworkDependencies:
+        description: The outbound network dependencies.
+        items:
+          $ref: '#/definitions/IntegrationServiceEnvironmentNetworkDependency'
+          description: The integration service environment network dependency.
+        type: array
+      outboundNetworkHealth:
+        $ref: '#/definitions/IntegrationServiceEnvironmentNetworkDependencyHealth'
+        description: The integration service environment network health.
+    required:
+    - networkDependencyHealthState
+    type: object
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+  Object:
+    properties: {}
+    type: object
+  ErrorResponseCode:
+    description: The error response code.
+    enum:
+    - NotSpecified
+    - IntegrationServiceEnvironmentNotFound
+    - InternalServerError
+    - InvalidOperationId
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: ErrorResponseCode
+parameters:
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2

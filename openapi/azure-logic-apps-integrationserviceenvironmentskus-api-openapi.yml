@@ -1,0 +1,205 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements integrationServiceEnvironmentSkus API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: integrationServiceEnvironmentSkus
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}/skus
+  : get:
+      description: Gets a list of integration service environment Skus.
+      operationId: IntegrationServiceEnvironmentSkus_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group.
+        in: path
+        name: resourceGroup
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration service environment name.
+        in: path
+        name: integrationServiceEnvironmentName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationServiceEnvironmentSkuList'
+        default:
+          description: Logic error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - integrationServiceEnvironmentSkus
+      x-ms-examples:
+        List integration service environment skus:
+          parameters:
+            api-version: '2019-05-01'
+            integrationServiceEnvironmentName: testIntegrationServiceEnvironment
+            resourceGroup: testResourceGroup
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                value:
+                - capacity:
+                    default: 0
+                    maximum: 10
+                    minimum: 0
+                    scaleType: Automatic
+                  resourceType: Microsoft.Logic/integrationServiceEnvironments
+                  sku:
+                    name: Premium
+                - capacity:
+                    default: 0
+                    maximum: 0
+                    minimum: 0
+                    scaleType: None
+                  resourceType: Microsoft.Logic/integrationServiceEnvironments
+                  sku:
+                    name: Developer
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Integration Service Environment Skus_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  IntegrationServiceEnvironmentSkuList:
+    description: The list of integration service environment skus.
+    properties:
+      nextLink:
+        description: The URL to get the next set of results.
+        type: string
+      value:
+        description: The list of integration service environment skus.
+        items:
+          $ref: '#/definitions/IntegrationServiceEnvironmentSkuDefinition'
+        type: array
+    type: object
+  IntegrationServiceEnvironmentSkuDefinition:
+    description: The integration service environment sku definition.
+    properties:
+      capacity:
+        $ref: '#/definitions/IntegrationServiceEnvironmentSkuCapacity'
+        description: The sku capacity.
+      resourceType:
+        description: The resource type.
+        type: string
+      sku:
+        description: The sku.
+        properties:
+          name:
+            $ref: '#/definitions/IntegrationServiceEnvironmentSkuName'
+            description: The sku name.
+          tier:
+            description: The sku tier.
+            type: string
+        type: object
+    type: object
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  IntegrationServiceEnvironmentSkuCapacity:
+    description: The integration service environment sku capacity.
+    properties:
+      default:
+        description: The default capacity.
+        format: int32
+        type: integer
+      maximum:
+        description: The maximum capacity.
+        format: int32
+        type: integer
+      minimum:
+        description: The minimum capacity.
+        format: int32
+        type: integer
+      scaleType:
+        $ref: '#/definitions/IntegrationServiceEnvironmentSkuScaleType'
+        description: The sku scale type.
+    type: object
+  IntegrationServiceEnvironmentSkuScaleType:
+    description: The integration service environment sku scale type.
+    enum:
+    - Manual
+    - Automatic
+    - None
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: IntegrationServiceEnvironmentSkuScaleType
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+  IntegrationServiceEnvironmentSkuName:
+    description: The integration service environment sku name.
+    enum:
+    - NotSpecified
+    - Premium
+    - Developer
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: IntegrationServiceEnvironmentSkuName
+parameters:
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2

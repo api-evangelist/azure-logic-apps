@@ -1,0 +1,424 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements WorkflowVersions API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: WorkflowVersions
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/versions
+  : get:
+      description: Gets a list of workflow versions.
+      operationId: WorkflowVersions_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - description: The number of items to be included in the result.
+        format: int32
+        in: query
+        name: $top
+        required: false
+        type: integer
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowVersionListResult'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowVersions
+      x-ms-examples:
+        List a workflows versions:
+          parameters:
+            api-version: '2019-05-01'
+            resourceGroupName: test-resource-group
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            workflowName: test-workflow
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/workflows/test-workflow
+                  location: brazilsouth
+                  name: test-workflow
+                  properties:
+                    accessEndpoint: http://tempuri.org
+                    changedTime: '2018-08-09T22:54:54.3533634Z'
+                    createdTime: '2018-04-25T01:39:21.4365247Z'
+                    definition:
+                      $schema: https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#
+                      actions: {}
+                      contentVersion: 1.0.0.0
+                      outputs: {}
+                      parameters: {}
+                      triggers: {}
+                    endpointsConfiguration:
+                      connector:
+                        outgoingIpAddresses:
+                        - address: 40.84.145.61
+                      workflow:
+                        accessEndpointIpAddresses:
+                        - address: 104.210.153.89
+                        - address: 13.85.79.155
+                        - address: 13.65.39.247
+                        outgoingIpAddresses:
+                        - address: 13.84.159.168
+                        - address: 13.65.86.56
+                        - address: 13.65.82.190
+                    integrationAccount:
+                      id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/integrationAccounts/test-integration-account
+                      name: test-integration-account
+                      type: Microsoft.Logic/integrationAccounts
+                    parameters: {}
+                    provisioningState: Succeeded
+                    state: Enabled
+                    version: 8586677515911718000
+                  tags: {}
+                  type: Microsoft.Logic/workflows
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Workflow Versions_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/versions/{versionId}
+  : get:
+      description: Gets a workflow version.
+      operationId: WorkflowVersions_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The workflow name.
+        in: path
+        name: workflowName
+        required: true
+        type: string
+        example: example-value
+      - description: The workflow versionId.
+        in: path
+        name: versionId
+        required: true
+        type: string
+        example: '2019-06-01'
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowVersion'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - WorkflowVersions
+      x-ms-examples:
+        Get a workflow version:
+          parameters:
+            api-version: '2019-05-01'
+            resourceGroupName: test-resource-group
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+            versionId: 8586676824806723000
+            workflowName: test-workflow
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/workflows/test-workflow
+                location: brazilsouth
+                name: test-workflow
+                properties:
+                  accessEndpoint: http://tempuri.org
+                  changedTime: '2018-08-09T22:54:54.3533634Z'
+                  createdTime: '2018-04-25T01:39:21.4365247Z'
+                  definition:
+                    $schema: https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#
+                    actions: {}
+                    contentVersion: 1.0.0.0
+                    outputs: {}
+                    parameters: {}
+                    triggers: {}
+                  endpointsConfiguration:
+                    connector:
+                      outgoingIpAddresses:
+                      - address: 40.84.145.61
+                    workflow:
+                      accessEndpointIpAddresses:
+                      - address: 104.210.153.89
+                      - address: 13.85.79.155
+                      - address: 13.65.39.247
+                      outgoingIpAddresses:
+                      - address: 13.84.159.168
+                      - address: 13.65.86.56
+                      - address: 13.65.82.190
+                  integrationAccount:
+                    id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/integrationAccounts/test-integration-account
+                    name: test-integration-account
+                    type: Microsoft.Logic/integrationAccounts
+                  parameters: {}
+                  provisioningState: Succeeded
+                  state: Enabled
+                  version: 8586677515911718000
+                tags: {}
+                type: Microsoft.Logic/workflows
+      summary: Azure Logic Apps Workflow Versions_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  WorkflowVersion:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: The workflow version.
+    properties:
+      properties:
+        $ref: '#/definitions/WorkflowVersionProperties'
+        description: The workflow version properties.
+        x-ms-client-flatten: true
+    type: object
+  ParameterType:
+    description: The parameter type.
+    enum:
+    - NotSpecified
+    - String
+    - SecureString
+    - Int
+    - Float
+    - Bool
+    - Array
+    - Object
+    - SecureObject
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: ParameterType
+  ResourceReference:
+    description: The resource reference.
+    properties:
+      id:
+        description: The resource id.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    type: object
+  SkuName:
+    description: The sku name.
+    enum:
+    - NotSpecified
+    - Free
+    - Shared
+    - Basic
+    - Standard
+    - Premium
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: SkuName
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  WorkflowVersionListResult:
+    description: The list of workflow versions.
+    properties:
+      nextLink:
+        description: The URL to get the next set of results.
+        type: string
+      value:
+        description: A list of workflow versions.
+        items:
+          $ref: '#/definitions/WorkflowVersion'
+          description: The workflow version.
+        type: array
+    type: object
+  Sku:
+    description: The sku type.
+    properties:
+      name:
+        $ref: '#/definitions/SkuName'
+        description: The name.
+      plan:
+        $ref: '#/definitions/ResourceReference'
+        description: The reference to plan.
+    required:
+    - name
+    type: object
+  WorkflowParameter:
+    description: The workflow parameters.
+    properties:
+      description:
+        description: The description.
+        type: string
+      metadata:
+        $ref: '#/definitions/Object'
+        description: The metadata.
+      type:
+        $ref: '#/definitions/ParameterType'
+        description: The type.
+      value:
+        $ref: '#/definitions/Object'
+        description: The value.
+    type: object
+  WorkflowVersionProperties:
+    description: The workflow version properties.
+    properties:
+      accessEndpoint:
+        description: Gets the access endpoint.
+        readOnly: true
+        type: string
+      changedTime:
+        description: Gets the changed time.
+        format: date-time
+        readOnly: true
+        type: string
+      createdTime:
+        description: Gets the created time.
+        format: date-time
+        readOnly: true
+        type: string
+      definition:
+        $ref: '#/definitions/Object'
+        description: The definition.
+      integrationAccount:
+        $ref: '#/definitions/ResourceReference'
+        description: The integration account.
+      parameters:
+        additionalProperties:
+          $ref: '#/definitions/WorkflowParameter'
+        description: The parameters.
+        type: object
+      sku:
+        $ref: '#/definitions/Sku'
+        description: The sku.
+      state:
+        $ref: '#/definitions/WorkflowState'
+        description: The state.
+      version:
+        description: Gets the version.
+        readOnly: true
+        type: string
+    type: object
+  Resource:
+    description: The base resource type.
+    properties:
+      id:
+        description: The resource id.
+        readOnly: true
+        type: string
+      location:
+        description: The resource location.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The resource tags.
+        type: object
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    x-ms-azure-resource: true
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+  Object:
+    properties: {}
+    type: object
+  WorkflowState:
+    description: The workflow state.
+    enum:
+    - NotSpecified
+    - Completed
+    - Enabled
+    - Disabled
+    - Deleted
+    - Suspended
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: WorkflowState
+parameters:
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2

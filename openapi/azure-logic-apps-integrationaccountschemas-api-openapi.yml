@@ -1,0 +1,639 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements IntegrationAccountSchemas API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: IntegrationAccountSchemas
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/schemas
+  : get:
+      description: Gets a list of integration account schemas.
+      operationId: IntegrationAccountSchemas_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - description: The number of items to be included in the result.
+        format: int32
+        in: query
+        name: $top
+        required: false
+        type: integer
+        example: example-value
+      - description: 'The filter to apply on the operation. Options for filters include: SchemaType.'
+        in: query
+        name: $filter
+        required: false
+        type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationAccountSchemaListResult'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountSchemas
+      x-ms-examples:
+        Get schemas by integration account name:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: <integrationAccountName>
+            resourceGroupName: testResourceGroup
+            subscriptionId: <subscriptionId>
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/<subscriptionId>/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>/schemas/IntegrationAccountSchema3944
+                  name: IntegrationAccountSchema3944
+                  properties:
+                    changedTime: '2017-02-24T01:34:16.7098626Z'
+                    contentLink:
+                      contentHash:
+                        algorithm: md5
+                        value: <Value>
+                      contentSize: 7901
+                      contentVersion: '"0x8D45C553EECEB76"'
+                      uri: <contentLinkUri>
+                    createdTime: '2017-02-24T01:34:16.7088958Z'
+                    documentName: OrderFile
+                    metadata: {}
+                    schemaType: Xml
+                    targetNamespace: http://Inbound_EDI.OrderFile
+                  type: Microsoft.Logic/integrationAccounts/schemas
+      x-ms-odata: '#/definitions/IntegrationAccountSchemaFilter'
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Integration Account Schemas_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/schemas/{schemaName}
+  : delete:
+      description: Deletes an integration account schema.
+      operationId: IntegrationAccountSchemas_Delete
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The integration account schema name.
+        in: path
+        name: schemaName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountSchemas
+      x-ms-examples:
+        Delete a schema by name:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testIntegrationAccount
+            resourceGroupName: testResourceGroup
+            schemaName: testSchema
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200': {}
+            '204': {}
+      summary: Azure Logic Apps Integration Account Schemas_ Delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      description: Gets an integration account schema.
+      operationId: IntegrationAccountSchemas_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The integration account schema name.
+        in: path
+        name: schemaName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationAccountSchema'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountSchemas
+      x-ms-examples:
+        Get schema by name:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testIntegrationAccount
+            resourceGroupName: testResourceGroup
+            schemaName: testSchema
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/schemas/testSchema
+                name: IntegrationAccountSchema5349
+                properties:
+                  changedTime: '2017-02-24T01:46:48.0847046Z'
+                  contentLink:
+                    contentHash:
+                      algorithm: md5
+                      value: <value>
+                    contentSize: 7901
+                    contentVersion: '"0x8D45C56FEDFCB45"'
+                    uri: <contentLinkUrl>
+                  createdTime: '2017-02-24T01:46:48.0837583Z'
+                  documentName: OrderFile
+                  metadata: {}
+                  schemaType: Xml
+                  targetNamespace: http://Inbound_EDI.OrderFile
+                type: Microsoft.Logic/integrationAccounts/schemas
+      summary: Azure Logic Apps Integration Account Schemas_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      description: Creates or updates an integration account schema.
+      operationId: IntegrationAccountSchemas_CreateOrUpdate
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The integration account schema name.
+        in: path
+        name: schemaName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - description: The integration account schema.
+        in: body
+        name: schema
+        required: true
+        schema:
+          $ref: '#/definitions/IntegrationAccountSchema'
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationAccountSchema'
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/IntegrationAccountSchema'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountSchemas
+      x-ms-examples:
+        Create or update schema:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testIntegrationAccount
+            resourceGroupName: testResourceGroup
+            schema:
+              location: westus
+              properties:
+                content: "<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<xs:schema xmlns:b=\"http://schemas.microsoft.com/BizTalk/2003\" xmlns=\"http://Inbound_EDI.OrderFile\" targetNamespace=\"http://Inbound_EDI.OrderFile\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\r\n  <xs:annotation>\r\n    <xs:appinfo>\r\n      <b:schemaInfo default_pad_char=\" \" count_positions_by_byte=\"false\" parser_optimization=\"speed\" lookahead_depth=\"3\" suppress_empty_nodes=\"false\" generate_empty_nodes=\"true\" allow_early_termination=\"false\" early_terminate_optional_fields=\"false\" allow_message_breakup_of_infix_root=\"false\" compile_parse_tables=\"false\" standard=\"Flat File\" root_reference=\"OrderFile\" />\r\n      <schemaEditorExtension:schemaInfo namespaceAlias=\"b\" extensionClass=\"Microsoft.BizTalk.FlatFileExtension.FlatFileExtension\" standardName=\"Flat File\" xmlns:schemaEditorExtension=\"http://schemas.microsoft.com/BizTalk/2003/SchemaEditorExtensions\" />\r\n    </xs:appinfo>\r\n  </xs:annotation>\r\n  <xs:element name=\"OrderFile\">\r\n    <xs:annotation>\r\n      <xs:appinfo>\r\n        <b:recordInfo structure=\"delimited\" preserve_delimiter_for_empty_data=\"true\" suppress_trailing_delimiters=\"false\" sequence_number=\"1\" />\r\n      </xs:appinfo>\r\n    </xs:annotation>\r\n    <xs:complexType>\r\n      <xs:sequence>\r\n        <xs:annotation>\r\n          <xs:appinfo>\r\n            <b:groupInfo sequence_number=\"0\" />\r\n          </xs:appinfo>\r\n        </xs:annotation>\r\n        <xs:element name=\"Order\">\r\n          <xs:annotation>\r\n            <xs:appinfo>\r\n              <b:recordInfo sequence_number=\"1\" structure=\"delimited\" preserve_delimiter_for_empty_data=\"true\" suppress_trailing_delimiters=\"false\" child_delimiter_type=\"hex\" child_delimiter=\"0x0D 0x0A\" child_order=\"infix\" />\r\n            </xs:appinfo>\r\n          </xs:annotation>\r\n          <xs:complexType>\r\n            <xs:sequence>\r\n              <xs:annotation>\r\n                <xs:appinfo>\r\n                  <b:groupInfo sequence_number=\"0\" />\r\n                </xs:appinfo>\r\n              </xs:annotation>\r\n              <xs:element name=\"Header\">\r\n                <xs:annotation>\r\n                  <xs:appinfo>\r\n                    <b:recordInfo sequence_number=\"1\" structure=\"delimited\" preserve_delimiter_for_empty_data=\"true\" suppress_trailing_delimiters=\"false\" child_delimiter_type=\"char\" child_delimiter=\"|\" child_order=\"infix\" tag_name=\"HDR|\" />\r\n                  </xs:appinfo>\r\n                </xs:annotation>\r\n                <xs:complexType>\r\n                  <xs:sequence>\r\n                    <xs:annotation>\r\n                      <xs:appinfo>\r\n                        <b:groupInfo sequence_number=\"0\" />\r\n                      </xs:appinfo>\r\n                    </xs:annotation>\r\n                    <xs:element name=\"PODate\" type=\"xs:string\">\r\n                      <xs:annotation>\r\n                        <xs:appinfo>\r\n                          <b:fieldInfo sequence_number=\"1\" justification=\"left\" />\r\n                        </xs:appinfo>\r\n                      </xs:annotation>\r\n                    </xs:element>\r\n                    <xs:element name=\"PONumber\" type=\"xs:string\">\r\n                      <xs:annotation>\r\n                        <xs:appinfo>\r\n                          <b:fieldInfo justification=\"left\" sequence_number=\"2\" />\r\n                        </xs:appinfo>\r\n                      </xs:annotation>\r\n                    </xs:element>\r\n                    <xs:element name=\"CustomerID\" type=\"xs:string\">\r\n                      <xs:annotation>\r\n                        <xs:appinfo>\r\n                          <b:fieldInfo sequence_number=\"3\" justification=\"left\" />\r\n                        </xs:appinfo>\r\n                      </xs:annotation>\r\n                    </xs:element>\r\n                    <xs:element name=\"CustomerContactName\" type=\"xs:string\">\r\n                      <xs:annotation>\r\n                        <xs:appinfo>\r\n                          <b:fieldInfo sequence_number=\"4\" justification=\"left\" />\r\n                        </xs:appinfo>\r\n                      </xs:annotation>\r\n                    </xs:element>\r\n                    <xs:element name=\"CustomerContactPhone\" type=\"xs:string\">\r\n                      <xs:annotation>\r\n                        <xs:appinfo>\r\n                          <b:fieldInfo sequence_number=\"5\" justification=\"left\" />\r\n                        </xs:appinfo>\r\n                      </xs:annotation>\r\n                    </xs:element>\r\n                  </xs:sequence>\r\n                </xs:complexType>\r\n              </xs:element>\r\n              <xs:element minOccurs=\"1\" maxOccurs=\"unbounded\" name=\"LineItems\">\r\n                <xs:annotation>\r\n                  <xs:appinfo>\r\n                    <b:recordInfo sequence_number=\"2\" structure=\"delimited\" preserve_delimiter_for_empty_data=\"true\" suppress_trailing_delimiters=\"false\" child_delimiter_type=\"char\" child_delimiter=\"|\" child_order=\"infix\" tag_name=\"DTL|\" />\r\n                  </xs:appinfo>\r\n                </xs:annotation>\r\n                <xs:complexType>\r\n                  <xs:sequence>\r\n                    <xs:annotation>\r\n                      <xs:appinfo>\r\n                        <b:groupInfo sequence_number=\"0\" />\r\n                      </xs:appinfo>\r\n                    </xs:annotation>\r\n                    <xs:element name=\"PONumber\" type=\"xs:string\">\r\n                      <xs:annotation>\r\n                        <xs:appinfo>\r\n                          <b:fieldInfo sequence_number=\"1\" justification=\"left\" />\r\n                        </xs:appinfo>\r\n                      </xs:annotation>\r\n                    </xs:element>\r\n                    <xs:element name=\"ItemOrdered\" type=\"xs:string\">\r\n                      <xs:annotation>\r\n                        <xs:appinfo>\r\n                          <b:fieldInfo sequence_number=\"2\" justification=\"left\" />\r\n                        </xs:appinfo>\r\n                      </xs:annotation>\r\n                    </xs:element>\r\n                    <xs:element name=\"Quantity\" type=\"xs:string\">\r\n                      <xs:annotation>\r\n                        <xs:appinfo>\r\n                          <b:fieldInfo sequence_number=\"3\" justification=\"left\" />\r\n                        </xs:appinfo>\r\n                      </xs:annotation>\r\n                    </xs:element>\r\n                    <xs:element name=\"UOM\" type=\"xs:string\">\r\n                      <xs:annotation>\r\n                        <xs:appinfo>\r\n                          <b:fieldInfo sequence_number=\"4\" justification=\"left\" />\r\n                        </xs:appinfo>\r\n                      </xs:annotation>\r\n                    </xs:element>\r\n                    <xs:element name=\"Price\" type=\"xs:string\">\r\n                      <xs:annotation>\r\n                        <xs:appinfo>\r\n                          <b:fieldInfo sequence_number=\"5\" justification=\"left\" />\r\n                        </xs:appinfo>\r\n                      </xs:annotation>\r\n                    </xs:element>\r\n                    <xs:element name=\"ExtendedPrice\" type=\"xs:string\">\r\n                      <xs:annotation>\r\n                        <xs:appinfo>\r\n                          <b:fieldInfo sequence_number=\"6\" justification=\"left\" />\r\n                        </xs:appinfo>\r\n                      </xs:annotation>\r\n                    </xs:element>\r\n                    <xs:element name=\"Description\" type=\"xs:string\">\r\n                      <xs:annotation>\r\n                        <xs:appinfo>\r\n                          <b:fieldInfo sequence_number=\"7\" justification=\"left\" />\r\n                        </xs:appinfo>\r\n                      </xs:annotation>\r\n                    </xs:element>\r\n                  </xs:sequence>\r\n                </xs:complexType>\r\n              </xs:element>\r\n            </xs:sequence>\r\n          </xs:complexType>\r\n        </xs:element>\r\n      </xs:sequence>\r\n    </xs:complexType>\r\n  </xs:element>\r\n</xs:schema>"
+                contentType: application/xml
+                metadata: {}
+                schemaType: Xml
+              tags:
+                integrationAccountSchemaName: IntegrationAccountSchema8120
+            schemaName: testSchema
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/schemas/testSchema
+                name: IntegrationAccountSchema5349
+                properties:
+                  changedTime: '2017-02-24T01:46:48.0847046Z'
+                  contentLink:
+                    contentHash:
+                      algorithm: md5
+                      value: <value>
+                    contentSize: 7901
+                    contentVersion: '"0x8D45C56FEDFCB45"'
+                    uri: <contentLinkUrl>
+                  createdTime: '2017-02-24T01:46:48.0837583Z'
+                  documentName: OrderFile
+                  metadata: {}
+                  schemaType: Xml
+                  targetNamespace: http://Inbound_EDI.OrderFile
+                type: Microsoft.Logic/integrationAccounts/schemas
+            '201':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/schemas/testSchema
+                name: IntegrationAccountSchema5349
+                properties:
+                  changedTime: '2017-02-24T01:46:48.0847046Z'
+                  contentLink:
+                    contentHash:
+                      algorithm: md5
+                      value: <value>
+                    contentSize: 7901
+                    contentVersion: '"0x8D45C56FEDFCB45"'
+                    uri: <contentLinkUrl>
+                  createdTime: '2017-02-24T01:46:48.0837583Z'
+                  documentName: OrderFile
+                  metadata: {}
+                  schemaType: Xml
+                  targetNamespace: http://Inbound_EDI.OrderFile
+                type: Microsoft.Logic/integrationAccounts/schemas
+      summary: Azure Logic Apps Integration Account Schemas_ Create or Update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/schemas/{schemaName}/listContentCallbackUrl
+  : post:
+      description: Get the content callback url.
+      operationId: IntegrationAccountSchemas_ListContentCallbackUrl
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The integration account schema name.
+        in: path
+        name: schemaName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - in: body
+        name: listContentCallbackUrl
+        required: true
+        schema:
+          $ref: '#/definitions/GetCallbackUrlParameters'
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowTriggerCallbackUrl'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountSchemas
+      x-ms-examples:
+        Get the content callback url:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testIntegrationAccount
+            listContentCallbackUrl:
+              keyType: Primary
+              notAfter: '2018-04-19T16:00:00Z'
+            resourceGroupName: testResourceGroup
+            schemaName: testSchema
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                basePath: https://prod-00.westus.logic.azure.com/integrationAccounts/0fdabc3a76514ca48dede71c73d9fe97/schemas/testSchema/contents/Value
+                method: GET
+                queries:
+                  api-version: 2015-08-01-preview
+                value: https://prod-00.westus.logic.azure.com:443/integrationAccounts/0fdabc3a76514ca48dede71c73d9fe97/schemas/testSchema/contents/Value?api-version=2015-08-01-preview&sp=%2Fschemas%2FtestSchema%2Fread&sv=1.0&sig=VK_mbQPTHTa3ezhsrI8IctckwjlL3GdJmroQH_baYj4
+      summary: Azure Logic Apps Integration Account Schemas_ List Content Callback Url
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  KeyType:
+    description: The key type.
+    enum:
+    - NotSpecified
+    - Primary
+    - Secondary
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: KeyType
+  SchemaType:
+    description: The schema type.
+    enum:
+    - NotSpecified
+    - Xml
+    type: string
+    x-ms-enum:
+      modelAsString: true
+      name: SchemaType
+  GetCallbackUrlParameters:
+    description: The callback url parameters.
+    properties:
+      keyType:
+        $ref: '#/definitions/KeyType'
+        description: The key type.
+      notAfter:
+        description: The expiry time.
+        format: date-time
+        type: string
+    type: object
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  IntegrationAccountSchemaProperties:
+    description: The integration account schema properties.
+    properties:
+      changedTime:
+        description: The changed time.
+        format: date-time
+        readOnly: true
+        type: string
+      content:
+        description: The content.
+        properties: {}
+        type: string
+      contentLink:
+        $ref: '#/definitions/ContentLink'
+        description: The content link.
+        readOnly: true
+      contentType:
+        description: The content type.
+        type: string
+      createdTime:
+        description: The created time.
+        format: date-time
+        readOnly: true
+        type: string
+      documentName:
+        description: The document name.
+        type: string
+      fileName:
+        description: The file name.
+        type: string
+      metadata:
+        description: The metadata.
+        properties: {}
+        type: object
+      schemaType:
+        $ref: '#/definitions/SchemaType'
+        description: The schema type.
+      targetNamespace:
+        description: The target namespace of the schema.
+        type: string
+    required:
+    - schemaType
+    type: object
+  IntegrationAccountSchemaListResult:
+    description: The list of integration account schemas.
+    properties:
+      nextLink:
+        description: The URL to get the next set of results.
+        type: string
+      value:
+        description: The list of integration account schemas.
+        items:
+          $ref: '#/definitions/IntegrationAccountSchema'
+        type: array
+    type: object
+  IntegrationAccountSchema:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: The integration account schema.
+    properties:
+      properties:
+        $ref: '#/definitions/IntegrationAccountSchemaProperties'
+        description: The integration account schema properties.
+        x-ms-client-flatten: true
+    required:
+    - properties
+    type: object
+  Resource:
+    description: The base resource type.
+    properties:
+      id:
+        description: The resource id.
+        readOnly: true
+        type: string
+      location:
+        description: The resource location.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The resource tags.
+        type: object
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    x-ms-azure-resource: true
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+  Object:
+    properties: {}
+    type: object
+  WorkflowTriggerListCallbackUrlQueries:
+    description: Gets the workflow trigger callback URL query parameters.
+    properties:
+      api-version:
+        description: The api version.
+        type: string
+      se:
+        description: The SAS timestamp.
+        type: string
+      sig:
+        description: The SAS signature.
+        type: string
+      sp:
+        description: The SAS permissions.
+        type: string
+      sv:
+        description: The SAS version.
+        type: string
+    type: object
+  WorkflowTriggerCallbackUrl:
+    description: The workflow trigger callback URL.
+    properties:
+      basePath:
+        description: Gets the workflow trigger callback URL base path.
+        readOnly: true
+        type: string
+      method:
+        description: Gets the workflow trigger callback URL HTTP method.
+        readOnly: true
+        type: string
+      queries:
+        $ref: '#/definitions/WorkflowTriggerListCallbackUrlQueries'
+        description: Gets the workflow trigger callback URL query parameters.
+      relativePath:
+        description: Gets the workflow trigger callback URL relative path.
+        readOnly: true
+        type: string
+      relativePathParameters:
+        description: Gets the workflow trigger callback URL relative path parameters.
+        items:
+          type: string
+        type: array
+      value:
+        description: Gets the workflow trigger callback URL.
+        readOnly: true
+        type: string
+    type: object
+  ContentHash:
+    description: The content hash.
+    properties:
+      algorithm:
+        description: The algorithm of the content hash.
+        type: string
+      value:
+        description: The value of the content hash.
+        type: string
+    type: object
+  ContentLink:
+    description: The content link.
+    properties:
+      contentHash:
+        $ref: '#/definitions/ContentHash'
+        description: The content hash.
+      contentSize:
+        description: The content size.
+        format: int64
+        type: integer
+      contentVersion:
+        description: The content version.
+        type: string
+      metadata:
+        $ref: '#/definitions/Object'
+        description: The metadata.
+      uri:
+        description: The content link URI.
+        type: string
+    type: object
+parameters:
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2

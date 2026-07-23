@@ -1,0 +1,466 @@
+swagger: '2.0'
+info:
+  description: REST API for Azure Logic Apps.
+  title: LogicManagementClient IntegrationAccountAgreements IntegrationAccountSessions API
+  version: '2019-05-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: logic
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: IntegrationAccountSessions
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/sessions
+  : get:
+      description: Gets a list of integration account sessions.
+      operationId: IntegrationAccountSessions_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - description: The number of items to be included in the result.
+        format: int32
+        in: query
+        name: $top
+        required: false
+        type: integer
+        example: example-value
+      - description: 'The filter to apply on the operation. Options for filters include: ChangedTime.'
+        in: query
+        name: $filter
+        required: false
+        type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationAccountSessionListResult'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountSessions
+      x-ms-examples:
+        Get a list of integration account sessions:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testia123
+            resourceGroupName: testrg123
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Logic/integrationAccounts/testia123/sessions/IntegrationAccountSession1662
+                  name: IntegrationAccountSession1662
+                  properties:
+                    changedTime: '2017-02-21T23:06:24.0158575Z'
+                    content:
+                      controlNumber: '1234'
+                      controlNumberChangedTime: '2017-02-21T22:30:11.9923759Z'
+                    createdTime: '2017-02-21T23:06:24.0152955Z'
+                  type: Microsoft.Logic/integrationAccounts/sessions
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Logic/integrationAccounts/testia123/sessions/IntegrationAccountSession6808
+                  name: IntegrationAccountSession6808
+                  properties:
+                    changedTime: '2017-02-21T23:06:23.7540113Z'
+                    content:
+                      controlNumber: '1234'
+                      controlNumberChangedTime: '2017-02-21T22:30:11.9923759Z'
+                    createdTime: '2017-02-21T23:06:23.7535558Z'
+                  type: Microsoft.Logic/integrationAccounts/sessions
+                - id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Logic/integrationAccounts/testia123/sessions/IntegrationAccountSession7315
+                  name: IntegrationAccountSession7315
+                  properties:
+                    changedTime: '2017-02-21T23:06:23.8370161Z'
+                    content:
+                      controlNumber: '1234'
+                      controlNumberChangedTime: '2017-02-21T22:30:11.9923759Z'
+                    createdTime: '2017-02-21T23:06:23.8367926Z'
+                  type: Microsoft.Logic/integrationAccounts/sessions
+              headers:
+                Cache-Control: no-cache
+                Content-Type: application/json; charset=utf-8
+                Date: Tue, 21 Feb 2017 20:43:03 GMT
+                Expires: -1
+                Pragma: no-cache
+                Vary: Accept-Encoding
+          title: List by integration account session examples
+      x-ms-odata: '#/definitions/IntegrationAccountSessionFilter'
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure Logic Apps Integration Account Sessions_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/sessions/{sessionName}
+  : delete:
+      description: Deletes an integration account session.
+      operationId: IntegrationAccountSessions_Delete
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The integration account session name.
+        in: path
+        name: sessionName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountSessions
+      x-ms-examples:
+        Delete an integration account session:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testia123
+            resourceGroupName: testrg123
+            sessionName: testsession123-ICN
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              headers:
+                Cache-Control: no-cache
+                Content-Length: 0
+                Date: Tue, 21 Feb 2017 20:43:03 GMT
+                Expires: -1
+                Pragma: no-cache
+            '204':
+              headers:
+                Cache-Control: no-cache
+                Content-Length: 0
+                Date: Tue, 21 Feb 2017 20:43:03 GMT
+                Expires: -1
+                Pragma: no-cache
+          title: Delete integration account session examples
+      summary: Azure Logic Apps Integration Account Sessions_ Delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      description: Gets an integration account session.
+      operationId: IntegrationAccountSessions_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The integration account session name.
+        in: path
+        name: sessionName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationAccountSession'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountSessions
+      x-ms-examples:
+        Get an integration account session:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testia123
+            resourceGroupName: testrg123
+            sessionName: testsession123-ICN
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Logic/integrationAccounts/testia123/sessions/testsession123-ICN
+                name: testsession123-ICN
+                properties:
+                  changedTime: '2017-02-21T20:41:35.9796534Z'
+                  content:
+                    controlNumber: '1234'
+                    controlNumberChangedTime: '2017-02-21T22:30:11.9923759Z'
+                  createdTime: '2017-02-21T20:41:35.9789189Z'
+                type: Microsoft.Logic/integrationAccounts/sessions
+              headers:
+                Cache-Control: no-cache
+                Content-Type: application/json; charset=utf-8
+                Date: Tue, 21 Feb 2017 20:43:03 GMT
+                Expires: -1
+                Pragma: no-cache
+                Vary: Accept-Encoding
+          title: Get integration account session examples
+      summary: Azure Logic Apps Integration Account Sessions_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      description: Creates or updates an integration account session.
+      operationId: IntegrationAccountSessions_CreateOrUpdate
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: The resource group name.
+        in: path
+        name: resourceGroupName
+        required: true
+        type: string
+        example: my-resource-group
+      - description: The integration account name.
+        in: path
+        name: integrationAccountName
+        required: true
+        type: string
+        example: example-value
+      - description: The integration account session name.
+        in: path
+        name: sessionName
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      - description: The integration account session.
+        in: body
+        name: session
+        required: true
+        schema:
+          $ref: '#/definitions/IntegrationAccountSession'
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IntegrationAccountSession'
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/IntegrationAccountSession'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+      - IntegrationAccountSessions
+      x-ms-examples:
+        Create or update an integration account session:
+          parameters:
+            api-version: '2019-05-01'
+            integrationAccountName: testia123
+            resourceGroupName: testrg123
+            session:
+              properties:
+                content:
+                  controlNumber: '1234'
+                  controlNumberChangedTime: '2017-02-21T22:30:11.9923759Z'
+            sessionName: testsession123-ICN
+            subscriptionId: 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345
+          responses:
+            '200':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Logic/integrationAccounts/testia123/sessions/testsession123-ICN
+                name: testsession123-ICN
+                properties:
+                  changedTime: '2017-02-21T20:41:35.9796534Z'
+                  content:
+                    controlNumber: '1234'
+                    controlNumberChangedTime: '2017-02-21T22:30:11.9923759Z'
+                  createdTime: '2017-02-21T20:41:35.9789189Z'
+                type: Microsoft.Logic/integrationAccounts/sessions
+              headers:
+                Cache-Control: no-cache
+                Content-Type: application/json; charset=utf-8
+                Date: Tue, 21 Feb 2017 20:43:03 GMT
+                Expires: -1
+                Pragma: no-cache
+                Vary: Accept-Encoding
+            '201':
+              body:
+                id: /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Logic/integrationAccounts/testia123/sessions/testsession123-ICN
+                name: testsession123-ICN
+                properties:
+                  changedTime: '2017-02-21T20:41:35.9796534Z'
+                  content:
+                    controlNumber: '1234'
+                    controlNumberChangedTime: '2017-02-21T22:30:11.9923759Z'
+                  createdTime: '2017-02-21T20:41:35.9789189Z'
+                type: Microsoft.Logic/integrationAccounts/sessions
+              headers:
+                Cache-Control: no-cache
+                Content-Type: application/json; charset=utf-8
+                Date: Tue, 21 Feb 2017 20:43:03 GMT
+                Expires: -1
+                Pragma: no-cache
+          title: Create or update integration account session example
+      summary: Azure Logic Apps Integration Account Sessions_ Create or Update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  IntegrationAccountSession:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: The integration account session.
+    properties:
+      properties:
+        $ref: '#/definitions/IntegrationAccountSessionProperties'
+        description: The integration account session properties.
+        x-ms-client-flatten: true
+    required:
+    - properties
+    type: object
+  IntegrationAccountSessionListResult:
+    description: The list of integration account sessions.
+    properties:
+      nextLink:
+        description: The URL to get the next set of results.
+        type: string
+      value:
+        description: The list of integration account sessions.
+        items:
+          $ref: '#/definitions/IntegrationAccountSession'
+        type: array
+    type: object
+  ErrorProperties:
+    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    properties:
+      code:
+        description: Error code.
+        type: string
+      message:
+        description: Error message indicating why the operation failed.
+        type: string
+    type: object
+  IntegrationAccountSessionProperties:
+    description: The integration account session properties.
+    properties:
+      changedTime:
+        description: The changed time.
+        format: date-time
+        readOnly: true
+        type: string
+      content:
+        $ref: '#/definitions/Object'
+        description: The session content.
+      createdTime:
+        description: The created time.
+        format: date-time
+        readOnly: true
+        type: string
+    type: object
+  Resource:
+    description: The base resource type.
+    properties:
+      id:
+        description: The resource id.
+        readOnly: true
+        type: string
+      location:
+        description: The resource location.
+        type: string
+      name:
+        description: Gets the resource name.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The resource tags.
+        type: object
+      type:
+        description: Gets the resource type.
+        readOnly: true
+        type: string
+    x-ms-azure-resource: true
+  ErrorResponse:
+    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    properties:
+      error:
+        $ref: '#/definitions/ErrorProperties'
+        description: The error properties.
+    type: object
+  Object:
+    properties: {}
+    type: object
+parameters:
+  api-version:
+    description: The API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription id.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow.
+    flow: implicit
+    scopes:
+      user_impersonation: impersonate your user account
+    type: oauth2
