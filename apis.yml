@@ -3,7 +3,20 @@ name: Azure Logic Apps
 description: Azure Logic Apps is a cloud-based integration platform that enables you to create and run automated workflows
   integrating apps, data, services, and systems across cloud and on-premises environments.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/azure-logic-apps.png
 tags:
 - Azure
 - Integration
@@ -14,22 +27,1402 @@ created: '2026-03-27'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: azure-logic-apps:azure-logic-apps
-  name: Azure Logic Apps
-  description: Azure Logic Apps is a cloud-based integration platform that enables you to create and run automated workflows
-    integrating apps, data, services, and systems across cloud and on-premises environments.
+- aid: azure-logic-apps:azure-logic-apps-integrationaccountagreements-api
+  name: Azure Logic Apps IntegrationAccountAgreements API
+  description: >-
+    The IntegrationAccountAgreements API from Azure Logic Apps — 3 operation(s) for integrationaccountagreements.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
   tags:
-  - Integration
-  - iPaaS
-  - Workflows
+  - IntegrationAccountAgreements
   properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationaccountagreements-api-openapi.yml
   - type: Documentation
     url: https://learn.microsoft.com/en-us/azure/logic-apps/
   - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationaccountassemblies-api
+  name: Azure Logic Apps IntegrationAccountAssemblies API
+  description: >-
+    The IntegrationAccountAssemblies API from Azure Logic Apps — 3 operation(s) for integrationaccountassemblies.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - IntegrationAccountAssemblies
+  properties:
   - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/azure-logic-apps/refs/heads/main/openapi/azure-logic-apps-openapi.yaml
+    url: openapi/azure-logic-apps-integrationaccountassemblies-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationaccountbatchconfigurations-api
+  name: Azure Logic Apps IntegrationAccountBatchConfigurations API
+  description: >-
+    The IntegrationAccountBatchConfigurations API from Azure Logic Apps — 2 operation(s) for integrationaccountbatchconfigurations.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - IntegrationAccountBatchConfigurations
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationaccountbatchconfigurations-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationaccountcertificates-api
+  name: Azure Logic Apps IntegrationAccountCertificates API
+  description: >-
+    The IntegrationAccountCertificates API from Azure Logic Apps — 2 operation(s) for integrationaccountcertificates.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - IntegrationAccountCertificates
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationaccountcertificates-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationaccountmaps-api
+  name: Azure Logic Apps IntegrationAccountMaps API
+  description: >-
+    The IntegrationAccountMaps API from Azure Logic Apps — 3 operation(s) for integrationaccountmaps.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - IntegrationAccountMaps
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationaccountmaps-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationaccountpartners-api
+  name: Azure Logic Apps IntegrationAccountPartners API
+  description: >-
+    The IntegrationAccountPartners API from Azure Logic Apps — 3 operation(s) for integrationaccountpartners.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - IntegrationAccountPartners
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationaccountpartners-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationaccounts-api
+  name: Azure Logic Apps IntegrationAccounts API
+  description: >-
+    The IntegrationAccounts API from Azure Logic Apps — 7 operation(s) for integrationaccounts.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - IntegrationAccounts
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationaccounts-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationaccountschemas-api
+  name: Azure Logic Apps IntegrationAccountSchemas API
+  description: >-
+    The IntegrationAccountSchemas API from Azure Logic Apps — 3 operation(s) for integrationaccountschemas.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - IntegrationAccountSchemas
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationaccountschemas-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationaccountsessions-api
+  name: Azure Logic Apps IntegrationAccountSessions API
+  description: >-
+    The IntegrationAccountSessions API from Azure Logic Apps — 2 operation(s) for integrationaccountsessions.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - IntegrationAccountSessions
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationaccountsessions-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationserviceenvironmentmanagedapi-api
+  name: Azure Logic Apps integrationServiceEnvironmentManagedApi API
+  description: >-
+    The integrationServiceEnvironmentManagedApi API from Azure Logic Apps — 1 operation(s) for integrationserviceenvironmentmanagedapi.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - integrationServiceEnvironmentManagedApi
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationserviceenvironmentmanagedapi-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationserviceenvironmentmanagedapis-api
+  name: Azure Logic Apps integrationServiceEnvironmentManagedApis API
+  description: >-
+    The integrationServiceEnvironmentManagedApis API from Azure Logic Apps — 2 operation(s) for integrationserviceenvironmentmanagedapis.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - integrationServiceEnvironmentManagedApis
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationserviceenvironmentmanagedapis-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationserviceenvironmentnetworkhealth-api
+  name: Azure Logic Apps integrationServiceEnvironmentNetworkHealth API
+  description: >-
+    The integrationServiceEnvironmentNetworkHealth API from Azure Logic Apps — 1 operation(s) for integrationserviceenvironmentnetworkhealth.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - integrationServiceEnvironmentNetworkHealth
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationserviceenvironmentnetworkhealth-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationserviceenvironmentrestart-api
+  name: Azure Logic Apps integrationServiceEnvironmentRestart API
+  description: >-
+    The integrationServiceEnvironmentRestart API from Azure Logic Apps — 1 operation(s) for integrationserviceenvironmentrestart.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - integrationServiceEnvironmentRestart
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationserviceenvironmentrestart-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationserviceenvironments-api
+  name: Azure Logic Apps IntegrationServiceEnvironments API
+  description: >-
+    The IntegrationServiceEnvironments API from Azure Logic Apps — 3 operation(s) for integrationserviceenvironments.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - IntegrationServiceEnvironments
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationserviceenvironments-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-integrationserviceenvironmentskus-api
+  name: Azure Logic Apps integrationServiceEnvironmentSkus API
+  description: >-
+    The integrationServiceEnvironmentSkus API from Azure Logic Apps — 1 operation(s) for integrationserviceenvironmentskus.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - integrationServiceEnvironmentSkus
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-integrationserviceenvironmentskus-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-operations-api
+  name: Azure Logic Apps Operations API
+  description: The Operations API from Azure Logic Apps — 1 operation(s) for operations.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-operations-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-workflowrunactions-api
+  name: Azure Logic Apps WorkflowRunActions API
+  description: >-
+    The WorkflowRunActions API from Azure Logic Apps — 12 operation(s) for workflowrunactions.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - WorkflowRunActions
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-workflowrunactions-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-workflowrunoperations-api
+  name: Azure Logic Apps WorkflowRunOperations API
+  description: >-
+    The WorkflowRunOperations API from Azure Logic Apps — 1 operation(s) for workflowrunoperations.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - WorkflowRunOperations
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-workflowrunoperations-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-workflowruns-api
+  name: Azure Logic Apps WorkflowRuns API
+  description: The WorkflowRuns API from Azure Logic Apps — 3 operation(s) for workflowruns.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - WorkflowRuns
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-workflowruns-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-workflows-api
+  name: Azure Logic Apps Workflows API
+  description: The Workflows API from Azure Logic Apps — 12 operation(s) for workflows.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - Workflows
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-workflows-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-workflowtriggerhistories-api
+  name: Azure Logic Apps WorkflowTriggerHistories API
+  description: >-
+    The WorkflowTriggerHistories API from Azure Logic Apps — 3 operation(s) for workflowtriggerhistories.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - WorkflowTriggerHistories
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-workflowtriggerhistories-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-workflowtriggers-api
+  name: Azure Logic Apps WorkflowTriggers API
+  description: The WorkflowTriggers API from Azure Logic Apps — 8 operation(s) for workflowtriggers.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - WorkflowTriggers
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-workflowtriggers-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountassemblies.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountbatchconfigurations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountcertificates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountmaps.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountpartners.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountschemas.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccountsessions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationaccounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-operations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunactions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowrunoperations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowruns.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggerhistories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowtriggers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflowversions.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-workflows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapi.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentmanagedapis.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentnetworkhealth.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentrestart.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironmentskus.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-logic-apps-integrationserviceenvironments-2.yaml
+- aid: azure-logic-apps:azure-logic-apps-workflowversions-api
+  name: Azure Logic Apps WorkflowVersions API
+  description: The WorkflowVersions API from Azure Logic Apps — 2 operation(s) for workflowversions.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - WorkflowVersions
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-workflowversions-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
   - type: X-NaftikoCapability
     url: capabilities/azure-logic-apps-integrationaccountagreements.yaml
   - type: X-NaftikoCapability
