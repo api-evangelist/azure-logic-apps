@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   description: REST API for Azure Logic Apps.
   title: LogicManagementClient IntegrationAccountAgreements Workflows API
-  version: '2019-05-01'
+  version: '2.0'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -10,7 +10,6 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
-    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: logic
