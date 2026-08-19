@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LogicManagementClient IntegrationAccountAgreements WorkflowVersions API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WorkflowVersions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure Logic Apps Workflow Versions_ List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Logic/workflows/:workflowName/versions",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription id."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "my-resource-group",
+                "type": "path",
+                "description": "The resource group name."
+              },
+              {
+                "name": "workflowName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The workflow name."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version."
+              },
+              {
+                "name": "$top",
+                "value": "example-value",
+                "type": "query",
+                "description": "The number of items to be included in the result."
+              }
+            ]
+          },
+          "docs": "Gets a list of workflow versions."
+        },
+        {
+          "info": {
+            "name": "Azure Logic Apps Workflow Versions_ Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Logic/workflows/:workflowName/versions/:versionId",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription id."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "my-resource-group",
+                "type": "path",
+                "description": "The resource group name."
+              },
+              {
+                "name": "workflowName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The workflow name."
+              },
+              {
+                "name": "versionId",
+                "value": "2019-06-01",
+                "type": "path",
+                "description": "The workflow versionId."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version."
+              }
+            ]
+          },
+          "docs": "Gets a workflow version."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

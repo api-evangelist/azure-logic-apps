@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LogicManagementClient IntegrationAccountAgreements integrationServiceEnvironmentManagedApis API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "integrationServiceEnvironmentManagedApis",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure Logic Apps Integration Service Environment Managed Apis_ List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/:integrationServiceEnvironmentName/managedApis",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription id."
+              },
+              {
+                "name": "resourceGroup",
+                "value": "my-resource-group",
+                "type": "path",
+                "description": "The resource group."
+              },
+              {
+                "name": "integrationServiceEnvironmentName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration service environment name."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version."
+              }
+            ]
+          },
+          "docs": "Gets the integration service environment managed Apis."
+        },
+        {
+          "info": {
+            "name": "Azure Logic Apps Integration Service Environment Managed Api Operations_ List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/:integrationServiceEnvironmentName/managedApis/:apiName/apiOperations",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription id."
+              },
+              {
+                "name": "resourceGroup",
+                "value": "my-resource-group",
+                "type": "path",
+                "description": "The resource group."
+              },
+              {
+                "name": "integrationServiceEnvironmentName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration service environment name."
+              },
+              {
+                "name": "apiName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The api name."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version."
+              }
+            ]
+          },
+          "docs": "Gets the managed Api operations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

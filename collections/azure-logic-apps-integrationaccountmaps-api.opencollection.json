@@ -1,0 +1,239 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LogicManagementClient IntegrationAccountAgreements IntegrationAccountMaps API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "IntegrationAccountMaps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure Logic Apps Integration Account Maps_ List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Logic/integrationAccounts/:integrationAccountName/maps",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription id."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "my-resource-group",
+                "type": "path",
+                "description": "The resource group name."
+              },
+              {
+                "name": "integrationAccountName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration account name."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version."
+              },
+              {
+                "name": "$top",
+                "value": "example-value",
+                "type": "query",
+                "description": "The number of items to be included in the result."
+              },
+              {
+                "name": "$filter",
+                "value": "example-value",
+                "type": "query",
+                "description": "The filter to apply on the operation. Options for filters include: MapType."
+              }
+            ]
+          },
+          "docs": "Gets a list of integration account maps."
+        },
+        {
+          "info": {
+            "name": "Azure Logic Apps Integration Account Maps_ Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Logic/integrationAccounts/:integrationAccountName/maps/:mapName",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription id."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "my-resource-group",
+                "type": "path",
+                "description": "The resource group name."
+              },
+              {
+                "name": "integrationAccountName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration account name."
+              },
+              {
+                "name": "mapName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration account map name."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version."
+              }
+            ]
+          },
+          "docs": "Gets an integration account map."
+        },
+        {
+          "info": {
+            "name": "Azure Logic Apps Integration Account Maps_ Create or Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Logic/integrationAccounts/:integrationAccountName/maps/:mapName",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription id."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "my-resource-group",
+                "type": "path",
+                "description": "The resource group name."
+              },
+              {
+                "name": "integrationAccountName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration account name."
+              },
+              {
+                "name": "mapName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration account map name."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version."
+              }
+            ]
+          },
+          "docs": "Creates or updates an integration account map."
+        },
+        {
+          "info": {
+            "name": "Azure Logic Apps Integration Account Maps_ Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Logic/integrationAccounts/:integrationAccountName/maps/:mapName",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription id."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "my-resource-group",
+                "type": "path",
+                "description": "The resource group name."
+              },
+              {
+                "name": "integrationAccountName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration account name."
+              },
+              {
+                "name": "mapName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration account map name."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version."
+              }
+            ]
+          },
+          "docs": "Deletes an integration account map."
+        },
+        {
+          "info": {
+            "name": "Azure Logic Apps Integration Account Maps_ List Content Callback Url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Logic/integrationAccounts/:integrationAccountName/maps/:mapName/listContentCallbackUrl",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription id."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "my-resource-group",
+                "type": "path",
+                "description": "The resource group name."
+              },
+              {
+                "name": "integrationAccountName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration account name."
+              },
+              {
+                "name": "mapName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration account map name."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version."
+              }
+            ]
+          },
+          "docs": "Get the content callback url."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

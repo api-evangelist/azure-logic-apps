@@ -1,0 +1,1546 @@
+{
+  "item": [
+    {
+      "id": "c456ea49-0c25-4250-8d18-f5565d9d4bd0",
+      "name": "IntegrationAccountAgreements",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "abcee9ce-526b-4c42-aef0-e97536721fa9",
+          "name": "Azure Logic Apps Integration Account Agreements_ List",
+          "request": {
+            "name": "Azure Logic Apps Integration Account Agreements_ List",
+            "description": {
+              "content": "Gets a list of integration account agreements.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Logic",
+                "integrationAccounts",
+                ":integrationAccountName",
+                "agreements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "The number of items to be included in the result."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "The filter to apply on the operation. Options for filters include: AgreementType."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integrationAccountName",
+                  "description": "(Required) The integration account name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92db7c9f-bb7f-4ec3-9443-0148ec02bcd1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationAccounts",
+                    ":integrationAccountName",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "example-value"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationAccountName",
+                      "description": "(Required) The integration account name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/<IntegrationAccountName>/agreements/<IntegrationAccountAgreementName>\",\n      \"name\": \"<IntegrationAccountAgreementName>\",\n      \"properties\": {\n        \"agreementType\": \"X12\",\n        \"changedTime\": \"2017-03-06T22:00:54.1520445Z\",\n        \"content\": {\n          \"x12\": {\n            \"receiveAgreement\": {\n              \"protocolSettings\": {\n                \"acknowledgementSettings\": {\n                  \"acknowledgementControlNumberLowerBound\": 1,\n                  \"acknowledgementControlNumberUpperBound\": 999999999,\n                  \"batchFunctionalAcknowledgements\": true,\n                  \"batchImplementationAcknowledgements\": false,\n                  \"batchTechnicalAcknowledgements\": true,\n                  \"needFunctionalAcknowledgement\": false,\n                  \"needImplementationAcknowledgement\": false,\n                  \"needLoopForValidMessages\": false,\n                  \"needTechnicalAcknowledgement\": false,\n                  \"rolloverAcknowledgementControlNumber\": true,\n                  \"sendSynchronousAcknowledgement\": true\n                },\n                \"envelopeSettings\": {\n                  \"controlStandardsId\": 85,\n                  \"controlVersionNumber\": \"00401\",\n                  \"enableDefaultGroupHeaders\": true,\n                  \"groupControlNumberLowerBound\": 1,\n                  \"groupControlNumberUpperBound\": 999999999,\n                  \"groupHeaderAgencyCode\": \"T\",\n                  \"groupHeaderDateFormat\": \"CCYYMMDD\",\n                  \"groupHeaderTimeFormat\": \"HHMM\",\n                  \"groupHeaderVersion\": \"00401\",\n                  \"interchangeControlNumberLowerBound\": 1,\n                  \"interchangeControlNumberUpperBound\": 999999999,\n                  \"overwriteExistingTransactionSetControlNumber\": true,\n                  \"receiverApplicationId\": \"RECEIVE-APP\",\n                  \"rolloverGroupControlNumber\": true,\n                  \"rolloverInterchangeControlNumber\": true,\n                  \"rolloverTransactionSetControlNumber\": true,\n                  \"senderApplicationId\": \"BTS-SENDER\",\n                  \"transactionSetControlNumberLowerBound\": 1,\n                  \"transactionSetControlNumberUpperBound\": 999999999,\n                  \"usageIndicator\": \"Test\",\n                  \"useControlStandardsIdAsRepetitionCharacter\": false\n                },\n                \"framingSettings\": {\n                  \"characterSet\": \"UTF8\",\n                  \"componentSeparator\": 58,\n                  \"dataElementSeparator\": 42,\n                  \"replaceCharacter\": 36,\n                  \"replaceSeparatorsInPayload\": false,\n                  \"segmentTerminator\": 126,\n                  \"segmentTerminatorSuffix\": \"None\"\n                },\n                \"messageFilter\": {\n                  \"messageFilterType\": \"Exclude\"\n                },\n                \"processingSettings\": {\n                  \"convertImpliedDecimal\": true,\n                  \"createEmptyXmlTagsForTrailingSeparators\": true,\n                  \"maskSecurityInfo\": true,\n                  \"preserveInterchange\": true,\n                  \"suspendInterchangeOnError\": true,\n                  \"useDotAsDecimalSeparator\": true\n                },\n                \"schemaReferences\": [],\n                \"securitySettings\": {\n                  \"authorizationQualifier\": \"00\",\n                  \"securityQualifier\": \"00\"\n                },\n                \"validationSettings\": {\n                  \"allowLeadingAndTrailingSpacesAndZeroes\": false,\n                  \"checkDuplicateGroupControlNumber\": false,\n                  \"checkDuplicateInterchangeControlNumber\": false,\n                  \"checkDuplicateTransactionSetControlNumber\": false,\n                  \"interchangeControlNumberValidityDays\": 30,\n                  \"trailingSeparatorPolicy\": \"NotAllowed\",\n                  \"trimLeadingAndTrailingSpacesAndZeroes\": false,\n                  \"validateCharacterSet\": true,\n                  \"validateEDITypes\": true,\n                  \"validateXSDTypes\": false\n                }\n              },\n              \"receiverBusinessIdentity\": {\n                \"qualifier\": \"ZZ\",\n                \"value\": \"ZZ\"\n              },\n              \"senderBusinessIdentity\": {\n                \"qualifier\": \"AA\",\n                \"value\": \"AA\"\n              }\n            },\n            \"sendAgreement\": {\n              \"protocolSettings\": {\n                \"acknowledgementSettings\": {\n                  \"acknowledgementControlNumberLowerBound\": 1,\n                  \"acknowledgementControlNumberUpperBound\": 999999999,\n                  \"batchFunctionalAcknowledgements\": true,\n                  \"batchImplementationAcknowledgements\": false,\n                  \"batchTechnicalAcknowledgements\": true,\n                  \"needFunctionalAcknowledgement\": false,\n                  \"needImplementationAcknowledgement\": false,\n                  \"needLoopForValidMessages\": false,\n                  \"needTechnicalAcknowledgement\": false,\n                  \"rolloverAcknowledgementControlNumber\": true,\n                  \"sendSynchronousAcknowledgement\": true\n                },\n                \"envelopeSettings\": {\n                  \"controlStandardsId\": 100,\n                  \"controlVersionNumber\": \"0.0\",\n                  \"enableDefaultGroupHeaders\": true,\n                  \"functionalGroupId\": \"1\",\n                  \"groupControlNumberLowerBound\": 1,\n                  \"groupControlNumberUpperBound\": 999999999,\n                  \"groupHeaderAgencyCode\": \"T\",\n                  \"groupHeaderDateFormat\": \"CCYYMMDD\",\n                  \"groupHeaderTimeFormat\": \"HHMM\",\n                  \"groupHeaderVersion\": \"0.0\",\n                  \"interchangeControlNumberLowerBound\": 1,\n                  \"interchangeControlNumberUpperBound\": 999999999,\n                  \"overwriteExistingTransactionSetControlNumber\": true,\n                  \"receiverApplicationId\": \"100\",\n                  \"rolloverGroupControlNumber\": true,\n                  \"rolloverInterchangeControlNumber\": true,\n                  \"rolloverTransactionSetControlNumber\": true,\n                  \"senderApplicationId\": \"100\",\n                  \"transactionSetControlNumberLowerBound\": 1,\n                  \"transactionSetControlNumberPrefix\": \"\",\n                  \"transactionSetControlNumberSuffix\": \"\",\n                  \"transactionSetControlNumberUpperBound\": 999999999,\n                  \"usageIndicator\": \"Information\",\n                  \"useControlStandardsIdAsRepetitionCharacter\": true\n                },\n                \"framingSettings\": {\n                  \"characterSet\": \"UTF8\",\n                  \"componentSeparator\": 58,\n                  \"dataElementSeparator\": 42,\n                  \"replaceCharacter\": 36,\n                  \"replaceSeparatorsInPayload\": false,\n                  \"segmentTerminator\": 126,\n                  \"segmentTerminatorSuffix\": \"None\"\n                },\n                \"messageFilter\": {\n                  \"messageFilterType\": \"Exclude\"\n                },\n                \"processingSettings\": {\n                  \"convertImpliedDecimal\": true,\n                  \"createEmptyXmlTagsForTrailingSeparators\": true,\n                  \"maskSecurityInfo\": true,\n                  \"preserveInterchange\": true,\n                  \"suspendInterchangeOnError\": true,\n                  \"useDotAsDecimalSeparator\": true\n                },\n                \"schemaReferences\": [],\n                \"securitySettings\": {\n                  \"authorizationQualifier\": \"00\",\n                  \"securityQualifier\": \"00\"\n                },\n                \"validationSettings\": {\n                  \"allowLeadingAndTrailingSpacesAndZeroes\": false,\n                  \"checkDuplicateGroupControlNumber\": false,\n                  \"checkDuplicateInterchangeControlNumber\": false,\n                  \"checkDuplicateTransactionSetControlNumber\": false,\n                  \"interchangeControlNumberValidityDays\": 30,\n                  \"trailingSeparatorPolicy\": \"NotAllowed\",\n                  \"trimLeadingAndTrailingSpacesAndZeroes\": false,\n                  \"validateCharacterSet\": true,\n                  \"validateEDITypes\": true,\n                  \"validateXSDTypes\": false\n                }\n              },\n              \"receiverBusinessIdentity\": {\n                \"qualifier\": \"AA\",\n                \"value\": \"AA\"\n              },\n              \"senderBusinessIdentity\": {\n                \"qualifier\": \"ZZ\",\n                \"value\": \"ZZ\"\n              }\n            }\n          }\n        },\n        \"createdTime\": \"2017-03-06T22:00:54.1516558Z\",\n        \"guestIdentity\": {\n          \"qualifier\": \"AA\",\n          \"value\": \"AA\"\n        },\n        \"guestPartner\": \"GuestPartner\",\n        \"hostIdentity\": {\n          \"qualifier\": \"ZZ\",\n          \"value\": \"ZZ\"\n        },\n        \"hostPartner\": \"HostPartner\",\n        \"metadata\": {}\n      },\n      \"type\": \"Microsoft.Logic/integrationAccounts/agreements\"\n    },\n    {\n      \"id\": \"/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/<IntegrationAccountName>/agreements/<IntegrationAccountAgreementName>\",\n      \"name\": \"<IntegrationAccountAgreementName>\",\n      \"properties\": {\n        \"agreementType\": \"AS2\",\n        \"changedTime\": \"2017-03-06T22:00:53.4140804Z\",\n        \"content\": {\n          \"aS2\": {\n            \"receiveAgreement\": {\n              \"protocolSettings\": {\n                \"acknowledgementConnectionSettings\": {\n                  \"ignoreCertificateNameMismatch\": true,\n                  \"keepHttpConnectionAlive\": true,\n                  \"supportHttpStatusCodeContinue\": true,\n                  \"unfoldHttpHeaders\": true\n                },\n                \"envelopeSettings\": {\n                  \"autogenerateFileName\": true,\n                  \"fileNameTemplate\": \"Test\",\n                  \"messageContentType\": \"text/plain\",\n                  \"suspendMessageOnFileNameGenerationError\": true,\n                  \"transmitFileNameInMimeHeader\": true\n                },\n                \"errorSettings\": {\n                  \"resendIfMDNNotReceived\": true,\n                  \"suspendDuplicateMessage\": true\n                },\n                \"mdnSettings\": {\n                  \"dispositionNotificationTo\": \"http://tempuri.org\",\n                  \"mdnText\": \"Sample\",\n                  \"micHashingAlgorithm\": \"None\",\n                  \"needMDN\": true,\n                  \"receiptDeliveryUrl\": \"http://tempuri.org\",\n                  \"sendInboundMdnToMessageBox\": true,\n                  \"sendMDNAsynchronously\": true,\n                  \"signMDN\": true,\n                  \"signOutboundMdnIfOptional\": true\n                },\n                \"messageConnectionSettings\": {\n                  \"ignoreCertificateNameMismatch\": true,\n                  \"keepHttpConnectionAlive\": true,\n                  \"supportHttpStatusCodeContinue\": true,\n                  \"unfoldHttpHeaders\": true\n                },\n                \"securitySettings\": {\n                  \"enableNRRForInboundDecodedMessages\": true,\n                  \"enableNRRForInboundEncodedMessages\": true,\n                  \"enableNRRForInboundMDN\": true,\n                  \"enableNRRForOutboundDecodedMessages\": true,\n                  \"enableNRRForOutboundEncodedMessages\": true,\n                  \"enableNRRForOutboundMDN\": true,\n                  \"overrideGroupSigningCertificate\": false\n                },\n                \"validationSettings\": {\n                  \"checkCertificateRevocationListOnReceive\": true,\n                  \"checkCertificateRevocationListOnSend\": true,\n                  \"checkDuplicateMessage\": true,\n                  \"compressMessage\": true,\n                  \"encryptMessage\": false,\n                  \"encryptionAlgorithm\": \"AES128\",\n                  \"interchangeDuplicatesValidityDays\": 100,\n                  \"overrideMessageProperties\": true,\n                  \"signMessage\": false\n                }\n              },\n              \"receiverBusinessIdentity\": {\n                \"qualifier\": \"ZZ\",\n                \"value\": \"ZZ\"\n              },\n              \"senderBusinessIdentity\": {\n                \"qualifier\": \"AA\",\n                \"value\": \"AA\"\n              }\n            },\n            \"sendAgreement\": {\n              \"protocolSettings\": {\n                \"acknowledgementConnectionSettings\": {\n                  \"ignoreCertificateNameMismatch\": true,\n                  \"keepHttpConnectionAlive\": true,\n                  \"supportHttpStatusCodeContinue\": true,\n                  \"unfoldHttpHeaders\": true\n                },\n                \"envelopeSettings\": {\n                  \"autogenerateFileName\": true,\n                  \"fileNameTemplate\": \"Test\",\n                  \"messageContentType\": \"text/plain\",\n                  \"suspendMessageOnFileNameGenerationError\": true,\n                  \"transmitFileNameInMimeHeader\": true\n                },\n                \"errorSettings\": {\n                  \"resendIfMDNNotReceived\": true,\n                  \"suspendDuplicateMessage\": true\n                },\n                \"mdnSettings\": {\n                  \"dispositionNotificationTo\": \"http://tempuri.org\",\n                  \"mdnText\": \"Sample\",\n                  \"micHashingAlgorithm\": \"None\",\n                  \"needMDN\": true,\n                  \"receiptDeliveryUrl\": \"http://tempuri.org\",\n                  \"sendInboundMdnToMessageBox\": true,\n                  \"sendMDNAsynchronously\": true,\n                  \"signMDN\": true,\n                  \"signOutboundMdnIfOptional\": true\n                },\n                \"messageConnectionSettings\": {\n                  \"ignoreCertificateNameMismatch\": true,\n                  \"keepHttpConnectionAlive\": true,\n                  \"supportHttpStatusCodeContinue\": true,\n                  \"unfoldHttpHeaders\": true\n                },\n                \"securitySettings\": {\n                  \"enableNRRForInboundDecodedMessages\": true,\n                  \"enableNRRForInboundEncodedMessages\": true,\n                  \"enableNRRForInboundMDN\": true,\n                  \"enableNRRForOutboundDecodedMessages\": true,\n                  \"enableNRRForOutboundEncodedMessages\": true,\n                  \"enableNRRForOutboundMDN\": true,\n                  \"overrideGroupSigningCertificate\": false\n                },\n                \"validationSettings\": {\n                  \"checkCertificateRevocationListOnReceive\": true,\n                  \"checkCertificateRevocationListOnSend\": true,\n                  \"checkDuplicateMessage\": true,\n                  \"compressMessage\": true,\n                  \"encryptMessage\": false,\n                  \"encryptionAlgorithm\": \"AES128\",\n                  \"interchangeDuplicatesValidityDays\": 100,\n                  \"overrideMessageProperties\": true,\n                  \"signMessage\": false\n                }\n              },\n              \"receiverBusinessIdentity\": {\n                \"qualifier\": \"AA\",\n                \"value\": \"AA\"\n              },\n              \"senderBusinessIdentity\": {\n                \"qualifier\": \"ZZ\",\n                \"value\": \"ZZ\"\n              }\n            }\n          }\n        },\n        \"createdTime\": \"2017-03-06T22:00:53.4134038Z\",\n        \"guestIdentity\": {\n          \"qualifier\": \"AA\",\n          \"value\": \"AA\"\n        },\n        \"guestPartner\": \"GuestPartner\",\n        \"hostIdentity\": {\n          \"qualifier\": \"ZZ\",\n          \"value\": \"ZZ\"\n        },\n        \"hostPartner\": \"HostPartner\",\n        \"metadata\": {}\n      },\n      \"type\": \"Microsoft.Logic/integrationAccounts/agreements\"\n    },\n    {\n      \"id\": \"/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/<IntegrationAccountName>/agreements/<IntegrationAccountAgreementName>\",\n      \"name\": \"<IntegrationAccountAgreementName>\",\n      \"properties\": {\n        \"agreementType\": \"Edifact\",\n        \"changedTime\": \"2017-03-06T22:00:53.8212345Z\",\n        \"content\": {\n          \"edifact\": {\n            \"receiveAgreement\": {\n              \"protocolSettings\": {\n                \"acknowledgementSettings\": {\n                  \"acknowledgementControlNumberLowerBound\": 1,\n                  \"acknowledgementControlNumberPrefix\": \"\",\n                  \"acknowledgementControlNumberSuffix\": \"\",\n                  \"acknowledgementControlNumberUpperBound\": 99999999,\n                  \"batchFunctionalAcknowledgements\": true,\n                  \"batchTechnicalAcknowledgements\": true,\n                  \"needFunctionalAcknowledgement\": false,\n                  \"needLoopForValidMessages\": false,\n                  \"needTechnicalAcknowledgement\": true,\n                  \"rolloverAcknowledgementControlNumber\": true,\n                  \"sendSynchronousAcknowledgement\": true\n                },\n                \"envelopeSettings\": {\n                  \"applicationReferenceId\": \"0\",\n                  \"applyDelimiterStringAdvice\": true,\n                  \"communicationAgreementId\": \"0\",\n                  \"createGroupingSegments\": true,\n                  \"enableDefaultGroupHeaders\": true,\n                  \"functionalGroupId\": \"0\",\n                  \"groupApplicationPassword\": \"0\",\n                  \"groupApplicationReceiverId\": \"0\",\n                  \"groupApplicationReceiverQualifier\": \"ZZZ\",\n                  \"groupApplicationSenderId\": \"AAA\",\n                  \"groupApplicationSenderQualifier\": \"ZZZ\",\n                  \"groupAssociationAssignedCode\": \"0\",\n                  \"groupControlNumberLowerBound\": 1,\n                  \"groupControlNumberPrefix\": \"CU\",\n                  \"groupControlNumberSuffix\": \"NUM\",\n                  \"groupControlNumberUpperBound\": 99999999,\n                  \"groupControllingAgencyCode\": \"0\",\n                  \"groupMessageRelease\": \"0.0\",\n                  \"groupMessageVersion\": \"0.0\",\n                  \"interchangeControlNumberLowerBound\": 1,\n                  \"interchangeControlNumberPrefix\": \"CU\",\n                  \"interchangeControlNumberSuffix\": \"NUM\",\n                  \"interchangeControlNumberUpperBound\": 99999999,\n                  \"isTestInterchange\": true,\n                  \"overwriteExistingTransactionSetControlNumber\": true,\n                  \"processingPriorityCode\": \"0\",\n                  \"receiverInternalIdentification\": \"0\",\n                  \"receiverInternalSubIdentification\": \"0\",\n                  \"recipientReferencePasswordQualifier\": \"ZZ\",\n                  \"recipientReferencePasswordValue\": \"AA\",\n                  \"rolloverGroupControlNumber\": true,\n                  \"rolloverInterchangeControlNumber\": true,\n                  \"rolloverTransactionSetControlNumber\": true,\n                  \"senderInternalIdentification\": \"AA\",\n                  \"senderInternalSubIdentification\": \"AA\",\n                  \"transactionSetControlNumberLowerBound\": 1,\n                  \"transactionSetControlNumberPrefix\": \"\",\n                  \"transactionSetControlNumberSuffix\": \"\",\n                  \"transactionSetControlNumberUpperBound\": 99999999\n                },\n                \"framingSettings\": {\n                  \"characterEncoding\": \"UTF\",\n                  \"characterSet\": \"UNOC\",\n                  \"componentSeparator\": 58,\n                  \"dataElementSeparator\": 53,\n                  \"decimalPointIndicator\": \"Comma\",\n                  \"protocolVersion\": 4,\n                  \"releaseIndicator\": 63,\n                  \"repetitionSeparator\": 42,\n                  \"segmentTerminator\": 39,\n                  \"segmentTerminatorSuffix\": \"None\"\n                },\n                \"messageFilter\": {\n                  \"messageFilterType\": \"Exclude\"\n                },\n                \"processingSettings\": {\n                  \"createEmptyXmlTagsForTrailingSeparators\": true,\n                  \"maskSecurityInfo\": true,\n                  \"preserveInterchange\": true,\n                  \"suspendInterchangeOnError\": true,\n                  \"useDotAsDecimalSeparator\": true\n                },\n                \"schemaReferences\": [],\n                \"validationSettings\": {\n                  \"allowLeadingAndTrailingSpacesAndZeroes\": true,\n                  \"checkDuplicateGroupControlNumber\": true,\n                  \"checkDuplicateInterchangeControlNumber\": true,\n                  \"checkDuplicateTransactionSetControlNumber\": true,\n                  \"interchangeControlNumberValidityDays\": 30,\n                  \"trailingSeparatorPolicy\": \"Optional\",\n                  \"trimLeadingAndTrailingSpacesAndZeroes\": true,\n                  \"validateCharacterSet\": true,\n                  \"validateEDITypes\": true,\n                  \"validateXSDTypes\": true\n                }\n              },\n              \"receiverBusinessIdentity\": {\n                \"qualifier\": \"ZZ\",\n                \"value\": \"ZZ\"\n              },\n              \"senderBusinessIdentity\": {\n                \"qualifier\": \"AA\",\n                \"value\": \"AA\"\n              }\n            },\n            \"sendAgreement\": {\n              \"protocolSettings\": {\n                \"acknowledgementSettings\": {\n                  \"acknowledgementControlNumberLowerBound\": 1,\n                  \"acknowledgementControlNumberPrefix\": \"CN\",\n                  \"acknowledgementControlNumberSuffix\": \"NUM\",\n                  \"acknowledgementControlNumberUpperBound\": 999999999,\n                  \"batchFunctionalAcknowledgements\": true,\n                  \"batchTechnicalAcknowledgements\": true,\n                  \"needFunctionalAcknowledgement\": true,\n                  \"needLoopForValidMessages\": true,\n                  \"needTechnicalAcknowledgement\": true,\n                  \"rolloverAcknowledgementControlNumber\": true,\n                  \"sendSynchronousAcknowledgement\": true\n                },\n                \"envelopeSettings\": {\n                  \"applicationReferenceId\": \"0\",\n                  \"applyDelimiterStringAdvice\": true,\n                  \"communicationAgreementId\": \"0\",\n                  \"createGroupingSegments\": true,\n                  \"enableDefaultGroupHeaders\": true,\n                  \"functionalGroupId\": \"0\",\n                  \"groupApplicationPassword\": \"0\",\n                  \"groupApplicationReceiverId\": \"0\",\n                  \"groupApplicationReceiverQualifier\": \"ZZ\",\n                  \"groupApplicationSenderId\": \"AA\",\n                  \"groupApplicationSenderQualifier\": \"ZZ\",\n                  \"groupAssociationAssignedCode\": \"0\",\n                  \"groupControlNumberLowerBound\": 1,\n                  \"groupControlNumberPrefix\": \"\",\n                  \"groupControlNumberSuffix\": \"\",\n                  \"groupControlNumberUpperBound\": 999999999,\n                  \"groupControllingAgencyCode\": \"0\",\n                  \"groupMessageRelease\": \"0.0\",\n                  \"groupMessageVersion\": \"0.0\",\n                  \"interchangeControlNumberLowerBound\": 1,\n                  \"interchangeControlNumberPrefix\": \"CU\",\n                  \"interchangeControlNumberSuffix\": \"NUM\",\n                  \"interchangeControlNumberUpperBound\": 999999999,\n                  \"isTestInterchange\": true,\n                  \"overwriteExistingTransactionSetControlNumber\": true,\n                  \"processingPriorityCode\": \"0\",\n                  \"receiverInternalIdentification\": \"0\",\n                  \"receiverInternalSubIdentification\": \"0\",\n                  \"recipientReferencePasswordQualifier\": \"ZZ\",\n                  \"recipientReferencePasswordValue\": \"AA\",\n                  \"rolloverGroupControlNumber\": true,\n                  \"rolloverInterchangeControlNumber\": true,\n                  \"rolloverTransactionSetControlNumber\": true,\n                  \"senderInternalIdentification\": \"AA\",\n                  \"senderInternalSubIdentification\": \"AA\",\n                  \"transactionSetControlNumberLowerBound\": 1,\n                  \"transactionSetControlNumberPrefix\": \"\",\n                  \"transactionSetControlNumberSuffix\": \"\",\n                  \"transactionSetControlNumberUpperBound\": 999999999\n                },\n                \"framingSettings\": {\n                  \"characterEncoding\": \"UTF\",\n                  \"characterSet\": \"UNOC\",\n                  \"componentSeparator\": 58,\n                  \"dataElementSeparator\": 53,\n                  \"decimalPointIndicator\": \"Comma\",\n                  \"protocolVersion\": 4,\n                  \"releaseIndicator\": 63,\n                  \"repetitionSeparator\": 42,\n                  \"segmentTerminator\": 39,\n                  \"segmentTerminatorSuffix\": \"None\"\n                },\n                \"messageFilter\": {\n                  \"messageFilterType\": \"Exclude\"\n                },\n                \"processingSettings\": {\n                  \"createEmptyXmlTagsForTrailingSeparators\": true,\n                  \"maskSecurityInfo\": true,\n                  \"preserveInterchange\": true,\n                  \"suspendInterchangeOnError\": true,\n                  \"useDotAsDecimalSeparator\": true\n                },\n                \"schemaReferences\": [],\n                \"validationSettings\": {\n                  \"allowLeadingAndTrailingSpacesAndZeroes\": true,\n                  \"checkDuplicateGroupControlNumber\": true,\n                  \"checkDuplicateInterchangeControlNumber\": true,\n                  \"checkDuplicateTransactionSetControlNumber\": true,\n                  \"interchangeControlNumberValidityDays\": 30,\n                  \"trailingSeparatorPolicy\": \"Optional\",\n                  \"trimLeadingAndTrailingSpacesAndZeroes\": true,\n                  \"validateCharacterSet\": true,\n                  \"validateEDITypes\": true,\n                  \"validateXSDTypes\": true\n                }\n              },\n              \"receiverBusinessIdentity\": {\n                \"qualifier\": \"ZZ\",\n                \"value\": \"ZZ\"\n              },\n              \"senderBusinessIdentity\": {\n                \"qualifier\": \"AA\",\n                \"value\": \"AA\"\n              }\n            }\n          }\n        },\n        \"createdTime\": \"2017-03-06T22:00:53.8205121Z\",\n        \"guestIdentity\": {\n          \"qualifier\": \"AA\",\n          \"value\": \"AA\"\n        },\n        \"guestPartner\": \"GuestPartner\",\n        \"hostIdentity\": {\n          \"qualifier\": \"ZZ\",\n          \"value\": \"ZZ\"\n        },\n        \"hostPartner\": \"HostPartner\",\n        \"metadata\": {}\n      },\n      \"type\": \"Microsoft.Logic/integrationAccounts/agreements\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6367bdc-78a1-4606-9cb6-b04ee913b172",
+              "name": "Error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationAccounts",
+                    ":integrationAccountName",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "example-value"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationAccountName",
+                      "description": "(Required) The integration account name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "471e990a-49d8-41ac-9028-e87411e69c4c",
+          "name": "Azure Logic Apps Integration Account Agreements_ Delete",
+          "request": {
+            "name": "Azure Logic Apps Integration Account Agreements_ Delete",
+            "description": {
+              "content": "Deletes an integration account agreement.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Logic",
+                "integrationAccounts",
+                ":integrationAccountName",
+                "agreements",
+                ":agreementName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integrationAccountName",
+                  "description": "(Required) The integration account name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agreementName",
+                  "description": "(Required) The integration account agreement name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ebe111be-3b63-4963-a9b0-6051a045d29e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationAccounts",
+                    ":integrationAccountName",
+                    "agreements",
+                    ":agreementName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationAccountName",
+                      "description": "(Required) The integration account name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agreementName",
+                      "description": "(Required) The integration account agreement name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "918be060-7405-449f-90f1-d46a05c8347b",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationAccounts",
+                    ":integrationAccountName",
+                    "agreements",
+                    ":agreementName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationAccountName",
+                      "description": "(Required) The integration account name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agreementName",
+                      "description": "(Required) The integration account agreement name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "479427fb-6e10-4f8b-b655-2d5221047cfd",
+              "name": "Error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationAccounts",
+                    ":integrationAccountName",
+                    "agreements",
+                    ":agreementName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationAccountName",
+                      "description": "(Required) The integration account name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agreementName",
+                      "description": "(Required) The integration account agreement name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8307e69-734f-4922-ba65-cf3faae5c8af",
+          "name": "Azure Logic Apps Integration Account Agreements_ Get",
+          "request": {
+            "name": "Azure Logic Apps Integration Account Agreements_ Get",
+            "description": {
+              "content": "Gets an integration account agreement.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Logic",
+                "integrationAccounts",
+                ":integrationAccountName",
+                "agreements",
+                ":agreementName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integrationAccountName",
+                  "description": "(Required) The integration account name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agreementName",
+                  "description": "(Required) The integration account agreement name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b84d9ed-2bea-4d51-88bb-c423d84e4fca",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationAccounts",
+                    ":integrationAccountName",
+                    "agreements",
+                    ":agreementName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationAccountName",
+                      "description": "(Required) The integration account name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agreementName",
+                      "description": "(Required) The integration account agreement name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/<IntegrationAccountName>/agreements/<IntegrationAccountAgreementName>\",\n  \"name\": \"<IntegrationAccountAgreementName>\",\n  \"properties\": {\n    \"agreementType\": \"AS2\",\n    \"changedTime\": \"2017-03-06T22:32:54.2945291Z\",\n    \"content\": {\n      \"aS2\": {\n        \"receiveAgreement\": {\n          \"protocolSettings\": {\n            \"acknowledgementConnectionSettings\": {\n              \"ignoreCertificateNameMismatch\": true,\n              \"keepHttpConnectionAlive\": true,\n              \"supportHttpStatusCodeContinue\": true,\n              \"unfoldHttpHeaders\": true\n            },\n            \"envelopeSettings\": {\n              \"autogenerateFileName\": true,\n              \"fileNameTemplate\": \"Test\",\n              \"messageContentType\": \"text/plain\",\n              \"suspendMessageOnFileNameGenerationError\": true,\n              \"transmitFileNameInMimeHeader\": true\n            },\n            \"errorSettings\": {\n              \"resendIfMDNNotReceived\": true,\n              \"suspendDuplicateMessage\": true\n            },\n            \"mdnSettings\": {\n              \"dispositionNotificationTo\": \"http://tempuri.org\",\n              \"mdnText\": \"Sample\",\n              \"micHashingAlgorithm\": \"SHA1\",\n              \"needMDN\": true,\n              \"receiptDeliveryUrl\": \"http://tempuri.org\",\n              \"sendInboundMdnToMessageBox\": true,\n              \"sendMDNAsynchronously\": true,\n              \"signMDN\": true,\n              \"signOutboundMdnIfOptional\": true\n            },\n            \"messageConnectionSettings\": {\n              \"ignoreCertificateNameMismatch\": true,\n              \"keepHttpConnectionAlive\": true,\n              \"supportHttpStatusCodeContinue\": true,\n              \"unfoldHttpHeaders\": true\n            },\n            \"securitySettings\": {\n              \"enableNRRForInboundDecodedMessages\": true,\n              \"enableNRRForInboundEncodedMessages\": true,\n              \"enableNRRForInboundMDN\": true,\n              \"enableNRRForOutboundDecodedMessages\": true,\n              \"enableNRRForOutboundEncodedMessages\": true,\n              \"enableNRRForOutboundMDN\": true,\n              \"overrideGroupSigningCertificate\": false\n            },\n            \"validationSettings\": {\n              \"checkCertificateRevocationListOnReceive\": true,\n              \"checkCertificateRevocationListOnSend\": true,\n              \"checkDuplicateMessage\": true,\n              \"compressMessage\": true,\n              \"encryptMessage\": false,\n              \"encryptionAlgorithm\": \"AES128\",\n              \"interchangeDuplicatesValidityDays\": 100,\n              \"overrideMessageProperties\": true,\n              \"signMessage\": false\n            }\n          },\n          \"receiverBusinessIdentity\": {\n            \"qualifier\": \"ZZ\",\n            \"value\": \"ZZ\"\n          },\n          \"senderBusinessIdentity\": {\n            \"qualifier\": \"AA\",\n            \"value\": \"AA\"\n          }\n        },\n        \"sendAgreement\": {\n          \"protocolSettings\": {\n            \"acknowledgementConnectionSettings\": {\n              \"ignoreCertificateNameMismatch\": true,\n              \"keepHttpConnectionAlive\": true,\n              \"supportHttpStatusCodeContinue\": true,\n              \"unfoldHttpHeaders\": true\n            },\n            \"envelopeSettings\": {\n              \"autogenerateFileName\": true,\n              \"fileNameTemplate\": \"Test\",\n              \"messageContentType\": \"text/plain\",\n              \"suspendMessageOnFileNameGenerationError\": true,\n              \"transmitFileNameInMimeHeader\": true\n            },\n            \"errorSettings\": {\n              \"resendIfMDNNotReceived\": true,\n              \"suspendDuplicateMessage\": true\n            },\n            \"mdnSettings\": {\n              \"dispositionNotificationTo\": \"http://tempuri.org\",\n              \"mdnText\": \"Sample\",\n              \"micHashingAlgorithm\": \"SHA1\",\n              \"needMDN\": true,\n              \"receiptDeliveryUrl\": \"http://tempuri.org\",\n              \"sendInboundMdnToMessageBox\": true,\n              \"sendMDNAsynchronously\": true,\n              \"signMDN\": true,\n              \"signOutboundMdnIfOptional\": true\n            },\n            \"messageConnectionSettings\": {\n              \"ignoreCertificateNameMismatch\": true,\n              \"keepHttpConnectionAlive\": true,\n              \"supportHttpStatusCodeContinue\": true,\n              \"unfoldHttpHeaders\": true\n            },\n            \"securitySettings\": {\n              \"enableNRRForInboundDecodedMessages\": true,\n              \"enableNRRForInboundEncodedMessages\": true,\n              \"enableNRRForInboundMDN\": true,\n              \"enableNRRForOutboundDecodedMessages\": true,\n              \"enableNRRForOutboundEncodedMessages\": true,\n              \"enableNRRForOutboundMDN\": true,\n              \"overrideGroupSigningCertificate\": false\n            },\n            \"validationSettings\": {\n              \"checkCertificateRevocationListOnReceive\": true,\n              \"checkCertificateRevocationListOnSend\": true,\n              \"checkDuplicateMessage\": true,\n              \"compressMessage\": true,\n              \"encryptMessage\": false,\n              \"encryptionAlgorithm\": \"AES128\",\n              \"interchangeDuplicatesValidityDays\": 100,\n              \"overrideMessageProperties\": true,\n              \"signMessage\": false\n            }\n          },\n          \"receiverBusinessIdentity\": {\n            \"qualifier\": \"AA\",\n            \"value\": \"AA\"\n          },\n          \"senderBusinessIdentity\": {\n            \"qualifier\": \"ZZ\",\n            \"value\": \"ZZ\"\n          }\n        }\n      }\n    },\n    \"createdTime\": \"2017-03-06T22:32:54.2938748Z\",\n    \"guestIdentity\": {\n      \"qualifier\": \"AA\",\n      \"value\": \"AA\"\n    },\n    \"guestPartner\": \"GuestPartner\",\n    \"hostIdentity\": {\n      \"qualifier\": \"ZZ\",\n      \"value\": \"ZZ\"\n    },\n    \"hostPartner\": \"HostPartner\",\n    \"metadata\": {}\n  },\n  \"type\": \"Microsoft.Logic/integrationAccounts/agreements\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "990b4d1f-ff5d-462f-903d-2080afdf6dbe",
+              "name": "Error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationAccounts",
+                    ":integrationAccountName",
+                    "agreements",
+                    ":agreementName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationAccountName",
+                      "description": "(Required) The integration account name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agreementName",
+                      "description": "(Required) The integration account agreement name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62968b8b-68de-44e5-8e55-db022433d7a1",
+          "name": "Azure Logic Apps Integration Account Agreements_ Create or Update",
+          "request": {
+            "name": "Azure Logic Apps Integration Account Agreements_ Create or Update",
+            "description": {
+              "content": "Creates or updates an integration account agreement.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Logic",
+                "integrationAccounts",
+                ":integrationAccountName",
+                "agreements",
+                ":agreementName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integrationAccountName",
+                  "description": "(Required) The integration account name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agreementName",
+                  "description": "(Required) The integration account agreement name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"properties\": {\n    \"hostPartner\": \"<string>\",\n    \"guestPartner\": \"<string>\",\n    \"hostIdentity\": {\n      \"qualifier\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    \"guestIdentity\": {\n      \"qualifier\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    \"agreementType\": \"<string>\",\n    \"content\": {\n      \"aS2\": {\n        \"receiveAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sendAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"edifact\": {\n        \"receiveAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sendAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"x12\": {\n        \"receiveAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sendAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    \"metadata\": {}\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1a9c6ff5-f6d2-4247-ac07-620bdc4d693f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationAccounts",
+                    ":integrationAccountName",
+                    "agreements",
+                    ":agreementName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationAccountName",
+                      "description": "(Required) The integration account name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agreementName",
+                      "description": "(Required) The integration account agreement name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"hostPartner\": \"<string>\",\n    \"guestPartner\": \"<string>\",\n    \"hostIdentity\": {\n      \"qualifier\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    \"guestIdentity\": {\n      \"qualifier\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    \"agreementType\": \"<string>\",\n    \"content\": {\n      \"aS2\": {\n        \"receiveAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sendAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"edifact\": {\n        \"receiveAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sendAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"x12\": {\n        \"receiveAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sendAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    \"metadata\": {}\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/IntegrationAccount4533/agreements/<IntegrationAccountAgreementName>\",\n  \"name\": \"<IntegrationAccountAgreementName>\",\n  \"properties\": {\n    \"agreementType\": \"AS2\",\n    \"changedTime\": \"2017-03-06T22:32:54.2945291Z\",\n    \"content\": {\n      \"aS2\": {\n        \"receiveAgreement\": {\n          \"protocolSettings\": {\n            \"acknowledgementConnectionSettings\": {\n              \"ignoreCertificateNameMismatch\": true,\n              \"keepHttpConnectionAlive\": true,\n              \"supportHttpStatusCodeContinue\": true,\n              \"unfoldHttpHeaders\": true\n            },\n            \"envelopeSettings\": {\n              \"autogenerateFileName\": true,\n              \"fileNameTemplate\": \"Test\",\n              \"messageContentType\": \"text/plain\",\n              \"suspendMessageOnFileNameGenerationError\": true,\n              \"transmitFileNameInMimeHeader\": true\n            },\n            \"errorSettings\": {\n              \"resendIfMDNNotReceived\": true,\n              \"suspendDuplicateMessage\": true\n            },\n            \"mdnSettings\": {\n              \"dispositionNotificationTo\": \"http://tempuri.org\",\n              \"mdnText\": \"Sample\",\n              \"micHashingAlgorithm\": \"SHA1\",\n              \"needMDN\": true,\n              \"receiptDeliveryUrl\": \"http://tempuri.org\",\n              \"sendInboundMdnToMessageBox\": true,\n              \"sendMDNAsynchronously\": true,\n              \"signMDN\": true,\n              \"signOutboundMdnIfOptional\": true\n            },\n            \"messageConnectionSettings\": {\n              \"ignoreCertificateNameMismatch\": true,\n              \"keepHttpConnectionAlive\": true,\n              \"supportHttpStatusCodeContinue\": true,\n              \"unfoldHttpHeaders\": true\n            },\n            \"securitySettings\": {\n              \"enableNRRForInboundDecodedMessages\": true,\n              \"enableNRRForInboundEncodedMessages\": true,\n              \"enableNRRForInboundMDN\": true,\n              \"enableNRRForOutboundDecodedMessages\": true,\n              \"enableNRRForOutboundEncodedMessages\": true,\n              \"enableNRRForOutboundMDN\": true,\n              \"overrideGroupSigningCertificate\": false\n            },\n            \"validationSettings\": {\n              \"checkCertificateRevocationListOnReceive\": true,\n              \"checkCertificateRevocationListOnSend\": true,\n              \"checkDuplicateMessage\": true,\n              \"compressMessage\": true,\n              \"encryptMessage\": false,\n              \"encryptionAlgorithm\": \"AES128\",\n              \"interchangeDuplicatesValidityDays\": 100,\n              \"overrideMessageProperties\": true,\n              \"signMessage\": false\n            }\n          },\n          \"receiverBusinessIdentity\": {\n            \"qualifier\": \"ZZ\",\n            \"value\": \"ZZ\"\n          },\n          \"senderBusinessIdentity\": {\n            \"qualifier\": \"AA\",\n            \"value\": \"AA\"\n          }\n        },\n        \"sendAgreement\": {\n          \"protocolSettings\": {\n            \"acknowledgementConnectionSettings\": {\n              \"ignoreCertificateNameMismatch\": true,\n              \"keepHttpConnectionAlive\": true,\n              \"supportHttpStatusCodeContinue\": true,\n              \"unfoldHttpHeaders\": true\n            },\n            \"envelopeSettings\": {\n              \"autogenerateFileName\": true,\n              \"fileNameTemplate\": \"Test\",\n              \"messageContentType\": \"text/plain\",\n              \"suspendMessageOnFileNameGenerationError\": true,\n              \"transmitFileNameInMimeHeader\": true\n            },\n            \"errorSettings\": {\n              \"resendIfMDNNotReceived\": true,\n              \"suspendDuplicateMessage\": true\n            },\n            \"mdnSettings\": {\n              \"dispositionNotificationTo\": \"http://tempuri.org\",\n              \"mdnText\": \"Sample\",\n              \"micHashingAlgorithm\": \"SHA1\",\n              \"needMDN\": true,\n              \"receiptDeliveryUrl\": \"http://tempuri.org\",\n              \"sendInboundMdnToMessageBox\": true,\n              \"sendMDNAsynchronously\": true,\n              \"signMDN\": true,\n              \"signOutboundMdnIfOptional\": true\n            },\n            \"messageConnectionSettings\": {\n              \"ignoreCertificateNameMismatch\": true,\n              \"keepHttpConnectionAlive\": true,\n              \"supportHttpStatusCodeContinue\": true,\n              \"unfoldHttpHeaders\": true\n            },\n            \"securitySettings\": {\n              \"enableNRRForInboundDecodedMessages\": true,\n              \"enableNRRForInboundEncodedMessages\": true,\n              \"enableNRRForInboundMDN\": true,\n              \"enableNRRForOutboundDecodedMessages\": true,\n              \"enableNRRForOutboundEncodedMessages\": true,\n              \"enableNRRForOutboundMDN\": true,\n              \"overrideGroupSigningCertificate\": false\n            },\n            \"validationSettings\": {\n              \"checkCertificateRevocationListOnReceive\": true,\n              \"checkCertificateRevocationListOnSend\": true,\n              \"checkDuplicateMessage\": true,\n              \"compressMessage\": true,\n              \"encryptMessage\": false,\n              \"encryptionAlgorithm\": \"AES128\",\n              \"interchangeDuplicatesValidityDays\": 100,\n              \"overrideMessageProperties\": true,\n              \"signMessage\": false\n            }\n          },\n          \"receiverBusinessIdentity\": {\n            \"qualifier\": \"AA\",\n            \"value\": \"AA\"\n          },\n          \"senderBusinessIdentity\": {\n            \"qualifier\": \"ZZ\",\n            \"value\": \"ZZ\"\n          }\n        }\n      }\n    },\n    \"createdTime\": \"2017-03-06T22:32:54.2938748Z\",\n    \"guestIdentity\": {\n      \"qualifier\": \"AA\",\n      \"value\": \"AA\"\n    },\n    \"guestPartner\": \"GuestPartner\",\n    \"hostIdentity\": {\n      \"qualifier\": \"ZZ\",\n      \"value\": \"ZZ\"\n    },\n    \"hostPartner\": \"HostPartner\",\n    \"metadata\": {}\n  },\n  \"type\": \"Microsoft.Logic/integrationAccounts/agreements\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08fe56d9-694c-49d5-93fc-f5080be7e212",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationAccounts",
+                    ":integrationAccountName",
+                    "agreements",
+                    ":agreementName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationAccountName",
+                      "description": "(Required) The integration account name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agreementName",
+                      "description": "(Required) The integration account agreement name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"hostPartner\": \"<string>\",\n    \"guestPartner\": \"<string>\",\n    \"hostIdentity\": {\n      \"qualifier\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    \"guestIdentity\": {\n      \"qualifier\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    \"agreementType\": \"<string>\",\n    \"content\": {\n      \"aS2\": {\n        \"receiveAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sendAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"edifact\": {\n        \"receiveAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sendAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"x12\": {\n        \"receiveAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sendAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    \"metadata\": {}\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/IntegrationAccount4533/agreements/<IntegrationAccountAgreementName>\",\n  \"name\": \"<IntegrationAccountAgreementName>\",\n  \"properties\": {\n    \"agreementType\": \"AS2\",\n    \"changedTime\": \"2017-03-06T22:32:54.2945291Z\",\n    \"content\": {\n      \"aS2\": {\n        \"receiveAgreement\": {\n          \"protocolSettings\": {\n            \"acknowledgementConnectionSettings\": {\n              \"ignoreCertificateNameMismatch\": true,\n              \"keepHttpConnectionAlive\": true,\n              \"supportHttpStatusCodeContinue\": true,\n              \"unfoldHttpHeaders\": true\n            },\n            \"envelopeSettings\": {\n              \"autogenerateFileName\": true,\n              \"fileNameTemplate\": \"Test\",\n              \"messageContentType\": \"text/plain\",\n              \"suspendMessageOnFileNameGenerationError\": true,\n              \"transmitFileNameInMimeHeader\": true\n            },\n            \"errorSettings\": {\n              \"resendIfMDNNotReceived\": true,\n              \"suspendDuplicateMessage\": true\n            },\n            \"mdnSettings\": {\n              \"dispositionNotificationTo\": \"http://tempuri.org\",\n              \"mdnText\": \"Sample\",\n              \"micHashingAlgorithm\": \"SHA1\",\n              \"needMDN\": true,\n              \"receiptDeliveryUrl\": \"http://tempuri.org\",\n              \"sendInboundMdnToMessageBox\": true,\n              \"sendMDNAsynchronously\": true,\n              \"signMDN\": true,\n              \"signOutboundMdnIfOptional\": true\n            },\n            \"messageConnectionSettings\": {\n              \"ignoreCertificateNameMismatch\": true,\n              \"keepHttpConnectionAlive\": true,\n              \"supportHttpStatusCodeContinue\": true,\n              \"unfoldHttpHeaders\": true\n            },\n            \"securitySettings\": {\n              \"enableNRRForInboundDecodedMessages\": true,\n              \"enableNRRForInboundEncodedMessages\": true,\n              \"enableNRRForInboundMDN\": true,\n              \"enableNRRForOutboundDecodedMessages\": true,\n              \"enableNRRForOutboundEncodedMessages\": true,\n              \"enableNRRForOutboundMDN\": true,\n              \"overrideGroupSigningCertificate\": false\n            },\n            \"validationSettings\": {\n              \"checkCertificateRevocationListOnReceive\": true,\n              \"checkCertificateRevocationListOnSend\": true,\n              \"checkDuplicateMessage\": true,\n              \"compressMessage\": true,\n              \"encryptMessage\": false,\n              \"encryptionAlgorithm\": \"AES128\",\n              \"interchangeDuplicatesValidityDays\": 100,\n              \"overrideMessageProperties\": true,\n              \"signMessage\": false\n            }\n          },\n          \"receiverBusinessIdentity\": {\n            \"qualifier\": \"ZZ\",\n            \"value\": \"ZZ\"\n          },\n          \"senderBusinessIdentity\": {\n            \"qualifier\": \"AA\",\n            \"value\": \"AA\"\n          }\n        },\n        \"sendAgreement\": {\n          \"protocolSettings\": {\n            \"acknowledgementConnectionSettings\": {\n              \"ignoreCertificateNameMismatch\": true,\n              \"keepHttpConnectionAlive\": true,\n              \"supportHttpStatusCodeContinue\": true,\n              \"unfoldHttpHeaders\": true\n            },\n            \"envelopeSettings\": {\n              \"autogenerateFileName\": true,\n              \"fileNameTemplate\": \"Test\",\n              \"messageContentType\": \"text/plain\",\n              \"suspendMessageOnFileNameGenerationError\": true,\n              \"transmitFileNameInMimeHeader\": true\n            },\n            \"errorSettings\": {\n              \"resendIfMDNNotReceived\": true,\n              \"suspendDuplicateMessage\": true\n            },\n            \"mdnSettings\": {\n              \"dispositionNotificationTo\": \"http://tempuri.org\",\n              \"mdnText\": \"Sample\",\n              \"micHashingAlgorithm\": \"SHA1\",\n              \"needMDN\": true,\n              \"receiptDeliveryUrl\": \"http://tempuri.org\",\n              \"sendInboundMdnToMessageBox\": true,\n              \"sendMDNAsynchronously\": true,\n              \"signMDN\": true,\n              \"signOutboundMdnIfOptional\": true\n            },\n            \"messageConnectionSettings\": {\n              \"ignoreCertificateNameMismatch\": true,\n              \"keepHttpConnectionAlive\": true,\n              \"supportHttpStatusCodeContinue\": true,\n              \"unfoldHttpHeaders\": true\n            },\n            \"securitySettings\": {\n              \"enableNRRForInboundDecodedMessages\": true,\n              \"enableNRRForInboundEncodedMessages\": true,\n              \"enableNRRForInboundMDN\": true,\n              \"enableNRRForOutboundDecodedMessages\": true,\n              \"enableNRRForOutboundEncodedMessages\": true,\n              \"enableNRRForOutboundMDN\": true,\n              \"overrideGroupSigningCertificate\": false\n            },\n            \"validationSettings\": {\n              \"checkCertificateRevocationListOnReceive\": true,\n              \"checkCertificateRevocationListOnSend\": true,\n              \"checkDuplicateMessage\": true,\n              \"compressMessage\": true,\n              \"encryptMessage\": false,\n              \"encryptionAlgorithm\": \"AES128\",\n              \"interchangeDuplicatesValidityDays\": 100,\n              \"overrideMessageProperties\": true,\n              \"signMessage\": false\n            }\n          },\n          \"receiverBusinessIdentity\": {\n            \"qualifier\": \"AA\",\n            \"value\": \"AA\"\n          },\n          \"senderBusinessIdentity\": {\n            \"qualifier\": \"ZZ\",\n            \"value\": \"ZZ\"\n          }\n        }\n      }\n    },\n    \"createdTime\": \"2017-03-06T22:32:54.2938748Z\",\n    \"guestIdentity\": {\n      \"qualifier\": \"AA\",\n      \"value\": \"AA\"\n    },\n    \"guestPartner\": \"GuestPartner\",\n    \"hostIdentity\": {\n      \"qualifier\": \"ZZ\",\n      \"value\": \"ZZ\"\n    },\n    \"hostPartner\": \"HostPartner\",\n    \"metadata\": {}\n  },\n  \"type\": \"Microsoft.Logic/integrationAccounts/agreements\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62b727e4-9973-4056-af26-992b52ed376f",
+              "name": "Error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationAccounts",
+                    ":integrationAccountName",
+                    "agreements",
+                    ":agreementName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationAccountName",
+                      "description": "(Required) The integration account name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agreementName",
+                      "description": "(Required) The integration account agreement name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"hostPartner\": \"<string>\",\n    \"guestPartner\": \"<string>\",\n    \"hostIdentity\": {\n      \"qualifier\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    \"guestIdentity\": {\n      \"qualifier\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    \"agreementType\": \"<string>\",\n    \"content\": {\n      \"aS2\": {\n        \"receiveAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sendAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"edifact\": {\n        \"receiveAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sendAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"x12\": {\n        \"receiveAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sendAgreement\": {\n          \"senderBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"receiverBusinessIdentity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocolSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    \"metadata\": {}\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a25adca-793b-4a40-8336-09339c2e72cc",
+          "name": "Azure Logic Apps Integration Account Agreements_ List Content Callback Url",
+          "request": {
+            "name": "Azure Logic Apps Integration Account Agreements_ List Content Callback Url",
+            "description": {
+              "content": "Get the content callback url.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Logic",
+                "integrationAccounts",
+                ":integrationAccountName",
+                "agreements",
+                ":agreementName",
+                "listContentCallbackUrl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integrationAccountName",
+                  "description": "(Required) The integration account name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agreementName",
+                  "description": "(Required) The integration account agreement name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keyType\": \"<string>\",\n  \"notAfter\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7cfec003-54ed-459d-b171-1c82f4118a25",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationAccounts",
+                    ":integrationAccountName",
+                    "agreements",
+                    ":agreementName",
+                    "listContentCallbackUrl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationAccountName",
+                      "description": "(Required) The integration account name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agreementName",
+                      "description": "(Required) The integration account agreement name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keyType\": \"<string>\",\n  \"notAfter\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"basePath\": \"https://prod-00.westus.logic.azure.com/integrationAccounts/0fdabc3a76514ca48dede71c73d9fe97/agreements/testAgreement/contents/Value\",\n  \"method\": \"GET\",\n  \"queries\": {\n    \"api-version\": \"2015-08-01-preview\"\n  },\n  \"value\": \"https://prod-00.westus.logic.azure.com:443/integrationAccounts/0fdabc3a76514ca48dede71c73d9fe97/agreements/testAgreement/contents/Value?api-version=2015-08-01-preview&sp=%2Fagreements%2FtestAgreement%2Fread&sv=1.0&sig=VK_mbQPTHTa3ezhsrI8IctckwjlL3GdJmroQH_baYj4\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3608ed3d-9ace-4d0d-a34d-d4f1e482848a",
+              "name": "Error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationAccounts",
+                    ":integrationAccountName",
+                    "agreements",
+                    ":agreementName",
+                    "listContentCallbackUrl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationAccountName",
+                      "description": "(Required) The integration account name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agreementName",
+                      "description": "(Required) The integration account agreement name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keyType\": \"<string>\",\n  \"notAfter\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2ffca83d-6e33-4497-abc5-1f346915c73a",
+    "name": "LogicManagementClient IntegrationAccountAgreements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Azure Logic Apps.",
+      "type": "text/plain"
+    }
+  }
+}

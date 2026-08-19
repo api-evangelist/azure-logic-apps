@@ -1,0 +1,1524 @@
+{
+  "item": [
+    {
+      "id": "24a8cff4-9728-4164-ac14-4cf0a3fddd7d",
+      "name": "IntegrationServiceEnvironments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eba06b33-9b97-4be3-8a9c-2b1637768211",
+          "name": "Azure Logic Apps Integration Service Environments_ List by Resource Group",
+          "request": {
+            "name": "Azure Logic Apps Integration Service Environments_ List by Resource Group",
+            "description": {
+              "content": "Gets a list of integration service environments by resource group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroup",
+                "providers",
+                "Microsoft.Logic",
+                "integrationServiceEnvironments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "The number of items to be included in the result."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroup",
+                  "description": "(Required) The resource group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4251497d-80df-4456-a1ee-62dedf2e8dc9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/ISE-ILB-NU\",\n      \"location\": \"northeurope\",\n      \"name\": \"ISE-ILB-NU\",\n      \"properties\": {\n        \"endpointsConfiguration\": {\n          \"connector\": {\n            \"outgoingIpAddresses\": [\n              {\n                \"address\": \"40.127.188.117\"\n              },\n              {\n                \"address\": \"40.85.114.29\"\n              },\n              {\n                \"address\": \"10.43.2.0/24\"\n              },\n              {\n                \"address\": \"10.43.3.0/24\"\n              }\n            ]\n          },\n          \"workflow\": {\n            \"accessEndpointIpAddresses\": [\n              {\n                \"address\": \"10.43.1.6\"\n              }\n            ],\n            \"outgoingIpAddresses\": [\n              {\n                \"address\": \"40.69.195.162\"\n              },\n              {\n                \"address\": \"10.43.1.0/24\"\n              }\n            ]\n          }\n        },\n        \"integrationServiceEnvironmentId\": \"13b261d30b984753869902d7f47f4d55\",\n        \"networkConfiguration\": {\n          \"accessEndpoint\": {\n            \"type\": \"Internal\"\n          },\n          \"subnets\": [\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s1\",\n              \"name\": \"VNET-ILB-NorthEurope/s1\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            },\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s2\",\n              \"name\": \"VNET-ILB-NorthEurope/s2\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            },\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s3\",\n              \"name\": \"VNET-ILB-NorthEurope/s3\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            },\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s4\",\n              \"name\": \"VNET-ILB-NorthEurope/s4\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            }\n          ]\n        },\n        \"provisioningState\": \"Succeeded\",\n        \"state\": \"Enabled\"\n      },\n      \"sku\": {\n        \"capacity\": 0,\n        \"name\": \"Developer\"\n      },\n      \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n    },\n    {\n      \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/ISE-ILB-WCentralUS\",\n      \"location\": \"westcentralus\",\n      \"name\": \"ISE-ILB-WCentralUS\",\n      \"properties\": {\n        \"endpointsConfiguration\": {\n          \"connector\": {\n            \"outgoingIpAddresses\": [\n              {\n                \"address\": \"13.78.134.201\"\n              },\n              {\n                \"address\": \"13.77.206.166\"\n              },\n              {\n                \"address\": \"10.42.2.0/24\"\n              },\n              {\n                \"address\": \"10.42.3.0/24\"\n              }\n            ]\n          },\n          \"workflow\": {\n            \"accessEndpointIpAddresses\": [\n              {\n                \"address\": \"10.42.1.5\"\n              }\n            ],\n            \"outgoingIpAddresses\": [\n              {\n                \"address\": \"13.78.237.166\"\n              },\n              {\n                \"address\": \"10.42.1.0/24\"\n              }\n            ]\n          }\n        },\n        \"integrationServiceEnvironmentId\": \"08bdba07c6b34ad6a263fc0152ff1735\",\n        \"networkConfiguration\": {\n          \"accessEndpoint\": {\n            \"type\": \"Internal\"\n          },\n          \"subnets\": [\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-WCentralUS/subnets/s1\",\n              \"name\": \"VNET-ILB-WCentralUS/s1\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            },\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-WCentralUS/subnets/s2\",\n              \"name\": \"VNET-ILB-WCentralUS/s2\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            },\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-WCentralUS/subnets/s3\",\n              \"name\": \"VNET-ILB-WCentralUS/s3\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            },\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-WCentralUS/subnets/s4\",\n              \"name\": \"VNET-ILB-WCentralUS/s4\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            }\n          ]\n        },\n        \"provisioningState\": \"Succeeded\",\n        \"state\": \"Enabled\"\n      },\n      \"sku\": {\n        \"capacity\": 0,\n        \"name\": \"Developer\"\n      },\n      \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfb3adb1-cecd-40fc-b37b-f3f583c724be",
+              "name": "Logic error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9408ba4-d8f4-4360-9543-3cc8dc02333d",
+          "name": "Azure Logic Apps Integration Service Environments_ Delete",
+          "request": {
+            "name": "Azure Logic Apps Integration Service Environments_ Delete",
+            "description": {
+              "content": "Deletes an integration service environment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroup",
+                "providers",
+                "Microsoft.Logic",
+                "integrationServiceEnvironments",
+                ":integrationServiceEnvironmentName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroup",
+                  "description": "(Required) The resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integrationServiceEnvironmentName",
+                  "description": "(Required) The integration service environment name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d463c20f-2c6c-4dcc-ab21-60cfcd5d6c20",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8fe29ab2-2416-4897-a382-c1d8e8ba2474",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a34ccc8b-f95a-4993-a2d1-29304d823e34",
+              "name": "Logic error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14ab9ab2-c048-4016-bc0f-785805f71077",
+          "name": "Azure Logic Apps Integration Service Environments_ Get",
+          "request": {
+            "name": "Azure Logic Apps Integration Service Environments_ Get",
+            "description": {
+              "content": "Gets an integration service environment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroup",
+                "providers",
+                "Microsoft.Logic",
+                "integrationServiceEnvironments",
+                ":integrationServiceEnvironmentName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroup",
+                  "description": "(Required) The resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integrationServiceEnvironmentName",
+                  "description": "(Required) The integration service environment name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8c5e092-37bc-48c0-9e0a-839c976d49d4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n  \"location\": \"northeurope\",\n  \"name\": \"testIntegrationServiceEnvironment\",\n  \"properties\": {\n    \"endpointsConfiguration\": {\n      \"connector\": {\n        \"outgoingIpAddresses\": [\n          {\n            \"address\": \"40.127.188.117\"\n          },\n          {\n            \"address\": \"40.85.114.29\"\n          },\n          {\n            \"address\": \"10.43.2.0/24\"\n          },\n          {\n            \"address\": \"10.43.3.0/24\"\n          }\n        ]\n      },\n      \"workflow\": {\n        \"accessEndpointIpAddresses\": [\n          {\n            \"address\": \"10.43.1.6\"\n          }\n        ],\n        \"outgoingIpAddresses\": [\n          {\n            \"address\": \"40.69.195.162\"\n          },\n          {\n            \"address\": \"10.43.1.0/24\"\n          }\n        ]\n      }\n    },\n    \"integrationServiceEnvironmentId\": \"13b261d30b984753869902d7f47f4d55\",\n    \"networkConfiguration\": {\n      \"accessEndpoint\": {\n        \"type\": \"Internal\"\n      },\n      \"subnets\": [\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s1\",\n          \"name\": \"VNET-ILB-NorthEurope/s1\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        },\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s2\",\n          \"name\": \"VNET-ILB-NorthEurope/s2\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        },\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s3\",\n          \"name\": \"VNET-ILB-NorthEurope/s3\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        },\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s4\",\n          \"name\": \"VNET-ILB-NorthEurope/s4\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        }\n      ]\n    },\n    \"provisioningState\": \"Succeeded\",\n    \"state\": \"Enabled\"\n  },\n  \"sku\": {\n    \"capacity\": 0,\n    \"name\": \"Developer\"\n  },\n  \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5152394d-817c-4a0f-b7b2-340eeb389ec1",
+              "name": "Logic error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f973bf49-d7a9-46b4-9e70-af9ba8efe554",
+          "name": "Azure Logic Apps Integration Service Environments_ Update",
+          "request": {
+            "name": "Azure Logic Apps Integration Service Environments_ Update",
+            "description": {
+              "content": "Updates an integration service environment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroup",
+                "providers",
+                "Microsoft.Logic",
+                "integrationServiceEnvironments",
+                ":integrationServiceEnvironmentName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroup",
+                  "description": "(Required) The resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integrationServiceEnvironmentName",
+                  "description": "(Required) The integration service environment name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"properties\": {\n    \"endpointsConfiguration\": {\n      \"connector\": {\n        \"accessEndpointIpAddresses\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"outgoingIpAddresses\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"workflow\": {\n        \"accessEndpointIpAddresses\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"outgoingIpAddresses\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    },\n    \"integrationServiceEnvironmentId\": \"<string>\",\n    \"networkConfiguration\": {\n      \"accessEndpoint\": {\n        \"type\": \"<string>\"\n      },\n      \"subnets\": [\n        {\n          \"id\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\"\n        }\n      ],\n      \"virtualNetworkAddressSpace\": \"<string>\"\n    },\n    \"provisioningState\": \"<string>\",\n    \"state\": \"<string>\"\n  },\n  \"sku\": {\n    \"capacity\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "707588da-d65e-43c6-a86c-b3125247f96d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n  \"location\": \"northeurope\",\n  \"name\": \"testIntegrationServiceEnvironment\",\n  \"properties\": {\n    \"endpointsConfiguration\": {\n      \"connector\": {\n        \"outgoingIpAddresses\": [\n          {\n            \"address\": \"40.127.188.117\"\n          },\n          {\n            \"address\": \"40.85.114.29\"\n          },\n          {\n            \"address\": \"10.43.2.0/24\"\n          },\n          {\n            \"address\": \"10.43.3.0/24\"\n          }\n        ]\n      },\n      \"workflow\": {\n        \"accessEndpointIpAddresses\": [\n          {\n            \"address\": \"10.43.1.6\"\n          }\n        ],\n        \"outgoingIpAddresses\": [\n          {\n            \"address\": \"40.69.195.162\"\n          },\n          {\n            \"address\": \"10.43.1.0/24\"\n          }\n        ]\n      }\n    },\n    \"integrationServiceEnvironmentId\": \"13b261d30b984753869902d7f47f4d55\",\n    \"networkConfiguration\": {\n      \"accessEndpoint\": {\n        \"type\": \"Internal\"\n      },\n      \"subnets\": [\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s1\",\n          \"name\": \"VNET-ILB-NorthEurope/s1\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        },\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s2\",\n          \"name\": \"VNET-ILB-NorthEurope/s2\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        },\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s3\",\n          \"name\": \"VNET-ILB-NorthEurope/s3\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        },\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s4\",\n          \"name\": \"VNET-ILB-NorthEurope/s4\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        }\n      ]\n    },\n    \"provisioningState\": \"InProgress\",\n    \"state\": \"Enabled\"\n  },\n  \"sku\": {\n    \"capacity\": 0,\n    \"name\": \"Developer\"\n  },\n  \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fffd5ece-2031-4ce5-a394-ec3e153c4bc8",
+              "name": "Logic error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57b062d3-1a34-4cc2-a40a-0de5c32f8050",
+          "name": "Azure Logic Apps Integration Service Environments_ Create or Update",
+          "request": {
+            "name": "Azure Logic Apps Integration Service Environments_ Create or Update",
+            "description": {
+              "content": "Creates or updates an integration service environment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroup",
+                "providers",
+                "Microsoft.Logic",
+                "integrationServiceEnvironments",
+                ":integrationServiceEnvironmentName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroup",
+                  "description": "(Required) The resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integrationServiceEnvironmentName",
+                  "description": "(Required) The integration service environment name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"properties\": {\n    \"endpointsConfiguration\": {\n      \"connector\": {\n        \"accessEndpointIpAddresses\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"outgoingIpAddresses\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"workflow\": {\n        \"accessEndpointIpAddresses\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"outgoingIpAddresses\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    },\n    \"integrationServiceEnvironmentId\": \"<string>\",\n    \"networkConfiguration\": {\n      \"accessEndpoint\": {\n        \"type\": \"<string>\"\n      },\n      \"subnets\": [\n        {\n          \"id\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\"\n        }\n      ],\n      \"virtualNetworkAddressSpace\": \"<string>\"\n    },\n    \"provisioningState\": \"<string>\",\n    \"state\": \"<string>\"\n  },\n  \"sku\": {\n    \"capacity\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7bbec0af-c888-4981-8fb7-d03d85328590",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n  \"location\": \"northeurope\",\n  \"name\": \"testIntegrationServiceEnvironment\",\n  \"properties\": {\n    \"endpointsConfiguration\": {\n      \"connector\": {\n        \"outgoingIpAddresses\": [\n          {\n            \"address\": \"40.127.188.117\"\n          },\n          {\n            \"address\": \"40.85.114.29\"\n          },\n          {\n            \"address\": \"10.43.2.0/24\"\n          },\n          {\n            \"address\": \"10.43.3.0/24\"\n          }\n        ]\n      },\n      \"workflow\": {\n        \"accessEndpointIpAddresses\": [\n          {\n            \"address\": \"10.43.1.6\"\n          }\n        ],\n        \"outgoingIpAddresses\": [\n          {\n            \"address\": \"40.69.195.162\"\n          },\n          {\n            \"address\": \"10.43.1.0/24\"\n          }\n        ]\n      }\n    },\n    \"integrationServiceEnvironmentId\": \"13b261d30b984753869902d7f47f4d55\",\n    \"networkConfiguration\": {\n      \"accessEndpoint\": {\n        \"type\": \"Internal\"\n      },\n      \"subnets\": [\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s1\",\n          \"name\": \"testVNET/s1\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        },\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s2\",\n          \"name\": \"testVNET/s2\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        },\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s3\",\n          \"name\": \"testVNET/s3\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        },\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s4\",\n          \"name\": \"testVNET/s4\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        }\n      ]\n    },\n    \"provisioningState\": \"InProgress\",\n    \"state\": \"Enabled\"\n  },\n  \"sku\": {\n    \"capacity\": 0,\n    \"name\": \"Developer\"\n  },\n  \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3bcd0ad8-08ff-4930-9d85-1519d8228236",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n  \"location\": \"northeurope\",\n  \"name\": \"testIntegrationServiceEnvironment\",\n  \"properties\": {\n    \"endpointsConfiguration\": {\n      \"connector\": {\n        \"outgoingIpAddresses\": [\n          {\n            \"address\": \"40.127.188.117\"\n          },\n          {\n            \"address\": \"40.85.114.29\"\n          },\n          {\n            \"address\": \"10.43.2.0/24\"\n          },\n          {\n            \"address\": \"10.43.3.0/24\"\n          }\n        ]\n      },\n      \"workflow\": {\n        \"accessEndpointIpAddresses\": [\n          {\n            \"address\": \"10.43.1.6\"\n          }\n        ],\n        \"outgoingIpAddresses\": [\n          {\n            \"address\": \"40.69.195.162\"\n          },\n          {\n            \"address\": \"10.43.1.0/24\"\n          }\n        ]\n      }\n    },\n    \"integrationServiceEnvironmentId\": \"13b261d30b984753869902d7f47f4d55\",\n    \"networkConfiguration\": {\n      \"accessEndpoint\": {\n        \"type\": \"Internal\"\n      },\n      \"subnets\": [\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s1\",\n          \"name\": \"testVNET/s1\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        },\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s2\",\n          \"name\": \"testVNET/s2\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        },\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s3\",\n          \"name\": \"testVNET/s3\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        },\n        {\n          \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s4\",\n          \"name\": \"testVNET/s4\",\n          \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n        }\n      ]\n    },\n    \"provisioningState\": \"InProgress\",\n    \"state\": \"Enabled\"\n  },\n  \"sku\": {\n    \"capacity\": 0,\n    \"name\": \"Developer\"\n  },\n  \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ea80628-3b67-4eb0-aa89-9b51ff396ffc",
+              "name": "Logic error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e356cb7c-e167-4765-8fe4-9f3e1a972edf",
+          "name": "Azure Logic Apps Integration Service Environments_ List by Subscription",
+          "request": {
+            "name": "Azure Logic Apps Integration Service Environments_ List by Subscription",
+            "description": {
+              "content": "Gets a list of integration service environments by subscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "providers",
+                "Microsoft.Logic",
+                "integrationServiceEnvironments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "The number of items to be included in the result."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b4420fe-6151-48ee-9793-c7a066b667c0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/ISE-ILB-NU\",\n      \"location\": \"northeurope\",\n      \"name\": \"ISE-ILB-NU\",\n      \"properties\": {\n        \"endpointsConfiguration\": {\n          \"connector\": {\n            \"outgoingIpAddresses\": [\n              {\n                \"address\": \"40.127.188.117\"\n              },\n              {\n                \"address\": \"40.85.114.29\"\n              },\n              {\n                \"address\": \"10.43.2.0/24\"\n              },\n              {\n                \"address\": \"10.43.3.0/24\"\n              }\n            ]\n          },\n          \"workflow\": {\n            \"accessEndpointIpAddresses\": [\n              {\n                \"address\": \"10.43.1.6\"\n              }\n            ],\n            \"outgoingIpAddresses\": [\n              {\n                \"address\": \"40.69.195.162\"\n              },\n              {\n                \"address\": \"10.43.1.0/24\"\n              }\n            ]\n          }\n        },\n        \"integrationServiceEnvironmentId\": \"13b261d30b984753869902d7f47f4d55\",\n        \"networkConfiguration\": {\n          \"accessEndpoint\": {\n            \"type\": \"Internal\"\n          },\n          \"subnets\": [\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s1\",\n              \"name\": \"VNET-ILB-NorthEurope/s1\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            },\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s2\",\n              \"name\": \"VNET-ILB-NorthEurope/s2\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            },\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s3\",\n              \"name\": \"VNET-ILB-NorthEurope/s3\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            },\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-ILB-NorthEurope/subnets/s4\",\n              \"name\": \"VNET-ILB-NorthEurope/s4\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            }\n          ]\n        },\n        \"provisioningState\": \"Succeeded\",\n        \"state\": \"Enabled\"\n      },\n      \"sku\": {\n        \"capacity\": 0,\n        \"name\": \"Developer\"\n      },\n      \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n    },\n    {\n      \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/TestISE-WCentralUS\",\n      \"location\": \"westcentralus\",\n      \"name\": \"TestISE-WCentralUS\",\n      \"properties\": {\n        \"endpointsConfiguration\": {\n          \"connector\": {\n            \"outgoingIpAddresses\": [\n              {\n                \"address\": \"13.77.201.181\"\n              },\n              {\n                \"address\": \"13.77.203.57\"\n              },\n              {\n                \"address\": \"10.37.4.0/24\"\n              },\n              {\n                \"address\": \"10.37.3.0/24\"\n              }\n            ]\n          },\n          \"workflow\": {\n            \"accessEndpointIpAddresses\": [\n              {\n                \"address\": \"13.77.204.22\"\n              }\n            ],\n            \"outgoingIpAddresses\": [\n              {\n                \"address\": \"52.161.103.0\"\n              },\n              {\n                \"address\": \"10.37.1.0/24\"\n              }\n            ]\n          }\n        },\n        \"integrationServiceEnvironmentId\": \"dd470721b5b14148b9bf5b4d1ff27407\",\n        \"networkConfiguration\": {\n          \"accessEndpoint\": {\n            \"type\": \"External\"\n          },\n          \"subnets\": [\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-wCUS/subnets/s4\",\n              \"name\": \"VNET-wCUS/s4\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            },\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-wCUS/subnets/s3\",\n              \"name\": \"VNET-wCUS/s3\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            },\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-wCUS/subnets/s2\",\n              \"name\": \"VNET-wCUS/s2\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            },\n            {\n              \"id\": \"/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET-wCUS/subnets/s1\",\n              \"name\": \"VNET-wCUS/s1\",\n              \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\n            }\n          ]\n        },\n        \"provisioningState\": \"Succeeded\",\n        \"state\": \"Enabled\"\n      },\n      \"sku\": {\n        \"capacity\": 1,\n        \"name\": \"Premium\"\n      },\n      \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a543be9b-0224-4afb-9d68-ebde46dad56e",
+              "name": "Logic error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "67d811ff-c147-4152-b8a6-d3defabab707",
+    "name": "LogicManagementClient IntegrationAccountAgreements IntegrationServiceEnvironments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Azure Logic Apps.",
+      "type": "text/plain"
+    }
+  }
+}

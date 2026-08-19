@@ -1,0 +1,280 @@
+{
+  "item": [
+    {
+      "id": "694dbda9-3473-4ee7-8d2a-a5d07c883a58",
+      "name": "integrationServiceEnvironmentNetworkHealth",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c9aa0372-f5c0-40ba-944f-4c0d02cd4093",
+          "name": "Azure Logic Apps Integration Service Environment Network Health_ Get",
+          "request": {
+            "name": "Azure Logic Apps Integration Service Environment Network Health_ Get",
+            "description": {
+              "content": "Gets the integration service environment network health.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroup",
+                "providers",
+                "Microsoft.Logic",
+                "integrationServiceEnvironments",
+                ":integrationServiceEnvironmentName",
+                "health",
+                "network"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroup",
+                  "description": "(Required) The resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integrationServiceEnvironmentName",
+                  "description": "(Required) The integration service environment name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c77f7599-b2a5-4b44-a94c-759ebc67490d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName",
+                    "health",
+                    "network"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"LA1\": {\n    \"networkDependencyHealthState\": \"Healthy\",\n    \"outboundNetworkDependencies\": [\n      {\n        \"category\": \"AzureStorage\",\n        \"displayName\": \"Azure Storage\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"www.table.core.windows.net\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"www.blob.core.windows.net\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"www.queue.core.windows.net\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"AzureActiveDirectory\",\n        \"displayName\": \"Azure Active Directory\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"graph.windows.net\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"SSLCertificateVerification\",\n        \"displayName\": \"SSL Certificate Verification\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"ocsp.msocsp.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"mscrl.microsoft.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"crl.microsoft.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"www.microsoft.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"crl3.digicert.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"ocsp.digicert.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"cacerts.digicert.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"www.thawte.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"DiagnosticLogsAndMetrics\",\n        \"displayName\": \"Diagnostic Logs And Metrics\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"az-prod.metrics.nsatc.net\",\n            \"ports\": [\n              \"443\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"IntegrationServiceEnvironmentConnectors\",\n        \"displayName\": \"Integration Service Environment Connectors\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"flow-yticlpbiumhig-cqsn-apim-runtime.brazilus.environments.microsoftazurelogicapps.net\",\n            \"ports\": [\n              \"443\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"RedisCache\",\n        \"displayName\": \"Redis Cache\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"flowyticlpbiumhigcqsn.redis.cache.windows.net\",\n            \"ports\": [\n              \"6380\"\n            ]\n          }\n        ]\n      }\n    ],\n    \"outboundNetworkHealth\": {\n      \"state\": \"Healthy\"\n    }\n  },\n  \"LA2\": {\n    \"networkDependencyHealthState\": \"Healthy\",\n    \"outboundNetworkDependencies\": [\n      {\n        \"category\": \"AzureStorage\",\n        \"displayName\": \"Azure Storage\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"blob.core.windows.net\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"queue.core.windows.net\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"table.core.windows.net\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"file.core.windows.net\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"SQL\",\n        \"displayName\": \"Azure SQL Database\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"database.windows.net\",\n            \"ports\": [\n              \"1433\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"AzureManagement\",\n        \"displayName\": \"Azure Management\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"management.core.windows.net\",\n            \"ports\": [\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"admin.core.windows.net\",\n            \"ports\": [\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"management.azure.com\",\n            \"ports\": [\n              \"443\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"AzureActiveDirectory\",\n        \"displayName\": \"Azure Active Directory\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"graph.windows.net\",\n            \"ports\": [\n              \"443\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"RegionalService\",\n        \"displayName\": \"Regional Service\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"gr-prod-sn1.cloudapp.net\",\n            \"ports\": [\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"az-prod.metrics.nsatc.net\",\n            \"ports\": [\n              \"443\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"SSLCertificateVerification\",\n        \"displayName\": \"SSL Certificate Verification\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"ocsp.msocsp.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"mscrl.microsoft.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"crl.microsoft.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"www.microsoft.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"crl3.digicert.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"ocsp.digicert.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"cacerts.digicert.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"www.thawte.com\",\n            \"ports\": [\n              \"80\",\n              \"443\"\n            ]\n          }\n        ]\n      }\n    ],\n    \"outboundNetworkHealth\": {\n      \"state\": \"Healthy\"\n    }\n  },\n  \"LA3\": {\n    \"networkDependencyHealthState\": \"Healthy\",\n    \"outboundNetworkDependencies\": [\n      {\n        \"category\": \"RecoveryService\",\n        \"displayName\": \"Recovery Service\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"https://prod3.metrics.nsatc.net:1886/RecoveryService\",\n            \"ports\": [\n              \"1886\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"SQL\",\n        \"displayName\": \"SQL\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"jnb6zdnqth.database.windows.net\",\n            \"ports\": [\n              \"1443\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"DiagnosticLogsAndMetrics\",\n        \"displayName\": \"Diagnostic Logs And Metrics\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"prod.warmpath.msftcloudes.com\",\n            \"ports\": [\n              \"443\"\n            ]\n          }\n        ]\n      },\n      {\n        \"category\": \"AzureStorage\",\n        \"displayName\": \"Azure Storage\",\n        \"endpoints\": [\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"apimgmtstcfpq5vx3sh9wdme.blob.core.windows.net\",\n            \"ports\": [\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"apimgmtstcfpq5vx3sh9wdme.file.core.windows.net\",\n            \"ports\": [\n              \"445\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"apimgmtstcfpq5vx3sh9wdme.queue.core.windows.net\",\n            \"ports\": [\n              \"443\"\n            ]\n          },\n          {\n            \"accessibility\": \"Available\",\n            \"domainName\": \"apimgmtstcfpq5vx3sh9wdme.table.core.windows.net\",\n            \"ports\": [\n              \"443\"\n            ]\n          }\n        ]\n      }\n    ],\n    \"outboundNetworkHealth\": {\n      \"state\": \"Healthy\"\n    }\n  },\n  \"LA4\": {\n    \"networkDependencyHealthState\": \"Healthy\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7198a46-9f1f-47f4-8133-4598ed0712f5",
+              "name": "Logic error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName",
+                    "health",
+                    "network"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "91cec05a-0a21-457a-a3ac-86a45ee89c69",
+    "name": "LogicManagementClient IntegrationAccountAgreements integrationServiceEnvironmentNetworkHealth API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Azure Logic Apps.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LogicManagementClient IntegrationAccountAgreements integrationServiceEnvironmentRestart API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "integrationServiceEnvironmentRestart",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure Logic Apps Integration Service Environments_ Restart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/:integrationServiceEnvironmentName/restart",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription id."
+              },
+              {
+                "name": "resourceGroup",
+                "value": "my-resource-group",
+                "type": "path",
+                "description": "The resource group."
+              },
+              {
+                "name": "integrationServiceEnvironmentName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration service environment name."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version."
+              }
+            ]
+          },
+          "docs": "Restarts an integration service environment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

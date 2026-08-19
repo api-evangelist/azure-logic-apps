@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LogicManagementClient IntegrationAccountAgreements integrationServiceEnvironmentSkus API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "integrationServiceEnvironmentSkus",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure Logic Apps Integration Service Environment Skus_ List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/:integrationServiceEnvironmentName/skus",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription id."
+              },
+              {
+                "name": "resourceGroup",
+                "value": "my-resource-group",
+                "type": "path",
+                "description": "The resource group."
+              },
+              {
+                "name": "integrationServiceEnvironmentName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The integration service environment name."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version."
+              }
+            ]
+          },
+          "docs": "Gets a list of integration service environment Skus."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

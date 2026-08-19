@@ -1,0 +1,532 @@
+{
+  "item": [
+    {
+      "id": "83c02114-d137-4851-a65b-c9ef94f0a183",
+      "name": "integrationServiceEnvironmentManagedApis",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5cdd85ce-399d-4e8d-99d4-34b7d929b9b1",
+          "name": "Azure Logic Apps Integration Service Environment Managed Apis_ List",
+          "request": {
+            "name": "Azure Logic Apps Integration Service Environment Managed Apis_ List",
+            "description": {
+              "content": "Gets the integration service environment managed Apis.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroup",
+                "providers",
+                "Microsoft.Logic",
+                "integrationServiceEnvironments",
+                ":integrationServiceEnvironmentName",
+                "managedApis"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroup",
+                  "description": "(Required) The resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integrationServiceEnvironmentName",
+                  "description": "(Required) The integration service environment name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4115985-27ff-43d7-8bb3-097614290816",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName",
+                    "managedApis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/SendMessage\",\n      \"location\": \"brazilsouth\",\n      \"name\": \"SendMessage\",\n      \"properties\": {\n        \"annotation\": {\n          \"family\": \"SendMessage\",\n          \"revision\": 1,\n          \"status\": \"Production\"\n        },\n        \"api\": {\n          \"brandColor\": \"#c4d5ff\",\n          \"category\": \"Standard\",\n          \"description\": \"Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.\",\n          \"displayName\": \"Service Bus\",\n          \"iconUri\": \"https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png\",\n          \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus\",\n          \"integrationServiceEnvironment\": {\n            \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n            \"name\": \"testIntegrationServiceEnvironment\",\n            \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n          },\n          \"type\": \"Microsoft.Logic/integrationServiceEnvironments/managedApis\"\n        },\n        \"description\": \"This operation sends a message to a queue or topic.\",\n        \"isNotification\": false,\n        \"isWebhook\": false,\n        \"pageable\": false,\n        \"summary\": \"Send message\",\n        \"visibility\": \"important\"\n      }\n    },\n    {\n      \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/SendMessages\",\n      \"location\": \"brazilsouth\",\n      \"name\": \"SendMessages\",\n      \"properties\": {\n        \"annotation\": {\n          \"family\": \"SendMessages\",\n          \"revision\": 1,\n          \"status\": \"Production\"\n        },\n        \"api\": {\n          \"brandColor\": \"#c4d5ff\",\n          \"category\": \"Standard\",\n          \"description\": \"Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.\",\n          \"displayName\": \"Service Bus\",\n          \"iconUri\": \"https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png\",\n          \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus\",\n          \"integrationServiceEnvironment\": {\n            \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n            \"name\": \"testIntegrationServiceEnvironment\",\n            \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n          },\n          \"type\": \"Microsoft.Logic/integrationServiceEnvironments/managedApis\"\n        },\n        \"description\": \"This operation sends one or more messages to a queue or topic.\",\n        \"isNotification\": false,\n        \"isWebhook\": false,\n        \"pageable\": false,\n        \"summary\": \"Send one or more messages\",\n        \"visibility\": \"important\"\n      }\n    },\n    {\n      \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/GetMessageFromQueue\",\n      \"location\": \"brazilsouth\",\n      \"name\": \"GetMessageFromQueue\",\n      \"properties\": {\n        \"annotation\": {\n          \"family\": \"GetMessageFromQueue\",\n          \"revision\": 1,\n          \"status\": \"Production\"\n        },\n        \"api\": {\n          \"brandColor\": \"#c4d5ff\",\n          \"category\": \"Standard\",\n          \"description\": \"Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.\",\n          \"displayName\": \"Service Bus\",\n          \"iconUri\": \"https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png\",\n          \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus\",\n          \"integrationServiceEnvironment\": {\n            \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n            \"name\": \"testIntegrationServiceEnvironment\",\n            \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n          },\n          \"type\": \"Microsoft.Logic/integrationServiceEnvironments/managedApis\"\n        },\n        \"description\": \"This operation triggers a flow when a message is received in a queue and auto completes the message.\",\n        \"isNotification\": false,\n        \"isWebhook\": false,\n        \"pageable\": false,\n        \"summary\": \"When a message is received in a queue (auto-complete)\",\n        \"trigger\": \"single\",\n        \"visibility\": \"important\"\n      }\n    },\n    {\n      \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/GetNewMessageFromQueueWithPeekLock\",\n      \"location\": \"brazilsouth\",\n      \"name\": \"GetNewMessageFromQueueWithPeekLock\",\n      \"properties\": {\n        \"annotation\": {\n          \"family\": \"GetNewMessageFromQueueWithPeekLock\",\n          \"revision\": 1,\n          \"status\": \"Production\"\n        },\n        \"api\": {\n          \"brandColor\": \"#c4d5ff\",\n          \"category\": \"Standard\",\n          \"description\": \"Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.\",\n          \"displayName\": \"Service Bus\",\n          \"iconUri\": \"https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png\",\n          \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus\",\n          \"integrationServiceEnvironment\": {\n            \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n            \"name\": \"testIntegrationServiceEnvironment\",\n            \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n          },\n          \"type\": \"Microsoft.Logic/integrationServiceEnvironments/managedApis\"\n        },\n        \"description\": \"The operation triggers a flow when a message received in a queue with peek-lock mode.\",\n        \"isNotification\": false,\n        \"isWebhook\": false,\n        \"pageable\": false,\n        \"summary\": \"When a message is received in a queue (peek-lock)\",\n        \"trigger\": \"single\",\n        \"visibility\": \"important\"\n      }\n    },\n    {\n      \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/GetMessageFromTopic\",\n      \"location\": \"brazilsouth\",\n      \"name\": \"GetMessageFromTopic\",\n      \"properties\": {\n        \"annotation\": {\n          \"family\": \"GetMessageFromTopic\",\n          \"revision\": 1,\n          \"status\": \"Production\"\n        },\n        \"api\": {\n          \"brandColor\": \"#c4d5ff\",\n          \"category\": \"Standard\",\n          \"description\": \"Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.\",\n          \"displayName\": \"Service Bus\",\n          \"iconUri\": \"https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png\",\n          \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus\",\n          \"integrationServiceEnvironment\": {\n            \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n            \"name\": \"testIntegrationServiceEnvironment\",\n            \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n          },\n          \"type\": \"Microsoft.Logic/integrationServiceEnvironments/managedApis\"\n        },\n        \"description\": \"This operation triggers a flow when a message is received in a topic subscription and auto completes the message.\",\n        \"isNotification\": false,\n        \"isWebhook\": false,\n        \"pageable\": false,\n        \"summary\": \"When a message is received in a topic subscription (auto-complete)\",\n        \"trigger\": \"single\",\n        \"visibility\": \"important\"\n      }\n    },\n    {\n      \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/GetNewMessageFromTopicWithPeekLock\",\n      \"location\": \"brazilsouth\",\n      \"name\": \"GetNewMessageFromTopicWithPeekLock\",\n      \"properties\": {\n        \"annotation\": {\n          \"family\": \"GetNewMessageFromTopicWithPeekLock\",\n          \"revision\": 1,\n          \"status\": \"Production\"\n        },\n        \"api\": {\n          \"brandColor\": \"#c4d5ff\",\n          \"category\": \"Standard\",\n          \"description\": \"Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.\",\n          \"displayName\": \"Service Bus\",\n          \"iconUri\": \"https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png\",\n          \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus\",\n          \"integrationServiceEnvironment\": {\n            \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n            \"name\": \"testIntegrationServiceEnvironment\",\n            \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n          },\n          \"type\": \"Microsoft.Logic/integrationServiceEnvironments/managedApis\"\n        },\n        \"description\": \"The operation triggers a flow when a message received in a topic subscription with peek-lock mode.\",\n        \"isNotification\": false,\n        \"isWebhook\": false,\n        \"pageable\": false,\n        \"summary\": \"When a message is received in a topic subscription (peek-lock)\",\n        \"trigger\": \"single\",\n        \"visibility\": \"important\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "07a56939-fbc6-460d-b92b-501ddd5fbc4b",
+              "name": "Logic error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName",
+                    "managedApis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87732f38-af56-4353-ad97-5be2494d806a",
+          "name": "Azure Logic Apps Integration Service Environment Managed Api Operations_ List",
+          "request": {
+            "name": "Azure Logic Apps Integration Service Environment Managed Api Operations_ List",
+            "description": {
+              "content": "Gets the managed Api operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroup",
+                "providers",
+                "Microsoft.Logic",
+                "integrationServiceEnvironments",
+                ":integrationServiceEnvironmentName",
+                "managedApis",
+                ":apiName",
+                "apiOperations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription id."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroup",
+                  "description": "(Required) The resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integrationServiceEnvironmentName",
+                  "description": "(Required) The integration service environment name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiName",
+                  "description": "(Required) The api name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce805036-bdfb-4109-9d71-63807618775b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName",
+                    "managedApis",
+                    ":apiName",
+                    "apiOperations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiName",
+                      "description": "(Required) The api name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/SendMessage\",\n      \"location\": \"brazilsouth\",\n      \"name\": \"SendMessage\",\n      \"properties\": {\n        \"annotation\": {\n          \"family\": \"SendMessage\",\n          \"revision\": 1,\n          \"status\": \"Production\"\n        },\n        \"api\": {\n          \"brandColor\": \"#c4d5ff\",\n          \"category\": \"Standard\",\n          \"description\": \"Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.\",\n          \"displayName\": \"Service Bus\",\n          \"iconUri\": \"https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png\",\n          \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus\",\n          \"integrationServiceEnvironment\": {\n            \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n            \"name\": \"testIntegrationServiceEnvironment\",\n            \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n          },\n          \"type\": \"Microsoft.Logic/integrationServiceEnvironments/managedApis\"\n        },\n        \"description\": \"This operation sends a message to a queue or topic.\",\n        \"isNotification\": false,\n        \"isWebhook\": false,\n        \"pageable\": false,\n        \"summary\": \"Send message\",\n        \"visibility\": \"important\"\n      }\n    },\n    {\n      \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/SendMessages\",\n      \"location\": \"brazilsouth\",\n      \"name\": \"SendMessages\",\n      \"properties\": {\n        \"annotation\": {\n          \"family\": \"SendMessages\",\n          \"revision\": 1,\n          \"status\": \"Production\"\n        },\n        \"api\": {\n          \"brandColor\": \"#c4d5ff\",\n          \"category\": \"Standard\",\n          \"description\": \"Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.\",\n          \"displayName\": \"Service Bus\",\n          \"iconUri\": \"https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png\",\n          \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus\",\n          \"integrationServiceEnvironment\": {\n            \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n            \"name\": \"testIntegrationServiceEnvironment\",\n            \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n          },\n          \"type\": \"Microsoft.Logic/integrationServiceEnvironments/managedApis\"\n        },\n        \"description\": \"This operation sends one or more messages to a queue or topic.\",\n        \"isNotification\": false,\n        \"isWebhook\": false,\n        \"pageable\": false,\n        \"summary\": \"Send one or more messages\",\n        \"visibility\": \"important\"\n      }\n    },\n    {\n      \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/GetMessageFromQueue\",\n      \"location\": \"brazilsouth\",\n      \"name\": \"GetMessageFromQueue\",\n      \"properties\": {\n        \"annotation\": {\n          \"family\": \"GetMessageFromQueue\",\n          \"revision\": 1,\n          \"status\": \"Production\"\n        },\n        \"api\": {\n          \"brandColor\": \"#c4d5ff\",\n          \"category\": \"Standard\",\n          \"description\": \"Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.\",\n          \"displayName\": \"Service Bus\",\n          \"iconUri\": \"https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png\",\n          \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus\",\n          \"integrationServiceEnvironment\": {\n            \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n            \"name\": \"testIntegrationServiceEnvironment\",\n            \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n          },\n          \"type\": \"Microsoft.Logic/integrationServiceEnvironments/managedApis\"\n        },\n        \"description\": \"This operation triggers a flow when a message is received in a queue and auto completes the message.\",\n        \"isNotification\": false,\n        \"isWebhook\": false,\n        \"pageable\": false,\n        \"summary\": \"When a message is received in a queue (auto-complete)\",\n        \"trigger\": \"single\",\n        \"visibility\": \"important\"\n      }\n    },\n    {\n      \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/GetNewMessageFromQueueWithPeekLock\",\n      \"location\": \"brazilsouth\",\n      \"name\": \"GetNewMessageFromQueueWithPeekLock\",\n      \"properties\": {\n        \"annotation\": {\n          \"family\": \"GetNewMessageFromQueueWithPeekLock\",\n          \"revision\": 1,\n          \"status\": \"Production\"\n        },\n        \"api\": {\n          \"brandColor\": \"#c4d5ff\",\n          \"category\": \"Standard\",\n          \"description\": \"Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.\",\n          \"displayName\": \"Service Bus\",\n          \"iconUri\": \"https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png\",\n          \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus\",\n          \"integrationServiceEnvironment\": {\n            \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n            \"name\": \"testIntegrationServiceEnvironment\",\n            \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n          },\n          \"type\": \"Microsoft.Logic/integrationServiceEnvironments/managedApis\"\n        },\n        \"description\": \"The operation triggers a flow when a message received in a queue with peek-lock mode.\",\n        \"isNotification\": false,\n        \"isWebhook\": false,\n        \"pageable\": false,\n        \"summary\": \"When a message is received in a queue (peek-lock)\",\n        \"trigger\": \"single\",\n        \"visibility\": \"important\"\n      }\n    },\n    {\n      \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/GetMessageFromTopic\",\n      \"location\": \"brazilsouth\",\n      \"name\": \"GetMessageFromTopic\",\n      \"properties\": {\n        \"annotation\": {\n          \"family\": \"GetMessageFromTopic\",\n          \"revision\": 1,\n          \"status\": \"Production\"\n        },\n        \"api\": {\n          \"brandColor\": \"#c4d5ff\",\n          \"category\": \"Standard\",\n          \"description\": \"Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.\",\n          \"displayName\": \"Service Bus\",\n          \"iconUri\": \"https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png\",\n          \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus\",\n          \"integrationServiceEnvironment\": {\n            \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n            \"name\": \"testIntegrationServiceEnvironment\",\n            \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n          },\n          \"type\": \"Microsoft.Logic/integrationServiceEnvironments/managedApis\"\n        },\n        \"description\": \"This operation triggers a flow when a message is received in a topic subscription and auto completes the message.\",\n        \"isNotification\": false,\n        \"isWebhook\": false,\n        \"pageable\": false,\n        \"summary\": \"When a message is received in a topic subscription (auto-complete)\",\n        \"trigger\": \"single\",\n        \"visibility\": \"important\"\n      }\n    },\n    {\n      \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus/apiOperations/GetNewMessageFromTopicWithPeekLock\",\n      \"location\": \"brazilsouth\",\n      \"name\": \"GetNewMessageFromTopicWithPeekLock\",\n      \"properties\": {\n        \"annotation\": {\n          \"family\": \"GetNewMessageFromTopicWithPeekLock\",\n          \"revision\": 1,\n          \"status\": \"Production\"\n        },\n        \"api\": {\n          \"brandColor\": \"#c4d5ff\",\n          \"category\": \"Standard\",\n          \"description\": \"Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.\",\n          \"displayName\": \"Service Bus\",\n          \"iconUri\": \"https://powerappsconnectorsdf.blob.core.windows.net/officialicons/servicebus/icon_1.0.1216.1605.png\",\n          \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment/managedApis/servicebus\",\n          \"integrationServiceEnvironment\": {\n            \"id\": \"/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment\",\n            \"name\": \"testIntegrationServiceEnvironment\",\n            \"type\": \"Microsoft.Logic/integrationServiceEnvironments\"\n          },\n          \"type\": \"Microsoft.Logic/integrationServiceEnvironments/managedApis\"\n        },\n        \"description\": \"The operation triggers a flow when a message received in a topic subscription with peek-lock mode.\",\n        \"isNotification\": false,\n        \"isWebhook\": false,\n        \"pageable\": false,\n        \"summary\": \"When a message is received in a topic subscription (peek-lock)\",\n        \"trigger\": \"single\",\n        \"visibility\": \"important\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f69f18d-8843-40ba-b747-da6167c25bf9",
+              "name": "Logic error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroup",
+                    "providers",
+                    "Microsoft.Logic",
+                    "integrationServiceEnvironments",
+                    ":integrationServiceEnvironmentName",
+                    "managedApis",
+                    ":apiName",
+                    "apiOperations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2019-05-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription id."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroup",
+                      "description": "(Required) The resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integrationServiceEnvironmentName",
+                      "description": "(Required) The integration service environment name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiName",
+                      "description": "(Required) The api name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a82dff39-3981-4663-8477-ce8e8ac6224b",
+    "name": "LogicManagementClient IntegrationAccountAgreements integrationServiceEnvironmentManagedApis API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Azure Logic Apps.",
+      "type": "text/plain"
+    }
+  }
+}
