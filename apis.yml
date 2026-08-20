@@ -167,7 +167,8 @@ apis:
   description: >-
     The integrationServiceEnvironmentManagedApi API from Azure Logic Apps — 1 operation(s) for integrationserviceenvironmentmanagedapi.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
-  tags:
+  tags: []
+  tags_raw:
   - integrationServiceEnvironmentManagedApi
   properties:
   - type: OpenAPI
@@ -182,7 +183,8 @@ apis:
   description: >-
     The integrationServiceEnvironmentManagedApis API from Azure Logic Apps — 2 operation(s) for integrationserviceenvironmentmanagedapis.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
-  tags:
+  tags: []
+  tags_raw:
   - integrationServiceEnvironmentManagedApis
   properties:
   - type: OpenAPI
@@ -197,7 +199,8 @@ apis:
   description: >-
     The integrationServiceEnvironmentNetworkHealth API from Azure Logic Apps — 1 operation(s) for integrationserviceenvironmentnetworkhealth.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
-  tags:
+  tags: []
+  tags_raw:
   - integrationServiceEnvironmentNetworkHealth
   properties:
   - type: OpenAPI
@@ -212,7 +215,8 @@ apis:
   description: >-
     The integrationServiceEnvironmentRestart API from Azure Logic Apps — 1 operation(s) for integrationserviceenvironmentrestart.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
-  tags:
+  tags: []
+  tags_raw:
   - integrationServiceEnvironmentRestart
   properties:
   - type: OpenAPI
@@ -242,7 +246,8 @@ apis:
   description: >-
     The integrationServiceEnvironmentSkus API from Azure Logic Apps — 1 operation(s) for integrationserviceenvironmentskus.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
-  tags:
+  tags: []
+  tags_raw:
   - integrationServiceEnvironmentSkus
   properties:
   - type: OpenAPI
@@ -256,7 +261,8 @@ apis:
   name: Azure Logic Apps Operations API
   description: The Operations API from Azure Logic Apps — 1 operation(s) for operations.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
-  tags:
+  tags: []
+  tags_raw:
   - Operations
   properties:
   - type: OpenAPI
@@ -301,6 +307,8 @@ apis:
   description: The WorkflowRuns API from Azure Logic Apps — 3 operation(s) for workflowruns.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
   tags:
+  - Workflow Runs
+  tags_raw:
   - WorkflowRuns
   properties:
   - type: OpenAPI
