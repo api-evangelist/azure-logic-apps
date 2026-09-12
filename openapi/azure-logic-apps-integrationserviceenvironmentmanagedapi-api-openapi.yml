@@ -1,7 +1,7 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: REST API for Azure Logic Apps.
-  title: LogicManagementClient IntegrationAccountAgreements integrationServiceEnvironmentManagedApi API
+  title: LogicManagementClient IntegrationAccountAgreements Integration Service Environment Managed API
   version: '2.0'
   x-apisguru-categories:
   - cloud
@@ -16,13 +16,8 @@ info:
   x-tags:
   - Azure
   - Microsoft
-host: management.azure.com
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+- url: https://management.azure.com
 security:
 - azure_auth:
   - user_impersonation
@@ -34,26 +29,29 @@ paths:
       description: Deletes the integration service environment managed Api.
       operationId: IntegrationServiceEnvironmentManagedApis_Delete
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group.
         in: path
         name: resourceGroup
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The integration service environment name.
         in: path
         name: integrationServiceEnvironmentName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The api name.
         in: path
         name: apiName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '202':
           description: Accepted
@@ -61,8 +59,10 @@ paths:
           description: No Content
         default:
           description: Logic error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - integrationServiceEnvironmentManagedApi
       x-ms-examples:
@@ -87,35 +87,42 @@ paths:
       description: Gets the integration service environment managed Api.
       operationId: IntegrationServiceEnvironmentManagedApis_Get
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroup
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The integration service environment name.
         in: path
         name: integrationServiceEnvironmentName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The api name.
         in: path
         name: apiName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/ManagedApi'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagedApi'
         default:
           description: Logic error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - integrationServiceEnvironmentManagedApi
       x-ms-examples:
@@ -170,39 +177,48 @@ paths:
       description: Puts the integration service environment managed Api.
       operationId: IntegrationServiceEnvironmentManagedApis_Put
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroup
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The integration service environment name.
         in: path
         name: integrationServiceEnvironmentName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The api name.
         in: path
         name: apiName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/ManagedApi'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagedApi'
         '201':
           description: Created
-          schema:
-            $ref: '#/definitions/ManagedApi'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagedApi'
         default:
           description: Logic error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - integrationServiceEnvironmentManagedApi
       x-ms-examples:
@@ -261,333 +277,337 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-definitions:
-  ErrorProperties:
-    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-    properties:
-      code:
-        description: Error code.
-        type: string
-      message:
-        description: Error message indicating why the operation failed.
-        type: string
-    type: object
-  Resource:
-    description: The base resource type.
-    properties:
-      id:
-        description: The resource id.
-        readOnly: true
-        type: string
-      location:
-        description: The resource location.
-        type: string
-      name:
-        description: Gets the resource name.
-        readOnly: true
-        type: string
-      tags:
-        additionalProperties:
-          type: string
-        description: The resource tags.
-        type: object
-      type:
-        description: Gets the resource type.
-        readOnly: true
-        type: string
-    x-ms-azure-resource: true
-  ResourceReference:
-    description: The resource reference.
-    properties:
-      id:
-        description: The resource id.
-        type: string
-      name:
-        description: Gets the resource name.
-        readOnly: true
-        type: string
-      type:
-        description: Gets the resource type.
-        readOnly: true
-        type: string
-    type: object
-  ApiResourceMetadata:
-    description: The api resource metadata.
-    properties:
-      ApiType:
-        $ref: '#/definitions/ApiType'
-        description: The api type.
-      brandColor:
-        description: The brand color.
-        type: string
-      connectionType:
-        description: The connection type.
-        type: string
-      deploymentParameters:
-        $ref: '#/definitions/ApiDeploymentParameterMetadataSet'
-        description: The connector deployment parameters metadata.
-      hideKey:
-        description: The hide key.
-        type: string
-      provisioningState:
-        $ref: '#/definitions/WorkflowProvisioningState'
-        description: The provisioning state.
-      source:
-        description: The source.
-        type: string
-      tags:
-        additionalProperties:
-          type: string
-        description: The tags.
-        type: object
-      wsdlImportMethod:
-        $ref: '#/definitions/WsdlImportMethod'
-        description: The WSDL import method.
-      wsdlService:
-        $ref: '#/definitions/WsdlService'
-        description: The WSDL service.
-    type: object
-  WsdlService:
-    description: The WSDL service.
-    properties:
-      EndpointQualifiedNames:
-        description: The list of endpoints' qualified names.
-        items:
-          type: string
-        type: array
-      qualifiedName:
-        description: The qualified name.
-        type: string
-    type: object
-  ApiDeploymentParameterVisibility:
-    description: The Api deployment parameter visibility.
-    enum:
-    - NotSpecified
-    - Default
-    - Internal
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: ApiDeploymentParameterVisibility
-  ApiDeploymentParameterMetadataSet:
-    description: The API deployment parameters metadata.
-    properties:
-      packageContentLink:
-        $ref: '#/definitions/ApiDeploymentParameterMetadata'
-        description: The package content link parameter.
-      redisCacheConnectionString:
-        $ref: '#/definitions/ApiDeploymentParameterMetadata'
-        description: The package content link parameter.
-    type: object
-  ApiResourceDefinitions:
-    description: The Api resource definition.
-    properties:
-      modifiedSwaggerUrl:
-        description: The modified swagger url.
-        type: string
-      originalSwaggerUrl:
-        description: The original swagger url.
-        type: string
-    type: object
-  ErrorResponse:
-    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-    properties:
-      error:
-        $ref: '#/definitions/ErrorProperties'
-        description: The error properties.
-    type: object
-  WsdlImportMethod:
-    description: The WSDL import method.
-    enum:
-    - NotSpecified
-    - SoapToRest
-    - SoapPassThrough
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: WsdlImportMethod
-  ApiDeploymentParameterMetadata:
-    description: The API deployment parameter metadata.
-    properties:
-      description:
-        description: The description.
-        type: string
-      displayName:
-        description: The display name.
-        type: string
-      isRequired:
-        description: Indicates whether its required.
-        type: boolean
-      type:
-        description: The type.
-        type: string
-      visibility:
-        $ref: '#/definitions/ApiDeploymentParameterVisibility'
-        description: The visibility.
-    type: object
-  ApiResourcePolicies:
-    description: The API resource policies.
-    properties:
-      content:
-        description: The API level only policies XML as embedded content.
-        type: string
-      contentLink:
-        description: The content link to the policies.
-        type: string
-    type: object
-  ApiResourceProperties:
-    description: The API resource properties.
-    properties:
-      apiDefinitionUrl:
-        description: The API definition.
-        type: string
-      apiDefinitions:
-        $ref: '#/definitions/ApiResourceDefinitions'
-        description: The api definitions.
-      backendService:
-        $ref: '#/definitions/ApiResourceBackendService'
-        description: The backend service.
-      capabilities:
-        description: The capabilities.
-        items:
-          type: string
-        type: array
-      category:
-        $ref: '#/definitions/ApiTier'
-        description: The category.
-      connectionParameters:
-        additionalProperties:
-          $ref: '#/definitions/Object'
-        description: The connection parameters.
-        type: object
-      generalInformation:
-        $ref: '#/definitions/ApiResourceGeneralInformation'
-        description: The api general information.
-      integrationServiceEnvironment:
-        $ref: '#/definitions/ResourceReference'
-        description: The integration service environment reference.
-      metadata:
-        $ref: '#/definitions/ApiResourceMetadata'
-        description: The metadata.
-      name:
-        description: The name
-        type: string
-      policies:
-        $ref: '#/definitions/ApiResourcePolicies'
-        description: The policies for the API.
-      provisioningState:
-        $ref: '#/definitions/WorkflowProvisioningState'
-        description: The provisioning state.
-      runtimeUrls:
-        description: The runtime urls.
-        items:
-          type: string
-        type: array
-    type: object
-  ManagedApi:
-    allOf:
-    - $ref: '#/definitions/Resource'
-    description: The managed api definition.
-    properties:
+components:
+  schemas:
+    ManagedApi:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The managed api definition.
       properties:
-        $ref: '#/definitions/ApiResourceProperties'
-        description: The api resource properties.
-    type: object
-  Object:
-    properties: {}
-    type: object
-  ApiTier:
-    description: The Api tier.
-    enum:
-    - NotSpecified
-    - Enterprise
-    - Standard
-    - Premium
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: ApiTier
-  ApiResourceBackendService:
-    description: The API backend service.
-    properties:
-      serviceUrl:
-        description: The service URL.
+        properties:
+          $ref: '#/components/schemas/ApiResourceProperties'
+          description: The api resource properties.
+      type: object
+    ApiType:
+      enum:
+      - NotSpecified
+      - Rest
+      - Soap
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: ApiType
+    ApiTier:
+      description: The Api tier.
+      enum:
+      - NotSpecified
+      - Enterprise
+      - Standard
+      - Premium
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: ApiTier
+    ApiResourceDefinitions:
+      description: The Api resource definition.
+      properties:
+        modifiedSwaggerUrl:
+          description: The modified swagger url.
+          type: string
+        originalSwaggerUrl:
+          description: The original swagger url.
+          type: string
+      type: object
+    ApiResourcePolicies:
+      description: The API resource policies.
+      properties:
+        content:
+          description: The API level only policies XML as embedded content.
+          type: string
+        contentLink:
+          description: The content link to the policies.
+          type: string
+      type: object
+    ApiResourceMetadata:
+      description: The api resource metadata.
+      properties:
+        ApiType:
+          $ref: '#/components/schemas/ApiType'
+          description: The api type.
+        brandColor:
+          description: The brand color.
+          type: string
+        connectionType:
+          description: The connection type.
+          type: string
+        deploymentParameters:
+          $ref: '#/components/schemas/ApiDeploymentParameterMetadataSet'
+          description: The connector deployment parameters metadata.
+        hideKey:
+          description: The hide key.
+          type: string
+        provisioningState:
+          $ref: '#/components/schemas/WorkflowProvisioningState'
+          description: The provisioning state.
+        source:
+          description: The source.
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags.
+          type: object
+        wsdlImportMethod:
+          $ref: '#/components/schemas/WsdlImportMethod'
+          description: The WSDL import method.
+        wsdlService:
+          $ref: '#/components/schemas/WsdlService'
+          description: The WSDL service.
+      type: object
+    WorkflowProvisioningState:
+      description: The workflow provisioning state.
+      enum:
+      - NotSpecified
+      - Accepted
+      - Running
+      - Ready
+      - Creating
+      - Created
+      - Deleting
+      - Deleted
+      - Canceled
+      - Failed
+      - Succeeded
+      - Moving
+      - Updating
+      - Registering
+      - Registered
+      - Unregistering
+      - Unregistered
+      - Completed
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: WorkflowProvisioningState
+    ApiResourceProperties:
+      description: The API resource properties.
+      properties:
+        apiDefinitionUrl:
+          description: The API definition.
+          type: string
+        apiDefinitions:
+          $ref: '#/components/schemas/ApiResourceDefinitions'
+          description: The api definitions.
+        backendService:
+          $ref: '#/components/schemas/ApiResourceBackendService'
+          description: The backend service.
+        capabilities:
+          description: The capabilities.
+          items:
+            type: string
+          type: array
+        category:
+          $ref: '#/components/schemas/ApiTier'
+          description: The category.
+        connectionParameters:
+          additionalProperties:
+            $ref: '#/components/schemas/Object'
+          description: The connection parameters.
+          type: object
+        generalInformation:
+          $ref: '#/components/schemas/ApiResourceGeneralInformation'
+          description: The api general information.
+        integrationServiceEnvironment:
+          $ref: '#/components/schemas/ResourceReference'
+          description: The integration service environment reference.
+        metadata:
+          $ref: '#/components/schemas/ApiResourceMetadata'
+          description: The metadata.
+        name:
+          description: The name
+          type: string
+        policies:
+          $ref: '#/components/schemas/ApiResourcePolicies'
+          description: The policies for the API.
+        provisioningState:
+          $ref: '#/components/schemas/WorkflowProvisioningState'
+          description: The provisioning state.
+        runtimeUrls:
+          description: The runtime urls.
+          items:
+            type: string
+          type: array
+      type: object
+    WsdlService:
+      description: The WSDL service.
+      properties:
+        EndpointQualifiedNames:
+          description: The list of endpoints' qualified names.
+          items:
+            type: string
+          type: array
+        qualifiedName:
+          description: The qualified name.
+          type: string
+      type: object
+    Object:
+      properties: {}
+      type: object
+    ApiDeploymentParameterMetadata:
+      description: The API deployment parameter metadata.
+      properties:
+        description:
+          description: The description.
+          type: string
+        displayName:
+          description: The display name.
+          type: string
+        isRequired:
+          description: Indicates whether its required.
+          type: boolean
+        type:
+          description: The type.
+          type: string
+        visibility:
+          $ref: '#/components/schemas/ApiDeploymentParameterVisibility'
+          description: The visibility.
+      type: object
+    ResourceReference:
+      description: The resource reference.
+      properties:
+        id:
+          description: The resource id.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      type: object
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    ApiDeploymentParameterMetadataSet:
+      description: The API deployment parameters metadata.
+      properties:
+        packageContentLink:
+          $ref: '#/components/schemas/ApiDeploymentParameterMetadata'
+          description: The package content link parameter.
+        redisCacheConnectionString:
+          $ref: '#/components/schemas/ApiDeploymentParameterMetadata'
+          description: The package content link parameter.
+      type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    ApiResourceGeneralInformation:
+      description: The API general information.
+      properties:
+        description:
+          description: The description.
+          type: string
+        displayName:
+          description: The display name.
+          type: string
+        iconUrl:
+          description: The icon url.
+          type: string
+        releaseTag:
+          description: The release tag.
+          type: string
+        termsOfUseUrl:
+          description: The terms of use url.
+          type: string
+        tier:
+          $ref: '#/components/schemas/ApiTier'
+          description: The tier.
+      type: object
+    ApiResourceBackendService:
+      description: The API backend service.
+      properties:
+        serviceUrl:
+          description: The service URL.
+          type: string
+      type: object
+    ApiDeploymentParameterVisibility:
+      description: The Api deployment parameter visibility.
+      enum:
+      - NotSpecified
+      - Default
+      - Internal
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: ApiDeploymentParameterVisibility
+    WsdlImportMethod:
+      description: The WSDL import method.
+      enum:
+      - NotSpecified
+      - SoapToRest
+      - SoapPassThrough
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: WsdlImportMethod
+    Resource:
+      description: The base resource type.
+      properties:
+        id:
+          description: The resource id.
+          readOnly: true
+          type: string
+        location:
+          description: The resource location.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The resource tags.
+          type: object
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      x-ms-azure-resource: true
+  parameters:
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
         type: string
-    type: object
-  ApiType:
-    enum:
-    - NotSpecified
-    - Rest
-    - Soap
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: ApiType
-  ApiResourceGeneralInformation:
-    description: The API general information.
-    properties:
-      description:
-        description: The description.
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
         type: string
-      displayName:
-        description: The display name.
-        type: string
-      iconUrl:
-        description: The icon url.
-        type: string
-      releaseTag:
-        description: The release tag.
-        type: string
-      termsOfUseUrl:
-        description: The terms of use url.
-        type: string
-      tier:
-        $ref: '#/definitions/ApiTier'
-        description: The tier.
-    type: object
-  WorkflowProvisioningState:
-    description: The workflow provisioning state.
-    enum:
-    - NotSpecified
-    - Accepted
-    - Running
-    - Ready
-    - Creating
-    - Created
-    - Deleting
-    - Deleted
-    - Canceled
-    - Failed
-    - Succeeded
-    - Moving
-    - Updating
-    - Registering
-    - Registered
-    - Unregistering
-    - Unregistered
-    - Completed
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: WorkflowProvisioningState
-parameters:
-  api-version:
-    description: The API version.
-    in: query
-    name: api-version
-    required: true
-    type: string
-  subscriptionId:
-    description: The subscription id.
-    in: path
-    name: subscriptionId
-    required: true
-    type: string
-securityDefinitions:
-  azure_auth:
-    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
-    description: Azure Active Directory OAuth2 Flow.
-    flow: implicit
-    scopes:
-      user_impersonation: impersonate your user account
-    type: oauth2
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            user_impersonation: impersonate your user account
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: Azure Active Directory OAuth2 Flow.

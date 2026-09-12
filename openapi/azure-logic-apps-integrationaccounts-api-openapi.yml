@@ -1,7 +1,7 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: REST API for Azure Logic Apps.
-  title: LogicManagementClient IntegrationAccountAgreements IntegrationAccounts API
+  title: LogicManagementClient IntegrationAccountAgreements Integration Accounts API
   version: '2.0'
   x-apisguru-categories:
   - cloud
@@ -16,13 +16,8 @@ info:
   x-tags:
   - Azure
   - Microsoft
-host: management.azure.com
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+- url: https://management.azure.com
 security:
 - azure_auth:
   - user_impersonation
@@ -34,24 +29,29 @@ paths:
       description: Gets a list of integration accounts by subscription.
       operationId: IntegrationAccounts_ListBySubscription
       parameters:
-      - $ref: '#/parameters/subscriptionId'
-      - $ref: '#/parameters/api-version'
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/api-version'
       - description: The number of items to be included in the result.
-        format: int32
         in: query
         name: $top
         required: false
-        type: integer
         example: example-value
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/IntegrationAccountListResult'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationAccountListResult'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - IntegrationAccounts
       x-ms-examples:
@@ -82,30 +82,36 @@ paths:
       description: Gets a list of integration accounts by resource group.
       operationId: IntegrationAccounts_ListByResourceGroup
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       - description: The number of items to be included in the result.
-        format: int32
         in: query
         name: $top
         required: false
-        type: integer
         example: example-value
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/IntegrationAccountListResult'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationAccountListResult'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - IntegrationAccounts
       x-ms-examples:
@@ -136,20 +142,22 @@ paths:
       description: Deletes an integration account.
       operationId: IntegrationAccounts_Delete
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The integration account name.
         in: path
         name: integrationAccountName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
@@ -157,8 +165,10 @@ paths:
           description: No Content
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - IntegrationAccounts
       x-ms-examples:
@@ -179,29 +189,35 @@ paths:
       description: Gets an integration account.
       operationId: IntegrationAccounts_Get
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The integration account name.
         in: path
         name: integrationAccountName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/IntegrationAccount'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationAccount'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - IntegrationAccounts
       x-ms-examples:
@@ -234,36 +250,35 @@ paths:
       description: Updates an integration account.
       operationId: IntegrationAccounts_Update
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The integration account name.
         in: path
         name: integrationAccountName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
-      - description: The integration account.
-        in: body
-        name: integrationAccount
-        required: true
         schema:
-          $ref: '#/definitions/IntegrationAccount'
-        example: example-value
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/IntegrationAccount'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationAccount'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - IntegrationAccounts
       x-ms-examples:
@@ -292,44 +307,52 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntegrationAccount'
+        description: The integration account.
+        required: true
     put:
       description: Creates or updates an integration account.
       operationId: IntegrationAccounts_CreateOrUpdate
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The integration account name.
         in: path
         name: integrationAccountName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
-      - description: The integration account.
-        in: body
-        name: integrationAccount
-        required: true
         schema:
-          $ref: '#/definitions/IntegrationAccount'
-        example: example-value
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/IntegrationAccount'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationAccount'
         '201':
           description: Created
-          schema:
-            $ref: '#/definitions/IntegrationAccount'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationAccount'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - IntegrationAccounts
       x-ms-examples:
@@ -367,41 +390,47 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntegrationAccount'
+        description: The integration account.
+        required: true
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/listCallbackUrl
   : post:
       description: Gets the integration account callback URL.
       operationId: IntegrationAccounts_ListCallbackUrl
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The integration account name.
         in: path
         name: integrationAccountName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
-      - description: The callback URL parameters.
-        in: body
-        name: parameters
-        required: true
         schema:
-          $ref: '#/definitions/GetCallbackUrlParameters'
-        example: example-value
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/CallbackUrl'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallbackUrl'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - IntegrationAccounts
       x-ms-examples:
@@ -422,41 +451,47 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetCallbackUrlParameters'
+        description: The callback URL parameters.
+        required: true
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/listKeyVaultKeys
   : post:
       description: Gets the integration account's Key Vault keys.
       operationId: IntegrationAccounts_ListKeyVaultKeys
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The integration account name.
         in: path
         name: integrationAccountName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
-      - description: The key vault parameters.
-        in: body
-        name: listKeyVaultKeys
-        required: true
         schema:
-          $ref: '#/definitions/ListKeyVaultKeysDefinition'
-        example: example-value
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/KeyVaultKeyCollection'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyVaultKeyCollection'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - IntegrationAccounts
       x-ms-examples:
@@ -486,39 +521,43 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListKeyVaultKeysDefinition'
+        description: The key vault parameters.
+        required: true
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/logTrackingEvents
   : post:
       description: Logs the integration account's tracking events.
       operationId: IntegrationAccounts_LogTrackingEvents
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The integration account name.
         in: path
         name: integrationAccountName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
-      - description: The callback URL parameters.
-        in: body
-        name: logTrackingEvents
-        required: true
         schema:
-          $ref: '#/definitions/TrackingEventsDefinition'
-        example: example-value
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - IntegrationAccounts
       x-ms-examples:
@@ -563,41 +602,47 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrackingEventsDefinition'
+        description: The callback URL parameters.
+        required: true
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/regenerateAccessKey
   : post:
       description: Regenerates the integration account access key.
       operationId: IntegrationAccounts_RegenerateAccessKey
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The integration account name.
         in: path
         name: integrationAccountName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
-      - description: The access key type.
-        in: body
-        name: regenerateAccessKey
-        required: true
         schema:
-          $ref: '#/definitions/RegenerateActionParameter'
-        example: example-value
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/IntegrationAccount'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationAccount'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - IntegrationAccounts
       x-ms-examples:
@@ -623,481 +668,492 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-definitions:
-  NetworkConfiguration:
-    description: The network configuration.
-    properties:
-      accessEndpoint:
-        $ref: '#/definitions/IntegrationServiceEnvironmentAccessEndpoint'
-        description: The access endpoint.
-      subnets:
-        description: The subnets.
-        items:
-          $ref: '#/definitions/ResourceReference'
-          description: The subnet.
-        type: array
-      virtualNetworkAddressSpace:
-        description: Gets the virtual network address space.
-        type: string
-    type: object
-  ErrorProperties:
-    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-    properties:
-      code:
-        description: Error code.
-        type: string
-      message:
-        description: Error message indicating why the operation failed.
-        type: string
-    type: object
-  IntegrationServiceEnvironmentProperties:
-    description: The integration service environment properties.
-    properties:
-      endpointsConfiguration:
-        $ref: '#/definitions/FlowEndpointsConfiguration'
-        description: The endpoints configuration.
-      integrationServiceEnvironmentId:
-        description: Gets the tracking id.
-        type: string
-      networkConfiguration:
-        $ref: '#/definitions/NetworkConfiguration'
-        description: The network configuration.
-      provisioningState:
-        $ref: '#/definitions/WorkflowProvisioningState'
-        description: The provisioning state.
-      state:
-        $ref: '#/definitions/WorkflowState'
-        description: The integration service environment state.
-    type: object
-  TrackEventsOperationOptions:
-    description: The track events operation options.
-    enum:
-    - None
-    - DisableSourceInfoEnrich
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: TrackEventsOperationOptions
-  FlowEndpointsConfiguration:
-    description: The endpoints configuration.
-    properties:
-      connector:
-        $ref: '#/definitions/FlowEndpoints'
-        description: The connector endpoints.
-      workflow:
-        $ref: '#/definitions/FlowEndpoints'
-        description: The workflow endpoints.
-    type: object
-  IntegrationAccountProperties:
-    description: The integration account properties.
-    properties:
-      integrationServiceEnvironment:
-        $ref: '#/definitions/IntegrationServiceEnvironment'
-        description: The integration service environment.
-      state:
-        $ref: '#/definitions/WorkflowState'
-        description: The workflow state.
-    type: object
-  Resource:
-    description: The base resource type.
-    properties:
-      id:
-        description: The resource id.
-        readOnly: true
-        type: string
-      location:
-        description: The resource location.
-        type: string
-      name:
-        description: Gets the resource name.
-        readOnly: true
-        type: string
-      tags:
-        additionalProperties:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegenerateActionParameter'
+        description: The access key type.
+        required: true
+components:
+  schemas:
+    IntegrationServiceEnvironmentProperties:
+      description: The integration service environment properties.
+      properties:
+        endpointsConfiguration:
+          $ref: '#/components/schemas/FlowEndpointsConfiguration'
+          description: The endpoints configuration.
+        integrationServiceEnvironmentId:
+          description: Gets the tracking id.
           type: string
-        description: The resource tags.
-        type: object
-      type:
-        description: Gets the resource type.
-        readOnly: true
-        type: string
-    x-ms-azure-resource: true
-  IntegrationServiceEnvironmentSkuName:
-    description: The integration service environment sku name.
-    enum:
-    - NotSpecified
-    - Premium
-    - Developer
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: IntegrationServiceEnvironmentSkuName
-  IntegrationAccountSkuName:
-    description: The integration account sku name.
-    enum:
-    - NotSpecified
-    - Free
-    - Basic
-    - Standard
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: IntegrationAccountSkuName
-  IntegrationServiceEnvironmentSku:
-    description: The integration service environment sku.
-    properties:
-      capacity:
-        description: The sku capacity.
-        format: int32
-        type: integer
-      name:
-        $ref: '#/definitions/IntegrationServiceEnvironmentSkuName'
-        description: The sku name.
-    type: object
-  KeyVaultKey:
-    description: The key vault key.
-    properties:
-      attributes:
-        description: The key attributes.
+        networkConfiguration:
+          $ref: '#/components/schemas/NetworkConfiguration'
+          description: The network configuration.
+        provisioningState:
+          $ref: '#/components/schemas/WorkflowProvisioningState'
+          description: The provisioning state.
+        state:
+          $ref: '#/components/schemas/WorkflowState'
+          description: The integration service environment state.
+      type: object
+    WorkflowState:
+      description: The workflow state.
+      enum:
+      - NotSpecified
+      - Completed
+      - Enabled
+      - Disabled
+      - Deleted
+      - Suspended
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: WorkflowState
+    GetCallbackUrlParameters:
+      description: The callback url parameters.
+      properties:
+        keyType:
+          $ref: '#/components/schemas/KeyType'
+          description: The key type.
+        notAfter:
+          description: The expiry time.
+          format: date-time
+          type: string
+      type: object
+    TrackEventsOperationOptions:
+      description: The track events operation options.
+      enum:
+      - None
+      - DisableSourceInfoEnrich
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: TrackEventsOperationOptions
+    FlowEndpoints:
+      description: The flow endpoints configuration.
+      properties:
+        accessEndpointIpAddresses:
+          description: The access endpoint ip address.
+          items:
+            $ref: '#/components/schemas/IpAddress'
+            description: The ip address.
+          type: array
+        outgoingIpAddresses:
+          description: The outgoing ip address.
+          items:
+            $ref: '#/components/schemas/IpAddress'
+            description: The ip address.
+          type: array
+      type: object
+    KeyVaultKey:
+      description: The key vault key.
+      properties:
+        attributes:
+          description: The key attributes.
+          properties:
+            created:
+              description: When the key was created.
+              format: int64
+              type: integer
+            enabled:
+              description: Whether the key is enabled or not.
+              type: boolean
+            updated:
+              description: When the key was updated.
+              format: int64
+              type: integer
+          type: object
+        kid:
+          description: The key id.
+          type: string
+      type: object
+    RegenerateActionParameter:
+      description: The access key regenerate action content.
+      properties:
+        keyType:
+          $ref: '#/components/schemas/KeyType'
+          description: The key type.
+      type: object
+    TrackingEventErrorInfo:
+      additionalProperties: false
+      description: The tracking event error info.
+      properties:
+        code:
+          description: The code.
+          type: string
+        message:
+          description: The message.
+          type: string
+      type: object
+    TrackingEventsDefinition:
+      additionalProperties: false
+      description: The tracking events definition.
+      properties:
+        events:
+          description: The events.
+          items:
+            $ref: '#/components/schemas/TrackingEvent'
+          type: array
+        sourceType:
+          description: The source type.
+          type: string
+        trackEventsOptions:
+          $ref: '#/components/schemas/TrackEventsOperationOptions'
+          description: The track events options.
+      required:
+      - sourceType
+      - events
+      type: object
+    IntegrationServiceEnvironmentSkuName:
+      description: The integration service environment sku name.
+      enum:
+      - NotSpecified
+      - Premium
+      - Developer
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentSkuName
+    IntegrationServiceEnvironment:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The integration service environment.
+      properties:
         properties:
-          created:
-            description: When the key was created.
-            format: int64
-            type: integer
-          enabled:
-            description: Whether the key is enabled or not.
-            type: boolean
-          updated:
-            description: When the key was updated.
-            format: int64
-            type: integer
-        type: object
-      kid:
-        description: The key id.
-        type: string
-    type: object
-  ResourceReference:
-    description: The resource reference.
-    properties:
-      id:
-        description: The resource id.
-        type: string
-      name:
-        description: Gets the resource name.
-        readOnly: true
-        type: string
-      type:
-        description: Gets the resource type.
-        readOnly: true
-        type: string
-    type: object
-  WorkflowState:
-    description: The workflow state.
-    enum:
-    - NotSpecified
-    - Completed
-    - Enabled
-    - Disabled
-    - Deleted
-    - Suspended
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: WorkflowState
-  KeyType:
-    description: The key type.
-    enum:
-    - NotSpecified
-    - Primary
-    - Secondary
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: KeyType
-  KeyVaultKeyCollection:
-    description: Collection of key vault keys.
-    properties:
-      skipToken:
-        description: The skip token.
-        type: string
-      value:
-        description: The key vault keys.
-        items:
-          $ref: '#/definitions/KeyVaultKey'
-        type: array
-    type: object
-  GetCallbackUrlParameters:
-    description: The callback url parameters.
-    properties:
-      keyType:
-        $ref: '#/definitions/KeyType'
-        description: The key type.
-      notAfter:
-        description: The expiry time.
-        format: date-time
-        type: string
-    type: object
-  IntegrationAccountListResult:
-    description: The list of integration accounts.
-    properties:
-      nextLink:
-        description: The URL to get the next set of results.
-        type: string
-      value:
-        description: The list of integration accounts.
-        items:
-          $ref: '#/definitions/IntegrationAccount'
-        type: array
-    type: object
-  IntegrationServiceEnvironmentAccessEndpoint:
-    description: The integration service environment access endpoint.
-    properties:
-      type:
-        $ref: '#/definitions/IntegrationServiceEnvironmentAccessEndpointType'
-        description: The access endpoint type.
-    type: object
-  IntegrationServiceEnvironment:
-    allOf:
-    - $ref: '#/definitions/Resource'
-    description: The integration service environment.
-    properties:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentProperties'
+          description: The integration service environment properties.
+        sku:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentSku'
+          description: The sku.
+      type: object
+    KeyType:
+      description: The key type.
+      enum:
+      - NotSpecified
+      - Primary
+      - Secondary
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: KeyType
+    ListKeyVaultKeysDefinition:
+      additionalProperties: false
+      description: The list key vault keys definition.
       properties:
-        $ref: '#/definitions/IntegrationServiceEnvironmentProperties'
-        description: The integration service environment properties.
-      sku:
-        $ref: '#/definitions/IntegrationServiceEnvironmentSku'
-        description: The sku.
-    type: object
-  TrackingEventErrorInfo:
-    additionalProperties: false
-    description: The tracking event error info.
-    properties:
-      code:
-        description: The code.
-        type: string
-      message:
-        description: The message.
-        type: string
-    type: object
-  IntegrationAccount:
-    allOf:
-    - $ref: '#/definitions/Resource'
-    description: The integration account.
-    properties:
+        keyVault:
+          $ref: '#/components/schemas/KeyVaultReference'
+          description: The key vault reference.
+        skipToken:
+          description: The skip token.
+          type: string
+      required:
+      - keyVault
+      type: object
+    WorkflowProvisioningState:
+      description: The workflow provisioning state.
+      enum:
+      - NotSpecified
+      - Accepted
+      - Running
+      - Ready
+      - Creating
+      - Created
+      - Deleting
+      - Deleted
+      - Canceled
+      - Failed
+      - Succeeded
+      - Moving
+      - Updating
+      - Registering
+      - Registered
+      - Unregistering
+      - Unregistered
+      - Completed
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: WorkflowProvisioningState
+    IntegrationAccountSkuName:
+      description: The integration account sku name.
+      enum:
+      - NotSpecified
+      - Free
+      - Basic
+      - Standard
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationAccountSkuName
+    KeyVaultKeyCollection:
+      description: Collection of key vault keys.
       properties:
-        $ref: '#/definitions/IntegrationAccountProperties'
-        description: The integration account properties.
-        x-ms-client-flatten: true
-      sku:
-        $ref: '#/definitions/IntegrationAccountSku'
-        description: The sku.
-    type: object
-  IntegrationServiceEnvironmentAccessEndpointType:
-    description: The integration service environment access endpoint type.
-    enum:
-    - NotSpecified
-    - External
-    - Internal
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: IntegrationServiceEnvironmentAccessEndpointType
-  ErrorResponse:
-    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-    properties:
-      error:
-        $ref: '#/definitions/ErrorProperties'
-        description: The error properties.
-    type: object
-  IpAddress:
-    description: The ip address.
-    properties:
-      address:
-        description: The address.
+        skipToken:
+          description: The skip token.
+          type: string
+        value:
+          description: The key vault keys.
+          items:
+            $ref: '#/components/schemas/KeyVaultKey'
+          type: array
+      type: object
+    IntegrationAccountSku:
+      description: The integration account sku.
+      properties:
+        name:
+          $ref: '#/components/schemas/IntegrationAccountSkuName'
+          description: The sku name.
+      required:
+      - name
+      type: object
+    KeyVaultReference:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/ResourceReference'
+      description: The key vault reference.
+      properties:
+        name:
+          description: The key vault name.
+          type: string
+      type: object
+    IpAddress:
+      description: The ip address.
+      properties:
+        address:
+          description: The address.
+          type: string
+      type: object
+    IntegrationAccountListResult:
+      description: The list of integration accounts.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: The list of integration accounts.
+          items:
+            $ref: '#/components/schemas/IntegrationAccount'
+          type: array
+      type: object
+    IntegrationServiceEnvironmentSku:
+      description: The integration service environment sku.
+      properties:
+        capacity:
+          description: The sku capacity.
+          format: int32
+          type: integer
+        name:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuName'
+          description: The sku name.
+      type: object
+    IntegrationAccount:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The integration account.
+      properties:
+        properties:
+          $ref: '#/components/schemas/IntegrationAccountProperties'
+          description: The integration account properties.
+          x-ms-client-flatten: true
+        sku:
+          $ref: '#/components/schemas/IntegrationAccountSku'
+          description: The sku.
+      type: object
+    ResourceReference:
+      description: The resource reference.
+      properties:
+        id:
+          description: The resource id.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      type: object
+    IntegrationAccountProperties:
+      description: The integration account properties.
+      properties:
+        integrationServiceEnvironment:
+          $ref: '#/components/schemas/IntegrationServiceEnvironment'
+          description: The integration service environment.
+        state:
+          $ref: '#/components/schemas/WorkflowState'
+          description: The workflow state.
+      type: object
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    FlowEndpointsConfiguration:
+      description: The endpoints configuration.
+      properties:
+        connector:
+          $ref: '#/components/schemas/FlowEndpoints'
+          description: The connector endpoints.
+        workflow:
+          $ref: '#/components/schemas/FlowEndpoints'
+          description: The workflow endpoints.
+      type: object
+    CallbackUrl:
+      description: The callback url.
+      properties:
+        value:
+          description: The URL value.
+          type: string
+      type: object
+    TrackingEvent:
+      additionalProperties: false
+      description: The tracking event.
+      properties:
+        error:
+          $ref: '#/components/schemas/TrackingEventErrorInfo'
+          description: The error.
+        eventLevel:
+          $ref: '#/components/schemas/EventLevel'
+          description: The event level.
+        eventTime:
+          description: The event time.
+          format: date-time
+          type: string
+        recordType:
+          $ref: '#/components/schemas/TrackingRecordType'
+          description: The record type.
+      required:
+      - eventLevel
+      - eventTime
+      - recordType
+      type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    IntegrationServiceEnvironmentAccessEndpoint:
+      description: The integration service environment access endpoint.
+      properties:
+        type:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentAccessEndpointType'
+          description: The access endpoint type.
+      type: object
+    IntegrationServiceEnvironmentAccessEndpointType:
+      description: The integration service environment access endpoint type.
+      enum:
+      - NotSpecified
+      - External
+      - Internal
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentAccessEndpointType
+    NetworkConfiguration:
+      description: The network configuration.
+      properties:
+        accessEndpoint:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentAccessEndpoint'
+          description: The access endpoint.
+        subnets:
+          description: The subnets.
+          items:
+            $ref: '#/components/schemas/ResourceReference'
+            description: The subnet.
+          type: array
+        virtualNetworkAddressSpace:
+          description: Gets the virtual network address space.
+          type: string
+      type: object
+    TrackingRecordType:
+      description: The tracking record type.
+      enum:
+      - NotSpecified
+      - Custom
+      - AS2Message
+      - AS2MDN
+      - X12Interchange
+      - X12FunctionalGroup
+      - X12TransactionSet
+      - X12InterchangeAcknowledgment
+      - X12FunctionalGroupAcknowledgment
+      - X12TransactionSetAcknowledgment
+      - EdifactInterchange
+      - EdifactFunctionalGroup
+      - EdifactTransactionSet
+      - EdifactInterchangeAcknowledgment
+      - EdifactFunctionalGroupAcknowledgment
+      - EdifactTransactionSetAcknowledgment
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: TrackingRecordType
+    EventLevel:
+      description: The event level.
+      enum:
+      - LogAlways
+      - Critical
+      - Error
+      - Warning
+      - Informational
+      - Verbose
+      type: string
+      x-ms-enum:
+        modelAsString: false
+        name: EventLevel
+    Resource:
+      description: The base resource type.
+      properties:
+        id:
+          description: The resource id.
+          readOnly: true
+          type: string
+        location:
+          description: The resource location.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The resource tags.
+          type: object
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      x-ms-azure-resource: true
+  parameters:
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
         type: string
-    type: object
-  EventLevel:
-    description: The event level.
-    enum:
-    - LogAlways
-    - Critical
-    - Error
-    - Warning
-    - Informational
-    - Verbose
-    type: string
-    x-ms-enum:
-      modelAsString: false
-      name: EventLevel
-  TrackingEventsDefinition:
-    additionalProperties: false
-    description: The tracking events definition.
-    properties:
-      events:
-        description: The events.
-        items:
-          $ref: '#/definitions/TrackingEvent'
-        type: array
-      sourceType:
-        description: The source type.
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
         type: string
-      trackEventsOptions:
-        $ref: '#/definitions/TrackEventsOperationOptions'
-        description: The track events options.
-    required:
-    - sourceType
-    - events
-    type: object
-  CallbackUrl:
-    description: The callback url.
-    properties:
-      value:
-        description: The URL value.
-        type: string
-    type: object
-  RegenerateActionParameter:
-    description: The access key regenerate action content.
-    properties:
-      keyType:
-        $ref: '#/definitions/KeyType'
-        description: The key type.
-    type: object
-  KeyVaultReference:
-    additionalProperties: false
-    allOf:
-    - $ref: '#/definitions/ResourceReference'
-    description: The key vault reference.
-    properties:
-      name:
-        description: The key vault name.
-        type: string
-    type: object
-  FlowEndpoints:
-    description: The flow endpoints configuration.
-    properties:
-      accessEndpointIpAddresses:
-        description: The access endpoint ip address.
-        items:
-          $ref: '#/definitions/IpAddress'
-          description: The ip address.
-        type: array
-      outgoingIpAddresses:
-        description: The outgoing ip address.
-        items:
-          $ref: '#/definitions/IpAddress'
-          description: The ip address.
-        type: array
-    type: object
-  TrackingRecordType:
-    description: The tracking record type.
-    enum:
-    - NotSpecified
-    - Custom
-    - AS2Message
-    - AS2MDN
-    - X12Interchange
-    - X12FunctionalGroup
-    - X12TransactionSet
-    - X12InterchangeAcknowledgment
-    - X12FunctionalGroupAcknowledgment
-    - X12TransactionSetAcknowledgment
-    - EdifactInterchange
-    - EdifactFunctionalGroup
-    - EdifactTransactionSet
-    - EdifactInterchangeAcknowledgment
-    - EdifactFunctionalGroupAcknowledgment
-    - EdifactTransactionSetAcknowledgment
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: TrackingRecordType
-  IntegrationAccountSku:
-    description: The integration account sku.
-    properties:
-      name:
-        $ref: '#/definitions/IntegrationAccountSkuName'
-        description: The sku name.
-    required:
-    - name
-    type: object
-  ListKeyVaultKeysDefinition:
-    additionalProperties: false
-    description: The list key vault keys definition.
-    properties:
-      keyVault:
-        $ref: '#/definitions/KeyVaultReference'
-        description: The key vault reference.
-      skipToken:
-        description: The skip token.
-        type: string
-    required:
-    - keyVault
-    type: object
-  WorkflowProvisioningState:
-    description: The workflow provisioning state.
-    enum:
-    - NotSpecified
-    - Accepted
-    - Running
-    - Ready
-    - Creating
-    - Created
-    - Deleting
-    - Deleted
-    - Canceled
-    - Failed
-    - Succeeded
-    - Moving
-    - Updating
-    - Registering
-    - Registered
-    - Unregistering
-    - Unregistered
-    - Completed
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: WorkflowProvisioningState
-  TrackingEvent:
-    additionalProperties: false
-    description: The tracking event.
-    properties:
-      error:
-        $ref: '#/definitions/TrackingEventErrorInfo'
-        description: The error.
-      eventLevel:
-        $ref: '#/definitions/EventLevel'
-        description: The event level.
-      eventTime:
-        description: The event time.
-        format: date-time
-        type: string
-      recordType:
-        $ref: '#/definitions/TrackingRecordType'
-        description: The record type.
-    required:
-    - eventLevel
-    - eventTime
-    - recordType
-    type: object
-parameters:
-  api-version:
-    description: The API version.
-    in: query
-    name: api-version
-    required: true
-    type: string
-  subscriptionId:
-    description: The subscription id.
-    in: path
-    name: subscriptionId
-    required: true
-    type: string
-securityDefinitions:
-  azure_auth:
-    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
-    description: Azure Active Directory OAuth2 Flow.
-    flow: implicit
-    scopes:
-      user_impersonation: impersonate your user account
-    type: oauth2
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            user_impersonation: impersonate your user account
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: Azure Active Directory OAuth2 Flow.

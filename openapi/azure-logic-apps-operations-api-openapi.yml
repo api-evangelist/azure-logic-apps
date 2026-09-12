@@ -1,4 +1,4 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: REST API for Azure Logic Apps.
   title: LogicManagementClient IntegrationAccountAgreements Operations API
@@ -16,13 +16,8 @@ info:
   x-tags:
   - Azure
   - Microsoft
-host: management.azure.com
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+- url: https://management.azure.com
 security:
 - azure_auth:
   - user_impersonation
@@ -34,16 +29,20 @@ paths:
       description: Lists all of the available Logic REST API operations.
       operationId: Operations_List
       parameters:
-      - $ref: '#/parameters/api-version'
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK. The request has succeeded.
-          schema:
-            $ref: '#/definitions/OperationListResult'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationListResult'
         default:
           description: Logic error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - Operations
       x-ms-examples:
@@ -952,67 +951,70 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-definitions:
-  Operation:
-    description: Logic REST API operation
-    properties:
-      display:
-        description: The object that represents the operation.
-        properties:
-          operation:
-            description: 'Operation type: Read, write, delete, etc.'
-            type: string
-          provider:
-            description: 'Service provider: Microsoft.Logic'
-            type: string
-          resource:
-            description: 'Resource on which the operation is performed: Profile, endpoint, etc.'
-            type: string
-        type: object
-      name:
-        description: 'Operation name: {provider}/{resource}/{operation}'
+components:
+  parameters:
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
         type: string
-    type: object
-  ErrorProperties:
-    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-    properties:
-      code:
-        description: Error code.
-        type: string
-      message:
-        description: Error message indicating why the operation failed.
-        type: string
-    type: object
-  OperationListResult:
-    description: Result of the request to list Logic operations. It contains a list of operations and a URL link to get the next set of results.
-    properties:
-      nextLink:
-        description: URL to get the next set of operation list results if there are any.
-        type: string
-      value:
-        description: List of Logic operations supported by the Logic resource provider.
-        items:
-          $ref: '#/definitions/Operation'
-        type: array
-  ErrorResponse:
-    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-    properties:
-      error:
-        $ref: '#/definitions/ErrorProperties'
-        description: The error properties.
-    type: object
-parameters:
-  api-version:
-    description: The API version.
-    in: query
-    name: api-version
-    required: true
-    type: string
-securityDefinitions:
-  azure_auth:
-    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
-    description: Azure Active Directory OAuth2 Flow.
-    flow: implicit
-    scopes:
-      user_impersonation: impersonate your user account
-    type: oauth2
+  schemas:
+    OperationListResult:
+      description: Result of the request to list Logic operations. It contains a list of operations and a URL link to get the next set of results.
+      properties:
+        nextLink:
+          description: URL to get the next set of operation list results if there are any.
+          type: string
+        value:
+          description: List of Logic operations supported by the Logic resource provider.
+          items:
+            $ref: '#/components/schemas/Operation'
+          type: array
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    Operation:
+      description: Logic REST API operation
+      properties:
+        display:
+          description: The object that represents the operation.
+          properties:
+            operation:
+              description: 'Operation type: Read, write, delete, etc.'
+              type: string
+            provider:
+              description: 'Service provider: Microsoft.Logic'
+              type: string
+            resource:
+              description: 'Resource on which the operation is performed: Profile, endpoint, etc.'
+              type: string
+          type: object
+        name:
+          description: 'Operation name: {provider}/{resource}/{operation}'
+          type: string
+      type: object
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            user_impersonation: impersonate your user account
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: Azure Active Directory OAuth2 Flow.

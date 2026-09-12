@@ -1,7 +1,7 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: REST API for Azure Logic Apps.
-  title: LogicManagementClient IntegrationAccountAgreements WorkflowRunActions API
+  title: LogicManagementClient IntegrationAccountAgreements Workflow Run Actions API
   version: '2.0'
   x-apisguru-categories:
   - cloud
@@ -16,13 +16,8 @@ info:
   x-tags:
   - Azure
   - Microsoft
-host: management.azure.com
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+- url: https://management.azure.com
 security:
 - azure_auth:
   - user_impersonation
@@ -34,48 +29,57 @@ paths:
       description: Gets a list of workflow run actions.
       operationId: WorkflowRunActions_List
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The workflow name.
         in: path
         name: workflowName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow run name.
         in: path
         name: runName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       - description: The number of items to be included in the result.
-        format: int32
         in: query
         name: $top
         required: false
-        type: integer
         example: example-value
+        schema:
+          type: integer
+          format: int32
       - description: 'The filter to apply on the operation. Options for filters include: Status.'
         in: query
         name: $filter
         required: false
-        type: string
         example: example-value
+        schema:
+          type: string
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/WorkflowRunActionListResult'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRunActionListResult'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - WorkflowRunActions
       x-ms-examples:
@@ -127,41 +131,49 @@ paths:
       description: Gets a workflow run action.
       operationId: WorkflowRunActions_Get
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The workflow name.
         in: path
         name: workflowName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow run name.
         in: path
         name: runName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow action name.
         in: path
         name: actionName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/WorkflowRunAction'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRunAction'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - WorkflowRunActions
       x-ms-examples:
@@ -210,41 +222,49 @@ paths:
       description: Lists a workflow run expression trace.
       operationId: WorkflowRunActions_ListExpressionTraces
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The workflow name.
         in: path
         name: workflowName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow run name.
         in: path
         name: runName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow action name.
         in: path
         name: actionName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/ExpressionTraces'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExpressionTraces'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - WorkflowRunActions
       x-ms-examples:
@@ -276,41 +296,49 @@ paths:
       description: Get all of a workflow run action repetitions.
       operationId: WorkflowRunActionRepetitions_List
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The workflow name.
         in: path
         name: workflowName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow run name.
         in: path
         name: runName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow action name.
         in: path
         name: actionName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/WorkflowRunActionRepetitionDefinitionCollection'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRunActionRepetitionDefinitionCollection'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - WorkflowRunActions
       x-ms-examples:
@@ -395,47 +423,56 @@ paths:
       description: Get a workflow run action repetition.
       operationId: WorkflowRunActionRepetitions_Get
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The workflow name.
         in: path
         name: workflowName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow run name.
         in: path
         name: runName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow action name.
         in: path
         name: actionName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow repetition.
         in: path
         name: repetitionName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/WorkflowRunActionRepetitionDefinition'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRunActionRepetitionDefinition'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - WorkflowRunActions
       x-ms-examples:
@@ -489,47 +526,56 @@ paths:
       description: Lists a workflow run expression trace.
       operationId: WorkflowRunActionRepetitions_ListExpressionTraces
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The workflow name.
         in: path
         name: workflowName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow run name.
         in: path
         name: runName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow action name.
         in: path
         name: actionName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow repetition.
         in: path
         name: repetitionName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/ExpressionTraces'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExpressionTraces'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - WorkflowRunActions
       x-ms-examples:
@@ -561,47 +607,56 @@ paths:
       description: List a workflow run repetition request history.
       operationId: WorkflowRunActionRepetitionsRequestHistories_List
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The workflow name.
         in: path
         name: workflowName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow run name.
         in: path
         name: runName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow action name.
         in: path
         name: actionName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow repetition.
         in: path
         name: repetitionName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/RequestHistoryListResult'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestHistoryListResult'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - WorkflowRunActions
       x-ms-examples:
@@ -673,53 +728,63 @@ paths:
       description: Gets a workflow run repetition request history.
       operationId: WorkflowRunActionRepetitionsRequestHistories_Get
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The workflow name.
         in: path
         name: workflowName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow run name.
         in: path
         name: runName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow action name.
         in: path
         name: actionName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow repetition.
         in: path
         name: repetitionName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The request history name.
         in: path
         name: requestHistoryName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/RequestHistory'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestHistory'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - WorkflowRunActions
       x-ms-examples:
@@ -789,41 +854,49 @@ paths:
       description: List a workflow run request history.
       operationId: WorkflowRunActionRequestHistories_List
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The workflow name.
         in: path
         name: workflowName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow run name.
         in: path
         name: runName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow action name.
         in: path
         name: actionName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/RequestHistoryListResult'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestHistoryListResult'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - WorkflowRunActions
       x-ms-examples:
@@ -894,47 +967,56 @@ paths:
       description: Gets a workflow run request history.
       operationId: WorkflowRunActionRequestHistories_Get
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The workflow name.
         in: path
         name: workflowName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow run name.
         in: path
         name: runName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow action name.
         in: path
         name: actionName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The request history name.
         in: path
         name: requestHistoryName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/RequestHistory'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestHistory'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - WorkflowRunActions
       x-ms-examples:
@@ -1003,41 +1085,49 @@ paths:
       description: List the workflow run action scoped repetitions.
       operationId: WorkflowRunActionScopeRepetitions_List
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The workflow name.
         in: path
         name: workflowName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow run name.
         in: path
         name: runName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow action name.
         in: path
         name: actionName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/WorkflowRunActionRepetitionDefinitionCollection'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRunActionRepetitionDefinitionCollection'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - WorkflowRunActions
       x-ms-examples:
@@ -1092,47 +1182,56 @@ paths:
       description: Get a workflow run action scoped repetition.
       operationId: WorkflowRunActionScopeRepetitions_Get
       parameters:
-      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/components/parameters/subscriptionId'
       - description: The resource group name.
         in: path
         name: resourceGroupName
         required: true
-        type: string
         example: my-resource-group
+        schema:
+          type: string
       - description: The workflow name.
         in: path
         name: workflowName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow run name.
         in: path
         name: runName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow action name.
         in: path
         name: actionName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The workflow repetition.
         in: path
         name: repetitionName
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/WorkflowRunActionRepetitionDefinition'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRunActionRepetitionDefinition'
         default:
           description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
       - WorkflowRunActions
       x-ms-examples:
@@ -1166,504 +1265,508 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-definitions:
-  ExpressionTraces:
-    description: The expression traces.
-    properties:
-      inputs:
-        items:
-          $ref: '#/definitions/ExpressionRoot'
-        type: array
-    type: object
-  WorkflowRunAction:
-    allOf:
-    - $ref: '#/definitions/SubResource'
-    description: The workflow run action.
-    properties:
-      name:
-        description: Gets the workflow run action name.
-        readOnly: true
+components:
+  parameters:
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
         type: string
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
+  schemas:
+    RetryHistory:
+      description: The retry history.
       properties:
-        $ref: '#/definitions/WorkflowRunActionProperties'
-        description: The workflow run action properties.
-        x-ms-client-flatten: true
-      type:
-        description: Gets the workflow run action type.
-        readOnly: true
-        type: string
-    type: object
-  ErrorProperties:
-    description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-    properties:
-      code:
-        description: Error code.
-        type: string
-      message:
-        description: Error message indicating why the operation failed.
-        type: string
-    type: object
-  WorkflowRunActionRepetitionProperties:
-    additionalProperties: false
-    allOf:
-    - $ref: '#/definitions/OperationResult'
-    description: The workflow run action repetition properties definition.
-    properties:
-      repetitionIndexes:
-        description: The repetition indexes.
-        items:
-          $ref: '#/definitions/RepetitionIndex'
-        type: array
-    type: object
-  OperationResult:
-    additionalProperties: false
-    allOf:
-    - $ref: '#/definitions/OperationResultProperties'
-    description: The operation result definition.
-    properties:
-      inputs:
-        $ref: '#/definitions/Object'
-        description: Gets the inputs.
-        readOnly: true
-      inputsLink:
-        $ref: '#/definitions/ContentLink'
-        description: Gets the link to inputs.
-        readOnly: true
-      iterationCount:
-        format: int32
-        type: integer
-      outputs:
-        $ref: '#/definitions/Object'
-        description: Gets the outputs.
-        readOnly: true
-      outputsLink:
-        $ref: '#/definitions/ContentLink'
-        description: Gets the link to outputs.
-        readOnly: true
-      retryHistory:
-        description: Gets the retry histories.
-        items:
-          $ref: '#/definitions/RetryHistory'
-        type: array
-      trackedProperties:
-        $ref: '#/definitions/Object'
-        description: Gets the tracked properties.
-        readOnly: true
-      trackingId:
-        description: Gets the tracking id.
-        readOnly: true
-        type: string
-    type: object
-  Expression:
-    additionalProperties: false
-    description: The expression.
-    properties:
-      error:
-        $ref: '#/definitions/AzureResourceErrorInfo'
-      subexpressions:
-        description: The sub expressions.
-        items:
-          $ref: '#/definitions/Expression'
-        type: array
-      text:
-        description: The text.
-        type: string
-      value: {}
-    type: object
-  SubResource:
-    description: The sub resource type.
-    properties:
-      id:
-        description: The resource id.
-        readOnly: true
-        type: string
-    x-ms-azure-resource: true
-  OperationResultProperties:
-    additionalProperties: false
-    description: The run operation result properties.
-    properties:
-      code:
-        description: The workflow scope repetition code.
-        type: string
-      correlation:
-        $ref: '#/definitions/RunActionCorrelation'
-        description: The correlation properties.
-      endTime:
-        description: The end time of the workflow scope repetition.
-        format: date-time
-        type: string
-      error: {}
-      startTime:
-        description: The start time of the workflow scope repetition.
-        format: date-time
-        type: string
-      status:
-        $ref: '#/definitions/WorkflowStatus'
-        description: The status of the workflow scope repetition.
-    type: object
-    x-abstract: true
-  Resource:
-    description: The base resource type.
-    properties:
-      id:
-        description: The resource id.
-        readOnly: true
-        type: string
-      location:
-        description: The resource location.
-        type: string
-      name:
-        description: Gets the resource name.
-        readOnly: true
-        type: string
-      tags:
-        additionalProperties:
+        clientRequestId:
+          description: Gets the client request Id.
           type: string
-        description: The resource tags.
-        type: object
-      type:
-        description: Gets the resource type.
-        readOnly: true
-        type: string
-    x-ms-azure-resource: true
-  WorkflowRunActionRepetitionDefinitionCollection:
-    description: A collection of workflow run action repetitions.
-    properties:
-      nextLink:
-        description: The link used to get the next page of recommendations.
-        type: string
-      value:
-        items:
-          $ref: '#/definitions/WorkflowRunActionRepetitionDefinition'
-        type: array
-    type: object
-  WorkflowRunActionListResult:
-    description: The list of workflow run actions.
-    properties:
-      nextLink:
-        description: The URL to get the next set of results.
-        type: string
-      value:
-        description: A list of workflow run actions.
-        items:
-          $ref: '#/definitions/WorkflowRunAction'
-        type: array
-    type: object
-  ErrorInfo:
-    additionalProperties: false
-    description: The error info.
-    properties:
-      code:
-        description: The error code.
-        type: string
-    required:
-    - code
-    type: object
-  RequestHistoryProperties:
-    additionalProperties: false
-    description: The request history.
-    properties:
-      endTime:
-        description: The time the request ended.
-        format: date-time
-        type: string
-      request:
-        $ref: '#/definitions/Request'
-        description: The request.
-      response:
-        $ref: '#/definitions/Response'
-        description: The response.
-      startTime:
-        description: The time the request started.
-        format: date-time
-        type: string
-    type: object
-  ExpressionRoot:
-    allOf:
-    - $ref: '#/definitions/Expression'
-    description: The expression root.
-    properties:
-      path:
-        description: The path.
-        type: string
-    type: object
-  ErrorResponse:
-    description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-    properties:
-      error:
-        $ref: '#/definitions/ErrorProperties'
-        description: The error properties.
-    type: object
-  Correlation:
-    description: The correlation property.
-    properties:
-      clientTrackingId:
-        description: The client tracking id.
-        type: string
-    type: object
-  WorkflowRunActionRepetitionDefinition:
-    additionalProperties: false
-    allOf:
-    - $ref: '#/definitions/Resource'
-    description: The workflow run action repetition definition.
-    properties:
-      properties:
-        $ref: '#/definitions/WorkflowRunActionRepetitionProperties'
-        description: The workflow run action repetition properties definition.
-        x-ms-client-flatten: true
-    required:
-    - properties
-    type: object
-  RetryHistory:
-    description: The retry history.
-    properties:
-      clientRequestId:
-        description: Gets the client request Id.
-        type: string
-      code:
-        description: Gets the status code.
-        type: string
-      endTime:
-        description: Gets the end time.
-        format: date-time
-        type: string
-      error:
-        $ref: '#/definitions/ErrorResponse'
-        description: Gets the error response.
-      serviceRequestId:
-        description: Gets the service request Id.
-        type: string
-      startTime:
-        description: Gets the start time.
-        format: date-time
-        type: string
-    type: object
-  WorkflowRunActionProperties:
-    description: The workflow run action properties.
-    properties:
-      code:
-        description: Gets the code.
-        readOnly: true
-        type: string
-      correlation:
-        $ref: '#/definitions/Correlation'
-        description: The correlation properties.
-      endTime:
-        description: Gets the end time.
-        format: date-time
-        readOnly: true
-        type: string
-      error:
-        $ref: '#/definitions/Object'
-        description: Gets the error.
-        readOnly: true
-      inputsLink:
-        $ref: '#/definitions/ContentLink'
-        description: Gets the link to inputs.
-        readOnly: true
-      outputsLink:
-        $ref: '#/definitions/ContentLink'
-        description: Gets the link to outputs.
-        readOnly: true
-      retryHistory:
-        description: Gets the retry histories.
-        items:
-          $ref: '#/definitions/RetryHistory'
-        type: array
-      startTime:
-        description: Gets the start time.
-        format: date-time
-        readOnly: true
-        type: string
-      status:
-        $ref: '#/definitions/WorkflowStatus'
-        description: Gets the status.
-        readOnly: true
-      trackedProperties:
-        $ref: '#/definitions/Object'
-        description: Gets the tracked properties.
-        readOnly: true
-      trackingId:
-        description: Gets the tracking id.
-        readOnly: true
-        type: string
-    type: object
-  Response:
-    additionalProperties: false
-    description: A response.
-    properties:
-      bodyLink:
-        $ref: '#/definitions/ContentLink'
-        description: Details on the location of the body content.
-      headers:
-        $ref: '#/definitions/Object'
-        description: A list of all the headers attached to the response.
-      statusCode:
-        description: The status code of the response.
-        format: int32
-        type: integer
-    type: object
-  Object:
-    properties: {}
-    type: object
-  RequestHistory:
-    additionalProperties: false
-    allOf:
-    - $ref: '#/definitions/Resource'
-    description: The request history.
-    properties:
-      properties:
-        $ref: '#/definitions/RequestHistoryProperties'
-        description: The request history properties.
-    type: object
-  RepetitionIndex:
-    additionalProperties: false
-    description: The workflow run action repetition index.
-    properties:
-      itemIndex:
-        description: The index.
-        format: int32
-        type: integer
-      scopeName:
-        description: The scope.
-        type: string
-    required:
-    - itemIndex
-    type: object
-  Request:
-    additionalProperties: false
-    description: A request.
-    properties:
-      headers:
-        $ref: '#/definitions/Object'
-        description: A list of all the headers attached to the request.
-      method:
-        description: The HTTP method used for the request.
-        type: string
-      uri:
-        description: The destination for the request.
-        type: string
-    type: object
-  RequestHistoryListResult:
-    description: The list of workflow request histories.
-    properties:
-      nextLink:
-        description: The URL to get the next set of results.
-        type: string
-      value:
-        description: A list of workflow request histories.
-        items:
-          $ref: '#/definitions/RequestHistory'
-        type: array
-    type: object
-  AzureResourceErrorInfo:
-    additionalProperties: false
-    allOf:
-    - $ref: '#/definitions/ErrorInfo'
-    description: The azure resource error info.
-    properties:
-      details:
-        description: The error details.
-        items:
-          $ref: '#/definitions/AzureResourceErrorInfo'
-        type: array
-      message:
-        description: The error message.
-        type: string
-    required:
-    - message
-    type: object
-  WorkflowStatus:
-    description: The workflow status.
-    enum:
-    - NotSpecified
-    - Paused
-    - Running
-    - Waiting
-    - Succeeded
-    - Skipped
-    - Suspended
-    - Cancelled
-    - Failed
-    - Faulted
-    - TimedOut
-    - Aborted
-    - Ignored
-    type: string
-    x-ms-enum:
-      modelAsString: true
-      name: WorkflowStatus
-  RunActionCorrelation:
-    additionalProperties: false
-    allOf:
-    - $ref: '#/definitions/RunCorrelation'
-    description: The workflow run action correlation properties.
-    properties:
-      actionTrackingId:
-        description: The action tracking identifier.
-        type: string
-    type: object
-  RunCorrelation:
-    additionalProperties: false
-    description: The correlation properties.
-    properties:
-      clientKeywords:
-        description: The client keywords.
-        items:
+        code:
+          description: Gets the status code.
           type: string
-        type: array
-      clientTrackingId:
-        description: The client tracking identifier.
-        type: string
-    type: object
-  ContentHash:
-    description: The content hash.
-    properties:
-      algorithm:
-        description: The algorithm of the content hash.
-        type: string
-      value:
-        description: The value of the content hash.
-        type: string
-    type: object
-  ContentLink:
-    description: The content link.
-    properties:
-      contentHash:
-        $ref: '#/definitions/ContentHash'
-        description: The content hash.
-      contentSize:
-        description: The content size.
-        format: int64
-        type: integer
-      contentVersion:
-        description: The content version.
-        type: string
-      metadata:
-        $ref: '#/definitions/Object'
-        description: The metadata.
-      uri:
-        description: The content link URI.
-        type: string
-    type: object
-parameters:
-  api-version:
-    description: The API version.
-    in: query
-    name: api-version
-    required: true
-    type: string
-  subscriptionId:
-    description: The subscription id.
-    in: path
-    name: subscriptionId
-    required: true
-    type: string
-securityDefinitions:
-  azure_auth:
-    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
-    description: Azure Active Directory OAuth2 Flow.
-    flow: implicit
-    scopes:
-      user_impersonation: impersonate your user account
-    type: oauth2
+        endTime:
+          description: Gets the end time.
+          format: date-time
+          type: string
+        error:
+          $ref: '#/components/schemas/ErrorResponse'
+          description: Gets the error response.
+        serviceRequestId:
+          description: Gets the service request Id.
+          type: string
+        startTime:
+          description: Gets the start time.
+          format: date-time
+          type: string
+      type: object
+    AzureResourceErrorInfo:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/ErrorInfo'
+      description: The azure resource error info.
+      properties:
+        details:
+          description: The error details.
+          items:
+            $ref: '#/components/schemas/AzureResourceErrorInfo'
+          type: array
+        message:
+          description: The error message.
+          type: string
+      required:
+      - message
+      type: object
+    RunActionCorrelation:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/RunCorrelation'
+      description: The workflow run action correlation properties.
+      properties:
+        actionTrackingId:
+          description: The action tracking identifier.
+          type: string
+      type: object
+    RepetitionIndex:
+      additionalProperties: false
+      description: The workflow run action repetition index.
+      properties:
+        itemIndex:
+          description: The index.
+          format: int32
+          type: integer
+        scopeName:
+          description: The scope.
+          type: string
+      required:
+      - itemIndex
+      type: object
+    Correlation:
+      description: The correlation property.
+      properties:
+        clientTrackingId:
+          description: The client tracking id.
+          type: string
+      type: object
+    Response:
+      additionalProperties: false
+      description: A response.
+      properties:
+        bodyLink:
+          $ref: '#/components/schemas/ContentLink'
+          description: Details on the location of the body content.
+        headers:
+          $ref: '#/components/schemas/Object'
+          description: A list of all the headers attached to the response.
+        statusCode:
+          description: The status code of the response.
+          format: int32
+          type: integer
+      type: object
+    ContentHash:
+      description: The content hash.
+      properties:
+        algorithm:
+          description: The algorithm of the content hash.
+          type: string
+        value:
+          description: The value of the content hash.
+          type: string
+      type: object
+    WorkflowRunAction:
+      allOf:
+      - $ref: '#/components/schemas/SubResource'
+      description: The workflow run action.
+      properties:
+        name:
+          description: Gets the workflow run action name.
+          readOnly: true
+          type: string
+        properties:
+          $ref: '#/components/schemas/WorkflowRunActionProperties'
+          description: The workflow run action properties.
+          x-ms-client-flatten: true
+        type:
+          description: Gets the workflow run action type.
+          readOnly: true
+          type: string
+      type: object
+    RunCorrelation:
+      additionalProperties: false
+      description: The correlation properties.
+      properties:
+        clientKeywords:
+          description: The client keywords.
+          items:
+            type: string
+          type: array
+        clientTrackingId:
+          description: The client tracking identifier.
+          type: string
+      type: object
+    Object:
+      properties: {}
+      type: object
+    WorkflowRunActionRepetitionProperties:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/OperationResult'
+      description: The workflow run action repetition properties definition.
+      properties:
+        repetitionIndexes:
+          description: The repetition indexes.
+          items:
+            $ref: '#/components/schemas/RepetitionIndex'
+          type: array
+      type: object
+    WorkflowStatus:
+      description: The workflow status.
+      enum:
+      - NotSpecified
+      - Paused
+      - Running
+      - Waiting
+      - Succeeded
+      - Skipped
+      - Suspended
+      - Cancelled
+      - Failed
+      - Faulted
+      - TimedOut
+      - Aborted
+      - Ignored
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: WorkflowStatus
+    ExpressionTraces:
+      description: The expression traces.
+      properties:
+        inputs:
+          items:
+            $ref: '#/components/schemas/ExpressionRoot'
+          type: array
+      type: object
+    WorkflowRunActionProperties:
+      description: The workflow run action properties.
+      properties:
+        code:
+          description: Gets the code.
+          readOnly: true
+          type: string
+        correlation:
+          $ref: '#/components/schemas/Correlation'
+          description: The correlation properties.
+        endTime:
+          description: Gets the end time.
+          format: date-time
+          readOnly: true
+          type: string
+        error:
+          $ref: '#/components/schemas/Object'
+          description: Gets the error.
+          readOnly: true
+        inputsLink:
+          $ref: '#/components/schemas/ContentLink'
+          description: Gets the link to inputs.
+          readOnly: true
+        outputsLink:
+          $ref: '#/components/schemas/ContentLink'
+          description: Gets the link to outputs.
+          readOnly: true
+        retryHistory:
+          description: Gets the retry histories.
+          items:
+            $ref: '#/components/schemas/RetryHistory'
+          type: array
+        startTime:
+          description: Gets the start time.
+          format: date-time
+          readOnly: true
+          type: string
+        status:
+          $ref: '#/components/schemas/WorkflowStatus'
+          description: Gets the status.
+          readOnly: true
+        trackedProperties:
+          $ref: '#/components/schemas/Object'
+          description: Gets the tracked properties.
+          readOnly: true
+        trackingId:
+          description: Gets the tracking id.
+          readOnly: true
+          type: string
+      type: object
+    OperationResult:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/OperationResultProperties'
+      description: The operation result definition.
+      properties:
+        inputs:
+          $ref: '#/components/schemas/Object'
+          description: Gets the inputs.
+          readOnly: true
+        inputsLink:
+          $ref: '#/components/schemas/ContentLink'
+          description: Gets the link to inputs.
+          readOnly: true
+        iterationCount:
+          format: int32
+          type: integer
+        outputs:
+          $ref: '#/components/schemas/Object'
+          description: Gets the outputs.
+          readOnly: true
+        outputsLink:
+          $ref: '#/components/schemas/ContentLink'
+          description: Gets the link to outputs.
+          readOnly: true
+        retryHistory:
+          description: Gets the retry histories.
+          items:
+            $ref: '#/components/schemas/RetryHistory'
+          type: array
+        trackedProperties:
+          $ref: '#/components/schemas/Object'
+          description: Gets the tracked properties.
+          readOnly: true
+        trackingId:
+          description: Gets the tracking id.
+          readOnly: true
+          type: string
+      type: object
+    RequestHistoryProperties:
+      additionalProperties: false
+      description: The request history.
+      properties:
+        endTime:
+          description: The time the request ended.
+          format: date-time
+          type: string
+        request:
+          $ref: '#/components/schemas/Request'
+          description: The request.
+        response:
+          $ref: '#/components/schemas/Response'
+          description: The response.
+        startTime:
+          description: The time the request started.
+          format: date-time
+          type: string
+      type: object
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    Expression:
+      additionalProperties: false
+      description: The expression.
+      properties:
+        error:
+          $ref: '#/components/schemas/AzureResourceErrorInfo'
+        subexpressions:
+          description: The sub expressions.
+          items:
+            $ref: '#/components/schemas/Expression'
+          type: array
+        text:
+          description: The text.
+          type: string
+        value: {}
+      type: object
+    SubResource:
+      description: The sub resource type.
+      properties:
+        id:
+          description: The resource id.
+          readOnly: true
+          type: string
+      x-ms-azure-resource: true
+    WorkflowRunActionListResult:
+      description: The list of workflow run actions.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: A list of workflow run actions.
+          items:
+            $ref: '#/components/schemas/WorkflowRunAction'
+          type: array
+      type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    ContentLink:
+      description: The content link.
+      properties:
+        contentHash:
+          $ref: '#/components/schemas/ContentHash'
+          description: The content hash.
+        contentSize:
+          description: The content size.
+          format: int64
+          type: integer
+        contentVersion:
+          description: The content version.
+          type: string
+        metadata:
+          $ref: '#/components/schemas/Object'
+          description: The metadata.
+        uri:
+          description: The content link URI.
+          type: string
+      type: object
+    OperationResultProperties:
+      additionalProperties: false
+      description: The run operation result properties.
+      properties:
+        code:
+          description: The workflow scope repetition code.
+          type: string
+        correlation:
+          $ref: '#/components/schemas/RunActionCorrelation'
+          description: The correlation properties.
+        endTime:
+          description: The end time of the workflow scope repetition.
+          format: date-time
+          type: string
+        error: {}
+        startTime:
+          description: The start time of the workflow scope repetition.
+          format: date-time
+          type: string
+        status:
+          $ref: '#/components/schemas/WorkflowStatus'
+          description: The status of the workflow scope repetition.
+      type: object
+      x-abstract: true
+    ExpressionRoot:
+      allOf:
+      - $ref: '#/components/schemas/Expression'
+      description: The expression root.
+      properties:
+        path:
+          description: The path.
+          type: string
+      type: object
+    RequestHistory:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The request history.
+      properties:
+        properties:
+          $ref: '#/components/schemas/RequestHistoryProperties'
+          description: The request history properties.
+      type: object
+    Request:
+      additionalProperties: false
+      description: A request.
+      properties:
+        headers:
+          $ref: '#/components/schemas/Object'
+          description: A list of all the headers attached to the request.
+        method:
+          description: The HTTP method used for the request.
+          type: string
+        uri:
+          description: The destination for the request.
+          type: string
+      type: object
+    WorkflowRunActionRepetitionDefinitionCollection:
+      description: A collection of workflow run action repetitions.
+      properties:
+        nextLink:
+          description: The link used to get the next page of recommendations.
+          type: string
+        value:
+          items:
+            $ref: '#/components/schemas/WorkflowRunActionRepetitionDefinition'
+          type: array
+      type: object
+    RequestHistoryListResult:
+      description: The list of workflow request histories.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: A list of workflow request histories.
+          items:
+            $ref: '#/components/schemas/RequestHistory'
+          type: array
+      type: object
+    ErrorInfo:
+      additionalProperties: false
+      description: The error info.
+      properties:
+        code:
+          description: The error code.
+          type: string
+      required:
+      - code
+      type: object
+    WorkflowRunActionRepetitionDefinition:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The workflow run action repetition definition.
+      properties:
+        properties:
+          $ref: '#/components/schemas/WorkflowRunActionRepetitionProperties'
+          description: The workflow run action repetition properties definition.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
+    Resource:
+      description: The base resource type.
+      properties:
+        id:
+          description: The resource id.
+          readOnly: true
+          type: string
+        location:
+          description: The resource location.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The resource tags.
+          type: object
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      x-ms-azure-resource: true
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            user_impersonation: impersonate your user account
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: Azure Active Directory OAuth2 Flow.
