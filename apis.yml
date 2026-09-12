@@ -387,6 +387,22 @@ apis:
     url: >-
       https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
 common:
+- type: GitHubOrganization
+  url: https://github.com/Azure
+- type: Portal
+  url: https://portal.azure.com/
+- type: Pricing
+  url: https://azure.microsoft.com/en-us/pricing/details/logic-apps/
+- type: StatusPage
+  url: https://status.azure.com/
+- type: Blog
+  url: https://azure.microsoft.com/en-us/blog/
+- type: Support
+  url: https://azure.microsoft.com/en-us/support/
+- type: TermsOfService
+  url: https://azure.microsoft.com/en-us/support/legal/
+- type: PrivacyPolicy
+  url: https://privacy.microsoft.com/en-us/privacystatement
 - type: AgenticAccess
   url: agentic-access/azure-logic-apps-agentic-access.yml
 - type: VulnerabilityDisclosure
