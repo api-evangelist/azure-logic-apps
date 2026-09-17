@@ -313,22 +313,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
-- aid: azure-logic-apps:azure-logic-apps-workflowruns-api
-  name: Azure Logic Apps WorkflowRuns API
-  description: The WorkflowRuns API from Azure Logic Apps — 3 operation(s) for workflowruns.
-  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
-  tags:
-  - Workflow Runs
-  tags_raw:
-  - WorkflowRuns
-  properties:
-  - type: OpenAPI
-    url: openapi/azure-logic-apps-workflowruns-api-openapi.yml
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/azure/logic-apps/
-  - type: GettingStarted
-    url: >-
-      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
 - aid: azure-logic-apps:azure-logic-apps-workflows-api
   name: Azure Logic Apps Workflows API
   description: The Workflows API from Azure Logic Apps — 12 operation(s) for workflows.
@@ -358,29 +342,43 @@ apis:
   - type: GettingStarted
     url: >-
       https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
-- aid: azure-logic-apps:azure-logic-apps-workflowtriggers-api
-  name: Azure Logic Apps WorkflowTriggers API
-  description: The WorkflowTriggers API from Azure Logic Apps — 8 operation(s) for workflowtriggers.
+- aid: azure-logic-apps:azure-logic-apps-workflow-runs-api
+  name: Azure Logic Apps Workflow Runs API
+  description: The Workflow Runs API from Azure Logic Apps — 3 operation(s) for workflow runs.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
   tags:
-  - WorkflowTriggers
+  - Workflow Runs
   properties:
   - type: OpenAPI
-    url: openapi/azure-logic-apps-workflowtriggers-api-openapi.yml
+    url: openapi/azure-logic-apps-workflow-runs-api-openapi.yml
   - type: Documentation
     url: https://learn.microsoft.com/en-us/azure/logic-apps/
   - type: GettingStarted
     url: >-
       https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
-- aid: azure-logic-apps:azure-logic-apps-workflowversions-api
-  name: Azure Logic Apps WorkflowVersions API
-  description: The WorkflowVersions API from Azure Logic Apps — 2 operation(s) for workflowversions.
+- aid: azure-logic-apps:azure-logic-apps-workflow-triggers-api
+  name: Azure Logic Apps Workflow Triggers API
+  description: The Workflow Triggers API from Azure Logic Apps — 8 operation(s) for workflow triggers.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
   tags:
-  - WorkflowVersions
+  - Workflow Triggers
   properties:
   - type: OpenAPI
-    url: openapi/azure-logic-apps-workflowversions-api-openapi.yml
+    url: openapi/azure-logic-apps-workflow-triggers-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/logic-apps/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
+- aid: azure-logic-apps:azure-logic-apps-workflow-versions-api
+  name: Azure Logic Apps Workflow Versions API
+  description: The Workflow Versions API from Azure Logic Apps — 2 operation(s) for workflow versions.
+  humanURL: https://azure.microsoft.com/en-us/products/logic-apps
+  tags:
+  - Workflow Versions
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-logic-apps-workflow-versions-api-openapi.yml
   - type: Documentation
     url: https://learn.microsoft.com/en-us/azure/logic-apps/
   - type: GettingStarted
