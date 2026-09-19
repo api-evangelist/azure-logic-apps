@@ -361,6 +361,8 @@ apis:
   description: The Workflow Triggers API from Azure Logic Apps — 8 operation(s) for workflow triggers.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
   tags:
+  - WorkflowTriggers
+  tags_raw:
   - Workflow Triggers
   properties:
   - type: OpenAPI
@@ -375,6 +377,8 @@ apis:
   description: The Workflow Versions API from Azure Logic Apps — 2 operation(s) for workflow versions.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
   tags:
+  - WorkflowVersions
+  tags_raw:
   - Workflow Versions
   properties:
   - type: OpenAPI
