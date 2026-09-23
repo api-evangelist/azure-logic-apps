@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
   description: REST API for Azure Logic Apps.
-  title: LogicManagementClient IntegrationAccountAgreements Integration Service Environment Restart API
-  version: '2.0'
+  title: LogicManagementClient Integration Service Environment…
+  version: '2019-05-01'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -10,6 +10,7 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: logic
@@ -72,6 +73,21 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
   schemas:
     ErrorProperties:
       description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
@@ -90,21 +106,6 @@ components:
           $ref: '#/components/schemas/ErrorProperties'
           description: The error properties.
       type: object
-  parameters:
-    subscriptionId:
-      description: The subscription id.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
-    api-version:
-      description: The API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

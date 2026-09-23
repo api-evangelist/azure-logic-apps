@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
   description: REST API for Azure Logic Apps.
-  title: LogicManagementClient IntegrationAccountAgreements Workflow Trigger Histories API
-  version: '2.0'
+  title: LogicManagementClient Workflow Trigger Histories API
+  version: '2019-05-01'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -10,6 +10,7 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: logic
@@ -263,34 +264,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    SubResource:
-      description: The sub resource type.
-      properties:
-        id:
-          description: The resource id.
-          readOnly: true
-          type: string
-      x-ms-azure-resource: true
-    ContentLink:
-      description: The content link.
-      properties:
-        contentHash:
-          $ref: '#/components/schemas/ContentHash'
-          description: The content hash.
-        contentSize:
-          description: The content size.
-          format: int64
-          type: integer
-        contentVersion:
-          description: The content version.
-          type: string
-        metadata:
-          $ref: '#/components/schemas/Object'
-          description: The metadata.
-        uri:
-          description: The content link URI.
-          type: string
-      type: object
     ResourceReference:
       description: The resource reference.
       properties:
@@ -306,32 +279,21 @@ components:
           readOnly: true
           type: string
       type: object
-    ContentHash:
-      description: The content hash.
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
       properties:
-        algorithm:
-          description: The algorithm of the content hash.
+        code:
+          description: Error code.
           type: string
-        value:
-          description: The value of the content hash.
+        message:
+          description: Error message indicating why the operation failed.
           type: string
       type: object
-    WorkflowTriggerHistory:
-      allOf:
-      - $ref: '#/components/schemas/SubResource'
-      description: The workflow trigger history.
+    Correlation:
+      description: The correlation property.
       properties:
-        name:
-          description: Gets the workflow trigger history name.
-          readOnly: true
-          type: string
-        properties:
-          $ref: '#/components/schemas/WorkflowTriggerHistoryProperties'
-          description: Gets the workflow trigger history properties.
-          x-ms-client-flatten: true
-        type:
-          description: Gets the workflow trigger history type.
-          readOnly: true
+        clientTrackingId:
+          description: The client tracking id.
           type: string
       type: object
     WorkflowTriggerHistoryProperties:
@@ -383,37 +345,8 @@ components:
           readOnly: true
           type: string
       type: object
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
     Object:
       properties: {}
-      type: object
-    WorkflowTriggerHistoryListResult:
-      description: The list of workflow trigger histories.
-      properties:
-        nextLink:
-          description: The URL to get the next set of results.
-          type: string
-        value:
-          description: A list of workflow trigger histories.
-          items:
-            $ref: '#/components/schemas/WorkflowTriggerHistory'
-          type: array
-      type: object
-    Correlation:
-      description: The correlation property.
-      properties:
-        clientTrackingId:
-          description: The client tracking id.
-          type: string
       type: object
     WorkflowStatus:
       description: The workflow status.
@@ -435,6 +368,74 @@ components:
       x-ms-enum:
         modelAsString: true
         name: WorkflowStatus
+    SubResource:
+      description: The sub resource type.
+      properties:
+        id:
+          description: The resource id.
+          readOnly: true
+          type: string
+      x-ms-azure-resource: true
+    ContentHash:
+      description: The content hash.
+      properties:
+        algorithm:
+          description: The algorithm of the content hash.
+          type: string
+        value:
+          description: The value of the content hash.
+          type: string
+      type: object
+    WorkflowTriggerHistoryListResult:
+      description: The list of workflow trigger histories.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: A list of workflow trigger histories.
+          items:
+            $ref: '#/components/schemas/WorkflowTriggerHistory'
+          type: array
+      type: object
+    WorkflowTriggerHistory:
+      allOf:
+      - $ref: '#/components/schemas/SubResource'
+      description: The workflow trigger history.
+      properties:
+        name:
+          description: Gets the workflow trigger history name.
+          readOnly: true
+          type: string
+        properties:
+          $ref: '#/components/schemas/WorkflowTriggerHistoryProperties'
+          description: Gets the workflow trigger history properties.
+          x-ms-client-flatten: true
+        type:
+          description: Gets the workflow trigger history type.
+          readOnly: true
+          type: string
+      type: object
+    ContentLink:
+      description: The content link.
+      properties:
+        contentHash:
+          $ref: '#/components/schemas/ContentHash'
+          description: The content hash.
+        contentSize:
+          description: The content size.
+          format: int64
+          type: integer
+        contentVersion:
+          description: The content version.
+          type: string
+        metadata:
+          $ref: '#/components/schemas/Object'
+          description: The metadata.
+        uri:
+          description: The content link URI.
+          type: string
+      type: object
     ErrorResponse:
       description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
@@ -443,17 +444,17 @@ components:
           description: The error properties.
       type: object
   parameters:
-    subscriptionId:
-      description: The subscription id.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
     api-version:
       description: The API version.
       in: query
       name: api-version
+      required: true
+      schema:
+        type: string
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
       required: true
       schema:
         type: string

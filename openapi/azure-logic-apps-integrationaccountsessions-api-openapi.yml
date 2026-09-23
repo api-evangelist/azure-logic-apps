@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
   description: REST API for Azure Logic Apps.
-  title: LogicManagementClient IntegrationAccountAgreements Integration Account Sessions API
-  version: '2.0'
+  title: LogicManagementClient Integration Account Sessions API
+  version: '2019-05-01'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -10,6 +10,7 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: logic
@@ -381,33 +382,31 @@ paths:
         description: The integration account session.
         required: true
 components:
-  parameters:
-    subscriptionId:
-      description: The subscription id.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
-    api-version:
-      description: The API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
   schemas:
-    IntegrationAccountSession:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The integration account session.
+    IntegrationAccountSessionListResult:
+      description: The list of integration account sessions.
       properties:
-        properties:
-          $ref: '#/components/schemas/IntegrationAccountSessionProperties'
-          description: The integration account session properties.
-          x-ms-client-flatten: true
-      required:
-      - properties
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: The list of integration account sessions.
+          items:
+            $ref: '#/components/schemas/IntegrationAccountSession'
+          type: array
+      type: object
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    Object:
+      properties: {}
       type: object
     IntegrationAccountSessionProperties:
       description: The integration account session properties.
@@ -425,38 +424,6 @@ components:
           format: date-time
           readOnly: true
           type: string
-      type: object
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
-    Object:
-      properties: {}
-      type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
-    IntegrationAccountSessionListResult:
-      description: The list of integration account sessions.
-      properties:
-        nextLink:
-          description: The URL to get the next set of results.
-          type: string
-        value:
-          description: The list of integration account sessions.
-          items:
-            $ref: '#/components/schemas/IntegrationAccountSession'
-          type: array
       type: object
     Resource:
       description: The base resource type.
@@ -482,6 +449,40 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
+    IntegrationAccountSession:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The integration account session.
+      properties:
+        properties:
+          $ref: '#/components/schemas/IntegrationAccountSessionProperties'
+          description: The integration account session properties.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+  parameters:
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

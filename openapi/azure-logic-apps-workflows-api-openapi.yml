@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
   description: REST API for Azure Logic Apps.
-  title: LogicManagementClient IntegrationAccountAgreements Workflows API
-  version: '2.0'
+  title: LogicManagementClient Workflows API
+  version: '2019-05-01'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -10,6 +10,7 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: logic
@@ -1222,6 +1223,30 @@ paths:
         required: true
 components:
   schemas:
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    Object:
+      properties: {}
+      type: object
+    GetCallbackUrlParameters:
+      description: The callback url parameters.
+      properties:
+        keyType:
+          $ref: '#/components/schemas/KeyType'
+          description: The key type.
+        notAfter:
+          description: The expiry time.
+          format: date-time
+          type: string
+      type: object
     WorkflowState:
       description: The workflow state.
       enum:
@@ -1235,32 +1260,131 @@ components:
       x-ms-enum:
         modelAsString: true
         name: WorkflowState
-    GetCallbackUrlParameters:
-      description: The callback url parameters.
+    WorkflowListResult:
+      description: The list of workflows.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: The list of workflows.
+          items:
+            $ref: '#/components/schemas/Workflow'
+          type: array
+      type: object
+    Resource:
+      description: The base resource type.
+      properties:
+        id:
+          description: The resource id.
+          readOnly: true
+          type: string
+        location:
+          description: The resource location.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The resource tags.
+          type: object
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      x-ms-azure-resource: true
+    IpAddress:
+      description: The ip address.
+      properties:
+        address:
+          description: The address.
+          type: string
+      type: object
+    WorkflowParameter:
+      description: The workflow parameters.
+      properties:
+        description:
+          description: The description.
+          type: string
+        metadata:
+          $ref: '#/components/schemas/Object'
+          description: The metadata.
+        type:
+          $ref: '#/components/schemas/ParameterType'
+          description: The type.
+        value:
+          $ref: '#/components/schemas/Object'
+          description: The value.
+      type: object
+    Sku:
+      description: The sku type.
+      properties:
+        name:
+          $ref: '#/components/schemas/SkuName'
+          description: The name.
+        plan:
+          $ref: '#/components/schemas/ResourceReference'
+          description: The reference to plan.
+      required:
+      - name
+      type: object
+    ParameterType:
+      description: The parameter type.
+      enum:
+      - NotSpecified
+      - String
+      - SecureString
+      - Int
+      - Float
+      - Bool
+      - Array
+      - Object
+      - SecureObject
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: ParameterType
+    WorkflowProvisioningState:
+      description: The workflow provisioning state.
+      enum:
+      - NotSpecified
+      - Accepted
+      - Running
+      - Ready
+      - Creating
+      - Created
+      - Deleting
+      - Deleted
+      - Canceled
+      - Failed
+      - Succeeded
+      - Moving
+      - Updating
+      - Registering
+      - Registered
+      - Unregistering
+      - Unregistered
+      - Completed
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: WorkflowProvisioningState
+    GenerateUpgradedDefinitionParameters:
+      description: The parameters to generate upgraded definition.
+      properties:
+        targetSchemaVersion:
+          description: The target schema version.
+          type: string
+      type: object
+    RegenerateActionParameter:
+      description: The access key regenerate action content.
       properties:
         keyType:
           $ref: '#/components/schemas/KeyType'
           description: The key type.
-        notAfter:
-          description: The expiry time.
-          format: date-time
-          type: string
-      type: object
-    FlowEndpoints:
-      description: The flow endpoints configuration.
-      properties:
-        accessEndpointIpAddresses:
-          description: The access endpoint ip address.
-          items:
-            $ref: '#/components/schemas/IpAddress'
-            description: The ip address.
-          type: array
-        outgoingIpAddresses:
-          description: The outgoing ip address.
-          items:
-            $ref: '#/components/schemas/IpAddress'
-            description: The ip address.
-          type: array
       type: object
     WorkflowTriggerCallbackUrl:
       description: The workflow trigger callback URL.
@@ -1290,46 +1414,6 @@ components:
           readOnly: true
           type: string
       type: object
-    GenerateUpgradedDefinitionParameters:
-      description: The parameters to generate upgraded definition.
-      properties:
-        targetSchemaVersion:
-          description: The target schema version.
-          type: string
-      type: object
-    WorkflowParameter:
-      description: The workflow parameters.
-      properties:
-        description:
-          description: The description.
-          type: string
-        metadata:
-          $ref: '#/components/schemas/Object'
-          description: The metadata.
-        type:
-          $ref: '#/components/schemas/ParameterType'
-          description: The type.
-        value:
-          $ref: '#/components/schemas/Object'
-          description: The value.
-      type: object
-    RegenerateActionParameter:
-      description: The access key regenerate action content.
-      properties:
-        keyType:
-          $ref: '#/components/schemas/KeyType'
-          description: The key type.
-      type: object
-    KeyType:
-      description: The key type.
-      enum:
-      - NotSpecified
-      - Primary
-      - Secondary
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: KeyType
     WorkflowProperties:
       description: The workflow properties.
       properties:
@@ -1379,56 +1463,25 @@ components:
           readOnly: true
           type: string
       type: object
-    ParameterType:
-      description: The parameter type.
+    KeyType:
+      description: The key type.
       enum:
       - NotSpecified
-      - String
-      - SecureString
-      - Int
-      - Float
-      - Bool
-      - Array
-      - Object
-      - SecureObject
+      - Primary
+      - Secondary
       type: string
       x-ms-enum:
         modelAsString: true
-        name: ParameterType
-    WorkflowProvisioningState:
-      description: The workflow provisioning state.
-      enum:
-      - NotSpecified
-      - Accepted
-      - Running
-      - Ready
-      - Creating
-      - Created
-      - Deleting
-      - Deleted
-      - Canceled
-      - Failed
-      - Succeeded
-      - Moving
-      - Updating
-      - Registering
-      - Registered
-      - Unregistering
-      - Unregistered
-      - Completed
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: WorkflowProvisioningState
-    Object:
-      properties: {}
-      type: object
-    IpAddress:
-      description: The ip address.
+        name: KeyType
+    FlowEndpointsConfiguration:
+      description: The endpoints configuration.
       properties:
-        address:
-          description: The address.
-          type: string
+        connector:
+          $ref: '#/components/schemas/FlowEndpoints'
+          description: The connector endpoints.
+        workflow:
+          $ref: '#/components/schemas/FlowEndpoints'
+          description: The workflow endpoints.
       type: object
     ResourceReference:
       description: The resource reference.
@@ -1445,28 +1498,45 @@ components:
           readOnly: true
           type: string
       type: object
-    WorkflowListResult:
-      description: The list of workflows.
+    Workflow:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The workflow type.
       properties:
-        nextLink:
-          description: The URL to get the next set of results.
-          type: string
-        value:
-          description: The list of workflows.
+        properties:
+          $ref: '#/components/schemas/WorkflowProperties'
+          description: The workflow properties.
+          x-ms-client-flatten: true
+      type: object
+    FlowEndpoints:
+      description: The flow endpoints configuration.
+      properties:
+        accessEndpointIpAddresses:
+          description: The access endpoint ip address.
           items:
-            $ref: '#/components/schemas/Workflow'
+            $ref: '#/components/schemas/IpAddress'
+            description: The ip address.
+          type: array
+        outgoingIpAddresses:
+          description: The outgoing ip address.
+          items:
+            $ref: '#/components/schemas/IpAddress'
+            description: The ip address.
           type: array
       type: object
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
+    SkuName:
+      description: The sku name.
+      enum:
+      - NotSpecified
+      - Free
+      - Shared
+      - Basic
+      - Standard
+      - Premium
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: SkuName
     WorkflowTriggerListCallbackUrlQueries:
       description: Gets the workflow trigger callback URL query parameters.
       properties:
@@ -1486,16 +1556,6 @@ components:
           description: The SAS version.
           type: string
       type: object
-    FlowEndpointsConfiguration:
-      description: The endpoints configuration.
-      properties:
-        connector:
-          $ref: '#/components/schemas/FlowEndpoints'
-          description: The connector endpoints.
-        workflow:
-          $ref: '#/components/schemas/FlowEndpoints'
-          description: The workflow endpoints.
-      type: object
     ErrorResponse:
       description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
@@ -1503,65 +1563,6 @@ components:
           $ref: '#/components/schemas/ErrorProperties'
           description: The error properties.
       type: object
-    Sku:
-      description: The sku type.
-      properties:
-        name:
-          $ref: '#/components/schemas/SkuName'
-          description: The name.
-        plan:
-          $ref: '#/components/schemas/ResourceReference'
-          description: The reference to plan.
-      required:
-      - name
-      type: object
-    Workflow:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The workflow type.
-      properties:
-        properties:
-          $ref: '#/components/schemas/WorkflowProperties'
-          description: The workflow properties.
-          x-ms-client-flatten: true
-      type: object
-    SkuName:
-      description: The sku name.
-      enum:
-      - NotSpecified
-      - Free
-      - Shared
-      - Basic
-      - Standard
-      - Premium
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: SkuName
-    Resource:
-      description: The base resource type.
-      properties:
-        id:
-          description: The resource id.
-          readOnly: true
-          type: string
-        location:
-          description: The resource location.
-          type: string
-        name:
-          description: Gets the resource name.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The resource tags.
-          type: object
-        type:
-          description: Gets the resource type.
-          readOnly: true
-          type: string
-      x-ms-azure-resource: true
   parameters:
     subscriptionId:
       description: The subscription id.

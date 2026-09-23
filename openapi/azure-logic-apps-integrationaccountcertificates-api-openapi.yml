@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
   description: REST API for Azure Logic Apps.
-  title: LogicManagementClient IntegrationAccountAgreements Integration Account Certificates API
-  version: '2.0'
+  title: LogicManagementClient Integration Account Certificates API
+  version: '2019-05-01'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -10,6 +10,7 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: logic
@@ -336,50 +337,7 @@ paths:
         description: The integration account certificate.
         required: true
 components:
-  parameters:
-    subscriptionId:
-      description: The subscription id.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
-    api-version:
-      description: The API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
   schemas:
-    KeyVaultKeyReference:
-      description: The reference to the key vault key.
-      properties:
-        keyName:
-          description: The private key name in key vault.
-          type: string
-        keyVault:
-          description: The key vault reference.
-          properties:
-            id:
-              description: The resource id.
-              type: string
-            name:
-              description: The resource name.
-              readOnly: true
-              type: string
-            type:
-              description: The resource type.
-              readOnly: true
-              type: string
-          type: object
-        keyVersion:
-          description: The private key version in key vault.
-          type: string
-      required:
-      - keyVault
-      - keyName
-      type: object
     IntegrationAccountCertificate:
       allOf:
       - $ref: '#/components/schemas/Resource'
@@ -426,24 +384,33 @@ components:
           description: Error message indicating why the operation failed.
           type: string
       type: object
-    IntegrationAccountCertificateListResult:
-      description: The list of integration account certificates.
+    KeyVaultKeyReference:
+      description: The reference to the key vault key.
       properties:
-        nextLink:
-          description: The URL to get the next set of results.
+        keyName:
+          description: The private key name in key vault.
           type: string
-        value:
-          description: The list of integration account certificates.
-          items:
-            $ref: '#/components/schemas/IntegrationAccountCertificate'
-          type: array
-      type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
+        keyVault:
+          description: The key vault reference.
+          properties:
+            id:
+              description: The resource id.
+              type: string
+            name:
+              description: The resource name.
+              readOnly: true
+              type: string
+            type:
+              description: The resource type.
+              readOnly: true
+              type: string
+          type: object
+        keyVersion:
+          description: The private key version in key vault.
+          type: string
+      required:
+      - keyVault
+      - keyName
       type: object
     Resource:
       description: The base resource type.
@@ -469,6 +436,40 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
+    IntegrationAccountCertificateListResult:
+      description: The list of integration account certificates.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: The list of integration account certificates.
+          items:
+            $ref: '#/components/schemas/IntegrationAccountCertificate'
+          type: array
+      type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+  parameters:
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
   description: REST API for Azure Logic Apps.
-  title: LogicManagementClient IntegrationAccountAgreements Workflow Run Actions API
-  version: '2.0'
+  title: LogicManagementClient Workflow Run Actions API
+  version: '2019-05-01'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -10,6 +10,7 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: logic
@@ -1266,119 +1267,7 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    subscriptionId:
-      description: The subscription id.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
-    api-version:
-      description: The API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
   schemas:
-    RetryHistory:
-      description: The retry history.
-      properties:
-        clientRequestId:
-          description: Gets the client request Id.
-          type: string
-        code:
-          description: Gets the status code.
-          type: string
-        endTime:
-          description: Gets the end time.
-          format: date-time
-          type: string
-        error:
-          $ref: '#/components/schemas/ErrorResponse'
-          description: Gets the error response.
-        serviceRequestId:
-          description: Gets the service request Id.
-          type: string
-        startTime:
-          description: Gets the start time.
-          format: date-time
-          type: string
-      type: object
-    AzureResourceErrorInfo:
-      additionalProperties: false
-      allOf:
-      - $ref: '#/components/schemas/ErrorInfo'
-      description: The azure resource error info.
-      properties:
-        details:
-          description: The error details.
-          items:
-            $ref: '#/components/schemas/AzureResourceErrorInfo'
-          type: array
-        message:
-          description: The error message.
-          type: string
-      required:
-      - message
-      type: object
-    RunActionCorrelation:
-      additionalProperties: false
-      allOf:
-      - $ref: '#/components/schemas/RunCorrelation'
-      description: The workflow run action correlation properties.
-      properties:
-        actionTrackingId:
-          description: The action tracking identifier.
-          type: string
-      type: object
-    RepetitionIndex:
-      additionalProperties: false
-      description: The workflow run action repetition index.
-      properties:
-        itemIndex:
-          description: The index.
-          format: int32
-          type: integer
-        scopeName:
-          description: The scope.
-          type: string
-      required:
-      - itemIndex
-      type: object
-    Correlation:
-      description: The correlation property.
-      properties:
-        clientTrackingId:
-          description: The client tracking id.
-          type: string
-      type: object
-    Response:
-      additionalProperties: false
-      description: A response.
-      properties:
-        bodyLink:
-          $ref: '#/components/schemas/ContentLink'
-          description: Details on the location of the body content.
-        headers:
-          $ref: '#/components/schemas/Object'
-          description: A list of all the headers attached to the response.
-        statusCode:
-          description: The status code of the response.
-          format: int32
-          type: integer
-      type: object
-    ContentHash:
-      description: The content hash.
-      properties:
-        algorithm:
-          description: The algorithm of the content hash.
-          type: string
-        value:
-          description: The value of the content hash.
-          type: string
-      type: object
     WorkflowRunAction:
       allOf:
       - $ref: '#/components/schemas/SubResource'
@@ -1397,33 +1286,57 @@ components:
           readOnly: true
           type: string
       type: object
-    RunCorrelation:
-      additionalProperties: false
-      description: The correlation properties.
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
       properties:
-        clientKeywords:
-          description: The client keywords.
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    OperationResult:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/OperationResultProperties'
+      description: The operation result definition.
+      properties:
+        inputs:
+          $ref: '#/components/schemas/Object'
+          description: Gets the inputs.
+          readOnly: true
+        inputsLink:
+          $ref: '#/components/schemas/ContentLink'
+          description: Gets the link to inputs.
+          readOnly: true
+        iterationCount:
+          format: int32
+          type: integer
+        outputs:
+          $ref: '#/components/schemas/Object'
+          description: Gets the outputs.
+          readOnly: true
+        outputsLink:
+          $ref: '#/components/schemas/ContentLink'
+          description: Gets the link to outputs.
+          readOnly: true
+        retryHistory:
+          description: Gets the retry histories.
           items:
-            type: string
+            $ref: '#/components/schemas/RetryHistory'
           type: array
-        clientTrackingId:
-          description: The client tracking identifier.
+        trackedProperties:
+          $ref: '#/components/schemas/Object'
+          description: Gets the tracked properties.
+          readOnly: true
+        trackingId:
+          description: Gets the tracking id.
+          readOnly: true
           type: string
       type: object
     Object:
       properties: {}
-      type: object
-    WorkflowRunActionRepetitionProperties:
-      additionalProperties: false
-      allOf:
-      - $ref: '#/components/schemas/OperationResult'
-      description: The workflow run action repetition properties definition.
-      properties:
-        repetitionIndexes:
-          description: The repetition indexes.
-          items:
-            $ref: '#/components/schemas/RepetitionIndex'
-          type: array
       type: object
     WorkflowStatus:
       description: The workflow status.
@@ -1445,13 +1358,139 @@ components:
       x-ms-enum:
         modelAsString: true
         name: WorkflowStatus
-    ExpressionTraces:
-      description: The expression traces.
+    Response:
+      additionalProperties: false
+      description: A response.
       properties:
-        inputs:
+        bodyLink:
+          $ref: '#/components/schemas/ContentLink'
+          description: Details on the location of the body content.
+        headers:
+          $ref: '#/components/schemas/Object'
+          description: A list of all the headers attached to the response.
+        statusCode:
+          description: The status code of the response.
+          format: int32
+          type: integer
+      type: object
+    Resource:
+      description: The base resource type.
+      properties:
+        id:
+          description: The resource id.
+          readOnly: true
+          type: string
+        location:
+          description: The resource location.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The resource tags.
+          type: object
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      x-ms-azure-resource: true
+    WorkflowRunActionRepetitionProperties:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/OperationResult'
+      description: The workflow run action repetition properties definition.
+      properties:
+        repetitionIndexes:
+          description: The repetition indexes.
           items:
-            $ref: '#/components/schemas/ExpressionRoot'
+            $ref: '#/components/schemas/RepetitionIndex'
           type: array
+      type: object
+    ContentLink:
+      description: The content link.
+      properties:
+        contentHash:
+          $ref: '#/components/schemas/ContentHash'
+          description: The content hash.
+        contentSize:
+          description: The content size.
+          format: int64
+          type: integer
+        contentVersion:
+          description: The content version.
+          type: string
+        metadata:
+          $ref: '#/components/schemas/Object'
+          description: The metadata.
+        uri:
+          description: The content link URI.
+          type: string
+      type: object
+    WorkflowRunActionListResult:
+      description: The list of workflow run actions.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: A list of workflow run actions.
+          items:
+            $ref: '#/components/schemas/WorkflowRunAction'
+          type: array
+      type: object
+    Correlation:
+      description: The correlation property.
+      properties:
+        clientTrackingId:
+          description: The client tracking id.
+          type: string
+      type: object
+    RequestHistoryListResult:
+      description: The list of workflow request histories.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: A list of workflow request histories.
+          items:
+            $ref: '#/components/schemas/RequestHistory'
+          type: array
+      type: object
+    RequestHistoryProperties:
+      additionalProperties: false
+      description: The request history.
+      properties:
+        endTime:
+          description: The time the request ended.
+          format: date-time
+          type: string
+        request:
+          $ref: '#/components/schemas/Request'
+          description: The request.
+        response:
+          $ref: '#/components/schemas/Response'
+          description: The response.
+        startTime:
+          description: The time the request started.
+          format: date-time
+          type: string
+      type: object
+    RunCorrelation:
+      additionalProperties: false
+      description: The correlation properties.
+      properties:
+        clientKeywords:
+          description: The client keywords.
+          items:
+            type: string
+          type: array
+        clientTrackingId:
+          description: The client tracking identifier.
+          type: string
       type: object
     WorkflowRunActionProperties:
       description: The workflow run action properties.
@@ -1503,72 +1542,100 @@ components:
           readOnly: true
           type: string
       type: object
-    OperationResult:
-      additionalProperties: false
-      allOf:
-      - $ref: '#/components/schemas/OperationResultProperties'
-      description: The operation result definition.
+    RetryHistory:
+      description: The retry history.
       properties:
-        inputs:
-          $ref: '#/components/schemas/Object'
-          description: Gets the inputs.
-          readOnly: true
-        inputsLink:
-          $ref: '#/components/schemas/ContentLink'
-          description: Gets the link to inputs.
-          readOnly: true
-        iterationCount:
+        clientRequestId:
+          description: Gets the client request Id.
+          type: string
+        code:
+          description: Gets the status code.
+          type: string
+        endTime:
+          description: Gets the end time.
+          format: date-time
+          type: string
+        error:
+          $ref: '#/components/schemas/ErrorResponse'
+          description: Gets the error response.
+        serviceRequestId:
+          description: Gets the service request Id.
+          type: string
+        startTime:
+          description: Gets the start time.
+          format: date-time
+          type: string
+      type: object
+    RepetitionIndex:
+      additionalProperties: false
+      description: The workflow run action repetition index.
+      properties:
+        itemIndex:
+          description: The index.
           format: int32
           type: integer
-        outputs:
-          $ref: '#/components/schemas/Object'
-          description: Gets the outputs.
-          readOnly: true
-        outputsLink:
-          $ref: '#/components/schemas/ContentLink'
-          description: Gets the link to outputs.
-          readOnly: true
-        retryHistory:
-          description: Gets the retry histories.
-          items:
-            $ref: '#/components/schemas/RetryHistory'
-          type: array
-        trackedProperties:
-          $ref: '#/components/schemas/Object'
-          description: Gets the tracked properties.
-          readOnly: true
-        trackingId:
-          description: Gets the tracking id.
-          readOnly: true
+        scopeName:
+          description: The scope.
           type: string
+      required:
+      - itemIndex
       type: object
-    RequestHistoryProperties:
+    RequestHistory:
       additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/Resource'
       description: The request history.
       properties:
-        endTime:
-          description: The time the request ended.
-          format: date-time
-          type: string
-        request:
-          $ref: '#/components/schemas/Request'
-          description: The request.
-        response:
-          $ref: '#/components/schemas/Response'
-          description: The response.
-        startTime:
-          description: The time the request started.
-          format: date-time
-          type: string
+        properties:
+          $ref: '#/components/schemas/RequestHistoryProperties'
+          description: The request history properties.
       type: object
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    ErrorInfo:
+      additionalProperties: false
+      description: The error info.
       properties:
         code:
-          description: Error code.
+          description: The error code.
           type: string
-        message:
-          description: Error message indicating why the operation failed.
+      required:
+      - code
+      type: object
+    WorkflowRunActionRepetitionDefinition:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The workflow run action repetition definition.
+      properties:
+        properties:
+          $ref: '#/components/schemas/WorkflowRunActionRepetitionProperties'
+          description: The workflow run action repetition properties definition.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
+    WorkflowRunActionRepetitionDefinitionCollection:
+      description: A collection of workflow run action repetitions.
+      properties:
+        nextLink:
+          description: The link used to get the next page of recommendations.
+          type: string
+        value:
+          items:
+            $ref: '#/components/schemas/WorkflowRunActionRepetitionDefinition'
+          type: array
+      type: object
+    Request:
+      additionalProperties: false
+      description: A request.
+      properties:
+        headers:
+          $ref: '#/components/schemas/Object'
+          description: A list of all the headers attached to the request.
+        method:
+          description: The HTTP method used for the request.
+          type: string
+        uri:
+          description: The destination for the request.
           type: string
       type: object
     Expression:
@@ -1587,51 +1654,49 @@ components:
           type: string
         value: {}
       type: object
-    SubResource:
-      description: The sub resource type.
+    RunActionCorrelation:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/RunCorrelation'
+      description: The workflow run action correlation properties.
       properties:
-        id:
-          description: The resource id.
-          readOnly: true
+        actionTrackingId:
+          description: The action tracking identifier.
           type: string
-      x-ms-azure-resource: true
-    WorkflowRunActionListResult:
-      description: The list of workflow run actions.
+      type: object
+    AzureResourceErrorInfo:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/ErrorInfo'
+      description: The azure resource error info.
       properties:
-        nextLink:
-          description: The URL to get the next set of results.
-          type: string
-        value:
-          description: A list of workflow run actions.
+        details:
+          description: The error details.
           items:
-            $ref: '#/components/schemas/WorkflowRunAction'
+            $ref: '#/components/schemas/AzureResourceErrorInfo'
+          type: array
+        message:
+          description: The error message.
+          type: string
+      required:
+      - message
+      type: object
+    ExpressionTraces:
+      description: The expression traces.
+      properties:
+        inputs:
+          items:
+            $ref: '#/components/schemas/ExpressionRoot'
           type: array
       type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    ContentHash:
+      description: The content hash.
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
-    ContentLink:
-      description: The content link.
-      properties:
-        contentHash:
-          $ref: '#/components/schemas/ContentHash'
-          description: The content hash.
-        contentSize:
-          description: The content size.
-          format: int64
-          type: integer
-        contentVersion:
-          description: The content version.
+        algorithm:
+          description: The algorithm of the content hash.
           type: string
-        metadata:
-          $ref: '#/components/schemas/Object'
-          description: The metadata.
-        uri:
-          description: The content link URI.
+        value:
+          description: The value of the content hash.
           type: string
       type: object
     OperationResultProperties:
@@ -1658,6 +1723,14 @@ components:
           description: The status of the workflow scope repetition.
       type: object
       x-abstract: true
+    SubResource:
+      description: The sub resource type.
+      properties:
+        id:
+          description: The resource id.
+          readOnly: true
+          type: string
+      x-ms-azure-resource: true
     ExpressionRoot:
       allOf:
       - $ref: '#/components/schemas/Expression'
@@ -1667,100 +1740,28 @@ components:
           description: The path.
           type: string
       type: object
-    RequestHistory:
-      additionalProperties: false
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The request history.
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
-        properties:
-          $ref: '#/components/schemas/RequestHistoryProperties'
-          description: The request history properties.
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
       type: object
-    Request:
-      additionalProperties: false
-      description: A request.
-      properties:
-        headers:
-          $ref: '#/components/schemas/Object'
-          description: A list of all the headers attached to the request.
-        method:
-          description: The HTTP method used for the request.
-          type: string
-        uri:
-          description: The destination for the request.
-          type: string
-      type: object
-    WorkflowRunActionRepetitionDefinitionCollection:
-      description: A collection of workflow run action repetitions.
-      properties:
-        nextLink:
-          description: The link used to get the next page of recommendations.
-          type: string
-        value:
-          items:
-            $ref: '#/components/schemas/WorkflowRunActionRepetitionDefinition'
-          type: array
-      type: object
-    RequestHistoryListResult:
-      description: The list of workflow request histories.
-      properties:
-        nextLink:
-          description: The URL to get the next set of results.
-          type: string
-        value:
-          description: A list of workflow request histories.
-          items:
-            $ref: '#/components/schemas/RequestHistory'
-          type: array
-      type: object
-    ErrorInfo:
-      additionalProperties: false
-      description: The error info.
-      properties:
-        code:
-          description: The error code.
-          type: string
-      required:
-      - code
-      type: object
-    WorkflowRunActionRepetitionDefinition:
-      additionalProperties: false
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The workflow run action repetition definition.
-      properties:
-        properties:
-          $ref: '#/components/schemas/WorkflowRunActionRepetitionProperties'
-          description: The workflow run action repetition properties definition.
-          x-ms-client-flatten: true
-      required:
-      - properties
-      type: object
-    Resource:
-      description: The base resource type.
-      properties:
-        id:
-          description: The resource id.
-          readOnly: true
-          type: string
-        location:
-          description: The resource location.
-          type: string
-        name:
-          description: Gets the resource name.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The resource tags.
-          type: object
-        type:
-          description: Gets the resource type.
-          readOnly: true
-          type: string
-      x-ms-azure-resource: true
+  parameters:
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

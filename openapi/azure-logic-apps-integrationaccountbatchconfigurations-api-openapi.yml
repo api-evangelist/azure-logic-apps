@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
   description: REST API for Azure Logic Apps.
-  title: LogicManagementClient IntegrationAccountAgreements Integration Account Batch Configurations API
-  version: '2.0'
+  title: LogicManagementClient Integration Account Batch…
+  version: '2019-05-01'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -10,6 +10,7 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: logic
@@ -336,6 +337,67 @@ paths:
         required: true
 components:
   schemas:
+    RecurrenceScheduleOccurrence:
+      description: The recurrence schedule occurrence.
+      properties:
+        day:
+          $ref: '#/components/schemas/DayOfWeek'
+          description: The day of the week.
+        occurrence:
+          description: The occurrence.
+          format: int32
+          type: integer
+      type: object
+    BatchConfigurationProperties:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/ArtifactProperties'
+      description: The batch configuration properties definition.
+      properties:
+        batchGroupName:
+          description: The name of the batch group.
+          type: string
+        changedTime:
+          description: The changed time.
+          format: date-time
+          type: string
+        createdTime:
+          description: The created time.
+          format: date-time
+          type: string
+        releaseCriteria:
+          $ref: '#/components/schemas/BatchReleaseCriteria'
+          description: The batch release criteria.
+      required:
+      - batchGroupName
+      - releaseCriteria
+      type: object
+    BatchReleaseCriteria:
+      additionalProperties: false
+      description: The batch release criteria.
+      properties:
+        batchSize:
+          description: The batch size in bytes.
+          format: int32
+          type: integer
+        messageCount:
+          description: The message count.
+          format: int32
+          type: integer
+        recurrence:
+          $ref: '#/components/schemas/WorkflowTriggerRecurrence'
+          description: The recurrence.
+      type: object
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
     BatchConfiguration:
       additionalProperties: false
       allOf:
@@ -391,6 +453,53 @@ components:
               name: DaysOfWeek
           type: array
       type: object
+    RecurrenceFrequency:
+      description: The recurrence frequency.
+      enum:
+      - NotSpecified
+      - Second
+      - Minute
+      - Hour
+      - Day
+      - Week
+      - Month
+      - Year
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: RecurrenceFrequency
+    BatchConfigurationCollection:
+      description: A collection of batch configurations.
+      properties:
+        value:
+          items:
+            $ref: '#/components/schemas/BatchConfiguration'
+          type: array
+      type: object
+    Resource:
+      description: The base resource type.
+      properties:
+        id:
+          description: The resource id.
+          readOnly: true
+          type: string
+        location:
+          description: The resource location.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The resource tags.
+          type: object
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      x-ms-azure-resource: true
     ArtifactProperties:
       additionalProperties: false
       description: The artifact properties definition.
@@ -404,30 +513,6 @@ components:
           format: date-time
           type: string
         metadata: {}
-      type: object
-    BatchConfigurationProperties:
-      additionalProperties: false
-      allOf:
-      - $ref: '#/components/schemas/ArtifactProperties'
-      description: The batch configuration properties definition.
-      properties:
-        batchGroupName:
-          description: The name of the batch group.
-          type: string
-        changedTime:
-          description: The changed time.
-          format: date-time
-          type: string
-        createdTime:
-          description: The created time.
-          format: date-time
-          type: string
-        releaseCriteria:
-          $ref: '#/components/schemas/BatchReleaseCriteria'
-          description: The batch release criteria.
-      required:
-      - batchGroupName
-      - releaseCriteria
       type: object
     WorkflowTriggerRecurrence:
       description: The workflow trigger recurrence.
@@ -466,66 +551,6 @@ components:
       x-ms-enum:
         modelAsString: false
         name: DayOfWeek
-    RecurrenceFrequency:
-      description: The recurrence frequency.
-      enum:
-      - NotSpecified
-      - Second
-      - Minute
-      - Hour
-      - Day
-      - Week
-      - Month
-      - Year
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: RecurrenceFrequency
-    BatchReleaseCriteria:
-      additionalProperties: false
-      description: The batch release criteria.
-      properties:
-        batchSize:
-          description: The batch size in bytes.
-          format: int32
-          type: integer
-        messageCount:
-          description: The message count.
-          format: int32
-          type: integer
-        recurrence:
-          $ref: '#/components/schemas/WorkflowTriggerRecurrence'
-          description: The recurrence.
-      type: object
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
-    BatchConfigurationCollection:
-      description: A collection of batch configurations.
-      properties:
-        value:
-          items:
-            $ref: '#/components/schemas/BatchConfiguration'
-          type: array
-      type: object
-    RecurrenceScheduleOccurrence:
-      description: The recurrence schedule occurrence.
-      properties:
-        day:
-          $ref: '#/components/schemas/DayOfWeek'
-          description: The day of the week.
-        occurrence:
-          description: The occurrence.
-          format: int32
-          type: integer
-      type: object
     ErrorResponse:
       description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
@@ -533,42 +558,18 @@ components:
           $ref: '#/components/schemas/ErrorProperties'
           description: The error properties.
       type: object
-    Resource:
-      description: The base resource type.
-      properties:
-        id:
-          description: The resource id.
-          readOnly: true
-          type: string
-        location:
-          description: The resource location.
-          type: string
-        name:
-          description: Gets the resource name.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The resource tags.
-          type: object
-        type:
-          description: Gets the resource type.
-          readOnly: true
-          type: string
-      x-ms-azure-resource: true
   parameters:
-    subscriptionId:
-      description: The subscription id.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
     api-version:
       description: The API version.
       in: query
       name: api-version
+      required: true
+      schema:
+        type: string
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
       required: true
       schema:
         type: string

@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
   description: REST API for Azure Logic Apps.
-  title: LogicManagementClient IntegrationAccountAgreements Operations API
-  version: '2.0'
+  title: LogicManagementClient Operations API
+  version: '2019-05-01'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -10,6 +10,7 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01/logic.json
+    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: logic
@@ -952,14 +953,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    api-version:
-      description: The API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
   schemas:
     OperationListResult:
       description: Result of the request to list Logic operations. It contains a list of operations and a URL link to get the next set of results.
@@ -982,13 +975,6 @@ components:
           description: Error message indicating why the operation failed.
           type: string
       type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
     Operation:
       description: Logic REST API operation
       properties:
@@ -1009,6 +995,21 @@ components:
           description: 'Operation name: {provider}/{resource}/{operation}'
           type: string
       type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+  parameters:
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2
