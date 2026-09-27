@@ -420,6 +420,19 @@ paths:
         required: true
 components:
   schemas:
+    KeyType:
+      description: The key type.
+      enum:
+      - NotSpecified
+      - Primary
+      - Secondary
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: KeyType
+    Object:
+      properties: {}
+      type: object
     IntegrationAccountMap:
       allOf:
       - $ref: '#/components/schemas/Resource'
@@ -432,6 +445,72 @@ components:
       required:
       - properties
       type: object
+    IntegrationAccountMapListResult:
+      description: The list of integration account maps.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: The list of integration account maps.
+          items:
+            $ref: '#/components/schemas/IntegrationAccountMap'
+          type: array
+      type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    WorkflowTriggerListCallbackUrlQueries:
+      description: Gets the workflow trigger callback URL query parameters.
+      properties:
+        api-version:
+          description: The api version.
+          type: string
+        se:
+          description: The SAS timestamp.
+          type: string
+        sig:
+          description: The SAS signature.
+          type: string
+        sp:
+          description: The SAS permissions.
+          type: string
+        sv:
+          description: The SAS version.
+          type: string
+      type: object
+    WorkflowTriggerCallbackUrl:
+      description: The workflow trigger callback URL.
+      properties:
+        basePath:
+          description: Gets the workflow trigger callback URL base path.
+          readOnly: true
+          type: string
+        method:
+          description: Gets the workflow trigger callback URL HTTP method.
+          readOnly: true
+          type: string
+        queries:
+          $ref: '#/components/schemas/WorkflowTriggerListCallbackUrlQueries'
+          description: Gets the workflow trigger callback URL query parameters.
+        relativePath:
+          description: Gets the workflow trigger callback URL relative path.
+          readOnly: true
+          type: string
+        relativePathParameters:
+          description: Gets the workflow trigger callback URL relative path parameters.
+          items:
+            type: string
+          type: array
+        value:
+          description: Gets the workflow trigger callback URL.
+          readOnly: true
+          type: string
+      type: object
     ErrorProperties:
       description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
       properties:
@@ -441,9 +520,6 @@ components:
         message:
           description: Error message indicating why the operation failed.
           type: string
-      type: object
-    Object:
-      properties: {}
       type: object
     IntegrationAccountMapProperties:
       description: The integration account map.
@@ -486,29 +562,6 @@ components:
       required:
       - mapType
       type: object
-    GetCallbackUrlParameters:
-      description: The callback url parameters.
-      properties:
-        keyType:
-          $ref: '#/components/schemas/KeyType'
-          description: The key type.
-        notAfter:
-          description: The expiry time.
-          format: date-time
-          type: string
-      type: object
-    IntegrationAccountMapListResult:
-      description: The list of integration account maps.
-      properties:
-        nextLink:
-          description: The URL to get the next set of results.
-          type: string
-        value:
-          description: The list of integration account maps.
-          items:
-            $ref: '#/components/schemas/IntegrationAccountMap'
-          type: array
-      type: object
     MapType:
       description: The map type.
       enum:
@@ -521,44 +574,6 @@ components:
       x-ms-enum:
         modelAsString: true
         name: MapType
-    KeyType:
-      description: The key type.
-      enum:
-      - NotSpecified
-      - Primary
-      - Secondary
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: KeyType
-    WorkflowTriggerCallbackUrl:
-      description: The workflow trigger callback URL.
-      properties:
-        basePath:
-          description: Gets the workflow trigger callback URL base path.
-          readOnly: true
-          type: string
-        method:
-          description: Gets the workflow trigger callback URL HTTP method.
-          readOnly: true
-          type: string
-        queries:
-          $ref: '#/components/schemas/WorkflowTriggerListCallbackUrlQueries'
-          description: Gets the workflow trigger callback URL query parameters.
-        relativePath:
-          description: Gets the workflow trigger callback URL relative path.
-          readOnly: true
-          type: string
-        relativePathParameters:
-          description: Gets the workflow trigger callback URL relative path parameters.
-          items:
-            type: string
-          type: array
-        value:
-          description: Gets the workflow trigger callback URL.
-          readOnly: true
-          type: string
-      type: object
     Resource:
       description: The base resource type.
       properties:
@@ -583,14 +598,15 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
-    ContentHash:
-      description: The content hash.
+    GetCallbackUrlParameters:
+      description: The callback url parameters.
       properties:
-        algorithm:
-          description: The algorithm of the content hash.
-          type: string
-        value:
-          description: The value of the content hash.
+        keyType:
+          $ref: '#/components/schemas/KeyType'
+          description: The key type.
+        notAfter:
+          description: The expiry time.
+          format: date-time
           type: string
       type: object
     ContentLink:
@@ -613,31 +629,15 @@ components:
           description: The content link URI.
           type: string
       type: object
-    WorkflowTriggerListCallbackUrlQueries:
-      description: Gets the workflow trigger callback URL query parameters.
+    ContentHash:
+      description: The content hash.
       properties:
-        api-version:
-          description: The api version.
+        algorithm:
+          description: The algorithm of the content hash.
           type: string
-        se:
-          description: The SAS timestamp.
+        value:
+          description: The value of the content hash.
           type: string
-        sig:
-          description: The SAS signature.
-          type: string
-        sp:
-          description: The SAS permissions.
-          type: string
-        sv:
-          description: The SAS version.
-          type: string
-      type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
       type: object
   parameters:
     api-version:

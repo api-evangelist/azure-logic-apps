@@ -73,6 +73,24 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  schemas:
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
   parameters:
     subscriptionId:
       description: The subscription id.
@@ -88,24 +106,6 @@ components:
       required: true
       schema:
         type: string
-  schemas:
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
   securitySchemes:
     azure_auth:
       type: oauth2

@@ -416,33 +416,16 @@ paths:
         required: true
 components:
   schemas:
-    IntegrationAccountPartnerProperties:
-      description: The integration account partner properties.
-      properties:
-        changedTime:
-          description: The changed time.
-          format: date-time
-          readOnly: true
-          type: string
-        content:
-          $ref: '#/components/schemas/PartnerContent'
-          description: The partner content.
-        createdTime:
-          description: The created time.
-          format: date-time
-          readOnly: true
-          type: string
-        metadata:
-          description: The metadata.
-          properties: {}
-          type: object
-        partnerType:
-          $ref: '#/components/schemas/PartnerType'
-          description: The partner type.
-      required:
-      - partnerType
-      - content
-      type: object
+    KeyType:
+      description: The key type.
+      enum:
+      - NotSpecified
+      - Primary
+      - Secondary
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: KeyType
     B2BPartnerContent:
       description: The B2B partner content.
       properties:
@@ -451,49 +434,6 @@ components:
           items:
             $ref: '#/components/schemas/BusinessIdentity'
           type: array
-      type: object
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
-    BusinessIdentity:
-      description: The integration account partner's business identity.
-      properties:
-        qualifier:
-          description: The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
-          type: string
-        value:
-          description: The user defined business identity value.
-          type: string
-      required:
-      - qualifier
-      - value
-      type: object
-    PartnerType:
-      description: The partner type.
-      enum:
-      - NotSpecified
-      - B2B
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: PartnerType
-    GetCallbackUrlParameters:
-      description: The callback url parameters.
-      properties:
-        keyType:
-          $ref: '#/components/schemas/KeyType'
-          description: The key type.
-        notAfter:
-          description: The expiry time.
-          format: date-time
-          type: string
       type: object
     PartnerContent:
       description: The integration account partner content.
@@ -514,6 +454,13 @@ components:
       required:
       - properties
       type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
     IntegrationAccountPartnerListResult:
       description: The list of integration account partners.
       properties:
@@ -525,6 +472,34 @@ components:
           items:
             $ref: '#/components/schemas/IntegrationAccountPartner'
           type: array
+      type: object
+    PartnerType:
+      description: The partner type.
+      enum:
+      - NotSpecified
+      - B2B
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: PartnerType
+    WorkflowTriggerListCallbackUrlQueries:
+      description: Gets the workflow trigger callback URL query parameters.
+      properties:
+        api-version:
+          description: The api version.
+          type: string
+        se:
+          description: The SAS timestamp.
+          type: string
+        sig:
+          description: The SAS signature.
+          type: string
+        sp:
+          description: The SAS permissions.
+          type: string
+        sv:
+          description: The SAS version.
+          type: string
       type: object
     WorkflowTriggerCallbackUrl:
       description: The workflow trigger callback URL.
@@ -578,41 +553,66 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
-    KeyType:
-      description: The key type.
-      enum:
-      - NotSpecified
-      - Primary
-      - Secondary
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: KeyType
-    WorkflowTriggerListCallbackUrlQueries:
-      description: Gets the workflow trigger callback URL query parameters.
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
       properties:
-        api-version:
-          description: The api version.
+        code:
+          description: Error code.
           type: string
-        se:
-          description: The SAS timestamp.
-          type: string
-        sig:
-          description: The SAS signature.
-          type: string
-        sp:
-          description: The SAS permissions.
-          type: string
-        sv:
-          description: The SAS version.
+        message:
+          description: Error message indicating why the operation failed.
           type: string
       type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    GetCallbackUrlParameters:
+      description: The callback url parameters.
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
+        keyType:
+          $ref: '#/components/schemas/KeyType'
+          description: The key type.
+        notAfter:
+          description: The expiry time.
+          format: date-time
+          type: string
+      type: object
+    BusinessIdentity:
+      description: The integration account partner's business identity.
+      properties:
+        qualifier:
+          description: The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
+          type: string
+        value:
+          description: The user defined business identity value.
+          type: string
+      required:
+      - qualifier
+      - value
+      type: object
+    IntegrationAccountPartnerProperties:
+      description: The integration account partner properties.
+      properties:
+        changedTime:
+          description: The changed time.
+          format: date-time
+          readOnly: true
+          type: string
+        content:
+          $ref: '#/components/schemas/PartnerContent'
+          description: The partner content.
+        createdTime:
+          description: The created time.
+          format: date-time
+          readOnly: true
+          type: string
+        metadata:
+          description: The metadata.
+          properties: {}
+          type: object
+        partnerType:
+          $ref: '#/components/schemas/PartnerType'
+          description: The partner type.
+      required:
+      - partnerType
+      - content
       type: object
   parameters:
     api-version:

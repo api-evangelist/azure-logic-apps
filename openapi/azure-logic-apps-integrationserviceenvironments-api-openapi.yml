@@ -690,16 +690,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
     IntegrationServiceEnvironmentAccessEndpoint:
       description: The integration service environment access endpoint.
       properties:
@@ -707,19 +697,18 @@ components:
           $ref: '#/components/schemas/IntegrationServiceEnvironmentAccessEndpointType'
           description: The access endpoint type.
       type: object
-    WorkflowState:
-      description: The workflow state.
-      enum:
-      - NotSpecified
-      - Completed
-      - Enabled
-      - Disabled
-      - Deleted
-      - Suspended
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: WorkflowState
+    IntegrationServiceEnvironmentListResult:
+      description: The list of integration service environments.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          items:
+            $ref: '#/components/schemas/IntegrationServiceEnvironment'
+            description: The integration service environment.
+          type: array
+      type: object
     Resource:
       description: The base resource type.
       properties:
@@ -744,86 +733,16 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
-    IpAddress:
-      description: The ip address.
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
       properties:
-        address:
-          description: The address.
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
           type: string
       type: object
-    IntegrationServiceEnvironmentSkuName:
-      description: The integration service environment sku name.
-      enum:
-      - NotSpecified
-      - Premium
-      - Developer
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentSkuName
-    NetworkConfiguration:
-      description: The network configuration.
-      properties:
-        accessEndpoint:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentAccessEndpoint'
-          description: The access endpoint.
-        subnets:
-          description: The subnets.
-          items:
-            $ref: '#/components/schemas/ResourceReference'
-            description: The subnet.
-          type: array
-        virtualNetworkAddressSpace:
-          description: Gets the virtual network address space.
-          type: string
-      type: object
-    WorkflowProvisioningState:
-      description: The workflow provisioning state.
-      enum:
-      - NotSpecified
-      - Accepted
-      - Running
-      - Ready
-      - Creating
-      - Created
-      - Deleting
-      - Deleted
-      - Canceled
-      - Failed
-      - Succeeded
-      - Moving
-      - Updating
-      - Registering
-      - Registered
-      - Unregistering
-      - Unregistered
-      - Completed
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: WorkflowProvisioningState
-    IntegrationServiceEnvironmentListResult:
-      description: The list of integration service environments.
-      properties:
-        nextLink:
-          description: The URL to get the next set of results.
-          type: string
-        value:
-          items:
-            $ref: '#/components/schemas/IntegrationServiceEnvironment'
-            description: The integration service environment.
-          type: array
-      type: object
-    IntegrationServiceEnvironmentAccessEndpointType:
-      description: The integration service environment access endpoint type.
-      enum:
-      - NotSpecified
-      - External
-      - Internal
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentAccessEndpointType
     IntegrationServiceEnvironmentSku:
       description: The integration service environment sku.
       properties:
@@ -854,31 +773,90 @@ components:
           $ref: '#/components/schemas/WorkflowState'
           description: The integration service environment state.
       type: object
-    FlowEndpointsConfiguration:
-      description: The endpoints configuration.
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
-        connector:
-          $ref: '#/components/schemas/FlowEndpoints'
-          description: The connector endpoints.
-        workflow:
-          $ref: '#/components/schemas/FlowEndpoints'
-          description: The workflow endpoints.
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
       type: object
-    ResourceReference:
-      description: The resource reference.
+    IpAddress:
+      description: The ip address.
       properties:
-        id:
-          description: The resource id.
-          type: string
-        name:
-          description: Gets the resource name.
-          readOnly: true
-          type: string
-        type:
-          description: Gets the resource type.
-          readOnly: true
+        address:
+          description: The address.
           type: string
       type: object
+    WorkflowState:
+      description: The workflow state.
+      enum:
+      - NotSpecified
+      - Completed
+      - Enabled
+      - Disabled
+      - Deleted
+      - Suspended
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: WorkflowState
+    IntegrationServiceEnvironmentSkuName:
+      description: The integration service environment sku name.
+      enum:
+      - NotSpecified
+      - Premium
+      - Developer
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentSkuName
+    WorkflowProvisioningState:
+      description: The workflow provisioning state.
+      enum:
+      - NotSpecified
+      - Accepted
+      - Running
+      - Ready
+      - Creating
+      - Created
+      - Deleting
+      - Deleted
+      - Canceled
+      - Failed
+      - Succeeded
+      - Moving
+      - Updating
+      - Registering
+      - Registered
+      - Unregistering
+      - Unregistered
+      - Completed
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: WorkflowProvisioningState
+    IntegrationServiceEnvironment:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The integration service environment.
+      properties:
+        properties:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentProperties'
+          description: The integration service environment properties.
+        sku:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentSku'
+          description: The sku.
+      type: object
+    IntegrationServiceEnvironmentAccessEndpointType:
+      description: The integration service environment access endpoint type.
+      enum:
+      - NotSpecified
+      - External
+      - Internal
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentAccessEndpointType
     FlowEndpoints:
       description: The flow endpoints configuration.
       properties:
@@ -895,24 +873,46 @@ components:
             description: The ip address.
           type: array
       type: object
-    IntegrationServiceEnvironment:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The integration service environment.
+    ResourceReference:
+      description: The resource reference.
       properties:
-        properties:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentProperties'
-          description: The integration service environment properties.
-        sku:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentSku'
-          description: The sku.
+        id:
+          description: The resource id.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
       type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    NetworkConfiguration:
+      description: The network configuration.
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
+        accessEndpoint:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentAccessEndpoint'
+          description: The access endpoint.
+        subnets:
+          description: The subnets.
+          items:
+            $ref: '#/components/schemas/ResourceReference'
+            description: The subnet.
+          type: array
+        virtualNetworkAddressSpace:
+          description: Gets the virtual network address space.
+          type: string
+      type: object
+    FlowEndpointsConfiguration:
+      description: The endpoints configuration.
+      properties:
+        connector:
+          $ref: '#/components/schemas/FlowEndpoints'
+          description: The connector endpoints.
+        workflow:
+          $ref: '#/components/schemas/FlowEndpoints'
+          description: The workflow endpoints.
       type: object
   parameters:
     subscriptionId:

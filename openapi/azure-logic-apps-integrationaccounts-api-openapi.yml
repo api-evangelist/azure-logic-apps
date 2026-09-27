@@ -678,87 +678,27 @@ paths:
         required: true
 components:
   schemas:
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    TrackingEventErrorInfo:
+      additionalProperties: false
+      description: The tracking event error info.
       properties:
         code:
-          description: Error code.
+          description: The code.
           type: string
         message:
-          description: Error message indicating why the operation failed.
+          description: The message.
           type: string
       type: object
-    IntegrationAccountListResult:
-      description: The list of integration accounts.
-      properties:
-        nextLink:
-          description: The URL to get the next set of results.
-          type: string
-        value:
-          description: The list of integration accounts.
-          items:
-            $ref: '#/components/schemas/IntegrationAccount'
-          type: array
-      type: object
-    TrackingEvent:
+    KeyVaultReference:
       additionalProperties: false
-      description: The tracking event.
+      allOf:
+      - $ref: '#/components/schemas/ResourceReference'
+      description: The key vault reference.
       properties:
-        error:
-          $ref: '#/components/schemas/TrackingEventErrorInfo'
-          description: The error.
-        eventLevel:
-          $ref: '#/components/schemas/EventLevel'
-          description: The event level.
-        eventTime:
-          description: The event time.
-          format: date-time
-          type: string
-        recordType:
-          $ref: '#/components/schemas/TrackingRecordType'
-          description: The record type.
-      required:
-      - eventLevel
-      - eventTime
-      - recordType
-      type: object
-    ListKeyVaultKeysDefinition:
-      additionalProperties: false
-      description: The list key vault keys definition.
-      properties:
-        keyVault:
-          $ref: '#/components/schemas/KeyVaultReference'
-          description: The key vault reference.
-        skipToken:
-          description: The skip token.
-          type: string
-      required:
-      - keyVault
-      type: object
-    GetCallbackUrlParameters:
-      description: The callback url parameters.
-      properties:
-        keyType:
-          $ref: '#/components/schemas/KeyType'
-          description: The key type.
-        notAfter:
-          description: The expiry time.
-          format: date-time
+        name:
+          description: The key vault name.
           type: string
       type: object
-    WorkflowState:
-      description: The workflow state.
-      enum:
-      - NotSpecified
-      - Completed
-      - Enabled
-      - Disabled
-      - Deleted
-      - Suspended
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: WorkflowState
     IntegrationServiceEnvironmentAccessEndpoint:
       description: The integration service environment access endpoint.
       properties:
@@ -766,15 +706,12 @@ components:
           $ref: '#/components/schemas/IntegrationServiceEnvironmentAccessEndpointType'
           description: The access endpoint type.
       type: object
-    IntegrationAccountProperties:
-      description: The integration account properties.
+    CallbackUrl:
+      description: The callback url.
       properties:
-        integrationServiceEnvironment:
-          $ref: '#/components/schemas/IntegrationServiceEnvironment'
-          description: The integration service environment.
-        state:
-          $ref: '#/components/schemas/WorkflowState'
-          description: The workflow state.
+        value:
+          description: The URL value.
+          type: string
       type: object
     Resource:
       description: The base resource type.
@@ -800,6 +737,27 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    IntegrationServiceEnvironmentSku:
+      description: The integration service environment sku.
+      properties:
+        capacity:
+          description: The sku capacity.
+          format: int32
+          type: integer
+        name:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuName'
+          description: The sku name.
+      type: object
     KeyVaultKeyCollection:
       description: Collection of key vault keys.
       properties:
@@ -812,81 +770,24 @@ components:
             $ref: '#/components/schemas/KeyVaultKey'
           type: array
       type: object
-    IpAddress:
-      description: The ip address.
+    IntegrationServiceEnvironmentProperties:
+      description: The integration service environment properties.
       properties:
-        address:
-          description: The address.
+        endpointsConfiguration:
+          $ref: '#/components/schemas/FlowEndpointsConfiguration'
+          description: The endpoints configuration.
+        integrationServiceEnvironmentId:
+          description: Gets the tracking id.
           type: string
-      type: object
-    IntegrationAccountSku:
-      description: The integration account sku.
-      properties:
-        name:
-          $ref: '#/components/schemas/IntegrationAccountSkuName'
-          description: The sku name.
-      required:
-      - name
-      type: object
-    IntegrationServiceEnvironmentSkuName:
-      description: The integration service environment sku name.
-      enum:
-      - NotSpecified
-      - Premium
-      - Developer
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentSkuName
-    TrackingRecordType:
-      description: The tracking record type.
-      enum:
-      - NotSpecified
-      - Custom
-      - AS2Message
-      - AS2MDN
-      - X12Interchange
-      - X12FunctionalGroup
-      - X12TransactionSet
-      - X12InterchangeAcknowledgment
-      - X12FunctionalGroupAcknowledgment
-      - X12TransactionSetAcknowledgment
-      - EdifactInterchange
-      - EdifactFunctionalGroup
-      - EdifactTransactionSet
-      - EdifactInterchangeAcknowledgment
-      - EdifactFunctionalGroupAcknowledgment
-      - EdifactTransactionSetAcknowledgment
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: TrackingRecordType
-    TrackingEventErrorInfo:
-      additionalProperties: false
-      description: The tracking event error info.
-      properties:
-        code:
-          description: The code.
-          type: string
-        message:
-          description: The message.
-          type: string
-      type: object
-    NetworkConfiguration:
-      description: The network configuration.
-      properties:
-        accessEndpoint:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentAccessEndpoint'
-          description: The access endpoint.
-        subnets:
-          description: The subnets.
-          items:
-            $ref: '#/components/schemas/ResourceReference'
-            description: The subnet.
-          type: array
-        virtualNetworkAddressSpace:
-          description: Gets the virtual network address space.
-          type: string
+        networkConfiguration:
+          $ref: '#/components/schemas/NetworkConfiguration'
+          description: The network configuration.
+        provisioningState:
+          $ref: '#/components/schemas/WorkflowProvisioningState'
+          description: The provisioning state.
+        state:
+          $ref: '#/components/schemas/WorkflowState'
+          description: The integration service environment state.
       type: object
     KeyVaultKey:
       description: The key vault key.
@@ -910,6 +811,73 @@ components:
           description: The key id.
           type: string
       type: object
+    RegenerateActionParameter:
+      description: The access key regenerate action content.
+      properties:
+        keyType:
+          $ref: '#/components/schemas/KeyType'
+          description: The key type.
+      type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    TrackingRecordType:
+      description: The tracking record type.
+      enum:
+      - NotSpecified
+      - Custom
+      - AS2Message
+      - AS2MDN
+      - X12Interchange
+      - X12FunctionalGroup
+      - X12TransactionSet
+      - X12InterchangeAcknowledgment
+      - X12FunctionalGroupAcknowledgment
+      - X12TransactionSetAcknowledgment
+      - EdifactInterchange
+      - EdifactFunctionalGroup
+      - EdifactTransactionSet
+      - EdifactInterchangeAcknowledgment
+      - EdifactFunctionalGroupAcknowledgment
+      - EdifactTransactionSetAcknowledgment
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: TrackingRecordType
+    IntegrationAccountSku:
+      description: The integration account sku.
+      properties:
+        name:
+          $ref: '#/components/schemas/IntegrationAccountSkuName'
+          description: The sku name.
+      required:
+      - name
+      type: object
+    GetCallbackUrlParameters:
+      description: The callback url parameters.
+      properties:
+        keyType:
+          $ref: '#/components/schemas/KeyType'
+          description: The key type.
+        notAfter:
+          description: The expiry time.
+          format: date-time
+          type: string
+      type: object
+    KeyType:
+      description: The key type.
+      enum:
+      - NotSpecified
+      - Primary
+      - Secondary
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: KeyType
     IntegrationAccount:
       allOf:
       - $ref: '#/components/schemas/Resource'
@@ -923,6 +891,48 @@ components:
           $ref: '#/components/schemas/IntegrationAccountSku'
           description: The sku.
       type: object
+    IpAddress:
+      description: The ip address.
+      properties:
+        address:
+          description: The address.
+          type: string
+      type: object
+    TrackingEvent:
+      additionalProperties: false
+      description: The tracking event.
+      properties:
+        error:
+          $ref: '#/components/schemas/TrackingEventErrorInfo'
+          description: The error.
+        eventLevel:
+          $ref: '#/components/schemas/EventLevel'
+          description: The event level.
+        eventTime:
+          description: The event time.
+          format: date-time
+          type: string
+        recordType:
+          $ref: '#/components/schemas/TrackingRecordType'
+          description: The record type.
+      required:
+      - eventLevel
+      - eventTime
+      - recordType
+      type: object
+    WorkflowState:
+      description: The workflow state.
+      enum:
+      - NotSpecified
+      - Completed
+      - Enabled
+      - Disabled
+      - Deleted
+      - Suspended
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: WorkflowState
     IntegrationAccountSkuName:
       description: The integration account sku name.
       enum:
@@ -934,6 +944,48 @@ components:
       x-ms-enum:
         modelAsString: true
         name: IntegrationAccountSkuName
+    IntegrationAccountProperties:
+      description: The integration account properties.
+      properties:
+        integrationServiceEnvironment:
+          $ref: '#/components/schemas/IntegrationServiceEnvironment'
+          description: The integration service environment.
+        state:
+          $ref: '#/components/schemas/WorkflowState'
+          description: The workflow state.
+      type: object
+    EventLevel:
+      description: The event level.
+      enum:
+      - LogAlways
+      - Critical
+      - Error
+      - Warning
+      - Informational
+      - Verbose
+      type: string
+      x-ms-enum:
+        modelAsString: false
+        name: EventLevel
+    IntegrationServiceEnvironmentSkuName:
+      description: The integration service environment sku name.
+      enum:
+      - NotSpecified
+      - Premium
+      - Developer
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentSkuName
+    TrackEventsOperationOptions:
+      description: The track events operation options.
+      enum:
+      - None
+      - DisableSourceInfoEnrich
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: TrackEventsOperationOptions
     WorkflowProvisioningState:
       description: The workflow provisioning state.
       enum:
@@ -959,6 +1011,84 @@ components:
       x-ms-enum:
         modelAsString: true
         name: WorkflowProvisioningState
+    IntegrationAccountListResult:
+      description: The list of integration accounts.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: The list of integration accounts.
+          items:
+            $ref: '#/components/schemas/IntegrationAccount'
+          type: array
+      type: object
+    IntegrationServiceEnvironment:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The integration service environment.
+      properties:
+        properties:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentProperties'
+          description: The integration service environment properties.
+        sku:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentSku'
+          description: The sku.
+      type: object
+    IntegrationServiceEnvironmentAccessEndpointType:
+      description: The integration service environment access endpoint type.
+      enum:
+      - NotSpecified
+      - External
+      - Internal
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentAccessEndpointType
+    ListKeyVaultKeysDefinition:
+      additionalProperties: false
+      description: The list key vault keys definition.
+      properties:
+        keyVault:
+          $ref: '#/components/schemas/KeyVaultReference'
+          description: The key vault reference.
+        skipToken:
+          description: The skip token.
+          type: string
+      required:
+      - keyVault
+      type: object
+    FlowEndpoints:
+      description: The flow endpoints configuration.
+      properties:
+        accessEndpointIpAddresses:
+          description: The access endpoint ip address.
+          items:
+            $ref: '#/components/schemas/IpAddress'
+            description: The ip address.
+          type: array
+        outgoingIpAddresses:
+          description: The outgoing ip address.
+          items:
+            $ref: '#/components/schemas/IpAddress'
+            description: The ip address.
+          type: array
+      type: object
+    ResourceReference:
+      description: The resource reference.
+      properties:
+        id:
+          description: The resource id.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      type: object
     TrackingEventsDefinition:
       additionalProperties: false
       description: The tracking events definition.
@@ -978,102 +1108,22 @@ components:
       - sourceType
       - events
       type: object
-    TrackEventsOperationOptions:
-      description: The track events operation options.
-      enum:
-      - None
-      - DisableSourceInfoEnrich
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: TrackEventsOperationOptions
-    EventLevel:
-      description: The event level.
-      enum:
-      - LogAlways
-      - Critical
-      - Error
-      - Warning
-      - Informational
-      - Verbose
-      type: string
-      x-ms-enum:
-        modelAsString: false
-        name: EventLevel
-    IntegrationServiceEnvironmentAccessEndpointType:
-      description: The integration service environment access endpoint type.
-      enum:
-      - NotSpecified
-      - External
-      - Internal
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentAccessEndpointType
-    KeyVaultReference:
-      additionalProperties: false
-      allOf:
-      - $ref: '#/components/schemas/ResourceReference'
-      description: The key vault reference.
+    NetworkConfiguration:
+      description: The network configuration.
       properties:
-        name:
-          description: The key vault name.
+        accessEndpoint:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentAccessEndpoint'
+          description: The access endpoint.
+        subnets:
+          description: The subnets.
+          items:
+            $ref: '#/components/schemas/ResourceReference'
+            description: The subnet.
+          type: array
+        virtualNetworkAddressSpace:
+          description: Gets the virtual network address space.
           type: string
       type: object
-    IntegrationServiceEnvironmentSku:
-      description: The integration service environment sku.
-      properties:
-        capacity:
-          description: The sku capacity.
-          format: int32
-          type: integer
-        name:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuName'
-          description: The sku name.
-      type: object
-    RegenerateActionParameter:
-      description: The access key regenerate action content.
-      properties:
-        keyType:
-          $ref: '#/components/schemas/KeyType'
-          description: The key type.
-      type: object
-    CallbackUrl:
-      description: The callback url.
-      properties:
-        value:
-          description: The URL value.
-          type: string
-      type: object
-    IntegrationServiceEnvironmentProperties:
-      description: The integration service environment properties.
-      properties:
-        endpointsConfiguration:
-          $ref: '#/components/schemas/FlowEndpointsConfiguration'
-          description: The endpoints configuration.
-        integrationServiceEnvironmentId:
-          description: Gets the tracking id.
-          type: string
-        networkConfiguration:
-          $ref: '#/components/schemas/NetworkConfiguration'
-          description: The network configuration.
-        provisioningState:
-          $ref: '#/components/schemas/WorkflowProvisioningState'
-          description: The provisioning state.
-        state:
-          $ref: '#/components/schemas/WorkflowState'
-          description: The integration service environment state.
-      type: object
-    KeyType:
-      description: The key type.
-      enum:
-      - NotSpecified
-      - Primary
-      - Secondary
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: KeyType
     FlowEndpointsConfiguration:
       description: The endpoints configuration.
       properties:
@@ -1083,56 +1133,6 @@ components:
         workflow:
           $ref: '#/components/schemas/FlowEndpoints'
           description: The workflow endpoints.
-      type: object
-    ResourceReference:
-      description: The resource reference.
-      properties:
-        id:
-          description: The resource id.
-          type: string
-        name:
-          description: Gets the resource name.
-          readOnly: true
-          type: string
-        type:
-          description: Gets the resource type.
-          readOnly: true
-          type: string
-      type: object
-    FlowEndpoints:
-      description: The flow endpoints configuration.
-      properties:
-        accessEndpointIpAddresses:
-          description: The access endpoint ip address.
-          items:
-            $ref: '#/components/schemas/IpAddress'
-            description: The ip address.
-          type: array
-        outgoingIpAddresses:
-          description: The outgoing ip address.
-          items:
-            $ref: '#/components/schemas/IpAddress'
-            description: The ip address.
-          type: array
-      type: object
-    IntegrationServiceEnvironment:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The integration service environment.
-      properties:
-        properties:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentProperties'
-          description: The integration service environment properties.
-        sku:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentSku'
-          description: The sku.
-      type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
       type: object
   parameters:
     subscriptionId:

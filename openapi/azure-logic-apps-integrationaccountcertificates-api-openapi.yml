@@ -350,40 +350,6 @@ components:
       required:
       - properties
       type: object
-    IntegrationAccountCertificateProperties:
-      description: The integration account certificate properties.
-      properties:
-        changedTime:
-          description: The changed time.
-          format: date-time
-          readOnly: true
-          type: string
-        createdTime:
-          description: The created time.
-          format: date-time
-          readOnly: true
-          type: string
-        key:
-          $ref: '#/components/schemas/KeyVaultKeyReference'
-          description: The key details in the key vault.
-        metadata:
-          description: The metadata.
-          properties: {}
-          type: object
-        publicCertificate:
-          description: The public certificate.
-          type: string
-      type: object
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
     KeyVaultKeyReference:
       description: The reference to the key vault key.
       properties:
@@ -412,6 +378,25 @@ components:
       - keyVault
       - keyName
       type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    IntegrationAccountCertificateListResult:
+      description: The list of integration account certificates.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: The list of integration account certificates.
+          items:
+            $ref: '#/components/schemas/IntegrationAccountCertificate'
+          type: array
+      type: object
     Resource:
       description: The base resource type.
       properties:
@@ -436,24 +421,39 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
-    IntegrationAccountCertificateListResult:
-      description: The list of integration account certificates.
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
       properties:
-        nextLink:
-          description: The URL to get the next set of results.
+        code:
+          description: Error code.
           type: string
-        value:
-          description: The list of integration account certificates.
-          items:
-            $ref: '#/components/schemas/IntegrationAccountCertificate'
-          type: array
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
       type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    IntegrationAccountCertificateProperties:
+      description: The integration account certificate properties.
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
+        changedTime:
+          description: The changed time.
+          format: date-time
+          readOnly: true
+          type: string
+        createdTime:
+          description: The created time.
+          format: date-time
+          readOnly: true
+          type: string
+        key:
+          $ref: '#/components/schemas/KeyVaultKeyReference'
+          description: The key details in the key vault.
+        metadata:
+          description: The metadata.
+          properties: {}
+          type: object
+        publicCertificate:
+          description: The public certificate.
+          type: string
       type: object
   parameters:
     api-version:

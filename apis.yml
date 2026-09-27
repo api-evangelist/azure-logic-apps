@@ -174,7 +174,7 @@ apis:
     url: >-
       https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
 - aid: azure-logic-apps:azure-logic-apps-integrationserviceenvironmentmanagedapi-api
-  name: Azure Logic Apps integrationServiceEnvironmentManagedApi API
+  name: Azure Logic Apps Integration Service Environment Managed API
   description: >-
     The integrationServiceEnvironmentManagedApi API from Azure Logic Apps — 1 operation(s) for integrationserviceenvironmentmanagedapi.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
@@ -190,7 +190,7 @@ apis:
     url: >-
       https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
 - aid: azure-logic-apps:azure-logic-apps-integrationserviceenvironmentmanagedapis-api
-  name: Azure Logic Apps integrationServiceEnvironmentManagedApis API
+  name: Azure Logic Apps Integration Service Environment Managed APIs API
   description: >-
     The integrationServiceEnvironmentManagedApis API from Azure Logic Apps — 2 operation(s) for integrationserviceenvironmentmanagedapis.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
@@ -206,7 +206,7 @@ apis:
     url: >-
       https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
 - aid: azure-logic-apps:azure-logic-apps-integrationserviceenvironmentnetworkhealth-api
-  name: Azure Logic Apps integrationServiceEnvironmentNetworkHealth API
+  name: Azure Logic Apps Integration Service Environment Network Health API
   description: >-
     The integrationServiceEnvironmentNetworkHealth API from Azure Logic Apps — 1 operation(s) for integrationserviceenvironmentnetworkhealth.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
@@ -222,7 +222,7 @@ apis:
     url: >-
       https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
 - aid: azure-logic-apps:azure-logic-apps-integrationserviceenvironmentrestart-api
-  name: Azure Logic Apps integrationServiceEnvironmentRestart API
+  name: Azure Logic Apps Integration Service Environment Restart API
   description: >-
     The integrationServiceEnvironmentRestart API from Azure Logic Apps — 1 operation(s) for integrationserviceenvironmentrestart.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
@@ -253,7 +253,7 @@ apis:
     url: >-
       https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow
 - aid: azure-logic-apps:azure-logic-apps-integrationserviceenvironmentskus-api
-  name: Azure Logic Apps integrationServiceEnvironmentSkus API
+  name: Azure Logic Apps Integration Service Environment Skus API
   description: >-
     The integrationServiceEnvironmentSkus API from Azure Logic Apps — 1 operation(s) for integrationserviceenvironmentskus.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
@@ -361,8 +361,6 @@ apis:
   description: The Workflow Triggers API from Azure Logic Apps — 8 operation(s) for workflow triggers.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
   tags:
-  - WorkflowTriggers
-  tags_raw:
   - Workflow Triggers
   properties:
   - type: OpenAPI
@@ -377,8 +375,6 @@ apis:
   description: The Workflow Versions API from Azure Logic Apps — 2 operation(s) for workflow versions.
   humanURL: https://azure.microsoft.com/en-us/products/logic-apps
   tags:
-  - WorkflowVersions
-  tags_raw:
   - Workflow Versions
   properties:
   - type: OpenAPI

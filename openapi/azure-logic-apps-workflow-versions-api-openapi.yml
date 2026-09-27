@@ -220,30 +220,8 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ResourceReference:
-      description: The resource reference.
-      properties:
-        id:
-          description: The resource id.
-          type: string
-        name:
-          description: Gets the resource name.
-          readOnly: true
-          type: string
-        type:
-          description: Gets the resource type.
-          readOnly: true
-          type: string
-      type: object
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
+    Object:
+      properties: {}
       type: object
     WorkflowVersionProperties:
       description: The workflow version properties.
@@ -284,21 +262,6 @@ components:
           readOnly: true
           type: string
       type: object
-    Object:
-      properties: {}
-      type: object
-    Sku:
-      description: The sku type.
-      properties:
-        name:
-          $ref: '#/components/schemas/SkuName'
-          description: The name.
-        plan:
-          $ref: '#/components/schemas/ResourceReference'
-          description: The reference to plan.
-      required:
-      - name
-      type: object
     WorkflowState:
       description: The workflow state.
       enum:
@@ -312,6 +275,19 @@ components:
       x-ms-enum:
         modelAsString: true
         name: WorkflowState
+    SkuName:
+      description: The sku name.
+      enum:
+      - NotSpecified
+      - Free
+      - Shared
+      - Basic
+      - Standard
+      - Premium
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: SkuName
     ParameterType:
       description: The parameter type.
       enum:
@@ -328,6 +304,50 @@ components:
       x-ms-enum:
         modelAsString: true
         name: ParameterType
+    Sku:
+      description: The sku type.
+      properties:
+        name:
+          $ref: '#/components/schemas/SkuName'
+          description: The name.
+        plan:
+          $ref: '#/components/schemas/ResourceReference'
+          description: The reference to plan.
+      required:
+      - name
+      type: object
+    ResourceReference:
+      description: The resource reference.
+      properties:
+        id:
+          description: The resource id.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    WorkflowVersion:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The workflow version.
+      properties:
+        properties:
+          $ref: '#/components/schemas/WorkflowVersionProperties'
+          description: The workflow version properties.
+          x-ms-client-flatten: true
+      type: object
     Resource:
       description: The base resource type.
       properties:
@@ -352,28 +372,15 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
-    WorkflowVersionListResult:
-      description: The list of workflow versions.
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
       properties:
-        nextLink:
-          description: The URL to get the next set of results.
+        code:
+          description: Error code.
           type: string
-        value:
-          description: A list of workflow versions.
-          items:
-            $ref: '#/components/schemas/WorkflowVersion'
-            description: The workflow version.
-          type: array
-      type: object
-    WorkflowVersion:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The workflow version.
-      properties:
-        properties:
-          $ref: '#/components/schemas/WorkflowVersionProperties'
-          description: The workflow version properties.
-          x-ms-client-flatten: true
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
       type: object
     WorkflowParameter:
       description: The workflow parameters.
@@ -391,25 +398,18 @@ components:
           $ref: '#/components/schemas/Object'
           description: The value.
       type: object
-    SkuName:
-      description: The sku name.
-      enum:
-      - NotSpecified
-      - Free
-      - Shared
-      - Basic
-      - Standard
-      - Premium
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: SkuName
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    WorkflowVersionListResult:
+      description: The list of workflow versions.
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: A list of workflow versions.
+          items:
+            $ref: '#/components/schemas/WorkflowVersion'
+            description: The workflow version.
+          type: array
       type: object
   parameters:
     api-version:

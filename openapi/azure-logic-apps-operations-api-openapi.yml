@@ -953,6 +953,14 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
   schemas:
     OperationListResult:
       description: Result of the request to list Logic operations. It contains a list of operations and a URL link to get the next set of results.
@@ -965,15 +973,12 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
           type: array
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
       type: object
     Operation:
       description: Logic REST API operation
@@ -995,21 +1000,16 @@ components:
           description: 'Operation name: {provider}/{resource}/{operation}'
           type: string
       type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
       type: object
-  parameters:
-    api-version:
-      description: The API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

@@ -95,7 +95,58 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
   schemas:
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    IntegrationServiceEnvironmentSkuCapacity:
+      description: The integration service environment sku capacity.
+      properties:
+        default:
+          description: The default capacity.
+          format: int32
+          type: integer
+        maximum:
+          description: The maximum capacity.
+          format: int32
+          type: integer
+        minimum:
+          description: The minimum capacity.
+          format: int32
+          type: integer
+        scaleType:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuScaleType'
+          description: The sku scale type.
+      type: object
+    IntegrationServiceEnvironmentSkuName:
+      description: The integration service environment sku name.
+      enum:
+      - NotSpecified
+      - Premium
+      - Developer
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentSkuName
     IntegrationServiceEnvironmentSkuDefinition:
       description: The integration service environment sku definition.
       properties:
@@ -126,6 +177,16 @@ components:
           description: Error message indicating why the operation failed.
           type: string
       type: object
+    IntegrationServiceEnvironmentSkuScaleType:
+      description: The integration service environment sku scale type.
+      enum:
+      - Manual
+      - Automatic
+      - None
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentSkuScaleType
     IntegrationServiceEnvironmentSkuList:
       description: The list of integration service environment skus.
       properties:
@@ -138,67 +199,6 @@ components:
             $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuDefinition'
           type: array
       type: object
-    IntegrationServiceEnvironmentSkuScaleType:
-      description: The integration service environment sku scale type.
-      enum:
-      - Manual
-      - Automatic
-      - None
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentSkuScaleType
-    IntegrationServiceEnvironmentSkuName:
-      description: The integration service environment sku name.
-      enum:
-      - NotSpecified
-      - Premium
-      - Developer
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentSkuName
-    IntegrationServiceEnvironmentSkuCapacity:
-      description: The integration service environment sku capacity.
-      properties:
-        default:
-          description: The default capacity.
-          format: int32
-          type: integer
-        maximum:
-          description: The maximum capacity.
-          format: int32
-          type: integer
-        minimum:
-          description: The minimum capacity.
-          format: int32
-          type: integer
-        scaleType:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuScaleType'
-          description: The sku scale type.
-      type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
-  parameters:
-    api-version:
-      description: The API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
-    subscriptionId:
-      description: The subscription id.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
   securitySchemes:
     azure_auth:
       type: oauth2
