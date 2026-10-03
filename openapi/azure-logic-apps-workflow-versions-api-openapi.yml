@@ -220,8 +220,106 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    WorkflowState:
+      description: The workflow state.
+      enum:
+      - NotSpecified
+      - Completed
+      - Enabled
+      - Disabled
+      - Deleted
+      - Suspended
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: WorkflowState
     Object:
       properties: {}
+      type: object
+    WorkflowVersionListResult:
+      description: The list of workflow versions.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: A list of workflow versions.
+          items:
+            $ref: '#/components/schemas/WorkflowVersion'
+            description: The workflow version.
+          type: array
+      type: object
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    ResourceReference:
+      description: The resource reference.
+      properties:
+        id:
+          description: The resource id.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      type: object
+    ParameterType:
+      description: The parameter type.
+      enum:
+      - NotSpecified
+      - String
+      - SecureString
+      - Int
+      - Float
+      - Bool
+      - Array
+      - Object
+      - SecureObject
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: ParameterType
+    Resource:
+      description: The base resource type.
+      properties:
+        id:
+          description: The resource id.
+          readOnly: true
+          type: string
+        location:
+          description: The resource location.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The resource tags.
+          type: object
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      x-ms-azure-resource: true
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
       type: object
     WorkflowVersionProperties:
       description: The workflow version properties.
@@ -262,19 +360,28 @@ components:
           readOnly: true
           type: string
       type: object
-    WorkflowState:
-      description: The workflow state.
-      enum:
-      - NotSpecified
-      - Completed
-      - Enabled
-      - Disabled
-      - Deleted
-      - Suspended
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: WorkflowState
+    WorkflowVersion:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The workflow version.
+      properties:
+        properties:
+          $ref: '#/components/schemas/WorkflowVersionProperties'
+          description: The workflow version properties.
+          x-ms-client-flatten: true
+      type: object
+    Sku:
+      description: The sku type.
+      properties:
+        name:
+          $ref: '#/components/schemas/SkuName'
+          description: The name.
+        plan:
+          $ref: '#/components/schemas/ResourceReference'
+          description: The reference to plan.
+      required:
+      - name
+      type: object
     SkuName:
       description: The sku name.
       enum:
@@ -288,100 +395,6 @@ components:
       x-ms-enum:
         modelAsString: true
         name: SkuName
-    ParameterType:
-      description: The parameter type.
-      enum:
-      - NotSpecified
-      - String
-      - SecureString
-      - Int
-      - Float
-      - Bool
-      - Array
-      - Object
-      - SecureObject
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: ParameterType
-    Sku:
-      description: The sku type.
-      properties:
-        name:
-          $ref: '#/components/schemas/SkuName'
-          description: The name.
-        plan:
-          $ref: '#/components/schemas/ResourceReference'
-          description: The reference to plan.
-      required:
-      - name
-      type: object
-    ResourceReference:
-      description: The resource reference.
-      properties:
-        id:
-          description: The resource id.
-          type: string
-        name:
-          description: Gets the resource name.
-          readOnly: true
-          type: string
-        type:
-          description: Gets the resource type.
-          readOnly: true
-          type: string
-      type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
-    WorkflowVersion:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The workflow version.
-      properties:
-        properties:
-          $ref: '#/components/schemas/WorkflowVersionProperties'
-          description: The workflow version properties.
-          x-ms-client-flatten: true
-      type: object
-    Resource:
-      description: The base resource type.
-      properties:
-        id:
-          description: The resource id.
-          readOnly: true
-          type: string
-        location:
-          description: The resource location.
-          type: string
-        name:
-          description: Gets the resource name.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The resource tags.
-          type: object
-        type:
-          description: Gets the resource type.
-          readOnly: true
-          type: string
-      x-ms-azure-resource: true
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
     WorkflowParameter:
       description: The workflow parameters.
       properties:
@@ -398,31 +411,18 @@ components:
           $ref: '#/components/schemas/Object'
           description: The value.
       type: object
-    WorkflowVersionListResult:
-      description: The list of workflow versions.
-      properties:
-        nextLink:
-          description: The URL to get the next set of results.
-          type: string
-        value:
-          description: A list of workflow versions.
-          items:
-            $ref: '#/components/schemas/WorkflowVersion'
-            description: The workflow version.
-          type: array
-      type: object
   parameters:
-    api-version:
-      description: The API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
     subscriptionId:
       description: The subscription id.
       in: path
       name: subscriptionId
+      required: true
+      schema:
+        type: string
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
       required: true
       schema:
         type: string

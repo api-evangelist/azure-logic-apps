@@ -92,17 +92,17 @@ components:
           type: string
       type: object
   parameters:
-    subscriptionId:
-      description: The subscription id.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
     api-version:
       description: The API version.
       in: query
       name: api-version
+      required: true
+      schema:
+        type: string
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
       required: true
       schema:
         type: string

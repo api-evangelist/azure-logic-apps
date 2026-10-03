@@ -430,66 +430,6 @@ paths:
         required: true
 components:
   schemas:
-    IntegrationAccountSchema:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The integration account schema.
-      properties:
-        properties:
-          $ref: '#/components/schemas/IntegrationAccountSchemaProperties'
-          description: The integration account schema properties.
-          x-ms-client-flatten: true
-      required:
-      - properties
-      type: object
-    KeyType:
-      description: The key type.
-      enum:
-      - NotSpecified
-      - Primary
-      - Secondary
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: KeyType
-    SchemaType:
-      description: The schema type.
-      enum:
-      - NotSpecified
-      - Xml
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: SchemaType
-    Object:
-      properties: {}
-      type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
-    WorkflowTriggerListCallbackUrlQueries:
-      description: Gets the workflow trigger callback URL query parameters.
-      properties:
-        api-version:
-          description: The api version.
-          type: string
-        se:
-          description: The SAS timestamp.
-          type: string
-        sig:
-          description: The SAS signature.
-          type: string
-        sp:
-          description: The SAS permissions.
-          type: string
-        sv:
-          description: The SAS version.
-          type: string
-      type: object
     WorkflowTriggerCallbackUrl:
       description: The workflow trigger callback URL.
       properties:
@@ -518,6 +458,119 @@ components:
           readOnly: true
           type: string
       type: object
+    KeyType:
+      description: The key type.
+      enum:
+      - NotSpecified
+      - Primary
+      - Secondary
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: KeyType
+    Object:
+      properties: {}
+      type: object
+    ContentLink:
+      description: The content link.
+      properties:
+        contentHash:
+          $ref: '#/components/schemas/ContentHash'
+          description: The content hash.
+        contentSize:
+          description: The content size.
+          format: int64
+          type: integer
+        contentVersion:
+          description: The content version.
+          type: string
+        metadata:
+          $ref: '#/components/schemas/Object'
+          description: The metadata.
+        uri:
+          description: The content link URI.
+          type: string
+      type: object
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    IntegrationAccountSchemaListResult:
+      description: The list of integration account schemas.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: The list of integration account schemas.
+          items:
+            $ref: '#/components/schemas/IntegrationAccountSchema'
+          type: array
+      type: object
+    WorkflowTriggerListCallbackUrlQueries:
+      description: Gets the workflow trigger callback URL query parameters.
+      properties:
+        api-version:
+          description: The api version.
+          type: string
+        se:
+          description: The SAS timestamp.
+          type: string
+        sig:
+          description: The SAS signature.
+          type: string
+        sp:
+          description: The SAS permissions.
+          type: string
+        sv:
+          description: The SAS version.
+          type: string
+      type: object
+    GetCallbackUrlParameters:
+      description: The callback url parameters.
+      properties:
+        keyType:
+          $ref: '#/components/schemas/KeyType'
+          description: The key type.
+        notAfter:
+          description: The expiry time.
+          format: date-time
+          type: string
+      type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    SchemaType:
+      description: The schema type.
+      enum:
+      - NotSpecified
+      - Xml
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: SchemaType
+    IntegrationAccountSchema:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The integration account schema.
+      properties:
+        properties:
+          $ref: '#/components/schemas/IntegrationAccountSchemaProperties'
+          description: The integration account schema properties.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
     Resource:
       description: The base resource type.
       properties:
@@ -542,16 +595,6 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
     IntegrationAccountSchemaProperties:
       description: The integration account schema properties.
       properties:
@@ -595,37 +638,6 @@ components:
       required:
       - schemaType
       type: object
-    GetCallbackUrlParameters:
-      description: The callback url parameters.
-      properties:
-        keyType:
-          $ref: '#/components/schemas/KeyType'
-          description: The key type.
-        notAfter:
-          description: The expiry time.
-          format: date-time
-          type: string
-      type: object
-    ContentLink:
-      description: The content link.
-      properties:
-        contentHash:
-          $ref: '#/components/schemas/ContentHash'
-          description: The content hash.
-        contentSize:
-          description: The content size.
-          format: int64
-          type: integer
-        contentVersion:
-          description: The content version.
-          type: string
-        metadata:
-          $ref: '#/components/schemas/Object'
-          description: The metadata.
-        uri:
-          description: The content link URI.
-          type: string
-      type: object
     ContentHash:
       description: The content hash.
       properties:
@@ -635,18 +647,6 @@ components:
         value:
           description: The value of the content hash.
           type: string
-      type: object
-    IntegrationAccountSchemaListResult:
-      description: The list of integration account schemas.
-      properties:
-        nextLink:
-          description: The URL to get the next set of results.
-          type: string
-        value:
-          description: The list of integration account schemas.
-          items:
-            $ref: '#/components/schemas/IntegrationAccountSchema'
-          type: array
       type: object
   parameters:
     subscriptionId:

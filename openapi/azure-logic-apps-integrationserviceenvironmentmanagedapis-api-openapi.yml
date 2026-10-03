@@ -557,17 +557,17 @@ paths:
                           tooltip: Quality of Service to be used for SNC communication of this particular destination/server
                       sncSso:
                         allowedValues:
-                        - value: true
-                        - value: false
-                        defaultValue: true
+                        - value: 'On'
+                        - value: 'Off'
+                        defaultValue: 'On'
                         type: string
                         uiDefinition:
                           constraints:
                             allowedValues:
                             - text: Logon using the SNC identity
-                              value: true
+                              value: 'On'
                             - text: Logon with the username/password information provided on RFC level
-                              value: false
+                              value: 'Off'
                             capability: []
                             dependencies:
                               UseSnc:
@@ -1083,64 +1083,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    SwaggerXml:
-      description: The Swagger XML.
-      properties:
-        attribute:
-          description: Indicates whether the property should be an attribute instead of an element.
-          type: boolean
-        extensions:
-          additionalProperties:
-            $ref: '#/components/schemas/Object'
-          description: The vendor extensions.
-          type: object
-        name:
-          description: The xml element or attribute name.
-          type: string
-        namespace:
-          description: The xml namespace.
-          type: string
-        prefix:
-          description: The name prefix.
-          type: string
-        wrapped:
-          description: Indicates whether the array elements are wrapped in a container element.
-          type: boolean
-      type: object
-    SwaggerExternalDocumentation:
-      description: The swagger external documentation
-      properties:
-        description:
-          description: The document description.
-          type: string
-        extensions:
-          additionalProperties:
-            $ref: '#/components/schemas/Object'
-          description: The vendor extensions.
-          type: object
-        uri:
-          description: The documentation Uri.
-          type: string
-      type: object
-    ApiDeploymentParameterMetadata:
-      description: The API deployment parameter metadata.
-      properties:
-        description:
-          description: The description.
-          type: string
-        displayName:
-          description: The display name.
-          type: string
-        isRequired:
-          description: Indicates whether its required.
-          type: boolean
-        type:
-          description: The type.
-          type: string
-        visibility:
-          $ref: '#/components/schemas/ApiDeploymentParameterVisibility'
-          description: The visibility.
-      type: object
     ApiType:
       enum:
       - NotSpecified
@@ -1150,190 +1092,63 @@ components:
       x-ms-enum:
         modelAsString: true
         name: ApiType
-    SwaggerCustomDynamicTreeParameter:
-      description: The swagger custom dynamic tree parameter.
+    SwaggerCustomDynamicList:
+      description: The swagger custom dynamic list.
       properties:
-        parameterReference:
-          description: The parameter reference.
+        builtInOperation:
+          description: The built in operation.
           type: string
-        required:
-          description: Indicates whether the parameter is required.
-          type: boolean
-        selectedItemValuePath:
-          description: Gets or sets a path to a property in the currently selected item to pass as a value to a parameter for the given operation.
+        itemTitlePath:
+          description: The path to an item property which defines the display name of the item.
           type: string
-        value:
-          $ref: '#/components/schemas/Object'
-          description: The parameter value.
-      type: object
-    Resource:
-      description: The base resource type.
-      properties:
-        id:
-          description: The resource id.
-          readOnly: true
+        itemValuePath:
+          description: The path to a property which defines the value which should be used.
           type: string
-        location:
-          description: The resource location.
+        itemsPath:
+          description: The path to a response property (relative to the response object, not the response body) which contains an array of dynamic value items.
           type: string
-        name:
-          description: Gets the resource name.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The resource tags.
-          type: object
-        type:
-          description: Gets the resource type.
-          readOnly: true
-          type: string
-      x-ms-azure-resource: true
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
-    ApiTier:
-      description: The Api tier.
-      enum:
-      - NotSpecified
-      - Enterprise
-      - Standard
-      - Premium
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: ApiTier
-    ApiOperationListResult:
-      description: The list of managed API operations.
-      properties:
-        nextLink:
-          description: The URL to get the next set of results.
-          type: string
-        value:
-          description: The api operation definitions for an API.
-          items:
-            $ref: '#/components/schemas/ApiOperation'
-          type: array
-      type: object
-    SwaggerCustomDynamicProperties:
-      description: The swagger custom dynamic properties.
-      properties:
         operationId:
           description: The operation id to fetch dynamic schema.
           type: string
         parameters:
           additionalProperties:
             $ref: '#/components/schemas/SwaggerCustomDynamicProperties'
-          description: The operation parameters.
+          description: The parameters.
           type: object
-        valuePath:
-          description: Json pointer to the dynamic schema on the response body.
-          type: string
       type: object
-    ManagedApiListResult:
-      description: The list of managed APIs.
+    ApiOperationAnnotation:
+      description: The Api Operation Annotation.
       properties:
-        nextLink:
-          description: The URL to get the next set of results.
+        family:
+          description: The family.
           type: string
-        value:
-          description: The managed APIs.
+        revision:
+          description: The revision.
+          type: integer
+        status:
+          $ref: '#/components/schemas/StatusAnnotation'
+      type: object
+    WsdlService:
+      description: The WSDL service.
+      properties:
+        EndpointQualifiedNames:
+          description: The list of endpoints' qualified names.
           items:
-            $ref: '#/components/schemas/ManagedApi'
+            type: string
           type: array
-      type: object
-    SwaggerCustomDynamicTreeSettings:
-      description: The swagger custom dynamic tree settings.
-      properties:
-        CanSelectLeafNodes:
-          description: Indicates whether leaf nodes can be selected.
-          type: boolean
-        CanSelectParentNodes:
-          description: Indicates whether parent nodes can be selected.
-          type: boolean
-      type: object
-    StatusAnnotation:
-      description: The status annotation.
-      enum:
-      - NotSpecified
-      - Preview
-      - Production
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: StatusAnnotation
-    ApiResourceBackendService:
-      description: The API backend service.
-      properties:
-        serviceUrl:
-          description: The service URL.
+        qualifiedName:
+          description: The qualified name.
           type: string
       type: object
-    ManagedApi:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The managed api definition.
+    ApiDeploymentParameterMetadataSet:
+      description: The API deployment parameters metadata.
       properties:
-        properties:
-          $ref: '#/components/schemas/ApiResourceProperties'
-          description: The api resource properties.
-      type: object
-    ApiOperationPropertiesDefinition:
-      description: The api operations properties
-      properties:
-        annotation:
-          $ref: '#/components/schemas/ApiOperationAnnotation'
-          description: The annotation of api operation.
-        api:
-          $ref: '#/components/schemas/ApiReference'
-          description: The api reference.
-        description:
-          description: The description of the api operation.
-          type: string
-        inputsDefinition:
-          $ref: '#/components/schemas/SwaggerSchema'
-          description: The operation inputs definition schema.
-        isNotification:
-          description: Indicates whether the API operation is notification or not.
-          type: boolean
-        isWebhook:
-          description: Indicates whether the API operation is webhook or not.
-          type: boolean
-        pageable:
-          description: Indicates whether the api operation is pageable.
-          type: boolean
-        responsesDefinition:
-          additionalProperties:
-            $ref: '#/components/schemas/SwaggerSchema'
-          description: The operation responses definition schemas.
-          type: object
-        summary:
-          description: The summary of the api operation.
-          type: string
-        trigger:
-          description: The trigger type of api operation.
-          type: string
-        triggerHint:
-          description: The trigger hint for the api operation.
-          type: string
-        visibility:
-          description: The visibility of the api operation.
-          type: string
-      type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
+        packageContentLink:
+          $ref: '#/components/schemas/ApiDeploymentParameterMetadata'
+          description: The package content link parameter.
+        redisCacheConnectionString:
+          $ref: '#/components/schemas/ApiDeploymentParameterMetadata'
+          description: The package content link parameter.
       type: object
     ApiResourceProperties:
       description: The API resource properties.
@@ -1384,6 +1199,249 @@ components:
             type: string
           type: array
       type: object
+    ApiResourceGeneralInformation:
+      description: The API general information.
+      properties:
+        description:
+          description: The description.
+          type: string
+        displayName:
+          description: The display name.
+          type: string
+        iconUrl:
+          description: The icon url.
+          type: string
+        releaseTag:
+          description: The release tag.
+          type: string
+        termsOfUseUrl:
+          description: The terms of use url.
+          type: string
+        tier:
+          $ref: '#/components/schemas/ApiTier'
+          description: The tier.
+      type: object
+    ApiOperationListResult:
+      description: The list of managed API operations.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: The api operation definitions for an API.
+          items:
+            $ref: '#/components/schemas/ApiOperation'
+          type: array
+      type: object
+    ApiReference:
+      allOf:
+      - $ref: '#/components/schemas/ResourceReference'
+      description: The Api reference.
+      properties:
+        brandColor:
+          description: The brand color of the api.
+          type: string
+        category:
+          $ref: '#/components/schemas/ApiTier'
+          description: The tier.
+        description:
+          description: The description of the api.
+          type: string
+        displayName:
+          description: The display name of the api.
+          type: string
+        iconUri:
+          description: The icon uri of the api.
+          type: string
+        integrationServiceEnvironment:
+          $ref: '#/components/schemas/ResourceReference'
+          description: The integration service environment reference.
+        swagger:
+          $ref: '#/components/schemas/Object'
+          description: The swagger of the api.
+      type: object
+    ApiResourceMetadata:
+      description: The api resource metadata.
+      properties:
+        ApiType:
+          $ref: '#/components/schemas/ApiType'
+          description: The api type.
+        brandColor:
+          description: The brand color.
+          type: string
+        connectionType:
+          description: The connection type.
+          type: string
+        deploymentParameters:
+          $ref: '#/components/schemas/ApiDeploymentParameterMetadataSet'
+          description: The connector deployment parameters metadata.
+        hideKey:
+          description: The hide key.
+          type: string
+        provisioningState:
+          $ref: '#/components/schemas/WorkflowProvisioningState'
+          description: The provisioning state.
+        source:
+          description: The source.
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags.
+          type: object
+        wsdlImportMethod:
+          $ref: '#/components/schemas/WsdlImportMethod'
+          description: The WSDL import method.
+        wsdlService:
+          $ref: '#/components/schemas/WsdlService'
+          description: The WSDL service.
+      type: object
+    SwaggerXml:
+      description: The Swagger XML.
+      properties:
+        attribute:
+          description: Indicates whether the property should be an attribute instead of an element.
+          type: boolean
+        extensions:
+          additionalProperties:
+            $ref: '#/components/schemas/Object'
+          description: The vendor extensions.
+          type: object
+        name:
+          description: The xml element or attribute name.
+          type: string
+        namespace:
+          description: The xml namespace.
+          type: string
+        prefix:
+          description: The name prefix.
+          type: string
+        wrapped:
+          description: Indicates whether the array elements are wrapped in a container element.
+          type: boolean
+      type: object
+    ApiTier:
+      description: The Api tier.
+      enum:
+      - NotSpecified
+      - Enterprise
+      - Standard
+      - Premium
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: ApiTier
+    SwaggerCustomDynamicProperties:
+      description: The swagger custom dynamic properties.
+      properties:
+        operationId:
+          description: The operation id to fetch dynamic schema.
+          type: string
+        parameters:
+          additionalProperties:
+            $ref: '#/components/schemas/SwaggerCustomDynamicProperties'
+          description: The operation parameters.
+          type: object
+        valuePath:
+          description: Json pointer to the dynamic schema on the response body.
+          type: string
+      type: object
+    SwaggerExternalDocumentation:
+      description: The swagger external documentation
+      properties:
+        description:
+          description: The document description.
+          type: string
+        extensions:
+          additionalProperties:
+            $ref: '#/components/schemas/Object'
+          description: The vendor extensions.
+          type: object
+        uri:
+          description: The documentation Uri.
+          type: string
+      type: object
+    ApiOperation:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The api operation.
+      properties:
+        properties:
+          $ref: '#/components/schemas/ApiOperationPropertiesDefinition'
+      type: object
+    ApiResourceBackendService:
+      description: The API backend service.
+      properties:
+        serviceUrl:
+          description: The service URL.
+          type: string
+      type: object
+    SwaggerCustomDynamicSchema:
+      description: The swagger custom dynamic schema.
+      properties:
+        operationId:
+          description: The operation id to fetch dynamic schema.
+          type: string
+        parameters:
+          additionalProperties:
+            $ref: '#/components/schemas/Object'
+          description: The operation parameters.
+          type: object
+        valuePath:
+          description: Json pointer to the dynamic schema on the response body.
+          type: string
+      type: object
+    Object:
+      properties: {}
+      type: object
+    ResourceReference:
+      description: The resource reference.
+      properties:
+        id:
+          description: The resource id.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    SwaggerCustomDynamicTreeParameter:
+      description: The swagger custom dynamic tree parameter.
+      properties:
+        parameterReference:
+          description: The parameter reference.
+          type: string
+        required:
+          description: Indicates whether the parameter is required.
+          type: boolean
+        selectedItemValuePath:
+          description: Gets or sets a path to a property in the currently selected item to pass as a value to a parameter for the given operation.
+          type: string
+        value:
+          $ref: '#/components/schemas/Object'
+          description: The parameter value.
+      type: object
+    ApiResourceDefinitions:
+      description: The Api resource definition.
+      properties:
+        modifiedSwaggerUrl:
+          description: The modified swagger url.
+          type: string
+        originalSwaggerUrl:
+          description: The original swagger url.
+          type: string
+      type: object
     SwaggerCustomDynamicTreeCommand:
       description: The swagger tree command.
       properties:
@@ -1412,6 +1470,95 @@ components:
         selectableFilter:
           description: The path to an item property which defines the display name of the item.
           type: string
+      type: object
+    SwaggerSchemaType:
+      description: The swagger schema type.
+      enum:
+      - String
+      - Number
+      - Integer
+      - Boolean
+      - Array
+      - File
+      - Object
+      - 'Null'
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: SwaggerSchemaType
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    Resource:
+      description: The base resource type.
+      properties:
+        id:
+          description: The resource id.
+          readOnly: true
+          type: string
+        location:
+          description: The resource location.
+          type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The resource tags.
+          type: object
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      x-ms-azure-resource: true
+    ManagedApiListResult:
+      description: The list of managed APIs.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: The managed APIs.
+          items:
+            $ref: '#/components/schemas/ManagedApi'
+          type: array
+      type: object
+    ApiDeploymentParameterMetadata:
+      description: The API deployment parameter metadata.
+      properties:
+        description:
+          description: The description.
+          type: string
+        displayName:
+          description: The display name.
+          type: string
+        isRequired:
+          description: Indicates whether its required.
+          type: boolean
+        type:
+          description: The type.
+          type: string
+        visibility:
+          $ref: '#/components/schemas/ApiDeploymentParameterVisibility'
+          description: The visibility.
+      type: object
+    ManagedApi:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The managed api definition.
+      properties:
+        properties:
+          $ref: '#/components/schemas/ApiResourceProperties'
+          description: The api resource properties.
       type: object
     SwaggerSchema:
       description: The swagger schema.
@@ -1484,70 +1631,6 @@ components:
           $ref: '#/components/schemas/SwaggerXml'
           description: The xml representation format for a property.
       type: object
-    SwaggerCustomDynamicSchema:
-      description: The swagger custom dynamic schema.
-      properties:
-        operationId:
-          description: The operation id to fetch dynamic schema.
-          type: string
-        parameters:
-          additionalProperties:
-            $ref: '#/components/schemas/Object'
-          description: The operation parameters.
-          type: object
-        valuePath:
-          description: Json pointer to the dynamic schema on the response body.
-          type: string
-      type: object
-    SwaggerCustomDynamicList:
-      description: The swagger custom dynamic list.
-      properties:
-        builtInOperation:
-          description: The built in operation.
-          type: string
-        itemTitlePath:
-          description: The path to an item property which defines the display name of the item.
-          type: string
-        itemValuePath:
-          description: The path to a property which defines the value which should be used.
-          type: string
-        itemsPath:
-          description: The path to a response property (relative to the response object, not the response body) which contains an array of dynamic value items.
-          type: string
-        operationId:
-          description: The operation id to fetch dynamic schema.
-          type: string
-        parameters:
-          additionalProperties:
-            $ref: '#/components/schemas/SwaggerCustomDynamicProperties'
-          description: The parameters.
-          type: object
-      type: object
-    ApiResourcePolicies:
-      description: The API resource policies.
-      properties:
-        content:
-          description: The API level only policies XML as embedded content.
-          type: string
-        contentLink:
-          description: The content link to the policies.
-          type: string
-      type: object
-    SwaggerSchemaType:
-      description: The swagger schema type.
-      enum:
-      - String
-      - Number
-      - Integer
-      - Boolean
-      - Array
-      - File
-      - Object
-      - 'Null'
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: SwaggerSchemaType
     WsdlImportMethod:
       description: The WSDL import method.
       enum:
@@ -1558,50 +1641,100 @@ components:
       x-ms-enum:
         modelAsString: true
         name: WsdlImportMethod
-    ApiDeploymentParameterMetadataSet:
-      description: The API deployment parameters metadata.
+    SwaggerCustomDynamicTreeSettings:
+      description: The swagger custom dynamic tree settings.
       properties:
-        packageContentLink:
-          $ref: '#/components/schemas/ApiDeploymentParameterMetadata'
-          description: The package content link parameter.
-        redisCacheConnectionString:
-          $ref: '#/components/schemas/ApiDeploymentParameterMetadata'
-          description: The package content link parameter.
+        CanSelectLeafNodes:
+          description: Indicates whether leaf nodes can be selected.
+          type: boolean
+        CanSelectParentNodes:
+          description: Indicates whether parent nodes can be selected.
+          type: boolean
       type: object
-    ApiReference:
-      allOf:
-      - $ref: '#/components/schemas/ResourceReference'
-      description: The Api reference.
+    ApiOperationPropertiesDefinition:
+      description: The api operations properties
       properties:
-        brandColor:
-          description: The brand color of the api.
-          type: string
-        category:
-          $ref: '#/components/schemas/ApiTier'
-          description: The tier.
+        annotation:
+          $ref: '#/components/schemas/ApiOperationAnnotation'
+          description: The annotation of api operation.
+        api:
+          $ref: '#/components/schemas/ApiReference'
+          description: The api reference.
         description:
-          description: The description of the api.
+          description: The description of the api operation.
           type: string
-        displayName:
-          description: The display name of the api.
+        inputsDefinition:
+          $ref: '#/components/schemas/SwaggerSchema'
+          description: The operation inputs definition schema.
+        isNotification:
+          description: Indicates whether the API operation is notification or not.
+          type: boolean
+        isWebhook:
+          description: Indicates whether the API operation is webhook or not.
+          type: boolean
+        pageable:
+          description: Indicates whether the api operation is pageable.
+          type: boolean
+        responsesDefinition:
+          additionalProperties:
+            $ref: '#/components/schemas/SwaggerSchema'
+          description: The operation responses definition schemas.
+          type: object
+        summary:
+          description: The summary of the api operation.
           type: string
-        iconUri:
-          description: The icon uri of the api.
+        trigger:
+          description: The trigger type of api operation.
           type: string
-        integrationServiceEnvironment:
-          $ref: '#/components/schemas/ResourceReference'
-          description: The integration service environment reference.
-        swagger:
-          $ref: '#/components/schemas/Object'
-          description: The swagger of the api.
+        triggerHint:
+          description: The trigger hint for the api operation.
+          type: string
+        visibility:
+          description: The visibility of the api operation.
+          type: string
       type: object
-    ApiOperation:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The api operation.
+    ApiDeploymentParameterVisibility:
+      description: The Api deployment parameter visibility.
+      enum:
+      - NotSpecified
+      - Default
+      - Internal
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: ApiDeploymentParameterVisibility
+    SwaggerCustomDynamicTree:
+      description: The swagger custom dynamic tree.
       properties:
-        properties:
-          $ref: '#/components/schemas/ApiOperationPropertiesDefinition'
+        browse:
+          $ref: '#/components/schemas/SwaggerCustomDynamicTreeCommand'
+          description: The tree on-browse configuration
+        open:
+          $ref: '#/components/schemas/SwaggerCustomDynamicTreeCommand'
+          description: The tree on-open configuration
+        settings:
+          $ref: '#/components/schemas/SwaggerCustomDynamicTreeSettings'
+          description: The tree settings
+      type: object
+    StatusAnnotation:
+      description: The status annotation.
+      enum:
+      - NotSpecified
+      - Preview
+      - Production
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: StatusAnnotation
+    ApiResourcePolicies:
+      description: The API resource policies.
+      properties:
+        content:
+          description: The API level only policies XML as embedded content.
+          type: string
+        contentLink:
+          description: The content link to the policies.
+          type: string
       type: object
     WorkflowProvisioningState:
       description: The workflow provisioning state.
@@ -1628,151 +1761,18 @@ components:
       x-ms-enum:
         modelAsString: true
         name: WorkflowProvisioningState
-    Object:
-      properties: {}
-      type: object
-    ApiResourceDefinitions:
-      description: The Api resource definition.
-      properties:
-        modifiedSwaggerUrl:
-          description: The modified swagger url.
-          type: string
-        originalSwaggerUrl:
-          description: The original swagger url.
-          type: string
-      type: object
-    ApiOperationAnnotation:
-      description: The Api Operation Annotation.
-      properties:
-        family:
-          description: The family.
-          type: string
-        revision:
-          description: The revision.
-          type: integer
-        status:
-          $ref: '#/components/schemas/StatusAnnotation'
-      type: object
-    ResourceReference:
-      description: The resource reference.
-      properties:
-        id:
-          description: The resource id.
-          type: string
-        name:
-          description: Gets the resource name.
-          readOnly: true
-          type: string
-        type:
-          description: Gets the resource type.
-          readOnly: true
-          type: string
-      type: object
-    ApiResourceGeneralInformation:
-      description: The API general information.
-      properties:
-        description:
-          description: The description.
-          type: string
-        displayName:
-          description: The display name.
-          type: string
-        iconUrl:
-          description: The icon url.
-          type: string
-        releaseTag:
-          description: The release tag.
-          type: string
-        termsOfUseUrl:
-          description: The terms of use url.
-          type: string
-        tier:
-          $ref: '#/components/schemas/ApiTier'
-          description: The tier.
-      type: object
-    ApiDeploymentParameterVisibility:
-      description: The Api deployment parameter visibility.
-      enum:
-      - NotSpecified
-      - Default
-      - Internal
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: ApiDeploymentParameterVisibility
-    WsdlService:
-      description: The WSDL service.
-      properties:
-        EndpointQualifiedNames:
-          description: The list of endpoints' qualified names.
-          items:
-            type: string
-          type: array
-        qualifiedName:
-          description: The qualified name.
-          type: string
-      type: object
-    SwaggerCustomDynamicTree:
-      description: The swagger custom dynamic tree.
-      properties:
-        browse:
-          $ref: '#/components/schemas/SwaggerCustomDynamicTreeCommand'
-          description: The tree on-browse configuration
-        open:
-          $ref: '#/components/schemas/SwaggerCustomDynamicTreeCommand'
-          description: The tree on-open configuration
-        settings:
-          $ref: '#/components/schemas/SwaggerCustomDynamicTreeSettings'
-          description: The tree settings
-      type: object
-    ApiResourceMetadata:
-      description: The api resource metadata.
-      properties:
-        ApiType:
-          $ref: '#/components/schemas/ApiType'
-          description: The api type.
-        brandColor:
-          description: The brand color.
-          type: string
-        connectionType:
-          description: The connection type.
-          type: string
-        deploymentParameters:
-          $ref: '#/components/schemas/ApiDeploymentParameterMetadataSet'
-          description: The connector deployment parameters metadata.
-        hideKey:
-          description: The hide key.
-          type: string
-        provisioningState:
-          $ref: '#/components/schemas/WorkflowProvisioningState'
-          description: The provisioning state.
-        source:
-          description: The source.
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags.
-          type: object
-        wsdlImportMethod:
-          $ref: '#/components/schemas/WsdlImportMethod'
-          description: The WSDL import method.
-        wsdlService:
-          $ref: '#/components/schemas/WsdlService'
-          description: The WSDL service.
-      type: object
   parameters:
-    api-version:
-      description: The API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
     subscriptionId:
       description: The subscription id.
       in: path
       name: subscriptionId
+      required: true
+      schema:
+        type: string
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
       required: true
       schema:
         type: string
