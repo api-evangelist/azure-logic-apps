@@ -330,76 +330,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    IntegrationServiceEnvironmentNetworkHealth:
-      additionalProperties:
-        $ref: '#/components/schemas/IntegrationServiceEnvironmentSubnetNetworkHealth'
-        description: The integration service environment subnet network health.
-      description: The integration service environment network health of all the subnets.
-      type: object
-    ErrorResponseCode:
-      description: The error response code.
-      enum:
-      - NotSpecified
-      - IntegrationServiceEnvironmentNotFound
-      - InternalServerError
-      - InvalidOperationId
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: ErrorResponseCode
-    Object:
-      properties: {}
-      type: object
-    IntegrationServiceEnvironmentNetworkEndPointAccessibilityState:
-      description: The integration service environment network endpoint accessibility state.
-      enum:
-      - NotSpecified
-      - Unknown
-      - Available
-      - NotAvailable
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentNetworkEndPointAccessibilityState
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
-    IntegrationServiceEnvironmentNetworkDependencyHealthState:
-      description: The integration service environment network dependency health state.
-      enum:
-      - NotSpecified
-      - Healthy
-      - Unhealthy
-      - Unknown
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentNetworkDependencyHealthState
-    IntegrationServiceEnvironmentSubnetNetworkHealth:
-      description: The integration service environment subnet network health.
-      properties:
-        networkDependencyHealthState:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkEndPointAccessibilityState'
-          description: The integration service environment network health state.
-        outboundNetworkDependencies:
-          description: The outbound network dependencies.
-          items:
-            $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkDependency'
-            description: The integration service environment network dependency.
-          type: array
-        outboundNetworkHealth:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkDependencyHealth'
-          description: The integration service environment network health.
-      required:
-      - networkDependencyHealthState
-      type: object
     IntegrationServiceEnvironmentNetworkDependency:
       description: The azure async operation resource.
       properties:
@@ -416,20 +346,12 @@ components:
             description: The endpoint.
           type: array
       type: object
-    IntegrationServiceEnvironmentNetworkEndpoint:
-      description: The network endpoint.
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
-        accessibility:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkEndPointAccessibilityState'
-          description: The accessibility state.
-        domainName:
-          description: The domain name.
-          type: string
-        ports:
-          description: The ports.
-          items:
-            type: string
-          type: array
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
       type: object
     ExtendedErrorInfo:
       description: The extended error info.
@@ -452,12 +374,62 @@ components:
       - code
       - message
       type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    Object:
+      properties: {}
+      type: object
+    IntegrationServiceEnvironmentNetworkEndpoint:
+      description: The network endpoint.
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
+        accessibility:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkEndPointAccessibilityState'
+          description: The accessibility state.
+        domainName:
+          description: The domain name.
+          type: string
+        ports:
+          description: The ports.
+          items:
+            type: string
+          type: array
+      type: object
+    IntegrationServiceEnvironmentNetworkDependencyHealthState:
+      description: The integration service environment network dependency health state.
+      enum:
+      - NotSpecified
+      - Healthy
+      - Unhealthy
+      - Unknown
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentNetworkDependencyHealthState
+    IntegrationServiceEnvironmentNetworkEndPointAccessibilityState:
+      description: The integration service environment network endpoint accessibility state.
+      enum:
+      - NotSpecified
+      - Unknown
+      - Available
+      - NotAvailable
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentNetworkEndPointAccessibilityState
+    ErrorResponseCode:
+      description: The error response code.
+      enum:
+      - NotSpecified
+      - IntegrationServiceEnvironmentNotFound
+      - InternalServerError
+      - InvalidOperationId
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: ErrorResponseCode
+    IntegrationServiceEnvironmentNetworkHealth:
+      additionalProperties:
+        $ref: '#/components/schemas/IntegrationServiceEnvironmentSubnetNetworkHealth'
+        description: The integration service environment subnet network health.
+      description: The integration service environment network health of all the subnets.
       type: object
     IntegrationServiceEnvironmentNetworkDependencyCategoryType:
       description: The integration service environment network dependency category type.
@@ -478,6 +450,34 @@ components:
       x-ms-enum:
         modelAsString: true
         name: IntegrationServiceEnvironmentNetworkDependencyCategoryType
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    IntegrationServiceEnvironmentSubnetNetworkHealth:
+      description: The integration service environment subnet network health.
+      properties:
+        networkDependencyHealthState:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkEndPointAccessibilityState'
+          description: The integration service environment network health state.
+        outboundNetworkDependencies:
+          description: The outbound network dependencies.
+          items:
+            $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkDependency'
+            description: The integration service environment network dependency.
+          type: array
+        outboundNetworkHealth:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkDependencyHealth'
+          description: The integration service environment network health.
+      required:
+      - networkDependencyHealthState
+      type: object
     IntegrationServiceEnvironmentNetworkDependencyHealth:
       description: The integration service environment subnet network health.
       properties:

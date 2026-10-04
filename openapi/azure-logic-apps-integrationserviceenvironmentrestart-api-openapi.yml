@@ -73,6 +73,21 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
   schemas:
     ErrorResponse:
       description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
@@ -91,21 +106,6 @@ components:
           description: Error message indicating why the operation failed.
           type: string
       type: object
-  parameters:
-    api-version:
-      description: The API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
-    subscriptionId:
-      description: The subscription id.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

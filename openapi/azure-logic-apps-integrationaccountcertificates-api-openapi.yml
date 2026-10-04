@@ -362,46 +362,12 @@ components:
           description: The public certificate.
           type: string
       type: object
-    IntegrationAccountCertificateListResult:
-      description: The list of integration account certificates.
-      properties:
-        nextLink:
-          description: The URL to get the next set of results.
-          type: string
-        value:
-          description: The list of integration account certificates.
-          items:
-            $ref: '#/components/schemas/IntegrationAccountCertificate'
-          type: array
-      type: object
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
     ErrorResponse:
       description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
         error:
           $ref: '#/components/schemas/ErrorProperties'
           description: The error properties.
-      type: object
-    IntegrationAccountCertificate:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The integration account certificate.
-      properties:
-        properties:
-          $ref: '#/components/schemas/IntegrationAccountCertificateProperties'
-          description: The integration account certificate properties.
-          x-ms-client-flatten: true
-      required:
-      - properties
       type: object
     KeyVaultKeyReference:
       description: The reference to the key vault key.
@@ -431,6 +397,30 @@ components:
       - keyVault
       - keyName
       type: object
+    IntegrationAccountCertificateListResult:
+      description: The list of integration account certificates.
+      properties:
+        nextLink:
+          description: The URL to get the next set of results.
+          type: string
+        value:
+          description: The list of integration account certificates.
+          items:
+            $ref: '#/components/schemas/IntegrationAccountCertificate'
+          type: array
+      type: object
+    IntegrationAccountCertificate:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The integration account certificate.
+      properties:
+        properties:
+          $ref: '#/components/schemas/IntegrationAccountCertificateProperties'
+          description: The integration account certificate properties.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
     Resource:
       description: The base resource type.
       properties:
@@ -455,6 +445,16 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
   parameters:
     subscriptionId:
       description: The subscription id.
