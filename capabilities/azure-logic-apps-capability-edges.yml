@@ -1,0 +1,25 @@
+slug: azure-logic-apps
+provider: Azure Logic Apps
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: IntegrationServiceEnvironments
+  spec_file: azure-logic-apps-integrationserviceenvironments-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: 'IntegrationServiceEnvironments_CreateOrUpdate ... schemas: NetworkConfiguration, IpAddress,
+    IntegrationServiceEnvironmentSku, IntegrationServiceEnvironmentAccessEndpoint'
+  reason: Provisioning and updating dedicated compute/network environments (SKU, VNet configuration, IP
+    addresses, access endpoints) in Azure — cloud infrastructure management rather than any business capability.
