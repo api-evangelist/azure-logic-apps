@@ -954,24 +954,16 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
-    OperationListResult:
-      description: Result of the request to list Logic operations. It contains a list of operations and a URL link to get the next set of results.
-      properties:
-        nextLink:
-          description: URL to get the next set of operation list results if there are any.
+        code:
+          description: Error code.
           type: string
-        value:
-          description: List of Logic operations supported by the Logic resource provider.
-          items:
-            $ref: '#/components/schemas/Operation'
-          type: array
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
     Operation:
       description: Logic REST API operation
       properties:
@@ -992,16 +984,24 @@ components:
           description: 'Operation name: {provider}/{resource}/{operation}'
           type: string
       type: object
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
       type: object
+    OperationListResult:
+      description: Result of the request to list Logic operations. It contains a list of operations and a URL link to get the next set of results.
+      properties:
+        nextLink:
+          description: URL to get the next set of operation list results if there are any.
+          type: string
+        value:
+          description: List of Logic operations supported by the Logic resource provider.
+          items:
+            $ref: '#/components/schemas/Operation'
+          type: array
   parameters:
     api-version:
       description: The API version.

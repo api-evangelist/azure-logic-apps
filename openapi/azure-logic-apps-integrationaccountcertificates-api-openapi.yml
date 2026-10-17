@@ -338,37 +338,6 @@ paths:
         required: true
 components:
   schemas:
-    IntegrationAccountCertificateProperties:
-      description: The integration account certificate properties.
-      properties:
-        changedTime:
-          description: The changed time.
-          format: date-time
-          readOnly: true
-          type: string
-        createdTime:
-          description: The created time.
-          format: date-time
-          readOnly: true
-          type: string
-        key:
-          $ref: '#/components/schemas/KeyVaultKeyReference'
-          description: The key details in the key vault.
-        metadata:
-          description: The metadata.
-          properties: {}
-          type: object
-        publicCertificate:
-          description: The public certificate.
-          type: string
-      type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
     KeyVaultKeyReference:
       description: The reference to the key vault key.
       properties:
@@ -409,6 +378,16 @@ components:
             $ref: '#/components/schemas/IntegrationAccountCertificate'
           type: array
       type: object
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
     IntegrationAccountCertificate:
       allOf:
       - $ref: '#/components/schemas/Resource'
@@ -420,6 +399,30 @@ components:
           x-ms-client-flatten: true
       required:
       - properties
+      type: object
+    IntegrationAccountCertificateProperties:
+      description: The integration account certificate properties.
+      properties:
+        changedTime:
+          description: The changed time.
+          format: date-time
+          readOnly: true
+          type: string
+        createdTime:
+          description: The created time.
+          format: date-time
+          readOnly: true
+          type: string
+        key:
+          $ref: '#/components/schemas/KeyVaultKeyReference'
+          description: The key details in the key vault.
+        metadata:
+          description: The metadata.
+          properties: {}
+          type: object
+        publicCertificate:
+          description: The public certificate.
+          type: string
       type: object
     Resource:
       description: The base resource type.
@@ -445,15 +448,12 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
       type: object
   parameters:
     subscriptionId:

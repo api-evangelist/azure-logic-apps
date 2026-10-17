@@ -96,72 +96,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    IntegrationServiceEnvironmentSkuCapacity:
-      description: The integration service environment sku capacity.
-      properties:
-        default:
-          description: The default capacity.
-          format: int32
-          type: integer
-        maximum:
-          description: The maximum capacity.
-          format: int32
-          type: integer
-        minimum:
-          description: The minimum capacity.
-          format: int32
-          type: integer
-        scaleType:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuScaleType'
-          description: The sku scale type.
-      type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
-    IntegrationServiceEnvironmentSkuName:
-      description: The integration service environment sku name.
-      enum:
-      - NotSpecified
-      - Premium
-      - Developer
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentSkuName
-    IntegrationServiceEnvironmentSkuScaleType:
-      description: The integration service environment sku scale type.
-      enum:
-      - Manual
-      - Automatic
-      - None
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentSkuScaleType
-    IntegrationServiceEnvironmentSkuDefinition:
-      description: The integration service environment sku definition.
-      properties:
-        capacity:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuCapacity'
-          description: The sku capacity.
-        resourceType:
-          description: The resource type.
-          type: string
-        sku:
-          description: The sku.
-          properties:
-            name:
-              $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuName'
-              description: The sku name.
-            tier:
-              description: The sku tier.
-              type: string
-          type: object
-      type: object
     ErrorProperties:
       description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
       properties:
@@ -184,18 +118,84 @@ components:
             $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuDefinition'
           type: array
       type: object
+    IntegrationServiceEnvironmentSkuName:
+      description: The integration service environment sku name.
+      enum:
+      - NotSpecified
+      - Premium
+      - Developer
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentSkuName
+    IntegrationServiceEnvironmentSkuDefinition:
+      description: The integration service environment sku definition.
+      properties:
+        capacity:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuCapacity'
+          description: The sku capacity.
+        resourceType:
+          description: The resource type.
+          type: string
+        sku:
+          description: The sku.
+          properties:
+            name:
+              $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuName'
+              description: The sku name.
+            tier:
+              description: The sku tier.
+              type: string
+          type: object
+      type: object
+    IntegrationServiceEnvironmentSkuCapacity:
+      description: The integration service environment sku capacity.
+      properties:
+        default:
+          description: The default capacity.
+          format: int32
+          type: integer
+        maximum:
+          description: The maximum capacity.
+          format: int32
+          type: integer
+        minimum:
+          description: The minimum capacity.
+          format: int32
+          type: integer
+        scaleType:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentSkuScaleType'
+          description: The sku scale type.
+      type: object
+    IntegrationServiceEnvironmentSkuScaleType:
+      description: The integration service environment sku scale type.
+      enum:
+      - Manual
+      - Automatic
+      - None
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentSkuScaleType
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
   parameters:
-    api-version:
-      description: The API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
     subscriptionId:
       description: The subscription id.
       in: path
       name: subscriptionId
+      required: true
+      schema:
+        type: string
+    api-version:
+      description: The API version.
+      in: query
+      name: api-version
       required: true
       schema:
         type: string

@@ -302,15 +302,84 @@ components:
           $ref: '#/components/schemas/ApiTier'
           description: The tier.
       type: object
-    ApiResourcePolicies:
-      description: The API resource policies.
+    ApiType:
+      enum:
+      - NotSpecified
+      - Rest
+      - Soap
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: ApiType
+    Resource:
+      description: The base resource type.
       properties:
-        content:
-          description: The API level only policies XML as embedded content.
+        id:
+          description: The resource id.
+          readOnly: true
           type: string
-        contentLink:
-          description: The content link to the policies.
+        location:
+          description: The resource location.
           type: string
+        name:
+          description: Gets the resource name.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The resource tags.
+          type: object
+        type:
+          description: Gets the resource type.
+          readOnly: true
+          type: string
+      x-ms-azure-resource: true
+    WsdlImportMethod:
+      description: The WSDL import method.
+      enum:
+      - NotSpecified
+      - SoapToRest
+      - SoapPassThrough
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: WsdlImportMethod
+    ApiResourceMetadata:
+      description: The api resource metadata.
+      properties:
+        ApiType:
+          $ref: '#/components/schemas/ApiType'
+          description: The api type.
+        brandColor:
+          description: The brand color.
+          type: string
+        connectionType:
+          description: The connection type.
+          type: string
+        deploymentParameters:
+          $ref: '#/components/schemas/ApiDeploymentParameterMetadataSet'
+          description: The connector deployment parameters metadata.
+        hideKey:
+          description: The hide key.
+          type: string
+        provisioningState:
+          $ref: '#/components/schemas/WorkflowProvisioningState'
+          description: The provisioning state.
+        source:
+          description: The source.
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags.
+          type: object
+        wsdlImportMethod:
+          $ref: '#/components/schemas/WsdlImportMethod'
+          description: The WSDL import method.
+        wsdlService:
+          $ref: '#/components/schemas/WsdlService'
+          description: The WSDL service.
       type: object
     WorkflowProvisioningState:
       description: The workflow provisioning state.
@@ -337,82 +406,12 @@ components:
       x-ms-enum:
         modelAsString: true
         name: WorkflowProvisioningState
-    ApiDeploymentParameterMetadata:
-      description: The API deployment parameter metadata.
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
-        description:
-          description: The description.
-          type: string
-        displayName:
-          description: The display name.
-          type: string
-        isRequired:
-          description: Indicates whether its required.
-          type: boolean
-        type:
-          description: The type.
-          type: string
-        visibility:
-          $ref: '#/components/schemas/ApiDeploymentParameterVisibility'
-          description: The visibility.
-      type: object
-    ApiTier:
-      description: The Api tier.
-      enum:
-      - NotSpecified
-      - Enterprise
-      - Standard
-      - Premium
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: ApiTier
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
-    ManagedApi:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The managed api definition.
-      properties:
-        properties:
-          $ref: '#/components/schemas/ApiResourceProperties'
-          description: The api resource properties.
-      type: object
-    ApiDeploymentParameterMetadataSet:
-      description: The API deployment parameters metadata.
-      properties:
-        packageContentLink:
-          $ref: '#/components/schemas/ApiDeploymentParameterMetadata'
-          description: The package content link parameter.
-        redisCacheConnectionString:
-          $ref: '#/components/schemas/ApiDeploymentParameterMetadata'
-          description: The package content link parameter.
-      type: object
-    ResourceReference:
-      description: The resource reference.
-      properties:
-        id:
-          description: The resource id.
-          type: string
-        name:
-          description: Gets the resource name.
-          readOnly: true
-          type: string
-        type:
-          description: Gets the resource type.
-          readOnly: true
-          type: string
-      type: object
-    Object:
-      properties: {}
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
       type: object
     ApiResourceBackendService:
       description: The API backend service.
@@ -443,30 +442,103 @@ components:
           description: The qualified name.
           type: string
       type: object
-    Resource:
-      description: The base resource type.
+    ApiDeploymentParameterMetadata:
+      description: The API deployment parameter metadata.
+      properties:
+        description:
+          description: The description.
+          type: string
+        displayName:
+          description: The display name.
+          type: string
+        isRequired:
+          description: Indicates whether its required.
+          type: boolean
+        type:
+          description: The type.
+          type: string
+        visibility:
+          $ref: '#/components/schemas/ApiDeploymentParameterVisibility'
+          description: The visibility.
+      type: object
+    ApiDeploymentParameterMetadataSet:
+      description: The API deployment parameters metadata.
+      properties:
+        packageContentLink:
+          $ref: '#/components/schemas/ApiDeploymentParameterMetadata'
+          description: The package content link parameter.
+        redisCacheConnectionString:
+          $ref: '#/components/schemas/ApiDeploymentParameterMetadata'
+          description: The package content link parameter.
+      type: object
+    ApiResourcePolicies:
+      description: The API resource policies.
+      properties:
+        content:
+          description: The API level only policies XML as embedded content.
+          type: string
+        contentLink:
+          description: The content link to the policies.
+          type: string
+      type: object
+    Object:
+      properties: {}
+      type: object
+    ApiDeploymentParameterVisibility:
+      description: The Api deployment parameter visibility.
+      enum:
+      - NotSpecified
+      - Default
+      - Internal
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: ApiDeploymentParameterVisibility
+    ManagedApi:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The managed api definition.
+      properties:
+        properties:
+          $ref: '#/components/schemas/ApiResourceProperties'
+          description: The api resource properties.
+      type: object
+    ResourceReference:
+      description: The resource reference.
       properties:
         id:
           description: The resource id.
-          readOnly: true
-          type: string
-        location:
-          description: The resource location.
           type: string
         name:
           description: Gets the resource name.
           readOnly: true
           type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The resource tags.
-          type: object
         type:
           description: Gets the resource type.
           readOnly: true
           type: string
-      x-ms-azure-resource: true
+      type: object
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    ApiTier:
+      description: The Api tier.
+      enum:
+      - NotSpecified
+      - Enterprise
+      - Standard
+      - Premium
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: ApiTier
     ApiResourceProperties:
       description: The API resource properties.
       properties:
@@ -516,78 +588,6 @@ components:
             type: string
           type: array
       type: object
-    ApiDeploymentParameterVisibility:
-      description: The Api deployment parameter visibility.
-      enum:
-      - NotSpecified
-      - Default
-      - Internal
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: ApiDeploymentParameterVisibility
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
-    ApiType:
-      enum:
-      - NotSpecified
-      - Rest
-      - Soap
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: ApiType
-    ApiResourceMetadata:
-      description: The api resource metadata.
-      properties:
-        ApiType:
-          $ref: '#/components/schemas/ApiType'
-          description: The api type.
-        brandColor:
-          description: The brand color.
-          type: string
-        connectionType:
-          description: The connection type.
-          type: string
-        deploymentParameters:
-          $ref: '#/components/schemas/ApiDeploymentParameterMetadataSet'
-          description: The connector deployment parameters metadata.
-        hideKey:
-          description: The hide key.
-          type: string
-        provisioningState:
-          $ref: '#/components/schemas/WorkflowProvisioningState'
-          description: The provisioning state.
-        source:
-          description: The source.
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags.
-          type: object
-        wsdlImportMethod:
-          $ref: '#/components/schemas/WsdlImportMethod'
-          description: The WSDL import method.
-        wsdlService:
-          $ref: '#/components/schemas/WsdlService'
-          description: The WSDL service.
-      type: object
-    WsdlImportMethod:
-      description: The WSDL import method.
-      enum:
-      - NotSpecified
-      - SoapToRest
-      - SoapPassThrough
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: WsdlImportMethod
   parameters:
     subscriptionId:
       description: The subscription id.

@@ -337,6 +337,17 @@ paths:
         required: true
 components:
   schemas:
+    RecurrenceScheduleOccurrence:
+      description: The recurrence schedule occurrence.
+      properties:
+        day:
+          $ref: '#/components/schemas/DayOfWeek'
+          description: The day of the week.
+        occurrence:
+          description: The occurrence.
+          format: int32
+          type: integer
+      type: object
     DayOfWeek:
       description: The day of the week.
       enum:
@@ -351,30 +362,51 @@ components:
       x-ms-enum:
         modelAsString: false
         name: DayOfWeek
-    BatchConfigurationProperties:
-      additionalProperties: false
-      allOf:
-      - $ref: '#/components/schemas/ArtifactProperties'
-      description: The batch configuration properties definition.
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
-        batchGroupName:
-          description: The name of the batch group.
-          type: string
-        changedTime:
-          description: The changed time.
-          format: date-time
-          type: string
-        createdTime:
-          description: The created time.
-          format: date-time
-          type: string
-        releaseCriteria:
-          $ref: '#/components/schemas/BatchReleaseCriteria'
-          description: The batch release criteria.
-      required:
-      - batchGroupName
-      - releaseCriteria
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
       type: object
+    WorkflowTriggerRecurrence:
+      description: The workflow trigger recurrence.
+      properties:
+        endTime:
+          description: The end time.
+          type: string
+        frequency:
+          $ref: '#/components/schemas/RecurrenceFrequency'
+          description: The frequency.
+        interval:
+          description: The interval.
+          format: int32
+          type: integer
+        schedule:
+          $ref: '#/components/schemas/RecurrenceSchedule'
+          description: The recurrence schedule.
+        startTime:
+          description: The start time.
+          type: string
+        timeZone:
+          description: The time zone.
+          type: string
+      type: object
+    RecurrenceFrequency:
+      description: The recurrence frequency.
+      enum:
+      - NotSpecified
+      - Second
+      - Minute
+      - Hour
+      - Day
+      - Week
+      - Month
+      - Year
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: RecurrenceFrequency
     RecurrenceSchedule:
       description: The recurrence schedule.
       properties:
@@ -418,56 +450,6 @@ components:
               name: DaysOfWeek
           type: array
       type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
-    BatchConfigurationCollection:
-      description: A collection of batch configurations.
-      properties:
-        value:
-          items:
-            $ref: '#/components/schemas/BatchConfiguration'
-          type: array
-      type: object
-    BatchConfiguration:
-      additionalProperties: false
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: The batch configuration resource definition.
-      properties:
-        properties:
-          $ref: '#/components/schemas/BatchConfigurationProperties'
-          description: The batch configuration properties.
-      required:
-      - properties
-      type: object
-    WorkflowTriggerRecurrence:
-      description: The workflow trigger recurrence.
-      properties:
-        endTime:
-          description: The end time.
-          type: string
-        frequency:
-          $ref: '#/components/schemas/RecurrenceFrequency'
-          description: The frequency.
-        interval:
-          description: The interval.
-          format: int32
-          type: integer
-        schedule:
-          $ref: '#/components/schemas/RecurrenceSchedule'
-          description: The recurrence schedule.
-        startTime:
-          description: The start time.
-          type: string
-        timeZone:
-          description: The time zone.
-          type: string
-      type: object
     ArtifactProperties:
       additionalProperties: false
       description: The artifact properties definition.
@@ -481,6 +463,56 @@ components:
           format: date-time
           type: string
         metadata: {}
+      type: object
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
+      properties:
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
+      type: object
+    BatchConfigurationProperties:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/ArtifactProperties'
+      description: The batch configuration properties definition.
+      properties:
+        batchGroupName:
+          description: The name of the batch group.
+          type: string
+        changedTime:
+          description: The changed time.
+          format: date-time
+          type: string
+        createdTime:
+          description: The created time.
+          format: date-time
+          type: string
+        releaseCriteria:
+          $ref: '#/components/schemas/BatchReleaseCriteria'
+          description: The batch release criteria.
+      required:
+      - batchGroupName
+      - releaseCriteria
+      type: object
+    BatchReleaseCriteria:
+      additionalProperties: false
+      description: The batch release criteria.
+      properties:
+        batchSize:
+          description: The batch size in bytes.
+          format: int32
+          type: integer
+        messageCount:
+          description: The message count.
+          format: int32
+          type: integer
+        recurrence:
+          $ref: '#/components/schemas/WorkflowTriggerRecurrence'
+          description: The recurrence.
       type: object
     Resource:
       description: The base resource type.
@@ -506,57 +538,25 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
-    RecurrenceFrequency:
-      description: The recurrence frequency.
-      enum:
-      - NotSpecified
-      - Second
-      - Minute
-      - Hour
-      - Day
-      - Week
-      - Month
-      - Year
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: RecurrenceFrequency
-    RecurrenceScheduleOccurrence:
-      description: The recurrence schedule occurrence.
-      properties:
-        day:
-          $ref: '#/components/schemas/DayOfWeek'
-          description: The day of the week.
-        occurrence:
-          description: The occurrence.
-          format: int32
-          type: integer
-      type: object
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
-    BatchReleaseCriteria:
+    BatchConfiguration:
       additionalProperties: false
-      description: The batch release criteria.
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: The batch configuration resource definition.
       properties:
-        batchSize:
-          description: The batch size in bytes.
-          format: int32
-          type: integer
-        messageCount:
-          description: The message count.
-          format: int32
-          type: integer
-        recurrence:
-          $ref: '#/components/schemas/WorkflowTriggerRecurrence'
-          description: The recurrence.
+        properties:
+          $ref: '#/components/schemas/BatchConfigurationProperties'
+          description: The batch configuration properties.
+      required:
+      - properties
+      type: object
+    BatchConfigurationCollection:
+      description: A collection of batch configurations.
+      properties:
+        value:
+          items:
+            $ref: '#/components/schemas/BatchConfiguration'
+          type: array
       type: object
   parameters:
     subscriptionId:

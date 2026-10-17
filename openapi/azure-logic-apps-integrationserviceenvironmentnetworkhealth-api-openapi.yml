@@ -330,29 +330,53 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    IntegrationServiceEnvironmentNetworkDependency:
-      description: The azure async operation resource.
+    IntegrationServiceEnvironmentNetworkEndPointAccessibilityState:
+      description: The integration service environment network endpoint accessibility state.
+      enum:
+      - NotSpecified
+      - Unknown
+      - Available
+      - NotAvailable
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentNetworkEndPointAccessibilityState
+    IntegrationServiceEnvironmentNetworkEndpoint:
+      description: The network endpoint.
       properties:
-        category:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkDependencyCategoryType'
-          description: The network dependency category type.
-        displayName:
-          description: The display name.
+        accessibility:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkEndPointAccessibilityState'
+          description: The accessibility state.
+        domainName:
+          description: The domain name.
           type: string
-        endpoints:
-          description: The endpoints.
+        ports:
+          description: The ports.
           items:
-            $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkEndpoint'
-            description: The endpoint.
+            type: string
           type: array
       type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
       type: object
+    ErrorResponseCode:
+      description: The error response code.
+      enum:
+      - NotSpecified
+      - IntegrationServiceEnvironmentNotFound
+      - InternalServerError
+      - InvalidOperationId
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: ErrorResponseCode
     ExtendedErrorInfo:
       description: The extended error info.
       properties:
@@ -374,91 +398,34 @@ components:
       - code
       - message
       type: object
+    IntegrationServiceEnvironmentNetworkDependencyHealth:
+      description: The integration service environment subnet network health.
+      properties:
+        error:
+          $ref: '#/components/schemas/ExtendedErrorInfo'
+          description: The error if any occurred during the operation.
+        state:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkDependencyHealthState'
+          description: The network dependency health state.
+      type: object
     Object:
       properties: {}
       type: object
-    IntegrationServiceEnvironmentNetworkEndpoint:
-      description: The network endpoint.
+    IntegrationServiceEnvironmentNetworkDependency:
+      description: The azure async operation resource.
       properties:
-        accessibility:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkEndPointAccessibilityState'
-          description: The accessibility state.
-        domainName:
-          description: The domain name.
+        category:
+          $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkDependencyCategoryType'
+          description: The network dependency category type.
+        displayName:
+          description: The display name.
           type: string
-        ports:
-          description: The ports.
+        endpoints:
+          description: The endpoints.
           items:
-            type: string
+            $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkEndpoint'
+            description: The endpoint.
           type: array
-      type: object
-    IntegrationServiceEnvironmentNetworkDependencyHealthState:
-      description: The integration service environment network dependency health state.
-      enum:
-      - NotSpecified
-      - Healthy
-      - Unhealthy
-      - Unknown
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentNetworkDependencyHealthState
-    IntegrationServiceEnvironmentNetworkEndPointAccessibilityState:
-      description: The integration service environment network endpoint accessibility state.
-      enum:
-      - NotSpecified
-      - Unknown
-      - Available
-      - NotAvailable
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentNetworkEndPointAccessibilityState
-    ErrorResponseCode:
-      description: The error response code.
-      enum:
-      - NotSpecified
-      - IntegrationServiceEnvironmentNotFound
-      - InternalServerError
-      - InvalidOperationId
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: ErrorResponseCode
-    IntegrationServiceEnvironmentNetworkHealth:
-      additionalProperties:
-        $ref: '#/components/schemas/IntegrationServiceEnvironmentSubnetNetworkHealth'
-        description: The integration service environment subnet network health.
-      description: The integration service environment network health of all the subnets.
-      type: object
-    IntegrationServiceEnvironmentNetworkDependencyCategoryType:
-      description: The integration service environment network dependency category type.
-      enum:
-      - NotSpecified
-      - AzureStorage
-      - AzureManagement
-      - AzureActiveDirectory
-      - SSLCertificateVerification
-      - DiagnosticLogsAndMetrics
-      - IntegrationServiceEnvironmentConnectors
-      - RedisCache
-      - AccessEndpoints
-      - RecoveryService
-      - SQL
-      - RegionalService
-      type: string
-      x-ms-enum:
-        modelAsString: true
-        name: IntegrationServiceEnvironmentNetworkDependencyCategoryType
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
       type: object
     IntegrationServiceEnvironmentSubnetNetworkHealth:
       description: The integration service environment subnet network health.
@@ -478,28 +445,61 @@ components:
       required:
       - networkDependencyHealthState
       type: object
-    IntegrationServiceEnvironmentNetworkDependencyHealth:
-      description: The integration service environment subnet network health.
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
       properties:
         error:
-          $ref: '#/components/schemas/ExtendedErrorInfo'
-          description: The error if any occurred during the operation.
-        state:
-          $ref: '#/components/schemas/IntegrationServiceEnvironmentNetworkDependencyHealthState'
-          description: The network dependency health state.
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    IntegrationServiceEnvironmentNetworkDependencyHealthState:
+      description: The integration service environment network dependency health state.
+      enum:
+      - NotSpecified
+      - Healthy
+      - Unhealthy
+      - Unknown
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentNetworkDependencyHealthState
+    IntegrationServiceEnvironmentNetworkDependencyCategoryType:
+      description: The integration service environment network dependency category type.
+      enum:
+      - NotSpecified
+      - AzureStorage
+      - AzureManagement
+      - AzureActiveDirectory
+      - SSLCertificateVerification
+      - DiagnosticLogsAndMetrics
+      - IntegrationServiceEnvironmentConnectors
+      - RedisCache
+      - AccessEndpoints
+      - RecoveryService
+      - SQL
+      - RegionalService
+      type: string
+      x-ms-enum:
+        modelAsString: true
+        name: IntegrationServiceEnvironmentNetworkDependencyCategoryType
+    IntegrationServiceEnvironmentNetworkHealth:
+      additionalProperties:
+        $ref: '#/components/schemas/IntegrationServiceEnvironmentSubnetNetworkHealth'
+        description: The integration service environment subnet network health.
+      description: The integration service environment network health of all the subnets.
       type: object
   parameters:
-    subscriptionId:
-      description: The subscription id.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
     api-version:
       description: The API version.
       in: query
       name: api-version
+      required: true
+      schema:
+        type: string
+    subscriptionId:
+      description: The subscription id.
+      in: path
+      name: subscriptionId
       required: true
       schema:
         type: string

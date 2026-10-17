@@ -401,16 +401,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorProperties:
-      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
-      properties:
-        code:
-          description: Error code.
-          type: string
-        message:
-          description: Error message indicating why the operation failed.
-          type: string
-      type: object
     AssemblyDefinition:
       additionalProperties: false
       allOf:
@@ -423,15 +413,15 @@ components:
       required:
       - properties
       type: object
-    ErrorResponse:
-      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+    ErrorProperties:
+      description: Error properties indicate why the Logic service was not able to process the incoming request. The reason is provided in the error message.
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorProperties'
-          description: The error properties.
-      type: object
-    Object:
-      properties: {}
+        code:
+          description: Error code.
+          type: string
+        message:
+          description: Error message indicating why the operation failed.
+          type: string
       type: object
     WorkflowTriggerListCallbackUrlQueries:
       description: Gets the workflow trigger callback URL query parameters.
@@ -452,27 +442,6 @@ components:
           description: The SAS version.
           type: string
       type: object
-    AssemblyProperties:
-      additionalProperties: false
-      allOf:
-      - $ref: '#/components/schemas/ArtifactContentPropertiesDefinition'
-      description: The assembly properties definition.
-      properties:
-        assemblyCulture:
-          description: The assembly culture.
-          type: string
-        assemblyName:
-          description: The assembly name.
-          type: string
-        assemblyPublicKeyToken:
-          description: The assembly public key token.
-          type: string
-        assemblyVersion:
-          description: The assembly version.
-          type: string
-      required:
-      - assemblyName
-      type: object
     ArtifactContentPropertiesDefinition:
       additionalProperties: false
       allOf:
@@ -485,6 +454,16 @@ components:
           description: The content link.
         contentType:
           description: The content type.
+          type: string
+      type: object
+    ContentHash:
+      description: The content hash.
+      properties:
+        algorithm:
+          description: The algorithm of the content hash.
+          type: string
+        value:
+          description: The value of the content hash.
           type: string
       type: object
     ArtifactProperties:
@@ -500,6 +479,17 @@ components:
           format: date-time
           type: string
         metadata: {}
+      type: object
+    Object:
+      properties: {}
+      type: object
+    AssemblyCollection:
+      description: A collection of assembly definitions.
+      properties:
+        value:
+          items:
+            $ref: '#/components/schemas/AssemblyDefinition'
+          type: array
       type: object
     Resource:
       description: The base resource type.
@@ -525,6 +515,54 @@ components:
           readOnly: true
           type: string
       x-ms-azure-resource: true
+    AssemblyProperties:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/ArtifactContentPropertiesDefinition'
+      description: The assembly properties definition.
+      properties:
+        assemblyCulture:
+          description: The assembly culture.
+          type: string
+        assemblyName:
+          description: The assembly name.
+          type: string
+        assemblyPublicKeyToken:
+          description: The assembly public key token.
+          type: string
+        assemblyVersion:
+          description: The assembly version.
+          type: string
+      required:
+      - assemblyName
+      type: object
+    ErrorResponse:
+      description: Error response indicates Logic service is not able to process the incoming request. The error property contains the error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorProperties'
+          description: The error properties.
+      type: object
+    ContentLink:
+      description: The content link.
+      properties:
+        contentHash:
+          $ref: '#/components/schemas/ContentHash'
+          description: The content hash.
+        contentSize:
+          description: The content size.
+          format: int64
+          type: integer
+        contentVersion:
+          description: The content version.
+          type: string
+        metadata:
+          $ref: '#/components/schemas/Object'
+          description: The metadata.
+        uri:
+          description: The content link URI.
+          type: string
+      type: object
     WorkflowTriggerCallbackUrl:
       description: The workflow trigger callback URL.
       properties:
@@ -551,44 +589,6 @@ components:
         value:
           description: Gets the workflow trigger callback URL.
           readOnly: true
-          type: string
-      type: object
-    ContentLink:
-      description: The content link.
-      properties:
-        contentHash:
-          $ref: '#/components/schemas/ContentHash'
-          description: The content hash.
-        contentSize:
-          description: The content size.
-          format: int64
-          type: integer
-        contentVersion:
-          description: The content version.
-          type: string
-        metadata:
-          $ref: '#/components/schemas/Object'
-          description: The metadata.
-        uri:
-          description: The content link URI.
-          type: string
-      type: object
-    AssemblyCollection:
-      description: A collection of assembly definitions.
-      properties:
-        value:
-          items:
-            $ref: '#/components/schemas/AssemblyDefinition'
-          type: array
-      type: object
-    ContentHash:
-      description: The content hash.
-      properties:
-        algorithm:
-          description: The algorithm of the content hash.
-          type: string
-        value:
-          description: The value of the content hash.
           type: string
       type: object
   parameters:
