@@ -1,0 +1,16 @@
+generated: '2026-10-20'
+method: none
+source:
+- https://zapier.com/apps/azure-logic-apps/integrations
+- https://n8n.io/integrations/azure-logic-apps/
+- https://composio.dev/toolkits/azure-logic-apps
+- https://monid.ai/tools/azure-logic-apps
+checked:
+- https://composio.dev/toolkits/azure-logic-apps
+- https://monid.ai/tools/azure-logic-apps
+- https://n8n.io/integrations/azure-logic-apps/
+- https://zapier.com/apps/azure-logic-apps/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
